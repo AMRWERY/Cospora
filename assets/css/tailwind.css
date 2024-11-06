@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .transit {
+    @apply transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110;
+  }
+
+  .text {
+    @apply text-2xl font-bold tracking-tight text-center text-gray-700 sm:text-4xl;
+  }
+
+  .card-transit {
+    @apply duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .img-transit {
+    @apply transition-transform duration-300 group-hover:scale-105;
+  }
+
+  /* .read-only-input {
+    @apply rounded-lg border border-gray-300 shadow-sm bg-slate-200 text-black py-1.5;
+  } */
+}
