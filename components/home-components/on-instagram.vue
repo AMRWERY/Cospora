@@ -28,6 +28,22 @@
         <Navigation />
       </template>
     </Carousel>
+
+    <div class="px-6 mx-auto mt-5 max-w-7xl lg:px-8">
+      <div
+        class="grid items-center max-w-lg grid-cols-4 mx-auto gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+        <img class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
+          src="https://justfields.com/storage/projects/7M5rV059/home-023.png" width="158" height="48" />
+        <img class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
+          src="https://justfields.com/storage/projects/7M5rV059/home-024.png" width="158" height="48" />
+        <img class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
+          src="https://justfields.com/storage/projects/7M5rV059/home-025.png" width="158" height="48" />
+        <img class="object-contain w-full col-span-2 max-h-12 sm:col-start-2 lg:col-span-1"
+          src="https://justfields.com/storage/projects/7M5rV059/home-026.png" width="158" height="48" />
+        <img class="object-contain w-full col-span-2 col-start-2 max-h-12 sm:col-start-auto lg:col-span-1"
+          src="https://justfields.com/storage/projects/7M5rV059/home-027.png" width="158" height="48" />
+      </div>
+    </div>
   </div>
 </template>
 
