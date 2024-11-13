@@ -1,7 +1,7 @@
 <template>
   <div class="mt-12">
     <div class="flex flex-col items-center justify-center mt-8 space-y-2">
-      <div class="flex items-center w-full justify-center">
+      <div class="flex items-center justify-center w-full">
         <div class="w-1/6 h-1 border-t-2 border-gray-400"></div>
         <span class="mx-4 text-2xl font-bold leading-10 uppercase">Cospora On Instagram</span>
         <div class="w-1/6 h-1 border-t-2 border-gray-400"></div>
@@ -15,7 +15,7 @@
           <div class="grid grid-cols-1 gap-6 p-4 mx-auto max-w-7xl">
             <div v-for="card in getCardsForSlide(index)" :key="card.img"
               class="relative border rounded-lg shadow-md mb-36 group sm:mb-0">
-              <div class="overflow-hidden h-80">
+              <div class="h-64 overflow-hidden">
                 <img :src="card.img"
                   class="object-cover w-full h-full transition-transform duration-300 cursor-pointer group-hover:scale-105" />
               </div>
@@ -36,18 +36,27 @@ import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Navigation } from 'vue3-carousel';
 
 const config = {
-  itemsToShow: 1,
+  itemsToShow: 5,
   wrapAround: true,
+  snapAlign: 'center',
   breakpoints: {
     200: {
-      itemsToShow: 1,
+      itemsToShow: 1.5,
       snapAlign: 'center',
     },
     400: {
       itemsToShow: 2,
       snapAlign: 'start',
     },
-  }
+    700: {
+      itemsToShow: 3.5,
+      snapAlign: 'center',
+    },
+    1024: {
+      itemsToShow: 5,
+      snapAlign: 'start',
+    },
+  },
 };
 
 const cards = ref([

@@ -9,7 +9,7 @@
     <Carousel v-bind="config">
       <Slide v-for="card in products" :key="card">
         <div class="carousel__item">
-          <div class="flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
+          <div class="flex flex-col w-full max-w-xs overflow-hidden bg-white my-7 group">
             <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
               <img class="absolute top-0 right-0 object-cover w-full h-full peer" :src="card.imgOne" />
               <img

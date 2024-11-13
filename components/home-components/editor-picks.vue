@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex items-center justify-center my-8">
+    <div class="flex items-center justify-center">
       <div class="w-1/6 h-1 border-t-2 border-gray-400"></div>
       <span class="mx-4 text-2xl font-bold leading-10 uppercase">Editor's Picks</span>
       <div class="w-1/6 h-1 border-t-2 border-gray-400"></div>
@@ -9,8 +9,8 @@
     <Carousel v-bind="config">
       <Slide v-for="card in products" :key="card">
         <div class="carousel__item">
-          <div class="flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
-            <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
+          <div class="flex flex-col w-full max-w-xs overflow-hidden bg-white my-7 group">
+            <nuxt-link class="relative flex mx-3 overflow-hidden h-60 rounded-xl" to="">
               <img class="absolute top-0 right-0 object-cover w-full h-full peer" :src="card.imgOne" />
               <img
                 class="absolute top-0 object-cover w-full h-full transition-all duration-1000 delay-100 peer -right-96 hover:right-0 peer-hover:right-0"
