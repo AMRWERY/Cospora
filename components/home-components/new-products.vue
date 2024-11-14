@@ -10,62 +10,62 @@
     <ul class="flex flex-row flex-wrap justify-center mb-5 space-x-2 list-none border-b-0 ps-0" role="tablist"
       data-twe-nav-ref>
       <li role="presentation">
-        <a href="#tabs-makeup" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500 
+        <nuxt-link to="#tabs-makeup" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500 
           border border-transparent hover:border-neutral-300 focus:border-neutral-300
           data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-makeup" data-twe-nav-active role="tab"
           aria-controls="tabs-makeup" aria-selected="true">
           Makeup
-        </a>
+        </nuxt-link>
       </li>
       <li role="presentation">
-        <a href="#tabs-nail" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500 
+        <nuxt-link to="#tabs-nail" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500 
           border border-transparent hover:border-neutral-300 focus:border-neutral-300
           data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-nail" role="tab" aria-controls="tabs-nail"
-          aria-selected="false">Nail</a>
+          aria-selected="false">Nail</nuxt-link>
       </li>
       <li role="presentation">
-        <a href="#tabs-accessories" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
+        <nuxt-link to="#tabs-accessories" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
           border border-transparent hover:border-neutral-300 focus:border-neutral-300
           data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-accessories" role="tab" aria-controls="tabs-accessories"
           aria-selected="false">
           Accessories
-        </a>
+        </nuxt-link>
       </li>
       <li role="presentation">
-        <a href="#tabs-body-art" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
+        <nuxt-link to="#tabs-body-art" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
           border border-transparent hover:border-neutral-300 focus:border-neutral-300
           data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-body-art" role="tab" aria-controls="tabs-body-art"
           aria-selected="false">
           Body Art
-        </a>
+        </nuxt-link>
       </li>
       <li role="presentation">
-        <a href="#tabs-makeup-tools" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
+        <nuxt-link to="#tabs-makeup-tools" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
           border border-transparent hover:border-neutral-300 focus:border-neutral-300
           data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-makeup-tools" role="tab" aria-controls="tabs-makeup-tools"
           aria-selected="false">
           Makeup Tools
-        </a>
+        </nuxt-link>
       </li>
       <li role="presentation">
-        <a href="#tabs-fragrance" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
+        <nuxt-link to="#tabs-fragrance" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
           border border-transparent hover:border-neutral-300 focus:border-neutral-300
           data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-fragrance" role="tab" aria-controls="tabs-fragrance"
           aria-selected="false">
           Fragrance
-        </a>
+        </nuxt-link>
       </li>
     </ul>
 
