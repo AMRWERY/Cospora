@@ -21,6 +21,10 @@
               leave-to="opacity-0 scale-95">
               <HeadlessDialogPanel
                 class="w-full max-w-5xl p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl max-h-[80vh] overflow-y-auto">
+                <button @click="closeModal"
+                  class="absolute flex items-center justify-center p-2 text-black bg-white rounded-full top-2 left-2 hover:bg-black hover:text-white">
+                  <icon name="material-symbols:close" class="w-6 h-6" />
+                </button>
                 <section class="overflow-hidden bg-white font-poppins dark:bg-gray-800">
                   <div class="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
                     <div class="flex flex-wrap -mx-4">
