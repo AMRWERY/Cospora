@@ -126,40 +126,46 @@
 
       <!--Copyright section-->
       <div class="p-6 mx-auto border-t-2 bg-black/5 border-neutral-50 max-w-7xl">
-        <div class="grid grid-cols-1 gap-4 p-6 md:grid-cols-2">
-          <div class="flex items-center space-x-4">
-            <p>Sign up for our Newsletter</p>
-            <div class="relative">
-              <input type="email" placeholder="Your email address" class="p-2 pr-10 text-gray-800 rounded-md" />
-              <span class="absolute inset-y-0 right-0 flex items-center pr-2">
-                <icon name="material-symbols:arrow-circle-right-rounded" class="w-6 h-6 p-1 text-black" />
-              </span>
-            </div>
-          </div>
-
-          <!-- Column 2 -->
-          <div class="grid grid-cols-8 mt-4">
-            <button class="flex items-center justify-center w-5 h-5 text-white bg-black rounded-full">
-              <icon name="mdi:facebook-box" size="20px" />
-            </button>
-            <button class="flex items-center justify-center w-5 h-5 text-white bg-black rounded-full">
-              <icon name="mdi:twitter" size="20px" />
-            </button>
-            <button class="flex items-center justify-center w-5 h-5 text-white bg-black rounded-full">
-              <icon name="bx:bxl-pinterest-alt" size="20px" />
-            </button>
-            <button class="flex items-center justify-center w-5 h-5 text-white bg-black rounded-full">
-              <icon name="jam:google-plus" size="20px" />
-            </button>
-            <button class="flex items-center justify-center w-5 h-5 text-white bg-black rounded-full">
-              <icon name="mdi:instagram" size="20px" />
-            </button>
-            <button class="flex items-center justify-center w-5 h-5 text-white bg-black rounded-full">
-              <icon name="mingcute:snapchat-fill" size="20px" />
-            </button>
-          </div>
-        </div>
+  <div class="grid grid-cols-1 gap-4 p-6 md:grid-cols-2">
+    <!-- Column 1: Newsletter Signup -->
+    <div class="flex items-center space-x-4">
+      <p class="text-lg font-semibold">Sign up for our Newsletter</p>
+      <div class="relative w-full">
+        <input
+          type="email"
+          placeholder="Your email address"
+          class="w-full p-2 pr-10 text-gray-800 rounded-md sm:w-auto"
+        />
+        <span class="absolute inset-y-0 right-0 flex items-center pr-2">
+          <icon name="material-symbols:arrow-circle-right-rounded" class="w-6 h-6 p-1 text-black" />
+        </span>
       </div>
+    </div>
+
+    <!-- Column 2: Social Media Buttons -->
+    <div class="grid grid-cols-3 mt-4 sm:grid-cols-6 md:grid-cols-6 md:mt-0">
+      <button class="flex items-center justify-center w-10 h-10 text-white bg-black rounded-full">
+        <icon name="mdi:facebook-box" size="20px" />
+      </button>
+      <button class="flex items-center justify-center w-10 h-10 text-white bg-black rounded-full">
+        <icon name="mdi:twitter" size="20px" />
+      </button>
+      <button class="flex items-center justify-center w-10 h-10 text-white bg-black rounded-full">
+        <icon name="bx:bxl-pinterest-alt" size="20px" />
+      </button>
+      <button class="flex items-center justify-center w-10 h-10 text-white bg-black rounded-full">
+        <icon name="jam:google-plus" size="20px" />
+      </button>
+      <button class="flex items-center justify-center w-10 h-10 text-white bg-black rounded-full">
+        <icon name="mdi:instagram" size="20px" />
+      </button>
+      <button class="flex items-center justify-center w-10 h-10 text-white bg-black rounded-full">
+        <icon name="mingcute:snapchat-fill" size="20px" />
+      </button>
+    </div>
+  </div>
+</div>
+
     </footer>
   </div>
 </template>
