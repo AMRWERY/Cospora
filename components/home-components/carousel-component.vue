@@ -105,7 +105,8 @@
 
         <div class="mt-12 space-y-6 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
             <div v-for="card in cards" :key="card"
-                class="relative duration-300 transform cursor-pointer group hover:scale-105">
+                class="relative duration-300 transform cursor-pointer group hover:scale-105" data-twe-ripple-init
+                data-twe-ripple-color="dark">
                 <div class="relative w-full h-48 overflow-hidden rounded-lg group-hover:opacity-75 sm:h-48">
                     <img :src="card.img" class="object-cover object-center size-full" />
                     <div class="absolute inset-0 flex items-center justify-center">
@@ -127,7 +128,7 @@ const cards = ref([
 ])
 
 onMounted(async () => {
-    const { Carousel, initTWE } = await import("tw-elements");
-    initTWE({ Carousel });
+    const { Carousel, Ripple, initTWE } = await import("tw-elements");
+    initTWE({ Carousel, Ripple });
 });
 </script>
