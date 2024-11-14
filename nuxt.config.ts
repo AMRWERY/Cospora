@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@formkit/nuxt",
     "@nuxt/icon",
-    "@nuxt/image",
     "nuxt-headlessui",
     "vue3-carousel-nuxt",
   ],
@@ -28,10 +27,6 @@ export default defineNuxtConfig({
   formkit: {
     autoImport: true,
     configFile: "./plugins/formkit.config.js",
-  },
-  image: {
-    inject: true,
-    quality: 80,
   },
   headlessui: {
     prefix: "Headless",
