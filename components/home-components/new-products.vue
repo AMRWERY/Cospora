@@ -97,14 +97,15 @@
       </div>
     </div>
 
-    <div class="grid gap-4 px-10 md:grid-cols-2">
-      <div class="rounded-lg">
-        <div class="h-64 overflow-hidden rounded-lg cursor-pointer" data-twe-ripple-init data-twe-ripple-color="light">
+    <div class="grid gap-4 space-x-4 space-y-6 md:grid-cols-2 lg:gap-x-6 lg:space-y-0">
+      <div class="duration-300 transform hover:scale-105">
+        <div class="h-64 overflow-hidden rounded-lg cursor-pointer" data-twe-ripple-init data-twe-ripple-color="dark">
           <img src="https://justfields.com/storage/projects/7M5rV059/home-07.jpg" class="object-cover w-full h-full">
         </div>
       </div>
-      <div class="rounded-lg">
-        <div class="h-64 overflow-hidden rounded-lg cursor-pointer" data-twe-ripple-init data-twe-ripple-color="light">
+
+      <div class="duration-300 transform hover:scale-105">
+        <div class="h-64 overflow-hidden rounded-lg cursor-pointer" data-twe-ripple-init data-twe-ripple-color="dark">
           <img src="https://justfields.com/storage/projects/7M5rV059/home-08.jpg" class="object-cover w-full h-full">
         </div>
       </div>
