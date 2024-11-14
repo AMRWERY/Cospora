@@ -159,6 +159,20 @@
               <icon name="mingcute:snapchat-fill" size="20px" />
             </button>
           </div>
+
+        </div>
+      </div>
+      <div class="text-center">
+        <span class="block max-w-md mx-auto text-xs text-gray-400">© 2019 Cospora Demo. All Rights Reserved. Powered by
+          Shopify.
+          Shopify Themes & Templates by HaloThemes.com.</span>
+        <div class="flex justify-center pb-8 mx-0 mt-5 space-s-5">
+          <img src="https://justfields.com/storage/projects/7M5rV059/footer-01.jpg" class="w-[35px] h-[24px]">
+          <img src="https://justfields.com/storage/projects/7M5rV059/footer-02.jpg" class="w-[35px] h-[24px]">
+          <img src="https://justfields.com/storage/projects/7M5rV059/footer-03.jpg" class="w-[35px] h-[24px]">
+          <img src="https://justfields.com/storage/projects/7M5rV059/footer-04.jpg" class="w-[35px] h-[24px]">
+          <img src="https://justfields.com/storage/projects/7M5rV059/footer-05.jpg" class="w-[35px] h-[24px]">
+          <img src="https://justfields.com/storage/projects/7M5rV059/footer-06.jpg" class="w-[35px] h-[24px]">
         </div>
       </div>
     </footer>
