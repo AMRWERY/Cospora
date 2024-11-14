@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mx-auto mt-12 max-w-7xl">
         <div id="carouselExampleIndicators" class="relative" data-twe-carousel-init data-twe-ride="carousel"
             data-twe-interval="3000" data-twe-keyboard="true">
             <!--Carousel indicators-->

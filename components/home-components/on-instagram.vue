@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-12">
-    <div class="flex flex-col items-center justify-center mt-8 space-y-2">
+  <div class="mx-auto mt-12 max-w-7xl">
+    <div class="flex flex-col items-center justify-center space-y-2">
       <div class="flex items-center justify-center w-full">
         <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
         <span class="mx-4 text-2xl font-bold leading-10 uppercase">Cospora On Instagram</span>
@@ -12,7 +12,7 @@
     <Carousel v-bind="config">
       <Slide v-for="(slide, index) in numberOfSlides" :key="index">
         <div class="carousel__item">
-          <div class="grid grid-cols-1 gap-6 p-4 mx-auto max-w-7xl">
+          <div class="grid grid-cols-1 gap-6 p-4">
             <div v-for="card in getCardsForSlide(index)" :key="card.img"
               class="relative border rounded-lg shadow-md mb-36 group sm:mb-0">
               <div class="h-64 overflow-hidden">
@@ -29,19 +29,19 @@
       </template>
     </Carousel>
 
-    <div class="px-6 mx-auto mt-5 max-w-7xl lg:px-8">
+    <div class="px-6 mx-auto mb-6 max-w-7xl lg:px-8">
       <div
-        class="grid items-center max-w-lg grid-cols-4 mx-auto gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+        class="grid items-center max-w-lg grid-cols-4 mx-auto gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-5 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
         <img class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
-          src="https://justfields.com/storage/projects/7M5rV059/home-023.png" width="158" height="48" />
+          src="https://justfields.com/storage/projects/7M5rV059/logo-01.png" width="158" height="48" />
         <img class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
-          src="https://justfields.com/storage/projects/7M5rV059/home-024.png" width="158" height="48" />
+          src="https://justfields.com/storage/projects/7M5rV059/logo-02.png" width="158" height="48" />
         <img class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
-          src="https://justfields.com/storage/projects/7M5rV059/home-025.png" width="158" height="48" />
+          src="https://justfields.com/storage/projects/7M5rV059/logo-03.png" width="158" height="48" />
         <img class="object-contain w-full col-span-2 max-h-12 sm:col-start-2 lg:col-span-1"
-          src="https://justfields.com/storage/projects/7M5rV059/home-026.png" width="158" height="48" />
+          src="https://justfields.com/storage/projects/7M5rV059/logo-04.png" width="158" height="48" />
         <img class="object-contain w-full col-span-2 col-start-2 max-h-12 sm:col-start-auto lg:col-span-1"
-          src="https://justfields.com/storage/projects/7M5rV059/home-027.png" width="158" height="48" />
+          src="https://justfields.com/storage/projects/7M5rV059/logo-05.png" width="158" height="48" />
       </div>
     </div>
   </div>
@@ -54,7 +54,7 @@ import { Carousel, Slide, Navigation } from 'vue3-carousel';
 const config = {
   itemsToShow: 5,
   wrapAround: true,
-  snapAlign: 'center',
+  snapAlign: 'start',
   breakpoints: {
     200: {
       itemsToShow: 1.5,
