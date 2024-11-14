@@ -7,42 +7,65 @@
     </div>
 
     <!--Tabs navigation-->
-    <ul class="flex flex-row flex-wrap justify-center mb-5 list-none border-b-0 ps-0" role="tablist" data-twe-nav-ref>
+    <ul class="flex flex-row flex-wrap justify-center mb-5 space-x-2 list-none border-b-0 ps-0" role="tablist"
+      data-twe-nav-ref>
       <li role="presentation">
-        <a href="#tabs-makeup"
-          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-sm font-semibold leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[twe-nav-active]:border-primary data-[twe-nav-active]:text-primary dark:text-white/50 dark:hover:bg-neutral-700/60 dark:data-[twe-nav-active]:text-primary"
+        <a href="#tabs-makeup" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500 
+          border border-transparent hover:border-neutral-300 focus:border-neutral-300
+          data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
+          dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-makeup" data-twe-nav-active role="tab"
-          aria-controls="tabs-makeup" aria-selected="true">Makeup</a>
+          aria-controls="tabs-makeup" aria-selected="true">
+          Makeup
+        </a>
       </li>
       <li role="presentation">
-        <a href="#tabs-nail"
-          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-sm font-semibold leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[twe-nav-active]:border-primary data-[twe-nav-active]:text-primary dark:text-white/50 dark:hover:bg-neutral-700/60 dark:data-[twe-nav-active]:text-primary"
+        <a href="#tabs-nail" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500 
+          border border-transparent hover:border-neutral-300 focus:border-neutral-300
+          data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
+          dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-nail" role="tab" aria-controls="tabs-nail"
           aria-selected="false">Nail</a>
       </li>
       <li role="presentation">
-        <a href="#tabs-accessories"
-          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-sm font-semibold leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[twe-nav-active]:border-primary data-[twe-nav-active]:text-primary dark:text-white/50 dark:hover:bg-neutral-700/60 dark:data-[twe-nav-active]:text-primary"
+        <a href="#tabs-accessories" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
+          border border-transparent hover:border-neutral-300 focus:border-neutral-300
+          data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
+          dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-accessories" role="tab" aria-controls="tabs-accessories"
-          aria-selected="false">Accessories</a>
+          aria-selected="false">
+          Accessories
+        </a>
       </li>
       <li role="presentation">
-        <a href="#tabs-body-art"
-          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-sm font-semibold leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[twe-nav-active]:border-primary data-[twe-nav-active]:text-primary dark:text-white/50 dark:hover:bg-neutral-700/60 dark:data-[twe-nav-active]:text-primary"
+        <a href="#tabs-body-art" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
+          border border-transparent hover:border-neutral-300 focus:border-neutral-300
+          data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
+          dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-body-art" role="tab" aria-controls="tabs-body-art"
-          aria-selected="false">Body Art</a>
+          aria-selected="false">
+          Body Art
+        </a>
       </li>
       <li role="presentation">
-        <a href="#tabs-makeup-tools"
-          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-sm font-semibold leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[twe-nav-active]:border-primary data-[twe-nav-active]:text-primary dark:text-white/50 dark:hover:bg-neutral-700/60 dark:data-[twe-nav-active]:text-primary"
+        <a href="#tabs-makeup-tools" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
+          border border-transparent hover:border-neutral-300 focus:border-neutral-300
+          data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
+          dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-makeup-tools" role="tab" aria-controls="tabs-makeup-tools"
-          aria-selected="false">Makeup Tools</a>
+          aria-selected="false">
+          Makeup Tools
+        </a>
       </li>
       <li role="presentation">
-        <a href="#tabs-fragrance"
-          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-sm font-semibold leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[twe-nav-active]:border-primary data-[twe-nav-active]:text-primary dark:text-white/50 dark:hover:bg-neutral-700/60 dark:data-[twe-nav-active]:text-primary"
+        <a href="#tabs-fragrance" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
+          border border-transparent hover:border-neutral-300 focus:border-neutral-300
+          data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
+          dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-fragrance" role="tab" aria-controls="tabs-fragrance"
-          aria-selected="false">Fragrance</a>
+          aria-selected="false">
+          Fragrance
+        </a>
       </li>
     </ul>
 
