@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="flex items-center justify-center my-8">
-      <div class="w-1/6 h-1 border-t-2 border-gray-400"></div>
+    <div class="flex items-center justify-center mt-8 mb-3">
+      <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
       <span class="mx-4 text-2xl font-bold leading-10 uppercase">#Trending Now</span>
-      <div class="w-1/6 h-1 border-t-2 border-gray-400"></div>
+      <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
     </div>
 
     <div class="grid grid-cols-1 gap-6 p-4 px-4 mx-auto sm:grid-cols-2 lg:grid-cols-3 max-w-7xl">

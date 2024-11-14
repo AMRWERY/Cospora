@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="flex items-center justify-center">
-      <div class="w-1/6 h-1 border-t-2 border-gray-400"></div>
+      <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
       <span class="mx-4 text-2xl font-bold leading-10 uppercase">Editor's Picks</span>
-      <div class="w-1/6 h-1 border-t-2 border-gray-400"></div>
+      <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
     </div>
 
     <Carousel v-bind="config">
