@@ -20,10 +20,10 @@
               enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
               leave-to="opacity-0 scale-95">
               <HeadlessDialogPanel
-                class="w-full max-w-5xl p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl max-h-[80vh] overflow-y-auto">
+                class="w-full max-w-5xl p-4 overflow-y-scroll text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl max-h-[80vh] custom-scroll">
                 <button @click="closeModal"
-                  class="absolute flex items-center justify-center p-2 text-black bg-white rounded-full top-2 left-2 hover:bg-black hover:text-white">
-                  <icon name="material-symbols:close" class="w-6 h-6" />
+                  class="sticky z-50 flex items-center justify-center p-2 text-black bg-white rounded-full outline-none focus:outline-none top-1 left-1 hover:bg-black hover:text-white">
+                  <icon name="material-symbols:close" />
                 </button>
                 <section class="overflow-hidden bg-white font-poppins dark:bg-gray-800">
                   <div class="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
@@ -51,7 +51,7 @@
                       <div class="w-full px-4 md:w-1/2">
                         <div class="lg:pl-20">
                           <div class="pb-6 mb-8">
-                            <h2 class="max-w-xl mt-2 mb-6 text-xl font-bold dark:text-gray-300 md:text-xl">
+                            <h2 class="max-w-xl mb-6 text-xl font-bold dark:text-gray-300 md:text-xl">
                               Long-Sleeved T-shirt
                             </h2>
                             <div class="flex">
@@ -265,3 +265,17 @@ const slides = ref([
   { img: 'https://justfields.com/storage/projects/7M5rV059/product-020.jpg' },
 ])
 </script>
+
+<style scoped>
+.custom-scroll {
+  overflow-y: scroll;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scroll {
+  scrollbar-width: none;
+}
+</style>
