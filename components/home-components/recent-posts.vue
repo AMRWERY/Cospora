@@ -11,18 +11,21 @@
         <div class="carousel__item">
           <div class="grid grid-cols-1 gap-6 p-4 px-4 mx-auto sm:grid-cols-2 lg:grid-cols-2 max-w-7xl">
             <div v-for="card in getCardsForSlide(index)" :key="card.img"
-              class="relative border rounded-lg shadow-md mb-36 group sm:mb-0">
+              class="relative border rounded-lg shadow-md group sm:mb-0">
               <div class="overflow-hidden h-80">
                 <img :src="card.img"
-                  class="object-cover w-full h-full transition-transform duration-300 cursor-pointer group-hover:scale-105" />
+                  class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
               </div>
               <div
-                class="absolute bottom-0 w-3/4 p-4 text-center uppercase transform -translate-x-1/2 bg-white rounded-lg translate-y-3/4 left-1/2">
-                <p class="text-[10px] font-semibold text-gray-600">{{ card.subtitle }}</p>
-                <h2 class="mt-2 mb-4 text-lg font-semibold md:text-sm lg:text-2xl">{{ card.title }}</h2>
-                <span class="text-[9px] line-clamp-3 leading-loose">{{ card.content }}</span>
+                class="absolute bottom-0 w-full p-4 text-center transform -translate-x-1/2 translate-y-0 bg-black bg-opacity-50 left-1/2">
+                <p class="text-[10px] font-semibold text-gray-200">{{ card.subtitle }}</p>
+                <h2 class="mt-2 mb-4 text-lg font-semibold text-white">{{ card.title }}</h2>
+                <span class="text-[9px] line-clamp-3 leading-loose text-gray-200">{{ card.content }}</span>
                 <div class="mt-4">
-                  <button class="text-sm font-bold uppercase">{{ card.btn }}</button>
+                  <button
+                    class="text-sm font-bold text-white bg-transparent hover:bg-black hover:text-white px-5 py-2.5 rounded-md focus:outline-none focus:ring-2">
+                    {{ card.btn }}
+                  </button>
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@
       <div class="relative border rounded-lg shadow-md group" v-for="card in cards" :key="card">
         <div class="overflow-hidden h-80 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1">
           <img :src="card.img"
-            class="object-cover w-full h-full transition-transform duration-300 cursor-pointer group-hover:scale-105" />
+            class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
         </div>
         <div
           class="absolute bottom-0 w-full p-4 text-center uppercase transform -translate-x-1/2 translate-y-0 bg-black bg-opacity-50 left-1/2">
