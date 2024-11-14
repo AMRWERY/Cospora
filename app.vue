@@ -3,6 +3,7 @@
     <NuxtRouteAnnouncer />
     <NuxtLayout>
       <NuxtPage />
+      <scroll-to-top />
     </NuxtLayout>
   </div>
 </template>
