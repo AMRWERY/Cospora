@@ -1,39 +1,113 @@
 <template>
     <div>
-        <Carousel v-bind="config">
-            <Slide v-for="(slide, index) in slides" :key="slide.img">
-                <div class="relative">
-                    <img :src="slide.img" class="w-11/12 h-auto mx-auto" />
-                    <div :class="[
-                        'absolute inset-y-0 flex flex-col items-center justify-center text-center text-black text-lg font-semibold w-1/3 space-y-2 ml-24',
-                        index === slides.length - 1 ? 'right-5 mr-24' : 'left-5 ml-24'
-                    ]">
-                        <p class="text-lg text-4xl font-semibold uppercase lg:text-4xl">
-                            {{ slide.title }}
+        <div id="carouselExampleIndicators" class="relative" data-twe-carousel-init data-twe-ride="carousel"
+            data-twe-interval="3000" data-twe-keyboard="true">
+            <!--Carousel indicators-->
+            <div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+                data-twe-carousel-indicators>
+                <button type="button" data-twe-target="#carouselExampleIndicators" data-twe-slide-to="0"
+                    data-twe-carousel-active
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-twe-target="#carouselExampleIndicators" data-twe-slide-to="1"
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-twe-target="#carouselExampleIndicators" data-twe-slide-to="2"
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    aria-label="Slide 3"></button>
+            </div>
+
+            <!--Carousel items-->
+            <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+                <!--First item-->
+                <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-twe-carousel-item data-twe-carousel-active>
+                    <img src="https://justfields.com/storage/projects/7M5rV059/home-01.jpg"
+                        class="block mx-auto w-7xl" />
+                    <div
+                        class="absolute inset-y-0 flex flex-col items-center justify-center w-1/3 space-y-2 text-lg font-semibold text-center text-black ms-36 start-5">
+                        <p class="text-lg font-semibold uppercase lg:text-4xl">
+                            Milancelos
                         </p>
-                        <p class="hidden text-xs font-light line-clamp-2 sm:block">{{ slide.text }}</p>
+                        <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
+                            scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
+                            velitos</p>
                         <div class="hidden sm:block">
                             <button class="px-10 py-3 mt-8 text-sm text-white uppercase bg-black rounded">
-                                {{ slide.btn }}
+                                Shop Now
                             </button>
                         </div>
                     </div>
-                    <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-3">
-                        <Pagination />
+                </div>
+                <!--Second item-->
+                <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-twe-carousel-item>
+                    <img src="https://justfields.com/storage/projects/7M5rV059/home-03.jpg"
+                        class="block mx-auto w-7xl" />
+                    <div
+                        class="absolute inset-y-0 flex flex-col items-center justify-center w-1/3 space-y-2 text-lg font-semibold text-center text-black me-36 end-5">
+                        <p class="text-lg font-semibold uppercase lg:text-4xl">
+                            Lorémica
+                        </p>
+                        <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
+                            scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
+                            velitos</p>
+                        <div class="hidden sm:block">
+                            <button class="px-10 py-3 mt-8 text-sm text-white uppercase bg-black rounded">
+                                Shop The Collection
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </Slide>
+                <!--Third item-->
+                <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-twe-carousel-item>
+                    <img src="https://justfields.com/storage/projects/7M5rV059/home-02.jpg"
+                        class="block mx-auto w-7xl" />
+                    <div
+                        class="absolute inset-y-0 flex flex-col items-center justify-center w-1/3 space-y-2 text-lg font-semibold text-center text-black ms-36 start-5">
+                        <p class="text-lg font-semibold uppercase lg:text-4xl">
+                            Beauty Shop
+                        </p>
+                        <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
+                            scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
+                            velitos</p>
+                        <div class="hidden sm:block">
+                            <button class="px-10 py-3 mt-8 text-sm text-white uppercase bg-black rounded">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <template #addons>
-                <Navigation />
-            </template>
-        </Carousel>
+            <!--Carousel controls - prev item-->
+            <button
+                class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                type="button" data-twe-target="#carouselExampleIndicators" data-twe-slide="prev">
+                <span class="inline-block w-8 h-8">
+                    <icon name="material-symbols:arrow-back-ios" class="w-6 h-6 text-black" />
+                </span>
+                <span
+                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
+            </button>
+            <!--Carousel controls - next item-->
+            <button
+                class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                type="button" data-twe-target="#carouselExampleIndicators" data-twe-slide="next">
+                <span class="inline-block w-8 h-8">
+                    <icon name="material-symbols:arrow-forward-ios-rounded" class="w-6 h-6 text-black" />
+                </span>
+                <span
+                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
+            </button>
+        </div>
 
-        <div class="grid grid-cols-1 gap-4 px-12 sm:grid-cols-3">
-            <div class="p-4" v-for="card in cards" :key="card">
-                <div
-                    class="relative mx-auto overflow-hidden duration-300 transform rounded shadow-md cursor-pointer mt-11 dark:bg-slate-800 hover:scale-105 hover:shadow-lg">
-                    <img class="object-cover object-center w-full h-44" :src="card.img" />
+        <div class="mt-12 space-y-6 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+            <div v-for="card in cards" :key="card"
+                class="relative duration-300 transform cursor-pointer group hover:scale-105">
+                <div class="relative w-full h-48 overflow-hidden rounded-lg group-hover:opacity-75 sm:h-48">
+                    <img :src="card.img" class="object-cover object-center size-full" />
                     <div class="absolute inset-0 flex items-center justify-center">
                         <h3 class="p-2 text-xl font-semibold text-white uppercase">
                             {{ card.title }}
@@ -46,43 +120,14 @@
 </template>
 
 <script setup>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
-const slides = ref([
-    { img: 'https://justfields.com/storage/projects/7M5rV059/home-01.jpg', title: 'Milancelos', text: 'Pellentesque posuere morci lobortis scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat velitos.', btn: 'Shop Now' },
-    { img: 'https://justfields.com/storage/projects/7M5rV059/home-02.jpg', title: 'Beauty Shop', text: 'Pellentesque posuere morci lobortis scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat velitos.', btn: 'Shop Now' },
-    { img: 'https://justfields.com/storage/projects/7M5rV059/home-03.jpg', title: 'Lorémica', text: 'Pellentesque posuere morci lobortis scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat velitos.', btn: 'Shop The Collection' },
-])
-
 const cards = ref([
     { img: 'https://justfields.com/storage/projects/7M5rV059/home-04.jpg', title: 'Lipstick' },
     { img: 'https://justfields.com/storage/projects/7M5rV059/home-05.jpg', title: 'Makeup' },
     { img: 'https://justfields.com/storage/projects/7M5rV059/home-06.jpg', title: 'Tools' },
 ])
 
-const config = {
-    itemsToShow: 1,
-    autoplay: 4000,
-    wrapAround: true,
-    pauseAutoplayOnHover: true,
-    snapAlign: 'center',
-    transition: 300,
-    breakpoints: {
-        200: {
-            itemsToShow: 1,
-            snapAlign: 'center',
-        },
-        400: {
-            itemsToShow: 1,
-            snapAlign: 'center',
-        },
-    },
-};
+onMounted(async () => {
+    const { Carousel, initTWE } = await import("tw-elements");
+    initTWE({ Carousel });
+});
 </script>
-
-<style scoped>
-.carousel__item {
-    position: relative;
-}
-</style>

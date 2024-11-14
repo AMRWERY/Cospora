@@ -12,10 +12,10 @@
 provideHeadlessUseId(() => useId())
 
 // tailwind-elements referance
-onMounted(async () => {
-  const { Tooltip, initTWE } = await import("tw-elements");
-  initTWE({ Tooltip });
-});
+// onMounted(async () => {
+//   const { Tooltip, initTWE } = await import("tw-elements");
+//   initTWE({ Tooltip });
+// });
 
 useHead({
   titleTemplate: 'Cospora',

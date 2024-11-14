@@ -14,13 +14,13 @@
         <div class="relative flex items-center justify-between h-16">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <!-- Mobile menu button-->
-            <DisclosureButton
+            <HeadlessDisclosureButton
               class="relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md">
               <span class="absolute -inset-0.5" />
               <span class="sr-only">Open main menu</span>
               <icon name="heroicons-outline:menu" v-if="!open" class="block w-6 h-6" aria-hidden="true" />
               <icon name="heroicons-outline:x-mark" v-else class="block w-6 h-6" aria-hidden="true" />
-            </DisclosureButton>
+            </HeadlessDisclosureButton>
           </div>
           <!-- Left Section - Currency Menu -->
           <div class="flex items-center justify-start flex-1">
@@ -99,7 +99,7 @@
             <HeadlessMenu as="div" class="relative ml-3">
               <HeadlessMenuButton class="relative flex items-center text-sm">
                 <span class="sr-only">Open Sign In menu</span>
-                <span class="flex items-center space-x-1"> <!-- Adjust spacing here -->
+                <span class="flex items-center space-x-1">
                   <p class="text-xs uppercase whitespace-nowrap">Sign In</p>
                   <!-- `whitespace-nowrap` keeps it on one line -->
                   <icon name="ep:arrow-down" size="15px" />
