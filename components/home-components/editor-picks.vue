@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto  max-w-7xl">
+  <div class="mx-auto max-w-7xl">
     <div class="flex items-center justify-center">
       <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
       <span class="mx-4 text-2xl font-bold leading-10 uppercase">Editor's Picks</span>
@@ -63,9 +63,6 @@
 </template>
 
 <script setup>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Navigation } from 'vue3-carousel';
-
 const config = {
   itemsToShow: 5,
   wrapAround: true,
