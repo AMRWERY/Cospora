@@ -1,27 +1,33 @@
 <template>
   <div>
     <Carousel v-bind="config">
-      <Slide v-for="card in products" :key="card">
+      <Slide v-for="(card, index) in products" :key="index">
         <div class="carousel__item">
-          <div class="flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
+          <div class="relative flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
             <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
-              <img class="absolute top-0 right-0 object-cover w-full h-full peer" :src="card.imgOne" />
-              <img
-                class="absolute top-0 object-cover w-full h-full transition-all duration-1000 delay-100 peer -right-96 hover:right-0 peer-hover:right-0"
-                :src="card.imgTwo" />
+              <div class="relative w-full h-full">
+                <img class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
+                  :src="card.imgOne" />
+                <img
+                  class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+                  :src="card.imgTwo" />
+              </div>
               <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 left-2">
                 <p v-if="card.sale" class="px-2 py-1 text-white bg-red-500 rounded">Sale</p>
                 <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="card.new">New</p>
               </div>
-              <div class="absolute text-gray-500 top-2 right-2">
-                <button type="button">
-                  <icon name="heroicons-outline:heart" />
-                </button>
-              </div>
-
-              <!-- Quick View Button Container -->
-              <new-products-dialog />
             </nuxt-link>
+
+            <button type="button" class="absolute z-10 mt-3 bg-white rounded-full top-2 right-2"
+              @click.stop="toggleFavorite(index)">
+              <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
+                :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
+            </button>
+
+            <div
+              class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 mb-28 group-hover:opacity-100">
+              <new-products-dialog />
+            </div>
 
             <div class="px-5 pb-5 mt-4">
               <nuxt-link to="">
@@ -37,7 +43,7 @@
                 </p>
               </div>
 
-              <!-- Select Options Button Container -->
+              <!-- Select Options Button -->
               <div class="relative transition-opacity opacity-0 group-hover:opacity-100">
                 <button type="button"
                   class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm text-white hover:bg-gray-700 focus:bg-red-500 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 w-full capitalize font-semibold">
@@ -60,23 +66,23 @@
 const config = {
   itemsToShow: 5,
   wrapAround: true,
-  snapAlign: 'center',
+  snapAlign: "center",
   breakpoints: {
     200: {
       itemsToShow: 1.5,
-      snapAlign: 'center',
+      snapAlign: "center",
     },
     400: {
       itemsToShow: 2,
-      snapAlign: 'start',
+      snapAlign: "start",
     },
     700: {
       itemsToShow: 3.5,
-      snapAlign: 'center',
+      snapAlign: "center",
     },
     1024: {
       itemsToShow: 5,
-      snapAlign: 'start',
+      snapAlign: "start",
     },
   },
 };
@@ -89,4 +95,10 @@ const products = ref([
   { imgOne: 'https://justfields.com/storage/projects/7M5rV059/product-09.jpg', imgTwo: 'https://justfields.com/storage/projects/7M5rV059/product-010.jpg', sale: false, new: true, title: 'Jimmy Choo', subtitle: 'Dinterdum pretium de milancelos cras dincidunts', price: '89.00', discount: '39.00' },
   { imgOne: 'https://justfields.com/storage/projects/7M5rV059/product-011.jpg', imgTwo: 'https://justfields.com/storage/projects/7M5rV059/product-012.jpg', sale: false, new: true, title: 'Burberry', subtitle: 'Naminos lementum disus an cras damos dincidunts', price: '39.00' }
 ])
+
+const isFavorite = ref(products.value.map(() => false));
+
+const toggleFavorite = (index) => {
+  isFavorite.value[index] = !isFavorite.value[index];
+};
 </script>
