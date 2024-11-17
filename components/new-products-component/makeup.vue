@@ -18,7 +18,7 @@
               </div>
             </nuxt-link>
 
-            <button type="button" class="absolute z-10 mt-3 bg-white rounded-full top-2 right-2"
+            <button type="button" class="absolute z-10 mt-5 rounded-full top-2 right-5"
               @click.stop="toggleFavorite(index)">
               <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
                 :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
