@@ -1,10 +1,15 @@
 <template>
   <div>
     <div class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100">
-      <button @click="openModal"
+      <button @click="handleQuickViewClick"
         class="px-3 py-2 text-xs font-medium text-black capitalize bg-white rounded hover:bg-black hover:text-white">
         Quick View
       </button>
+    </div>
+
+    <!-- Show spinner while loading -->
+    <div v-if="isLoading" class="absolute inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-50">
+      <icon name="svg-spinners:6-dots-rotate" class="bg-blue-800 spinner" />
     </div>
 
     <HeadlessTransitionRoot appear :show="isOpen" as="template">
@@ -218,13 +223,23 @@
 
 <script setup>
 const isOpen = ref(false)
+const isLoading = ref(false)
 
-function closeModal() {
+const closeModal = () => {
   isOpen.value = false
-}
-function openModal() {
+};
+
+const openModal = () => {
   isOpen.value = true
-}
+};
+
+const handleQuickViewClick = () => {
+  isLoading.value = true;
+  setTimeout(() => {
+    isLoading.value = false;
+    openModal();
+  }, 3000);
+};
 
 const config = {
   itemsToShow: 4,
@@ -274,5 +289,24 @@ const slides = ref([
 
 .custom-scroll {
   scrollbar-width: none;
+}
+
+.spinner {
+  border: 4px solid transparent;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
