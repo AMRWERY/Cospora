@@ -91,7 +91,7 @@
 
           <!-- Middle Section - Cospora -->
           <div class="flex justify-center flex-1">
-            <p class="text-3xl font-semibold capitalize opacity-100 max-h-7">Cospora</p>
+            <nuxt-link to="/" class="text-3xl font-semibold capitalize opacity-100 max-h-7">Cospora</nuxt-link>
           </div>
 
           <!-- Right Section - Notifications & Profile -->
@@ -101,7 +101,6 @@
                 <span class="sr-only">Open Sign In menu</span>
                 <span class="flex items-center space-x-1">
                   <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
-                  <!-- `whitespace-nowrap` keeps it on one line -->
                   <icon name="ep:arrow-down" size="15px" />
                 </span>
               </HeadlessMenuButton>
@@ -111,9 +110,8 @@
                 leave-to-class="transform scale-95 opacity-0">
                 <HeadlessMenuItems
                   class="absolute left-0 z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <HeadlessMenuItem v-slot="{ active }">
-                    <p>auth form</p>
-                  </HeadlessMenuItem>
+                  <!-- auth-dialog -->
+                  <login-dialog />
                 </HeadlessMenuItems>
               </transition>
             </HeadlessMenu>

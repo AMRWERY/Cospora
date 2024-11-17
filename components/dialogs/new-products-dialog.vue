@@ -238,7 +238,7 @@ const handleQuickViewClick = () => {
   setTimeout(() => {
     isLoading.value = false;
     openModal();
-  }, 3000);
+  }, 2000);
 };
 
 const config = {
