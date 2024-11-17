@@ -5,9 +5,11 @@
         <form action="" class="p-4 mb-0 space-y-4 rounded-lg sm:p-6 lg:p-4">
           <p class="text-lg font-medium text-start">Login</p>
           <div>
-            <label for="email" class="sr-only">Email</label>
-            <div class="relative">
-              <input type="email" class="w-full p-4 text-sm border-gray-200 rounded-lg shadow-sm pe-12"
+            <label for="email" class="block text-sm font-medium text-gray-700">Email
+              <span class="text-red-800">*</span>
+            </label>
+            <div class="relative mt-1">
+              <input type="email" class="w-full p-3 text-sm border-gray-200 rounded-lg shadow-sm pe-12"
                 placeholder="Enter email" />
               <span class="absolute inset-y-0 grid px-4 end-0 place-content-center">
                 <icon name="ic:baseline-alternate-email" class="w-4 h-4 text-gray-400" />
@@ -16,10 +18,12 @@
           </div>
 
           <div>
-            <label for="password" class="sr-only">Password</label>
-            <div class="relative">
+            <label for="password" class="block text-sm font-medium text-gray-700">Password
+              <span class="text-red-800">*</span>
+            </label>
+            <div class="relative mt-1">
               <input :type="showPassword ? 'text' : 'password'" id="password"
-                class="w-full p-4 text-sm border-gray-200 rounded-lg shadow-sm pe-12" placeholder="Enter password" />
+                class="w-full p-3 text-sm border-gray-200 rounded-lg shadow-sm pe-12" placeholder="Enter password" />
               <span class="absolute inset-y-0 grid px-4 cursor-pointer end-0 place-content-center"
                 @click="togglePassword">
                 <icon :name="showPassword ? 'fluent:eye-hide-20-filled' : 'fluent:eye-32-filled'"

@@ -16,9 +16,11 @@
         </p>
         <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
           <div>
-            <label for="email" class="sr-only">Email</label>
-            <div class="relative">
-              <input type="email" class="w-full p-4 text-sm border-gray-200 rounded-lg shadow-sm pe-12"
+            <label for="email" class="block text-sm font-medium text-gray-700">Email
+              <span class="text-red-800">*</span>
+            </label>
+            <div class="relative mt-1">
+              <input type="email" class="w-full p-3 text-sm border-gray-200 rounded-lg shadow-sm pe-12"
                 placeholder="Enter email" />
               <span class="absolute inset-y-0 grid px-4 end-0 place-content-center">
                 <icon name="ic:baseline-alternate-email" class="w-4 h-4 text-gray-400" />
