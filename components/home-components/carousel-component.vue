@@ -26,14 +26,14 @@
                         class="block mx-auto w-7xl" />
                     <div
                         class="absolute inset-y-0 flex flex-col items-center justify-center w-1/3 space-y-2 text-lg font-semibold text-center text-black ms-36 start-5">
-                        <p class="text-lg font-semibold uppercase lg:text-4xl">
+                        <p class="text-lg font-semibold capitalize lg:text-4xl">
                             Milancelos
                         </p>
                         <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
                             scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
                             velitos</p>
                         <div class="hidden sm:block">
-                            <button class="px-10 py-3 mt-8 text-sm text-white uppercase bg-black rounded">
+                            <button class="px-10 py-3 mt-8 text-sm text-white capitalize bg-black rounded">
                                 Shop Now
                             </button>
                         </div>
@@ -46,14 +46,14 @@
                         class="block mx-auto w-7xl" />
                     <div
                         class="absolute inset-y-0 flex flex-col items-center justify-center w-1/3 space-y-2 text-lg font-semibold text-center text-black me-36 end-5">
-                        <p class="text-lg font-semibold uppercase lg:text-4xl">
+                        <p class="text-lg font-semibold capitalize lg:text-4xl">
                             Lorémica
                         </p>
                         <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
                             scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
                             velitos</p>
                         <div class="hidden sm:block">
-                            <button class="px-10 py-3 mt-8 text-sm text-white uppercase bg-black rounded">
+                            <button class="px-10 py-3 mt-8 text-sm text-white capitalize bg-black rounded">
                                 Shop The Collection
                             </button>
                         </div>
@@ -66,14 +66,14 @@
                         class="block mx-auto w-7xl" />
                     <div
                         class="absolute inset-y-0 flex flex-col items-center justify-center w-1/3 space-y-2 text-lg font-semibold text-center text-black ms-36 start-5">
-                        <p class="text-lg font-semibold uppercase lg:text-4xl">
+                        <p class="text-lg font-semibold capitalize lg:text-4xl">
                             Beauty Shop
                         </p>
                         <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
                             scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
                             velitos</p>
                         <div class="hidden sm:block">
-                            <button class="px-10 py-3 mt-8 text-sm text-white uppercase bg-black rounded">
+                            <button class="px-10 py-3 mt-8 text-sm text-white capitalize bg-black rounded">
                                 Shop Now
                             </button>
                         </div>
@@ -110,7 +110,7 @@
                 <div class="relative w-full h-48 overflow-hidden rounded-lg group-hover:opacity-75 sm:h-48">
                     <img :src="card.img" class="object-cover object-center size-full" />
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <h3 class="relative overflow-hidden text-xl font-semibold text-white uppercase">
+                        <h3 class="relative overflow-hidden text-xl font-semibold text-white capitalize">
                             {{ card.title }}
                             <span
                                 class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full">

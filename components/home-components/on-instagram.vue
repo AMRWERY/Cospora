@@ -3,7 +3,7 @@
     <div class="flex flex-col items-center justify-center space-y-2">
       <div class="flex items-center justify-center w-full">
         <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
-        <span class="mx-4 text-2xl font-bold leading-10 uppercase">Cospora On Instagram</span>
+        <span class="mx-4 text-2xl font-bold leading-10 capitalize">Cospora On Instagram</span>
         <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
       </div>
       <span class="text-xs text-red-600">#Cospora-Cosmetics</span>

@@ -6,7 +6,7 @@
         <div class="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-5">
           <!-- Navigate section -->
           <div>
-            <h6 class="flex justify-center mb-4 text-sm font-semibold uppercase md:justify-start">
+            <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
               Navigate
             </h6>
             <p class="mb-2.5 text-xs">
@@ -27,7 +27,7 @@
           </div>
           <!-- Categories section -->
           <div>
-            <h6 class="flex justify-center mb-4 text-sm font-semibold uppercase md:justify-start">
+            <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
               Categories
             </h6>
             <p class="mb-2.5 text-xs">
@@ -54,7 +54,7 @@
           </div>
           <!-- Popular Brands section -->
           <div>
-            <h6 class="flex justify-center mb-4 text-sm font-semibold uppercase md:justify-start">
+            <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
               Popular Brands
             </h6>
             <p class="mb-2.5 text-xs">
@@ -81,7 +81,7 @@
           </div>
           <!-- Customer Service section -->
           <div>
-            <h6 class="flex justify-center mb-4 text-sm font-semibold uppercase md:justify-start">
+            <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
               Customer Service
             </h6>
             <p class="mb-2.5 text-xs">
@@ -102,7 +102,7 @@
           </div>
           <!-- Info section -->
           <div>
-            <h6 class="flex justify-center mb-4 text-sm font-semibold uppercase md:justify-start">
+            <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
               Info
             </h6>
             <p class="mb-2.5 text-xs">

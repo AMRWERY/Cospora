@@ -2,7 +2,7 @@
   <div>
     <div class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100">
       <button @click="openModal"
-        class="px-3 py-2 text-xs font-medium text-black uppercase bg-white rounded hover:bg-black hover:text-white">
+        class="px-3 py-2 text-xs font-medium text-black capitalize bg-white rounded hover:bg-black hover:text-white">
         Quick View
       </button>
     </div>
@@ -189,7 +189,7 @@
 
                           <div class="flex flex-wrap items-center gap-4 mb-6">
                             <button
-                              class="flex-grow h-10 p-2 font-semibold uppercase bg-black text-gray-50 dark:text-gray-200 hover:bg-red-700">
+                              class="flex-grow h-10 p-2 font-semibold capitalize bg-black text-gray-50 dark:text-gray-200 hover:bg-red-700">
                               Add to Cart
                             </button>
                             <button

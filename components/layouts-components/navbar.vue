@@ -3,7 +3,7 @@
     <div v-if="isNavVisible">
       <nav class="fixed top-0 left-0 right-0 py-1.5 flex justify-center z-50 whitespace-nowrap nav-img">
         <icon name="ci:close-sm" @click="isNavVisible = false" class="absolute text-white cursor-pointer right-4" />
-        <p class="mt-0.5 text-sm text-white nav-title uppercase tracking-wider font-normal">
+        <p class="mt-0.5 text-sm text-white nav-title capitalize tracking-wider font-normal">
           Sale up to 70% off on selected items. End in: 00D.00H.00M.00S
         </p>
       </nav>
@@ -38,7 +38,7 @@
                 <!-- Find A Store Section -->
                 <span class="flex items-center space-x-2">
                   <icon name="ep:location" size="30px" />
-                  <p class="text-xs uppercase">Find A Store</p>
+                  <p class="text-xs capitalize">Find A Store</p>
                 </span>
               </div>
               <!-- Currency menu items -->
@@ -91,7 +91,7 @@
 
           <!-- Middle Section - Cospora -->
           <div class="flex justify-center flex-1">
-            <p class="text-3xl font-semibold uppercase opacity-100 max-h-7">Cospora</p>
+            <p class="text-3xl font-semibold capitalize opacity-100 max-h-7">Cospora</p>
           </div>
 
           <!-- Right Section - Notifications & Profile -->
@@ -100,7 +100,7 @@
               <HeadlessMenuButton class="relative flex items-center text-sm">
                 <span class="sr-only">Open Sign In menu</span>
                 <span class="flex items-center space-x-1">
-                  <p class="text-xs uppercase whitespace-nowrap">Sign In</p>
+                  <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
                   <!-- `whitespace-nowrap` keeps it on one line -->
                   <icon name="ep:arrow-down" size="15px" />
                 </span>

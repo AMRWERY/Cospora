@@ -2,7 +2,7 @@
   <div>
     <div class="flex items-center justify-center mt-8 mb-3">
       <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
-      <span class="mx-4 text-2xl font-bold leading-10 uppercase">#Trending Now</span>
+      <span class="mx-4 text-2xl font-bold leading-10 capitalize">#Trending Now</span>
       <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
     </div>
 
@@ -13,13 +13,13 @@
             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
         </div>
         <div
-          class="absolute bottom-0 w-full p-4 text-center uppercase transform -translate-x-1/2 translate-y-0 bg-black bg-opacity-50 left-1/2">
+          class="absolute bottom-0 w-full p-4 text-center capitalize transform -translate-x-1/2 translate-y-0 bg-black bg-opacity-50 left-1/2">
           <p class="text-[10px] font-semibold text-gray-200">{{ card.subtitle }}</p>
           <h2 class="mt-2 mb-4 text-2xl font-semibold text-white">{{ card.title }}</h2>
           <span class="text-[9px] line-clamp-3 leading-loose text-gray-200">{{ card.content }}</span>
           <div class="mt-4">
             <button
-              class="text-sm font-bold text-white uppercase bg-transparent hover:bg-black hover:text-white px-5 py-2.5 rounded-md focus:outline-none focus:ring-2">
+              class="text-sm font-bold text-white capitalize bg-transparent hover:bg-black hover:text-white px-5 py-2.5 rounded-md focus:outline-none focus:ring-2">
               {{ card.btn }}
             </button>
           </div>
