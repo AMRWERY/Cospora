@@ -101,7 +101,7 @@
               Checkout Now
               <icon name="ci:arrow-right-md" class="w-5 h-5 transition-all ms-2" />
             </nuxt-link>
-            <nuxt-link to="" type="button"
+            <nuxt-link to="/shopping-cart" type="button"
               class="block w-full px-5 py-2 text-sm font-medium text-center text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
               View Cart
             </nuxt-link>

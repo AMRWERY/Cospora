@@ -21,6 +21,7 @@
     "@vueuse/components": "^11.1.0",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
+    "json-server": "^1.0.0-beta.3",
     "nuxt": "^3.13.2",
     "pinia": "^2.2.5",
     "tailwindcss-rtl": "^0.9.0",
