@@ -28,13 +28,13 @@
               <div class="flex items-center space-x-5">
                 <!-- Currency Menu Button -->
                 <ClientOnly>
-                <HeadlessMenuButton class="relative flex items-center text-sm">
-                  <span class="sr-only">Open currency menu</span>
-                  <span class="flex items-center space-x-2">
-                    <p class="text-xs">USD</p>
-                    <icon name="ep:arrow-down" size="15px" />
-                  </span>
-                </HeadlessMenuButton>
+                  <HeadlessMenuButton class="relative flex items-center text-sm">
+                    <span class="sr-only">Open currency menu</span>
+                    <span class="flex items-center space-x-2">
+                      <p class="text-xs">USD</p>
+                      <icon name="ep:arrow-down" size="15px" />
+                    </span>
+                  </HeadlessMenuButton>
                 </ClientOnly>
 
                 <!-- Find A Store Section -->
@@ -100,14 +100,14 @@
           <div class="flex items-center justify-end flex-1 space-x-3">
             <HeadlessMenu as="div" class="relative ml-3">
               <ClientOnly>
-              <HeadlessMenuButton class="relative flex items-center text-sm">
-                <span class="sr-only">Open Sign In menu</span>
-                <span class="flex items-center space-x-1">
-                  <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
-                  <icon name="ep:arrow-down" size="15px" />
-                </span>
-              </HeadlessMenuButton>
-            </ClientOnly>
+                <HeadlessMenuButton class="relative flex items-center text-sm">
+                  <span class="sr-only">Open Sign In menu</span>
+                  <span class="flex items-center space-x-1">
+                    <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
+                    <icon name="ep:arrow-down" size="15px" />
+                  </span>
+                </HeadlessMenuButton>
+              </ClientOnly>
               <transition enter-active-class="transition duration-100 ease-out"
                 enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
@@ -128,29 +128,29 @@
 
             <HeadlessMenu as="div" class="relative ml-3">
               <ClientOnly>
-              <HeadlessMenuButton class="relative flex items-center text-sm">
-                <span class="sr-only">Open Sign In menu</span>
-                <span class="flex items-center space-x-1">
-                  <div class="relative">
-                    <span
-                      class="absolute top-0 inline-flex items-center justify-center w-5 h-5 -mt-2 -mr-4 text-xs text-white bg-black rounded-full end-2">
-                      0
-                    </span>
-                    <button type="button" class="relative mt-1 text-gray-700 rounded-full">
-                      <span class="absolute -inset-1.5" />
-                      <span class="sr-only">View cart</span>
-                      <icon name="clarity:shopping-cart-line" size="26px" />
-                    </button>
-                  </div>
-                </span>
-              </HeadlessMenuButton>
-            </ClientOnly>
+                <HeadlessMenuButton class="relative flex items-center text-sm">
+                  <span class="sr-only">Open Sign In menu</span>
+                  <span class="flex items-center space-x-1">
+                    <div class="relative">
+                      <span
+                        class="absolute top-0 inline-flex items-center justify-center w-5 h-5 -mt-2 -mr-4 text-xs text-white bg-black rounded-full end-2">
+                        0
+                      </span>
+                      <button type="button" class="relative mt-1 text-gray-700 rounded-full">
+                        <span class="absolute -inset-1.5" />
+                        <span class="sr-only">View cart</span>
+                        <icon name="clarity:shopping-cart-line" size="26px" />
+                      </button>
+                    </div>
+                  </span>
+                </HeadlessMenuButton>
+              </ClientOnly>
               <transition enter-active-class="transition duration-100 ease-out"
                 enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                 leave-to-class="transform scale-95 opacity-0">
                 <HeadlessMenuItems
-                  class="absolute left-0 z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -left-4 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <HeadlessMenuItem>
                     <cart-dialog />
                   </HeadlessMenuItem>
