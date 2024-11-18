@@ -112,9 +112,17 @@
                   </div>
                 </div>
               </div>
-
             </div>
-            <div class="hidden xl:mt-8 xl:block">
+
+            <div class="p-4">
+              <div class="flex items-center space-x-2">
+                <icon name="solar:shield-bold-duotone" />
+                <p class="m-0 text-gray-700">Secure Shopping Guarantee.</p>
+              </div>
+              <img src="https://justfields.com/storage/projects/7M5rV059/shield.jpg" class="mt-4">
+            </div>
+
+            <!-- <div class="hidden xl:mt-8 xl:block">
               <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">People also bought</h3>
               <div class="grid grid-cols-3 gap-4 mt-6 sm:mt-8">
                 <div
@@ -257,7 +265,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="flex-1 max-w-4xl mx-auto mt-6 space-y-6 lg:mt-0 lg:w-full">
@@ -293,15 +301,36 @@
               <form class="space-y-4">
                 <p class="text-center text-[14px] font-medium">Get Shipping Estimates</p>
                 <div>
-                  <label for="voucher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Do you have
-                    a voucher or gift card? </label>
-                  <input type="text" id="voucher"
-                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="" required />
+                  <label for="country" class="block font-medium text-gray-900 text-sm/6">Country</label>
+                  <div class="mt-2">
+                    <select id="country" name="country" autocomplete="country-name" v-model="selectedCountry"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"">
+                      <option v-for=" country in countriesData" :key="country.country" :value="country.country">
+                      {{ country.country }}</option>
+                    </select>
+                  </div>
                 </div>
-                <button type="submit"
-                  class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply
-                  Code</button>
+                <div>
+                  <label for="province" class="block font-medium text-gray-900 text-sm/6">Province</label>
+                  <div class="mt-2">
+                    <select id="province" name="province" autocomplete="province-name" v-model="selectedProvince"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                      <option v-for="city in getCitiesForSelectedCountry" :key="city" :value="city">
+                        {{ city }}</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label for="zip-code" class="block font-medium text-gray-900 text-sm/6">Postal/Zip Code</label>
+                  <div class="mt-2">
+                    <input id="zip-code" name="zip-code" type="text" autocomplete="zip-code"
+                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" />
+                  </div>
+                </div>
+                <nuxt-link to="" type="submit"
+                  class="block w-full px-5 py-2 text-sm font-medium text-center text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
+                  Calculate Shipping
+                </nuxt-link>
               </form>
             </div>
           </div>
@@ -312,5 +341,14 @@
 </template>
 
 <script setup>
+import dataBase from '@/assets/countries.json';
 
+const countriesData = ref(dataBase);
+const selectedCountry = ref(null);
+const selectedProvince = ref(null);
+
+const getCitiesForSelectedCountry = computed(() => {
+  const selected = countriesData.value.find(country => country.country === selectedCountry.value);
+  return selected ? selected.cities : [];
+});
 </script>
