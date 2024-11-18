@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ClientOnly>
     <Carousel v-bind="config">
       <Slide v-for="(card, index) in products" :key="index">
         <div class="carousel__item">
@@ -59,6 +60,7 @@
         <Navigation />
       </template>
     </Carousel>
+  </ClientOnly>
   </div>
 </template>
 

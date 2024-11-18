@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "nuxt-headlessui",
     "vue3-carousel-nuxt",
+    "@stefanobartoletti/nuxt-social-share",
   ],
   tailwindcss: {
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],

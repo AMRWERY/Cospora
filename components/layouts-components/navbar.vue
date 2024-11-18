@@ -27,6 +27,7 @@
             <HeadlessMenu as="div" class="relative hidden ml-3 sm:flex">
               <div class="flex items-center space-x-5">
                 <!-- Currency Menu Button -->
+                <ClientOnly>
                 <HeadlessMenuButton class="relative flex items-center text-sm">
                   <span class="sr-only">Open currency menu</span>
                   <span class="flex items-center space-x-2">
@@ -34,6 +35,7 @@
                     <icon name="ep:arrow-down" size="15px" />
                   </span>
                 </HeadlessMenuButton>
+                </ClientOnly>
 
                 <!-- Find A Store Section -->
                 <span class="flex items-center space-x-2">
@@ -97,6 +99,7 @@
           <!-- Right Section - Notifications & Profile -->
           <div class="flex items-center justify-end flex-1 space-x-3">
             <HeadlessMenu as="div" class="relative ml-3">
+              <ClientOnly>
               <HeadlessMenuButton class="relative flex items-center text-sm">
                 <span class="sr-only">Open Sign In menu</span>
                 <span class="flex items-center space-x-1">
@@ -104,6 +107,7 @@
                   <icon name="ep:arrow-down" size="15px" />
                 </span>
               </HeadlessMenuButton>
+            </ClientOnly>
               <transition enter-active-class="transition duration-100 ease-out"
                 enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
@@ -123,6 +127,7 @@
             </button>
 
             <HeadlessMenu as="div" class="relative ml-3">
+              <ClientOnly>
               <HeadlessMenuButton class="relative flex items-center text-sm">
                 <span class="sr-only">Open Sign In menu</span>
                 <span class="flex items-center space-x-1">
@@ -139,6 +144,7 @@
                   </div>
                 </span>
               </HeadlessMenuButton>
+            </ClientOnly>
               <transition enter-active-class="transition duration-100 ease-out"
                 enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
@@ -146,7 +152,7 @@
                 <HeadlessMenuItems
                   class="absolute left-0 z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <HeadlessMenuItem>
-                    <p>cart</p>
+                    <cart-dialog />
                   </HeadlessMenuItem>
                 </HeadlessMenuItems>
               </transition>

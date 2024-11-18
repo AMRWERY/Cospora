@@ -6,6 +6,7 @@
       <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
     </div>
 
+    <ClientOnly>
     <Carousel v-bind="config">
       <Slide v-for="(card, index) in products" :key="index">
         <div class="carousel__item">
@@ -65,6 +66,7 @@
         <Navigation />
       </template>
     </Carousel>
+  </ClientOnly>
   </div>
 </template>
 

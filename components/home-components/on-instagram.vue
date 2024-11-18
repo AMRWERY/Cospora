@@ -9,6 +9,7 @@
       <span class="text-xs text-red-600">#Cospora-Cosmetics</span>
     </div>
 
+    <ClientOnly>
     <Carousel v-bind="config">
       <Slide v-for="(slide, index) in numberOfSlides" :key="index">
         <div class="carousel__item">
@@ -28,6 +29,7 @@
         <Navigation />
       </template>
     </Carousel>
+  </ClientOnly>
 
     <div class="px-6 mx-auto mb-6 mt-10 py-4 max-w-7xl lg:px-8 bg-[#fafafa]">
       <div
