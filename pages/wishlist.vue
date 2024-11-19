@@ -85,7 +85,7 @@
 
       <!-- share via social media -->
       <div class="space-y-2 mt-7">
-        <p class="text-base text-gray-700">Share my Wishlist Via:</p>
+        <p class="text-base text-gray-700">Share my Wishlist via:</p>
         <div class="flex items-center space-x-4">
           <SocialShare network="facebook" :styled="false" :label="false"
             class="p-0.5 text-white bg-blue-700 border rounded-md" />
