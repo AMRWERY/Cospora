@@ -1,7 +1,9 @@
 <template>
   <div>
     <ClientOnly>
-      <Carousel v-bind="config">
+      <skeleton-loader v-if="loading" @loaded="loading = false" />
+
+      <Carousel v-bind="config" v-else>
         <Slide v-for="(card, index) in products" :key="index">
           <div class="carousel__item">
             <div class="relative flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
@@ -104,4 +106,6 @@ const isFavorite = ref(products.value.map(() => false));
 const toggleFavorite = (index) => {
   isFavorite.value[index] = !isFavorite.value[index];
 };
+
+const loading = ref(true);
 </script>
