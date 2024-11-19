@@ -122,6 +122,9 @@
               <img src="https://justfields.com/storage/projects/7M5rV059/shield.jpg" class="mt-4">
             </div>
 
+            <!-- social-media-sharing component -->
+            <social-media-sharing />
+
             <!-- may-also-like -->
             <may-also-like />
           </div>
