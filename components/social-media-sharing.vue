@@ -10,8 +10,8 @@
           class="p-0.5 text-white bg-black border rounded-md" />
         <SocialShare network="whatsapp" title="Check my Wishlist!" :styled="false" :label="false"
           class="p-0.5 text-white bg-green-500 border rounded-md" />
-        <!-- <SocialShare network="telegram" title="Check my Wishlist!" :styled="false" :label="false"
-            class="p-0.5 text-white bg-blue-500 border rounded-md" /> -->
+        <SocialShare network="telegram" title="Check my Wishlist!" url="https://web.telegram.org/a/" :styled="false"
+          :label="false" class="p-0.5 text-white bg-blue-500 border rounded-md" />
         <SocialShare network="email" title="Check my Wishlist!" :styled="false" :label="false"
           class="p-0.5 text-white bg-red-500 border rounded-md" />
       </div>
