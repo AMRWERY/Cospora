@@ -93,7 +93,7 @@
 
           <!-- Middle Section - Cospora -->
           <div class="flex justify-center flex-1">
-            <nuxt-link to="/" class="text-3xl font-semibold capitalize opacity-100 max-h-7">Cospora</nuxt-link>
+            <nuxt-link to="/" class="text-3xl font-semibold capitalize opacity-100 max-h-7" ref="el">Cospora</nuxt-link>
           </div>
 
           <!-- Right Section - Notifications & Profile -->
@@ -120,11 +120,11 @@
               </transition>
             </HeadlessMenu>
 
-            <button type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex">
+            <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex">
               <span class="absolute -inset-1.5" />
               <span class="sr-only">View wishlist</span>
               <icon name="clarity:heart-line" size="26px" />
-            </button>
+            </nuxt-link>
 
             <HeadlessMenu as="div" class="relative ml-3">
               <ClientOnly>
@@ -179,4 +179,7 @@ const navigation = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
 ]
+
+//rotate logo composable
+const { el } = useAnimateRotation();
 </script>
