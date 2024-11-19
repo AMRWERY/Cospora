@@ -1,7 +1,8 @@
 <template>
   <div>
     <ClientOnly>
-      <skeleton-loader v-if="loading" @loaded="loading = false" />
+      <!-- loading-spinner component -->
+      <loading-spinner v-if="loading" @loaded="loading = false" />
 
       <Carousel v-bind="config" v-else>
         <Slide v-for="(card, index) in products" :key="index">

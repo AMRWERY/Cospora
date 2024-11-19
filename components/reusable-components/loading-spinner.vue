@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div v-if="loading" class="animate-pulse">
-      <div class="w-3/4 h-4 mb-2 bg-gray-200 rounded"></div>
-      <div class="w-1/2 h-4 bg-gray-200 rounded"></div>
+    <div v-if="loading" class="flex items-center justify-center text-red-700">
+      <icon name="svg-spinners:wind-toy" size="80px" />
     </div>
+    <slot v-else></slot>
   </div>
 </template>
 
