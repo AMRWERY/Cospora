@@ -2,7 +2,7 @@
   <div>
     <breadcrumb />
 
-    <div class="mx-auto font-sans p-7 max-w-7xl">
+    <div class="mx-auto font-sans mt-7 max-w-7xl">
       <h2 class="text-2xl font-bold text-gray-800">Wishlist</h2>
       <div class="overflow-x-auto">
         <table class="w-[1000px] mt-12 border-collapse divide-y mx-auto">

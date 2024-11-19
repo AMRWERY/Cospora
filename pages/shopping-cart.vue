@@ -2,7 +2,7 @@
   <div>
     <breadcrumb />
 
-    <section class="py-8 antialiased bg-white dark:bg-gray-900 md:py-16">
+    <section class="py-8 dark:bg-gray-900 md:py-7">
       <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Your Cart</h2>
