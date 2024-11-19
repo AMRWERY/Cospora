@@ -2,6 +2,7 @@
   <div>
     <NuxtRouteAnnouncer />
     <NuxtLayout>
+      <progress-bar />
       <NuxtPage />
       <scroll-to-top />
     </NuxtLayout>
