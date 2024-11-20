@@ -96,7 +96,7 @@
           </div>
 
           <div class="space-y-3">
-            <nuxt-link to="" type="button"
+            <nuxt-link to="/checkout" type="button"
               class="flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-white transition duration-300 border rounded-md bg-rose-500">
               Checkout Now
               <icon name="ci:arrow-right-md" class="w-5 h-5 transition-all ms-2" />
