@@ -46,7 +46,7 @@
 
                 <div>
                   <label for="your_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Your
-                    email*
+                    email <span class="text-red-500">*</span>
                   </label>
                   <input type="email" id="your_email"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
@@ -56,7 +56,7 @@
                 <div>
                   <div class="flex items-center gap-2 mb-2">
                     <label for="select-country-input-3" class="block text-sm font-medium text-gray-900 dark:text-white">
-                      Country*
+                      Country <span class="text-red-500">*</span>
                     </label>
                   </div>
                   <select id="select-country-input-3"
@@ -72,7 +72,7 @@
                 <div>
                   <div class="flex items-center gap-2 mb-2">
                     <label for="select-city-input-3" class="block text-sm font-medium text-gray-900 dark:text-white">
-                      City* </label>
+                      City <span class="text-red-500">*</span></label>
                   </div>
                   <select id="select-city-input-3"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
@@ -86,7 +86,7 @@
 
                 <div>
                   <label for="phone-input-3" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Phone
-                    Number*
+                    Number <span class="text-red-500">*</span>
                   </label>
                   <div class="flex items-center">
                     <button id="dropdown-phone-button-3" data-dropdown-toggle="dropdown-phone-3"
@@ -374,9 +374,9 @@
             </div>
 
             <div class="space-y-3">
-              <button type="submit"
+              <nuxt-link to="/payment" type="submit"
                 class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Proceed
-                to Payment</button>
+                to Payment</nuxt-link>
               <p class="text-sm font-normal text-gray-500 dark:text-gray-400">One or more items in your cart
                 require an account.
                 <nuxt-link to="" title=""

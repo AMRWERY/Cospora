@@ -45,13 +45,17 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Cospora",
-      script: [{}],
+      script: [
+        {
+          // src: "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js",
+        },
+      ],
       noscript: [],
       link: [
-        // {
-        //   rel: "stylesheet",
-        //   href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
-        // },
+        {
+          //   rel: "stylesheet",
+          //   href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+        },
       ],
       meta: [
         {
