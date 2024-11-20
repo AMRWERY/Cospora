@@ -40,19 +40,19 @@
                         <p class="my-6 text-xs text-center text-gray-600">Roll over or click image to zoom in</p>
                         <div class="flex-wrap hidden md:flex">
                           <ClientOnly>
-                          <Carousel v-bind="config">
-                            <Slide v-for="slide in slides" :key="slide">
-                              <div class="carousel__item">
-                                <button @click="selectedImage = slide.img" type="button" class="block">
-                                  <img :src="slide.img" class="object-cover w-full h-32" />
-                                </button>
-                              </div>
-                            </Slide>
-                            <template #addons>
-                              <Navigation />
-                            </template>
-                          </Carousel>
-                        </ClientOnly>
+                            <Carousel v-bind="config">
+                              <Slide v-for="slide in slides" :key="slide">
+                                <div class="carousel__item">
+                                  <button @click="selectedImage = slide.img" type="button" class="block">
+                                    <img :src="slide.img" class="object-cover w-full h-32" />
+                                  </button>
+                                </div>
+                              </Slide>
+                              <template #addons>
+                                <Navigation />
+                              </template>
+                            </Carousel>
+                          </ClientOnly>
                         </div>
                       </div>
                       <div class="w-full px-4 md:w-1/2">
