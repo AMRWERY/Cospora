@@ -2,6 +2,19 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
+  hooks: {
+    "pages:extend"(pages) {
+      // add a route
+      const routesToSameComponent = ["accessories", "makeup"];
+      for (const route of routesToSameComponent) {
+        pages.push({
+          name: route,
+          path: `/${route}/:id`,
+          file: "~/pages/collections/[...slug].vue",
+        });
+      }
+    },
+  },
   modules: [
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
@@ -36,6 +49,14 @@ export default defineNuxtConfig({
     prefix: "MyPrefix",
   },
   css: ["~/assets/css/main.css"],
+  routeRules: {
+    "/accessories/**": {
+      redirect: "/collections/",
+    },
+    "/makeup/**": {
+      redirect: "/collections/",
+    },
+  },
   components: [
     {
       path: "~/components",
