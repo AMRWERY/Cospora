@@ -61,9 +61,11 @@
     </div>
 
     <!-- table cards -->
-    <div class="mb-10 gap-y-10 " v-for="(card, index) in products" :key="card" v-if="view === 'table'">
-      <div class="flex max-w-full overflow-hidden bg-white rounded-lg shadow-lg">
-        <nuxt-link class="relative flex w-1/4 mx-3 mt-3 overflow-hidden h-60 rounded-xl group" to="">
+    <div class="mb-10 gap-y-10" v-for="(card, index) in products" :key="card" v-if="view === 'table'">
+      <div class="flex flex-wrap max-w-full overflow-hidden bg-white rounded-lg shadow-lg">
+
+        <!-- Card Image Section -->
+        <nuxt-link class="relative flex w-full mx-3 mt-3 overflow-hidden sm:w-1/2 md:w-1/4 h-60 rounded-xl group" to="">
           <div class="relative w-full h-full">
             <img
               class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-100 group-hover:opacity-0"
@@ -77,16 +79,17 @@
             <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="card.new">New</p>
           </div>
         </nuxt-link>
-        <div class="w-3/4 p-4">
+
+        <!-- Card Text Section -->
+        <div class="w-full p-4 sm:w-1/2 md:w-3/4">
           <h1 class="text-lg font-bold text-gray-900">{{ card.title }}</h1>
           <p class="mt-2 text-sm text-gray-600">
             {{ card.subtitle }}
           </p>
-          <div class="flex justify-between mt-3 item-center">
+          <div class="flex items-center justify-between mt-3">
             <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center">
               <p>
-                <span class="mr-2 text-sm text-gray-400 line-through" v-if="card.discount">${{ card.discount
-                  }}</span>
+                <span class="mr-2 text-sm text-gray-400 line-through" v-if="card.discount">${{ card.discount }}</span>
                 <span class="text-sm text-red-700">${{ card.price }}</span>
               </p>
             </div>
@@ -94,6 +97,8 @@
           <div class="mt-1">
             <p class="text-xs text-gray-700">{{ card.gridDesc }}</p>
           </div>
+
+          <!-- Action Buttons -->
           <div class="flex items-center mt-4 space-x-6">
             <button type="button"
               class="rounded-md bg-slate-900 px-12 py-2.5 text-center text-sm text-white hover:bg-gray-700 focus:bg-red-500 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 capitalize font-semibold">
