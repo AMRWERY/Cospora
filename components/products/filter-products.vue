@@ -73,8 +73,18 @@
         <banner />
 
         <main class="px-4 mx-auto max-w-[1400px] sm:px-6 lg:px-8">
-          <div class="flex items-baseline justify-between py-6 border-b border-gray-200">
-            <h1 class="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
+          <div class="flex items-baseline justify-between p-3 border-b border-gray-200 bg-[#f7f7f7]">
+            <div class="flex items-center space-s-3">
+              <p>View as</p>
+              <button class="w-5 h-5" :class="{ 'text-black': view === 'grid', 'text-gray-500': view !== 'grid' }"
+                @click="setView('grid')">
+                <icon name="gridicons:grid" size="22px" />
+              </button>
+              <button class="w-5 h-5" :class="{ 'text-black': view === 'table', 'text-gray-500': view !== 'table' }"
+                @click="setView('table')">
+                <icon name="material-symbols:table-rows-narrow" size="22px" />
+              </button>
+            </div>
             <div class="flex items-center">
               <HeadlessMenu as="div" class="relative inline-block text-left">
                 <div>
@@ -157,7 +167,7 @@
               <!-- Product grid -->
               <div class="lg:col-span-3">
                 <!-- Your content -->
-                <products-cards></products-cards>
+                <products-cards :view="view"></products-cards>
               </div>
             </div>
           </section>
@@ -221,6 +231,13 @@ const filters = [
 ]
 
 const mobileFiltersOpen = ref(false)
+
+const view = ref('grid')
+
+const setView = (newView) => {
+  view.value = newView
+  // console.log(`Current view: ${newView}`)
+}
 
 useHead({
   titleTemplate: 'Products',
