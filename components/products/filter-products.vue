@@ -33,7 +33,7 @@
                     <h3 class="sr-only">Categories</h3>
                     <ul role="list" class="px-2 py-3 font-medium text-gray-900">
                       <li v-for="category in subCategories" :key="category.name">
-                        <a :href="category.href" class="block px-2 py-3">{{ category.name }}</a>
+                        <nuxt-link :to="category.route" class="block px-2 py-3">{{ category.name }}</nuxt-link>
                       </li>
                     </ul>
 
@@ -192,9 +192,9 @@
                     class="absolute right-0 z-10 w-20 mt-2 origin-top-right bg-white rounded-md shadow-2xl ring-1 ring-black/5 focus:outline-none">
                     <div class="py-1">
                       <HeadlessMenuItem v-for="option in sortPagesOptions" :key="option.name" v-slot="{ active }">
-                        <a :href="option.href"
+                        <nuxt-link :to="option.route"
                           :class="[option.current ? 'font-medium text-gray-900' : 'text-gray-500', active ? 'bg-gray-100 outline-none' : '', 'block px-4 py-2 text-sm']">{{
-                            option.name }}</a>
+                            option.name }}</nuxt-link>
                       </HeadlessMenuItem>
                     </div>
                   </HeadlessMenuItems>
@@ -218,9 +218,9 @@
                     class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-2xl w-44 ring-1 ring-black/5 focus:outline-none">
                     <div class="py-1">
                       <HeadlessMenuItem v-for="option in sortByOptions" :key="option.name" v-slot="{ active }">
-                        <a :href="option.href"
+                        <nuxt-link :to="option.route"
                           :class="[option.current ? 'font-medium text-gray-900' : 'text-gray-500', active ? 'bg-gray-100 outline-none' : '', 'block px-4 py-2 text-sm']">{{
-                            option.name }}</a>
+                            option.name }}</nuxt-link>
                       </HeadlessMenuItem>
                     </div>
                   </HeadlessMenuItems>
@@ -417,23 +417,23 @@
 
 <script setup>
 const sortPagesOptions = [
-  { name: '12', href: '#', current: true },
-  { name: '16', href: '#', current: false },
-  { name: '20', href: '#', current: false },
-  { name: '24', href: '#', current: false },
-  { name: '30', href: '#', current: false },
-  { name: '50', href: '#', current: false },
+  { name: '12', route: '', current: true },
+  { name: '16', route: '', current: false },
+  { name: '20', route: '', current: false },
+  { name: '24', route: '', current: false },
+  { name: '30', route: '', current: false },
+  { name: '50', route: '', current: false },
 ]
 
 const sortByOptions = [
-  { name: 'Featured', href: '#', current: true },
-  { name: 'Price, low to high', href: '#', current: false },
-  { name: 'Price, high to low', href: '#', current: false },
-  { name: 'Alphabetically, A-Z', href: '#', current: false },
-  { name: 'Alphabetically, Z-A', href: '#', current: false },
-  { name: 'Date, old to new', href: '#', current: false },
-  { name: 'Date, new to old', href: '#', current: false },
-  { name: 'Best Selling', href: '#', current: false },
+  { name: 'Featured', route: '', current: true },
+  { name: 'Price, low to high', route: '', current: false },
+  { name: 'Price, high to low', route: '', current: false },
+  { name: 'Alphabetically, A-Z', route: '', current: false },
+  { name: 'Alphabetically, Z-A', route: '', current: false },
+  { name: 'Date, old to new', route: '', current: false },
+  { name: 'Date, new to old', route: '', current: false },
+  { name: 'Best Selling', route: '', current: false },
 ]
 
 const subCategories = [

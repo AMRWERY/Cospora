@@ -126,6 +126,9 @@
     <div class="flex justify-center">
       <pagination />
     </div>
+
+    <!-- recently-viewed-products component -->
+     <recently-viewed-products />
   </div>
 </template>
 
