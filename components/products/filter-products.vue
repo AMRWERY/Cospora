@@ -29,7 +29,7 @@
                   </div>
 
                   <!-- Filters -->
-                  <form class="mt-4 border-t border-gray-200">
+                  <form class="border-t border-gray-200 ">
                     <h3 class="sr-only">Categories</h3>
                     <ul role="list" class="px-2 py-3 font-medium text-gray-900">
                       <li v-for="category in subCategories" :key="category.name">
@@ -37,6 +37,95 @@
                       </li>
                     </ul>
 
+                    <HeadlessDisclosure as="div" class="px-4 py-6 border-b border-gray-200" v-slot="{ open }">
+                      <h3 class="flow-root -my-3">
+                        <HeadlessDisclosureButton
+                          class="flex items-center justify-between w-full py-3 text-sm text-gray-400 bg-white hover:text-gray-500">
+                          <span class="font-medium text-gray-900">Color</span>
+                          <span class="flex items-center ml-6">
+                            <icon name="flowbite:plus-outline" v-if="!open" class="size-5" aria-hidden="true" />
+                            <icon name="system-uicons:minus" v-else class="size-5" aria-hidden="true" />
+                          </span>
+                        </HeadlessDisclosureButton>
+                      </h3>
+                      <HeadlessDisclosurePanel class="pt-6 ps-4">
+                        <div class="flex flex-wrap gap-4 max-w-[220px]">
+                          <button
+                            class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                            <div class="w-6 h-6 bg-[#ffffcd] rounded-full"></div>
+                          </button>
+                          <button
+                            class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                            <div class="w-6 h-6 bg-[#b59c80] rounded-full"></div>
+                          </button>
+                          <button
+                            class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                            <div class="w-6 h-6 bg-white rounded-full"></div>
+                          </button>
+                          <button
+                            class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                            <div class="w-6 h-6 bg-[#f53d7f] rounded-full"></div>
+                          </button>
+                          <button
+                            class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                            <div class="w-6 h-6 bg-[#506cbb] rounded-full"></div>
+                          </button>
+                          <button
+                            class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                            <div class="w-6 h-6 bg-[#232323] rounded-full"></div>
+                          </button>
+                          <button
+                            class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                            <div class="w-6 h-6 bg-[#ff0100] rounded-full"></div>
+                          </button>
+                          <button
+                            class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                            <div class="w-6 h-6 bg-[#e9e9e9] rounded-full"></div>
+                          </button>
+                        </div>
+                      </HeadlessDisclosurePanel>
+                    </HeadlessDisclosure>
+                    <HeadlessDisclosure as="div" class="px-4 py-6 border-b border-gray-200" v-slot="{ open }">
+                      <h3 class="flow-root -my-3">
+                        <HeadlessDisclosureButton
+                          class="flex items-center justify-between w-full py-3 text-sm text-gray-400 bg-white hover:text-gray-500">
+                          <span class="font-medium text-gray-900">Size</span>
+                          <span class="flex items-center ml-6">
+                            <icon name="flowbite:plus-outline" v-if="!open" class="size-5" aria-hidden="true" />
+                            <icon name="system-uicons:minus" v-else class="size-5" aria-hidden="true" />
+                          </span>
+                        </HeadlessDisclosureButton>
+                      </h3>
+                      <HeadlessDisclosurePanel class="pt-6 ps-4">
+                        <div class="grid grid-cols-2 gap-4">
+                          <div class="flex items-center">
+                            <input id="size-xs" value="XS" type="checkbox"
+                              class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                            <label for="size-xs" class="ml-3 text-sm text-gray-600">XS</label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="size-sm" value="SM" type="checkbox"
+                              class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                            <label for="size-sm" class="ml-3 text-sm text-gray-600">SM</label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="size-m" value="M" type="checkbox"
+                              class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                            <label for="size-m" class="ml-3 text-sm text-gray-600">M</label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="size-l" value="L" type="checkbox"
+                              class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                            <label for="size-l" class="ml-3 text-sm text-gray-600">L</label>
+                          </div>
+                          <div class="flex items-center">
+                            <input id="size-2x" value="2X" type="checkbox"
+                              class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                            <label for="size-2x" class="ml-3 text-sm text-gray-600">2X</label>
+                          </div>
+                        </div>
+                      </HeadlessDisclosurePanel>
+                    </HeadlessDisclosure>
                     <HeadlessDisclosure as="div" v-for="section in filters" :key="section.id"
                       class="px-4 py-6 border-t border-gray-200" v-slot="{ open }">
                       <h3 class="flow-root -mx-2 -my-3">
@@ -45,11 +134,11 @@
                           <span class="font-medium text-gray-900">{{ section.name }}</span>
                           <span class="flex items-center ml-6">
                             <icon name="flowbite:plus-outline" v-if="!open" class="size-5" aria-hidden="true" />
-                            <icon name="mdi:minus" v-else class="size-5" aria-hidden="true" />
+                            <icon name="system-uicons:minus" v-else class="size-5" aria-hidden="true" />
                           </span>
                         </HeadlessDisclosureButton>
                       </h3>
-                      <HeadlessDisclosurePanel class="pt-6">
+                      <HeadlessDisclosurePanel class="pt-6 ps-4">
                         <div class="space-y-6">
                           <div v-for="(option, optionIdx) in section.options" :key="option.value"
                             class="flex items-center">
@@ -151,13 +240,140 @@
             <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               <!-- Filters -->
               <form class="hidden lg:block">
-                <h3 class="sr-only">Categories</h3>
+                <h3 class="mb-3 font-bold underline underline-offset-4">Categories</h3>
                 <div class="sticky overflow-hidden top-16">
-                  <ul role="list" class="pb-6 space-y-4 text-sm font-medium text-gray-900 border-b border-gray-200">
+                  <HeadlessDisclosure as="div" class="py-6 border-b border-gray-200" v-slot="{ open }">
+                    <h3 class="flow-root -my-3">
+                      <HeadlessDisclosureButton
+                        class="flex items-center justify-between w-full py-3 text-sm text-gray-400 bg-white hover:text-gray-500">
+                        <span class="font-medium text-gray-900">Lorem Dorus</span>
+                        <span class="flex items-center ml-6">
+                          <icon name="flowbite:plus-outline" v-if="!open" class="size-5" aria-hidden="true" />
+                          <icon name="system-uicons:minus" v-else class="size-5" aria-hidden="true" />
+                        </span>
+                      </HeadlessDisclosureButton>
+                    </h3>
+                    <HeadlessDisclosurePanel class="pt-6">
+                      <div class="space-y-4">
+                        <div class="flex items-center">
+                          <input id="" value="" type="checkbox" checked
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="" class="ml-3 text-sm text-gray-600">Maecenas Commodos</label>
+                        </div>
+                        <div class="flex items-center">
+                          <input id="" value="" type="checkbox"
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="" class="ml-3 text-sm text-gray-600">Melesuada</label>
+                        </div>
+                        <div class="flex items-center">
+                          <input id="" value="" type="checkbox"
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="" class="ml-3 text-sm text-gray-600">Fermentum Loremous</label>
+                        </div>
+                        <div class="flex items-center">
+                          <input id="" value="" type="checkbox"
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="" class="ml-3 text-sm text-gray-600">Habitasse Molateas</label>
+                        </div>
+                      </div>
+                    </HeadlessDisclosurePanel>
+                  </HeadlessDisclosure>
+                  <ul role="list"
+                    class="pb-6 mt-4 space-y-1 text-sm font-medium text-gray-900 border-b border-gray-200">
                     <li v-for="category in subCategories" :key="category.name">
-                      <a :href="category.href">{{ category.name }}</a>
+                      <nuxt-link :to="category.route" class="cursor-pointer hover:underline">{{ category.name
+                        }}</nuxt-link>
                     </li>
                   </ul>
+                  <HeadlessDisclosure as="div" class="py-6 border-b border-gray-200" v-slot="{ open }">
+                    <h3 class="flow-root -my-3">
+                      <HeadlessDisclosureButton
+                        class="flex items-center justify-between w-full py-3 text-sm text-gray-400 bg-white hover:text-gray-500">
+                        <span class="font-medium text-gray-900">Color</span>
+                        <span class="flex items-center ml-6">
+                          <icon name="flowbite:plus-outline" v-if="!open" class="size-5" aria-hidden="true" />
+                          <icon name="system-uicons:minus" v-else class="size-5" aria-hidden="true" />
+                        </span>
+                      </HeadlessDisclosureButton>
+                    </h3>
+                    <HeadlessDisclosurePanel class="pt-6 ps-4">
+                      <div class="flex flex-wrap gap-4 max-w-[220px]">
+                        <button
+                          class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                          <div class="w-6 h-6 bg-[#ffffcd] rounded-full"></div>
+                        </button>
+                        <button
+                          class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                          <div class="w-6 h-6 bg-[#b59c80] rounded-full"></div>
+                        </button>
+                        <button
+                          class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                          <div class="w-6 h-6 bg-white rounded-full"></div>
+                        </button>
+                        <button
+                          class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                          <div class="w-6 h-6 bg-[#f53d7f] rounded-full"></div>
+                        </button>
+                        <button
+                          class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                          <div class="w-6 h-6 bg-[#506cbb] rounded-full"></div>
+                        </button>
+                        <button
+                          class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                          <div class="w-6 h-6 bg-[#232323] rounded-full"></div>
+                        </button>
+                        <button
+                          class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                          <div class="w-6 h-6 bg-[#ff0100] rounded-full"></div>
+                        </button>
+                        <button
+                          class="border rounded-full border-black/100 hover:border-gray-400 dark:border-gray-800 dark:hover:border-gray-400">
+                          <div class="w-6 h-6 bg-[#e9e9e9] rounded-full"></div>
+                        </button>
+                      </div>
+                    </HeadlessDisclosurePanel>
+                  </HeadlessDisclosure>
+                  <HeadlessDisclosure as="div" class="py-6 border-b border-gray-200" v-slot="{ open }">
+                    <h3 class="flow-root -my-3">
+                      <HeadlessDisclosureButton
+                        class="flex items-center justify-between w-full py-3 text-sm text-gray-400 bg-white hover:text-gray-500">
+                        <span class="font-medium text-gray-900">Size</span>
+                        <span class="flex items-center ml-6">
+                          <icon name="flowbite:plus-outline" v-if="!open" class="size-5" aria-hidden="true" />
+                          <icon name="system-uicons:minus" v-else class="size-5" aria-hidden="true" />
+                        </span>
+                      </HeadlessDisclosureButton>
+                    </h3>
+                    <HeadlessDisclosurePanel class="pt-6 ps-4">
+                      <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                          <input id="size-xs" value="XS" type="checkbox"
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="size-xs" class="ml-3 text-sm text-gray-600">XS</label>
+                        </div>
+                        <div class="flex items-center">
+                          <input id="size-sm" value="SM" type="checkbox"
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="size-sm" class="ml-3 text-sm text-gray-600">SM</label>
+                        </div>
+                        <div class="flex items-center">
+                          <input id="size-m" value="M" type="checkbox"
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="size-m" class="ml-3 text-sm text-gray-600">M</label>
+                        </div>
+                        <div class="flex items-center">
+                          <input id="size-l" value="L" type="checkbox"
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="size-l" class="ml-3 text-sm text-gray-600">L</label>
+                        </div>
+                        <div class="flex items-center">
+                          <input id="size-2x" value="2X" type="checkbox"
+                            class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
+                          <label for="size-2x" class="ml-3 text-sm text-gray-600">2X</label>
+                        </div>
+                      </div>
+                    </HeadlessDisclosurePanel>
+                  </HeadlessDisclosure>
                   <HeadlessDisclosure as="div" v-for="section in filters" :key="section.id"
                     class="py-6 border-b border-gray-200" v-slot="{ open }">
                     <h3 class="flow-root -my-3">
@@ -166,11 +382,11 @@
                         <span class="font-medium text-gray-900">{{ section.name }}</span>
                         <span class="flex items-center ml-6">
                           <icon name="flowbite:plus-outline" v-if="!open" class="size-5" aria-hidden="true" />
-                          <icon name="mdi:minus" v-else class="size-5" aria-hidden="true" />
+                          <icon name="system-uicons:minus" v-else class="size-5" aria-hidden="true" />
                         </span>
                       </HeadlessDisclosureButton>
                     </h3>
-                    <HeadlessDisclosurePanel class="pt-6">
+                    <HeadlessDisclosurePanel class="pt-6 ps-4">
                       <div class="space-y-4">
                         <div v-for="(option, optionIdx) in section.options" :key="option.value"
                           class="flex items-center">
@@ -221,47 +437,44 @@ const sortByOptions = [
 ]
 
 const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
+  { name: 'Milancelos', route: '' },
+  { name: 'Cosmopolis', route: '' },
+  { name: 'Nor Loremirus', route: '' },
+  { name: 'Comos Milano', route: '' },
+  { name: 'Dapibor', route: '' },
 ]
 
 const filters = [
   {
-    id: 'color',
-    name: 'Color',
+    id: 'price',
+    name: 'Price',
     options: [
-      { value: 'white', label: 'White', checked: false },
-      { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
+      { value: 'less-than-100', label: 'Less than $1000.00', checked: false },
+      { value: '100-200', label: '$100.00 - $200.00', checked: false },
+      { value: '200-400', label: '$200.00 - $400.00', checked: true },
+      { value: 'above-400', label: 'Above $400.00', checked: false },
     ],
   },
   {
-    id: 'category',
-    name: 'Category',
+    id: 'brand',
+    name: 'Brand',
     options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
+      { value: 'anna', label: 'Anna', checked: false },
+      { value: 'benjamin-button', label: 'Benjamin Button', checked: false },
+      { value: 'burberry', label: 'Burberry', checked: false },
+      { value: 'coco-lee', label: 'Coco Lee', checked: false },
+      { value: 'cosmopolis', label: 'Cosmopolis', checked: false },
+      { value: 'mango', label: 'Mango', checked: true },
     ],
   },
   {
-    id: 'size',
-    name: 'Size',
+    id: 'product-type',
+    name: 'Product Type',
     options: [
-      { value: '2l', label: '2L', checked: false },
-      { value: '6l', label: '6L', checked: false },
-      { value: '12l', label: '12L', checked: false },
-      { value: '18l', label: '18L', checked: false },
-      { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
+      { value: 'dincidunteros', label: 'Dincidunteros', checked: false },
+      { value: 'cosmopolis', label: 'Cosmopolis', checked: false },
+      { value: 'solutmades', label: 'Solutmades', checked: false },
+      { value: 'comodous', label: 'Comodous', checked: true },
     ],
   },
 ]
