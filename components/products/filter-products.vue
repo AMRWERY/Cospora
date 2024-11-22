@@ -85,12 +85,12 @@
                 <icon name="material-symbols:table-rows-narrow" size="22px" />
               </button>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center space-s-4">
               <HeadlessMenu as="div" class="relative inline-block text-left">
                 <div>
                   <HeadlessMenuButton
                     class="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
-                    Sort
+                    Items per page
                     <icon name="ic:twotone-keyboard-arrow-down"
                       class="ml-1 -mr-1 text-gray-400 size-5 shrink-0 group-hover:text-gray-500" aria-hidden="true" />
                   </HeadlessMenuButton>
@@ -100,9 +100,9 @@
                   leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                   leave-to-class="transform scale-95 opacity-0">
                   <HeadlessMenuItems
-                    class="absolute right-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-md shadow-2xl ring-1 ring-black/5 focus:outline-none">
+                    class="absolute right-0 z-10 w-20 mt-2 origin-top-right bg-white rounded-md shadow-2xl ring-1 ring-black/5 focus:outline-none">
                     <div class="py-1">
-                      <HeadlessMenuItem v-for="option in sortOptions" :key="option.name" v-slot="{ active }">
+                      <HeadlessMenuItem v-for="option in sortPagesOptions" :key="option.name" v-slot="{ active }">
                         <a :href="option.href"
                           :class="[option.current ? 'font-medium text-gray-900' : 'text-gray-500', active ? 'bg-gray-100 outline-none' : '', 'block px-4 py-2 text-sm']">{{
                             option.name }}</a>
@@ -112,10 +112,32 @@
                 </transition>
               </HeadlessMenu>
 
-              <button type="button" class="p-2 ml-5 -m-2 text-gray-400 hover:text-gray-500 sm:ml-7">
-                <span class="sr-only">View grid</span>
-                <icon name="bx:bxs-square-rounded" class="size-5" aria-hidden="true" />
-              </button>
+              <HeadlessMenu as="div" class="relative inline-block text-left">
+                <div>
+                  <HeadlessMenuButton
+                    class="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
+                    Sort by
+                    <icon name="ic:twotone-keyboard-arrow-down"
+                      class="ml-1 -mr-1 text-gray-400 size-5 shrink-0 group-hover:text-gray-500" aria-hidden="true" />
+                  </HeadlessMenuButton>
+                </div>
+                <transition enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0">
+                  <HeadlessMenuItems
+                    class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-2xl w-44 ring-1 ring-black/5 focus:outline-none">
+                    <div class="py-1">
+                      <HeadlessMenuItem v-for="option in sortByOptions" :key="option.name" v-slot="{ active }">
+                        <a :href="option.href"
+                          :class="[option.current ? 'font-medium text-gray-900' : 'text-gray-500', active ? 'bg-gray-100 outline-none' : '', 'block px-4 py-2 text-sm']">{{
+                            option.name }}</a>
+                      </HeadlessMenuItem>
+                    </div>
+                  </HeadlessMenuItems>
+                </transition>
+              </HeadlessMenu>
+
               <button type="button" class="p-2 ml-4 -m-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
                 @click="mobileFiltersOpen = true">
                 <span class="sr-only">Filters</span>
@@ -178,13 +200,26 @@
 </template>
 
 <script setup>
-const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
+const sortPagesOptions = [
+  { name: '12', href: '#', current: true },
+  { name: '16', href: '#', current: false },
+  { name: '20', href: '#', current: false },
+  { name: '24', href: '#', current: false },
+  { name: '30', href: '#', current: false },
+  { name: '50', href: '#', current: false },
 ]
+
+const sortByOptions = [
+  { name: 'Featured', href: '#', current: true },
+  { name: 'Price, low to high', href: '#', current: false },
+  { name: 'Price, high to low', href: '#', current: false },
+  { name: 'Alphabetically, A-Z', href: '#', current: false },
+  { name: 'Alphabetically, Z-A', href: '#', current: false },
+  { name: 'Date, old to new', href: '#', current: false },
+  { name: 'Date, new to old', href: '#', current: false },
+  { name: 'Best Selling', href: '#', current: false },
+]
+
 const subCategories = [
   { name: 'Totes', href: '#' },
   { name: 'Backpacks', href: '#' },
@@ -192,6 +227,7 @@ const subCategories = [
   { name: 'Hip Bags', href: '#' },
   { name: 'Laptop Sleeves', href: '#' },
 ]
+
 const filters = [
   {
     id: 'color',
