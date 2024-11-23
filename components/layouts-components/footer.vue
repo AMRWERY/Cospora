@@ -159,7 +159,6 @@
               <icon name="mingcute:snapchat-fill" size="20px" />
             </button>
           </div>
-
         </div>
       </div>
       <div class="text-center">

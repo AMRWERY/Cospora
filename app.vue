@@ -3,6 +3,7 @@
     <NuxtRouteAnnouncer />
     <NuxtLayout>
       <progress-bar />
+      <our-mail-list />
       <NuxtPage />
       <scroll-to-top />
     </NuxtLayout>
