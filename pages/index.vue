@@ -7,8 +7,6 @@
     <trending-now />
     <recent-posts />
     <on-instagram />
-
-    <successful-login />
   </div>
 </template>
 
