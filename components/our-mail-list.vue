@@ -14,8 +14,16 @@
               leave-to="opacity-0 scale-95">
               <HeadlessDialogPanel
                 class="w-full max-w-xl p-3 overflow-y-auto text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl scrollbar-hidden max-h-[80vh]">
-                <img src="https://justfields.com/storage/projects/7M5rV059/newsletter.jpg"
-                  class="object-cover w-full mb-4 rounded-lg h-96" />
+
+                <!-- Image Container with Close Button -->
+                <div class="relative">
+                  <img src="https://justfields.com/storage/projects/7M5rV059/newsletter.jpg"
+                    class="object-cover w-full mb-4 rounded-lg h-96" />
+                  <button @click="closeModal" class="absolute text-black rounded-full top-2 right-2">
+                    <icon name="ci:close-small" class="w-8 h-8" />
+                  </button>
+                </div>
+
                 <div class="max-w-sm mx-auto mt-8 text-center">
                   <p class="text-2xl font-semibold text-gray-800">
                     Join Our Mailing List
@@ -36,6 +44,7 @@
                     </button>
                   </div>
                 </div>
+
                 <div class="flex mx-0 my-6 space-s-5 sm:justify-center">
                   <button class="flex items-center justify-center w-7 h-7">
                     <icon name="mdi:facebook-box" size="25px" class="hover:bg-blue-700" />
@@ -66,10 +75,19 @@
 </template>
 
 <script setup>
-const isOpen = ref(true);
+const isOpen = ref(false);
+
+onMounted(() => {
+  const dialogShown = JSON.parse(localStorage.getItem("dialogShown")) === true;
+  if (!dialogShown) {
+    isOpen.value = true;
+    localStorage.setItem("dialogShown", true);
+  }
+});
 
 const closeModal = () => {
   isOpen.value = false;
+  localStorage.setItem("dialogShown", "true");
 };
 </script>
 
