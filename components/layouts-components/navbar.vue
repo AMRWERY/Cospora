@@ -204,8 +204,8 @@
     </HeadlessDisclosure>
 
     <nav class="hidden max-w-5xl px-2 py-4 mx-auto sm:px-6 lg:px-8 space-s-10 md:flex sm:hidden">
+      <!-- new-in-menu component -->
       <new-in-menu />
-
       <nuxt-link to=""
         class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Makeup</nuxt-link>
       <nuxt-link to=""
