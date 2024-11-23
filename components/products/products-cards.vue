@@ -124,7 +124,7 @@
     </div>
 
     <div class="flex justify-center">
-      <pagination />
+      <pagination-component />
     </div>
 
     <!-- recently-viewed-products component -->
