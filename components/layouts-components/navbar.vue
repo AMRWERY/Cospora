@@ -14,7 +14,7 @@
         <div class="relative flex items-center justify-between h-16">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <!-- Mobile menu button-->
-            <HeadlessDisclosureButton
+            <HeadlessDisclosureButton @click="toggleSidebar"
               class="relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md">
               <span class="absolute -inset-0.5" />
               <span class="sr-only">Open main menu</span>
@@ -98,13 +98,19 @@
 
           <!-- Right Section - Notifications & Profile -->
           <div class="flex items-center justify-end flex-1 space-x-3">
-            <HeadlessMenu as="div" class="relative ml-3">
+            <HeadlessMenu as="div" class="relative ms-3">
               <ClientOnly>
-                <HeadlessMenuButton class="relative flex items-center text-sm">
+                <HeadlessMenuButton class="relative flex items-center hidden text-sm md:flex">
                   <span class="sr-only">Open Sign In menu</span>
                   <span class="flex items-center space-x-1">
                     <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
                     <icon name="ep:arrow-down" size="15px" />
+                  </span>
+                </HeadlessMenuButton>
+                <HeadlessMenuButton class="relative flex items-center text-sm md:hidden">
+                  <span class="sr-only">Open Sign In menu</span>
+                  <span class="flex items-center space-x-1">
+                    <icon name="dashicons:admin-users" class="w-6 h-6" />
                   </span>
                 </HeadlessMenuButton>
               </ClientOnly>
@@ -113,8 +119,8 @@
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                 leave-to-class="transform scale-95 opacity-0">
                 <HeadlessMenuItems
-                  class="absolute left-0 z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <!-- auth-dialog -->
+                  class="absolute right-0 z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <!-- login-dialog -->
                   <login-dialog />
                 </HeadlessMenuItems>
               </transition>
@@ -150,23 +156,92 @@
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                 leave-to-class="transform scale-95 opacity-0">
                 <HeadlessMenuItems
-                  class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -left-4 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -right-6 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <HeadlessMenuItem>
                     <cart-dialog />
                   </HeadlessMenuItem>
                 </HeadlessMenuItems>
               </transition>
             </HeadlessMenu>
-            <div class="relative w-48 max-w-xs">
-              <input type="text" placeholder="Search"
-                class="w-48 py-2 pl-3 pr-10 ml-5 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md" />
-              <icon name="heroicons:magnifying-glass" size="20px"
-                class="absolute text-gray-500 transform -translate-y-1/2 -right-1 top-1/2" />
+            <div class="relative flex items-center">
+              <div class="relative hidden w-48 max-w-xs md:block">
+                <input type="text" placeholder="Search"
+                  class="w-48 py-2 pl-3 pr-10 ml-5 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md" />
+                <icon name="heroicons:magnifying-glass" size="20px"
+                  class="absolute text-gray-500 transform -translate-y-1/2 -right-1 top-1/2" />
+              </div>
+
+              <HeadlessMenu as="div" class="relative ms-3 md:hidden">
+                <ClientOnly>
+                  <HeadlessMenuButton class="relative flex items-center text-sm">
+                    <span class="sr-only">Open search menu</span>
+                    <span class="flex items-center space-x-1">
+                      <button type="button" class="relative mt-1 text-gray-700 rounded-full">
+                        <span class="absolute -inset-1.5" />
+                        <span class="sr-only">View search menu</span>
+                        <icon name="heroicons:magnifying-glass" size="26px" />
+                      </button>
+                    </span>
+                  </HeadlessMenuButton>
+                </ClientOnly>
+                <transition enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0">
+                  <HeadlessMenuItems
+                    class="absolute z-10 p-3 mt-2 origin-top-right bg-white rounded-md shadow-lg right-2 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <HeadlessMenuItem>
+                      <input type="text" placeholder="Search"
+                        class="w-full py-2 pl-3 pr-10 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md" />
+                    </HeadlessMenuItem>
+                  </HeadlessMenuItems>
+                </transition>
+              </HeadlessMenu>
             </div>
           </div>
         </div>
       </div>
     </HeadlessDisclosure>
+
+    <nav class="hidden max-w-5xl px-2 py-4 mx-auto sm:px-6 lg:px-8 space-s-10 md:flex sm:hidden">
+      <new-in-menu />
+
+      <nuxt-link to=""
+        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Makeup</nuxt-link>
+      <nuxt-link to=""
+        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Nail</nuxt-link>
+      <nuxt-link to=""
+        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Accessories</nuxt-link>
+      <nuxt-link to="" class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Makeup
+        Tools</nuxt-link>
+      <nuxt-link to=""
+        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Fragrance</nuxt-link>
+      <nuxt-link to=""
+        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">LookBook</nuxt-link>
+      <nuxt-link to=""
+        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Brands</nuxt-link>
+      <nuxt-link to="" class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Buy
+        Theme</nuxt-link>
+    </nav>
+
+    <transition name="sidebar-transition" @before-enter="beforeEnter" @enter="enter" @leave="leave">
+      <div v-if="isSidebarVisible" class="fixed inset-0 z-40 bg-gray-800 mt-7 bg-opacity-40 sm:hidden">
+        <div class="relative w-64 h-full p-5 bg-white">
+          <icon name="ci:close-sm" @click="toggleSidebar" class="absolute cursor-pointer top-4 right-4" />
+          <nav class="space-y-4">
+            <nuxt-link to="" class="block text-lg font-bold">New In</nuxt-link>
+            <nuxt-link to="" class="block text-lg font-bold">Makeup</nuxt-link>
+            <nuxt-link to="" class="block text-lg font-bold">Nail</nuxt-link>
+            <nuxt-link to="" class="block text-lg font-bold">Accessories</nuxt-link>
+            <nuxt-link to="" class="block text-lg font-bold">Makeup Tools</nuxt-link>
+            <nuxt-link to="" class="block text-lg font-bold">Fragrance</nuxt-link>
+            <nuxt-link to="" class="block text-lg font-bold">LookBook</nuxt-link>
+            <nuxt-link to="" class="block text-lg font-bold">Brands</nuxt-link>
+            <nuxt-link to="" class="block text-lg font-bold">Buy Theme</nuxt-link>
+          </nav>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -180,6 +255,50 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
 ]
 
+const isSidebarVisible = ref(false)
+
+const toggleSidebar = () => {
+  isSidebarVisible.value = !isSidebarVisible.value
+}
+
+const beforeEnter = (el) => {
+  el.style.transform = 'translateX(-100%)'
+  el.offsetHeight
+}
+
+const enter = (el, done) => {
+  el.offsetHeight
+  el.style.transition = 'transform 0.3s ease, opacity 0.3s ease'
+  el.style.transform = 'translateX(0)'
+  el.style.opacity = 1
+  done()
+}
+
+const leave = (el, done) => {
+  el.style.transition = 'transform 0.3s ease, opacity 0.3s ease'
+  el.style.transform = 'translateX(-100%)'
+  el.style.opacity = 0
+  done()
+}
+
 //rotate logo composable
 const { el } = useAnimateRotation();
 </script>
+
+<style scoped>
+.sidebar-transition-enter-active,
+.sidebar-transition-leave-active {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar-transition-enter,
+.sidebar-transition-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.sidebar-transition-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+</style>
