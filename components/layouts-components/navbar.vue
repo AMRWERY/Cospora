@@ -206,14 +206,19 @@
     <nav class="hidden max-w-5xl px-2 py-4 mx-auto sm:px-6 lg:px-8 space-s-10 md:flex sm:hidden">
       <!-- new-in-menu component -->
       <new-in-menu />
-      <nuxt-link to=""
-        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Makeup</nuxt-link>
-      <nuxt-link to=""
-        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Nail</nuxt-link>
-      <nuxt-link to=""
-        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Accessories</nuxt-link>
-      <nuxt-link to="" class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Makeup
-        Tools</nuxt-link>
+
+      <!-- mega-menu (Makeup) -->
+      <mega-menu title="Makeup" :categories="makeupCategories" />
+
+      <!-- mega-menu (Nail) -->
+      <mega-menu title="Nail" :categories="nailCategories" />
+
+      <!-- mega-menu (Accessories) -->
+      <mega-menu title="Accessories" :categories="accessoriesCategories" />
+
+      <!-- mega-menu (Makeup Tools) -->
+      <mega-menu title="Makeup Tools" :categories="makeupToolsCategories" />
+
       <nuxt-link to=""
         class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Fragrance</nuxt-link>
       <nuxt-link to=""
@@ -283,6 +288,232 @@ const leave = (el, done) => {
 
 //rotate logo composable
 const { el } = useAnimateRotation();
+
+const makeupCategories = [
+  {
+    title: "Lorem Dorus",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Molateas', route: '' },
+      { title: 'Destibulum Mauris', route: '' },
+    ],
+  },
+  {
+    title: "Milancelos",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+    ],
+  },
+  {
+    title: "Cosmopolis",
+    links: [
+      { title: 'Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Molateas', route: '' },
+    ],
+  },
+  {
+    title: "Nor Loremirus",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Habitasse Molateas', route: '' },
+    ],
+  },
+  {
+    title: "Dapibor",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Habitasse Molateas', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+    ],
+  },
+]
+
+const nailCategories = [
+  {
+    title: "Lorem Dorus",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+    ],
+  },
+  {
+    title: "Milancelos",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Milancelos', route: '' },
+    ],
+  },
+  {
+    title: "Cosmopolis",
+    links: [
+      { title: 'Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Molateas', route: '' },
+    ],
+  },
+  {
+    title: "Comos Milano",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Malesuada', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Habitasse Molateas', route: '' },
+    ],
+  },
+  {
+    title: "Nor Loremirus",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+    ],
+  },
+  {
+    title: "Dapibor",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Habitasse Molateas', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+    ],
+  },
+]
+
+const accessoriesCategories = [
+  {
+    title: "Lorem Dorus",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+    ],
+  },
+  {
+    title: "Milancelos",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Milancelos', route: '' },
+    ],
+  },
+  {
+    title: "Cosmopolis",
+    links: [
+      { title: 'Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Molateas', route: '' },
+    ],
+  },
+  {
+    title: "Comos Milano",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Malesuada', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Habitasse Molateas', route: '' },
+    ],
+  },
+  {
+    title: "Nor Loremirus",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+    ],
+  },
+  {
+    title: "Dapibor",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Habitasse Molateas', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+    ],
+  },
+]
+
+const makeupToolsCategories = [
+  {
+    title: "Lorem Dorus",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+    ],
+  },
+  {
+    title: "Milancelos",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Milancelos', route: '' },
+    ],
+  },
+  {
+    title: "Cosmopolis",
+    links: [
+      { title: 'Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Molateas', route: '' },
+    ],
+  },
+  {
+    title: "Comos Milano",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Malesuada', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Habitasse Molateas', route: '' },
+    ],
+  },
+  {
+    title: "Nor Loremirus",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Milancelos', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+      { title: 'Cosmopolis', route: '' },
+    ],
+  },
+  {
+    title: "Dapibor",
+    links: [
+      { title: 'Maecenas Commodos', route: '' },
+      { title: 'Fermentum Loremous', route: '' },
+      { title: 'Habitasse Molateas', route: '' },
+      { title: 'Malesuada Sarcus', route: '' },
+    ],
+  },
+]
 </script>
 
 <style scoped>
