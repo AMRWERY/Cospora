@@ -219,12 +219,39 @@
       <!-- mega-menu (Makeup Tools) -->
       <mega-menu title="Makeup Tools" :categories="makeupToolsCategories" />
 
-      <nuxt-link to=""
-        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Fragrance</nuxt-link>
-      <nuxt-link to=""
-        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">LookBook</nuxt-link>
-      <nuxt-link to=""
-        class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Brands</nuxt-link>
+      <div class="relative">
+        <span
+          class="absolute top-0 inline-flex items-center justify-center ml-8 -mt-5 text-xs text-white rounded-lg bg-[#ec4065] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          Sale
+        </span>
+        <span class="absolute -inset-1.5" />
+        <nuxt-link to=""
+          class="relative z-10 text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
+          Fragrance
+        </nuxt-link>
+      </div>
+      <div class="relative">
+        <span
+          class="absolute top-0 inline-flex items-center justify-center ml-9 -mt-5 text-xs text-white rounded-lg bg-[#f79a00] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          Hot
+        </span>
+        <span class="absolute -inset-1.5" />
+        <nuxt-link to=""
+          class="relative z-10 text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
+          LookBook
+        </nuxt-link>
+      </div>
+      <div class="relative">
+        <span
+          class="absolute top-0 inline-flex items-center justify-center ml-4 -mt-5 text-xs text-white rounded-lg bg-[#43b5f4] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          New
+        </span>
+        <span class="absolute -inset-1.5" />
+        <nuxt-link to=""
+          class="relative z-10 text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
+          Brands
+        </nuxt-link>
+      </div>
       <nuxt-link to="" class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Buy
         Theme</nuxt-link>
     </nav>
