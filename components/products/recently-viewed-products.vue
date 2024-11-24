@@ -61,8 +61,8 @@
         </div>
       </div>
 
-      <!-- brands component -->
-      <brands />
+      <!-- brands-logo component -->
+      <brands-logo />
     </div>
   </div>
 </template>

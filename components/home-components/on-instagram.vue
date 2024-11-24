@@ -31,8 +31,8 @@
       </Carousel>
     </ClientOnly>
 
-    <!-- brands component -->
-    <brands />
+    <!-- brands-logo component -->
+    <brands-logo />
   </div>
 </template>
 
