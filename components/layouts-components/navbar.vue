@@ -110,7 +110,7 @@
                 <HeadlessMenuButton class="relative flex items-center text-sm md:hidden">
                   <span class="sr-only">Open Sign In menu</span>
                   <span class="flex items-center space-x-1">
-                    <icon name="dashicons:admin-users" class="w-6 h-6" />
+                    <icon name="ic:round-person-outline" class="w-6 h-6" />
                   </span>
                 </HeadlessMenuButton>
               </ClientOnly>
@@ -247,7 +247,7 @@
           New
         </span>
         <span class="absolute -inset-1.5" />
-        <nuxt-link to=""
+        <nuxt-link to="/brands"
           class="relative z-10 text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
           Brands
         </nuxt-link>
@@ -258,18 +258,16 @@
 
     <transition name="sidebar-transition" @before-enter="beforeEnter" @enter="enter" @leave="leave">
       <div v-if="isSidebarVisible" class="fixed inset-0 z-40 bg-gray-800 mt-7 bg-opacity-40 sm:hidden">
-        <div class="relative w-64 h-full p-5 bg-white">
+        <div class="relative w-64 h-full p-5 overflow-y-auto bg-white scrollbar-hidden">
           <icon name="ci:close-sm" @click="toggleSidebar" class="absolute cursor-pointer top-4 right-4" />
           <nav class="space-y-4">
-            <nuxt-link to="" class="block text-lg font-bold">New In</nuxt-link>
-            <nuxt-link to="" class="block text-lg font-bold">Makeup</nuxt-link>
-            <nuxt-link to="" class="block text-lg font-bold">Nail</nuxt-link>
-            <nuxt-link to="" class="block text-lg font-bold">Accessories</nuxt-link>
-            <nuxt-link to="" class="block text-lg font-bold">Makeup Tools</nuxt-link>
-            <nuxt-link to="" class="block text-lg font-bold">Fragrance</nuxt-link>
-            <nuxt-link to="" class="block text-lg font-bold">LookBook</nuxt-link>
-            <nuxt-link to="" class="block text-lg font-bold">Brands</nuxt-link>
-            <nuxt-link to="" class="block text-lg font-bold">Buy Theme</nuxt-link>
+            <!-- nested-menu component-->
+            <nested-menu />
+
+            <nuxt-link to="" class="block px-4 text-sm">Fragrance</nuxt-link>
+            <nuxt-link to="" class="block px-4 text-sm">LookBook</nuxt-link>
+            <nuxt-link to="" class="block px-4 text-sm">Brands</nuxt-link>
+            <nuxt-link to="" class="block px-4 text-sm">Buy Theme</nuxt-link>
           </nav>
         </div>
       </div>
@@ -558,5 +556,14 @@ const makeupToolsCategories = [
 .sidebar-transition-enter-to {
   transform: translateX(0);
   opacity: 1;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 </style>
