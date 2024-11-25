@@ -225,8 +225,7 @@
           Sale
         </span>
         <span class="absolute -inset-1.5" />
-        <nuxt-link to=""
-          class="relative z-10 text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
+        <nuxt-link to="" class="relative text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
           Fragrance
         </nuxt-link>
       </div>
@@ -236,8 +235,7 @@
           Hot
         </span>
         <span class="absolute -inset-1.5" />
-        <nuxt-link to=""
-          class="relative z-10 text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
+        <nuxt-link to="" class="relative text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
           LookBook
         </nuxt-link>
       </div>
@@ -248,7 +246,7 @@
         </span>
         <span class="absolute -inset-1.5" />
         <nuxt-link to="/brands"
-          class="relative z-10 text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
+          class="relative text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
           Brands
         </nuxt-link>
       </div>
