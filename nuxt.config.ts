@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     "nuxt-headlessui",
     "vue3-carousel-nuxt",
     "@stefanobartoletti/nuxt-social-share",
+    "@nuxtjs/i18n",
   ],
   tailwindcss: {
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
@@ -47,6 +48,9 @@ export default defineNuxtConfig({
   },
   carousel: {
     prefix: "MyPrefix",
+  },
+  i18n: {
+    vueI18n: "./plugins/i18n.config.js",
   },
   css: ["~/assets/css/main.css"],
   routeRules: {

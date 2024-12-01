@@ -21,5 +21,8 @@
         "Sarcudos",
         "Sustoproines",
         "twotone"
+    ],
+    "i18n-ally.localesPaths": [
+        "locales"
     ]
 }

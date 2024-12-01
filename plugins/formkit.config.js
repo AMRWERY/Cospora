@@ -16,7 +16,7 @@ import "@formkit/addons/css/multistep";
 export default defineFormKitConfig(() => {
   return {
     locales: { ar },
-    locale: 'ar',
+    locale: "ar",
     theme: "genesis",
     plugins: [
       createAutoAnimatePlugin(),
