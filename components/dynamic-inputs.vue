@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FormKit type="form" :actions="false">
+    <FormKit type="form" :actions="false" class="p-4 mb-0 space-y-4 rounded-lg sm:p-6 lg:p-4">
       <label :for="id" class="block text-sm font-medium text-gray-700">{{ label }}</label>
       <FormKit :id="id" :type="type" :placeholder="placeholder" v-model="internalValue" :validation="validation"
         class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50" />
