@@ -27,9 +27,7 @@
                     <span class="me-2">{{ $t('buttons.loading') }}...</span>
                     <icon name="svg-spinners:270-ring-with-bg" />
                   </div>
-                  <span v-else>Create
-                    an
-                    Account</span>
+                  <span v-else>Create an Account</span>
                 </button>
               </div>
             </client-only>
