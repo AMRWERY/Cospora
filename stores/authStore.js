@@ -100,6 +100,7 @@ export const useAuthStore = defineStore("auth", {
                 } else {
                   console.log("User data not found in Firestore");
                 }
+                resolve();
               } catch (error) {
                 reject(error);
               }
