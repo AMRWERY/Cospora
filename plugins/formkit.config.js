@@ -1,4 +1,4 @@
-import { ar } from "@formkit/i18n";
+import { ar, en } from "@formkit/i18n";
 import { defineFormKitConfig } from "@formkit/vue";
 import {
   createAutoAnimatePlugin,
@@ -15,7 +15,7 @@ import "@formkit/addons/css/multistep";
 
 export default defineFormKitConfig(() => {
   return {
-    locales: { ar },
+    locales: { ar, en },
     locale: "ar",
     theme: "genesis",
     plugins: [
