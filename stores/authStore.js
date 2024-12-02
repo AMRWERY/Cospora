@@ -131,7 +131,7 @@ export const useAuthStore = defineStore("auth", {
         const { email } = payload;
         try {
           await sendPasswordResetEmail(auth, email);
-          console.log("Password reset email sent successfully.");
+          // console.log("Password reset email sent successfully.");
           resolve("Success");
         } catch (error) {
           console.error("Failed to send password reset email:", error);
