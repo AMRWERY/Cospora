@@ -6,28 +6,32 @@
       <div class="w-full max-w-md space-y-8">
         <div class="p-6 bg-white rounded-md">
           <h2 class="my-3 text-2xl font-bold tracking-tight text-gray-900 text-start">
-            Create Account
+            {{ $t('form.create_account') }}
           </h2>
-          <p class="mb-5 text-xs text-gray-600">By creating an account you will be able to shop faster, be up to date on
-            an order's status, and keep track of the orders you have previously made.</p>
+          <p class="mb-5 text-xs text-gray-600">{{
+            $t('form.by_creating_an_account_you_will_be_able_to_shop_faster_be_up_to_date_on_an_orders_status_and_keep_track_of_the_orders_you_have_previously_made')
+          }}</p>
           <div class="flex flex-col gap-2">
             <client-only>
-              <dynamic-inputs v-model="data.firstName" label="First Name" placeholder="Enter your first name"
-                type="text" :validation="('required|contains_numeric|length:3,10')" :required="true" />
-              <dynamic-inputs v-model="data.lastName" label="Last Name" placeholder="Enter your last name" type="text"
+              <dynamic-inputs v-model="data.firstName" :label="t('form.first_name')"
+                :placeholder="t('form.enter_your_first_name')" type="text"
                 :validation="('required|contains_numeric|length:3,10')" :required="true" />
-              <dynamic-inputs v-model="data.email" label="Email" placeholder="Enter your email" type="email"
-                :validation="('required|email|ends_with:cospora.com')" :required="true" />
-              <dynamic-inputs v-model="data.password" label="Password" placeholder="Enter your password" type="password"
+              <dynamic-inputs v-model="data.lastName" :label="t('form.last_name')"
+                :placeholder="t('form.enter_your_last_name')" type="text"
+                :validation="('required|contains_numeric|length:3,10')" :required="true" />
+              <dynamic-inputs v-model="data.email" :label="t('form.email')" :placeholder="t('form.enter_your_email')"
+                type="email" :validation="('required|email|ends_with:cospora.com')" :required="true" />
+              <dynamic-inputs v-model="data.password" :label="t('form.password')"
+                :placeholder="t('form.enter_your_password')" type="password"
                 :validation="'required|password|length:6,7'" :required="true" />
               <div>
                 <button type="submit" :disabled="loading" @click="signUp"
                   class="block w-[400px] px-5 py-2 text-sm font-medium text-center text-white transition duration-300 bg-black border border-black rounded-md hover:bg-red-600 hover:text-white">
-                  <div v-if="loading">
-                    <span class="me-2">{{ $t('buttons.loading') }}...</span>
+                  <div class="flex items-center justify-center" v-if="loading">
+                    <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
                     <icon name="svg-spinners:270-ring-with-bg" />
                   </div>
-                  <span v-else>Create an Account</span>
+                  <span v-else>{{ $t('form.create_an_account') }}</span>
                 </button>
               </div>
             </client-only>
@@ -41,8 +45,8 @@
     </div>
 
     <!-- successful-auth alert -->
-    <successful-auth v-if="showToast" title="Account Created!" message="Your account has been successfully created."
-      @close="showToast = false" />
+    <successful-auth v-if="showToast" :title="t('form.account_created')"
+      :message="t('form.your_account_has_been_successfully_created')" @close="showToast = false" />
   </div>
 </template>
 
@@ -52,6 +56,7 @@ const loading = ref(false);
 const errorMessage = ref('');
 const router = useRouter()
 const showToast = ref(false);
+const { t } = useI18n()
 
 const data = ref({
   firstName: '',
@@ -75,7 +80,7 @@ const signUp = async () => {
     }, 6000);
   } catch (error) {
     // console.error("Sign-up failed:", error);
-    errorMessage.value = "Sign-up failed. Please check your information and try again.";
+    errorMessage.value = t('form.sign_up_failed_please_check_your_information_and_try_again');
     router.replace("/register");
   } finally {
     loading.value = false;
@@ -83,6 +88,6 @@ const signUp = async () => {
 };
 
 useHead({
-  titleTemplate: 'Register',
+  titleTemplate: t('head.register'),
 })
 </script>

@@ -1,5 +1,29 @@
 {
-  "home": {
-    "home": "Home"
+  "form": {
+    "create_account": "Create Account",
+    "by_creating_an_account_you_will_be_able_to_shop_faster_be_up_to_date_on_an_orders_status_and_keep_track_of_the_orders_you_have_previously_made": "By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.",
+    "first_name": "First Name",
+    "enter_your_first_name": "Enter your first name",
+    "last_name": "Last Name",
+    "enter_your_last_name": "Enter your last name",
+    "email": "Email",
+    "enter_your_email": "Enter your email",
+    "password": "Password",
+    "enter_your_password": "Enter your password",
+    "create_an_account": "Create an Account",
+    "account_created": "Account Created!",
+    "your_account_has_been_successfully_created": "Your account has been successfully created.",
+    "sign_up_failed_please_check_your_information_and_try_again": "Sign-up failed. Please check your information and try again.",
+    "login": "Login",
+    "forget_your_password": "Forget your Password?",
+    "successfully_logged_in": "successfully Logged in!",
+    "your_account_has_been_successfully_logged_in": "Your account has been successfully logged in.",
+    "login_failed_please_check_your_information_and_try_again": "Login failed. Please check your information and try again."
+  },
+  "btn": {
+    "loading": "loading"
+  },
+  "head": {
+    "register": "Register"
   }
 }
