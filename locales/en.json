@@ -18,13 +18,23 @@
     "forget_your_password": "Forget your Password?",
     "successfully_logged_in": "successfully Logged in!",
     "your_account_has_been_successfully_logged_in": "Your account has been successfully logged in.",
-    "login_failed_please_check_your_information_and_try_again": "Login failed. Please check your information and try again."
+    "login_failed_please_check_your_information_and_try_again": "Login failed. Please check your information and try again.",
+    "returning_customer": "Returning Customer",
+    "if_you_have_an_account_with_us_please_log_in": "If you have an account with us, please log in.",
+    "we_will_send_you_an_email_to_reset_your_password": "We will send you an email to reset your password.",
+    "reset_password_failed_please_check_your_information_and_try_again": "Reset password failed, please check your information and try again",
+    "or": "or",
+    "successfully_reset_password": "successfully Reset Password!",
+    "your_password_has_been_successfully_reset": "Your password has been successfully reset"
   },
   "btn": {
-    "loading": "loading"
+    "loading": "loading",
+    "reset_password": "Reset Password",
+    "cancel": "Cancel"
   },
   "head": {
-    "register": "Register"
+    "register": "Register",
+    "forget_password": "Forget Password"
   },
   "alert": {
     "success": "Success",

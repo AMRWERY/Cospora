@@ -6,43 +6,72 @@
       <div
         class="w-full p-6 bg-white rounded-lg shadow dark:border sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
         <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-          Returning Customer
+          {{ $t('form.returning_customer') }}
         </h1>
         <p class="mt-3 font-light text-gray-500 dark:text-gray-400">
-          If you have an account with us, please log in.
+          {{ $t('form.if_you_have_an_account_with_us_please_log_in') }}
         </p>
-        <p class="mt-3 font-light text-gray-500 dark:text-gray-400">
-          We will send you an email to reset your password.
+        <p class="font-light text-gray-500 dark:text-gray-400">
+          {{ $t('form.we_will_send_you_an_email_to_reset_your_password') }}
         </p>
-        <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">Email
-              <span class="text-red-800">*</span>
-            </label>
-            <div class="relative mt-1">
-              <input type="email" class="w-full p-3 text-sm border-gray-200 rounded-lg shadow-sm pe-12"
-                placeholder="Enter email" />
-              <span class="absolute inset-y-0 grid px-4 end-0 place-content-center">
-                <icon name="ic:baseline-alternate-email" class="w-4 h-4 text-gray-400" />
-              </span>
+        <div class="flex flex-col gap-2 mt-4">
+          <client-only>
+            <dynamic-inputs v-model="data.email" :label="t('form.email')" :placeholder="t('form.enter_your_email')"
+              type="email" :validation="('required|email|ends_with:cospora.com')" :required="true" />
+            <div class="space-s-4">
+              <button type="submit" :disabled="loading" @click="resetPassword"
+                class="px-5 py-2 text-sm font-medium text-white transition duration-300 bg-black border border-black rounded-md hover:bg-red-600 hover:text-white">
+                <div class="flex items-center justify-center" v-if="loading">
+                  <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+                  <icon name="svg-spinners:270-ring-with-bg" />
+                </div>
+                <span v-else>{{ $t('btn.reset_password') }}</span>
+              </button>
+              <span>{{ $t('form.or') }}</span>
+              <nuxt-link to="" class="text-blue-500 cursor-pointer">{{ $t('btn.cancel') }}</nuxt-link>
             </div>
-          </div>
-          <div class="space-s-4">
-            <button type="submit"
-              class="px-5 py-2 text-sm font-medium text-white transition duration-300 bg-black border border-black rounded-md hover:bg-red-600 hover:text-white">
-              Reset password
-            </button>
-            <span>or</span>
-            <nuxt-link to="" class="text-blue-500 cursor-pointer">Cancel</nuxt-link>
-          </div>
-        </form>
+          </client-only>
+        </div>
+
+        <div v-if="errorMessage" class="mt-2 text-sm text-red-500">
+          {{ errorMessage }}
+        </div>
       </div>
     </section>
+
+    <!-- successful-auth alert -->
+    <successful-auth v-if="showToast" :title="t('form.successfully_reset_password')"
+      :message="t('form.your_password_has_been_successfully_reset')" @close="showToast = false" />
   </div>
 </template>
 
 <script setup>
+const store = useAuthStore()
+const loading = ref(false);
+const errorMessage = ref('');
+const showToast = ref(false);
+const { t } = useI18n()
+
+const data = ref({
+  email: '',
+});
+
+const resetPassword = async () => {
+  loading.value = true;
+  try {
+    await store.resetUserPassword({
+      email: data.value.email,
+    });
+    showToast.value = true;
+  } catch (error) {
+    // console.error("Login failed:", error);
+    errorMessage.value = t('form.reset_password_failed_please_check_your_information_and_try_again');
+  } finally {
+    loading.value = false;
+  }
+};
+
 useHead({
-  titleTemplate: 'Forget Password',
+  titleTemplate: t('head.forget_password'),
 })
 </script>

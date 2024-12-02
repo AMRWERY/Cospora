@@ -126,13 +126,18 @@ export const useAuthStore = defineStore("auth", {
         });
     },
 
-    async resetUserPassword(payload) {
-      const { email } = payload;
-      try {
-        await sendPasswordResetEmail(auth, email);
-      } catch (error) {
-        console.log(error);
-      }
+    resetUserPassword(payload) {
+      return new Promise(async (resolve, reject) => {
+        const { email } = payload;
+        try {
+          await sendPasswordResetEmail(auth, email);
+          console.log("Password reset email sent successfully.");
+          resolve("Success");
+        } catch (error) {
+          console.error("Failed to send password reset email:", error);
+          reject(error);
+        }
+      });
     },
 
     //sign up & sign in with google

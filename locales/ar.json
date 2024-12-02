@@ -18,13 +18,23 @@
     "forget_your_password": "نسيت كلمة المرور؟",
     "successfully_logged_in": "تم تسجيل الدخول بنجاح!",
     "your_account_has_been_successfully_logged_in": "تم تسجيل دخول حسابك بنجاح.",
-    "login_failed_please_check_your_information_and_try_again": "فشل تسجيل الدخول. يرجى التحقق من معلوماتك والمحاولة مرة أخرى."
+    "login_failed_please_check_your_information_and_try_again": "فشل تسجيل الدخول. يرجى التحقق من معلوماتك والمحاولة مرة أخرى.",
+    "returning_customer": "عميل عائد",
+    "if_you_have_an_account_with_us_please_log_in": "إذا كان لديك حساب معنا، يرجى تسجيل الدخول.",
+    "we_will_send_you_an_email_to_reset_your_password": "سنرسل لك بريدًا إلكترونيًا لإعادة تعيين كلمة المرور الخاصة بك.",
+    "reset_password_failed_please_check_your_information_and_try_again": "فشل إعادة تعيين كلمة المرور، يرجى التحقق من معلوماتك والمحاولة مرة أخرى.",
+    "or": "أو",
+    "successfully_reset_password": "تمت إعادة تعيين كلمة المرور بنجاح!",
+    "your_password_has_been_successfully_reset": "تمت إعادة تعيين كلمة المرور الخاصة بك بنجاح"
   },
   "btn": {
     "loading": "جار التحميل"
   },
   "head": {
-    "register": "انشاء حساب جديد"
+    "register": "انشاء حساب جديد",
+    "reset_password": "إعادة تعيين كلمة المرور",
+    "cancel": "إلغاء",
+    "forget_password": "استعاده كلمة المرور"
   },
   "alert": {
     "success": "نجاح",
