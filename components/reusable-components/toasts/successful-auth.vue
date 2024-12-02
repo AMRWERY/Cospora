@@ -2,7 +2,7 @@
   <div>
     <transition name="toast-slide" @before-leave="beforeLeave" @after-leave="afterLeave">
       <div v-if="visible"
-        class="fixed flex items-center w-full max-w-md p-4 space-x-4 text-white bg-blue-500 rounded-lg shadow-lg bottom-5 left-5">
+        class="fixed flex items-center w-full max-w-md p-4 text-white bg-blue-500 rounded-lg shadow-lg space-s-4 bottom-5 start-5">
         <div class="bg-blue-500 rounded-full">
           <icon :name="icon" class="w-10 h-10 text-white" />
         </div>
@@ -12,8 +12,8 @@
           <p class="text-xs">{{ message }}</p>
         </div>
 
-        <button @click="hideToast" class="absolute mt-2 mr-2 text-white top-1 right-1 hover:text-gray-200">
-          <icon name="material-symbols:close-small" class="text-lg" />
+        <button @click="hideToast" class="absolute mt-2 text-white me-2 top-1 right-1 hover:text-gray-200">
+          <icon name="mdi:close" class="text-lg" />
         </button>
       </div>
     </transition>
@@ -38,7 +38,7 @@ const props = defineProps({
   },
   icon: {
     type: String,
-    default: 'material-symbols:check-circle',
+    default: 'mdi:check-circle',
   },
 });
 
