@@ -6,7 +6,7 @@
           <li class="inline-flex items-center">
             <nuxt-link to="/"
               class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-              <icon name="humbleicons:home" class="w-5 h-5 me-2.5" />
+              <icon name="material-symbols:home-outline-rounded" class="w-5 h-5 me-2.5" />
               Home
             </nuxt-link>
           </li>

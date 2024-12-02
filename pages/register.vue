@@ -39,6 +39,10 @@
         </div>
       </div>
     </div>
+
+    <!-- successful-auth alert -->
+    <successful-auth v-if="showToast" title="Account Created!" message="Your account has been successfully created."
+      @close="showToast = false" />
   </div>
 </template>
 
@@ -47,6 +51,7 @@ const store = useAuthStore()
 const loading = ref(false);
 const errorMessage = ref('');
 const router = useRouter()
+const showToast = ref(false);
 
 const data = ref({
   firstName: '',
@@ -64,9 +69,12 @@ const signUp = async () => {
       email: data.value.email,
       password: data.value.password,
     });
-    router.replace("/");
+    showToast.value = true;
+    setTimeout(() => {
+      router.replace('/');
+    }, 6000);
   } catch (error) {
-    console.error("Sign-up failed:", error);
+    // console.error("Sign-up failed:", error);
     errorMessage.value = "Sign-up failed. Please check your information and try again.";
     router.replace("/register");
   } finally {

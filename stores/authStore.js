@@ -75,53 +75,42 @@ export const useAuthStore = defineStore("auth", {
     },
 
     userSignIn(payload) {
-      const router = useRouter();
-      const { email, password } = payload;
-      signInWithEmailAndPassword(auth, email, password)
-        .then(async (userCredential) => {
-          const user = userCredential.user;
-          if (user) {
-            this.isAuthenticated = true;
-            sessionStorage.setItem("isAuthenticated", true);
-            sessionStorage.setItem("password", password);
-            sessionStorage.setItem("email", email);
-            router.replace("/");
-            setTimeout(() => {
-              location.reload();
-            }, 500);
-            try {
-              const usersCollection = collection(db, "users");
-              const q = query(
-                usersCollection,
-                where("email", "==", user.email)
-              );
-              const querySnapshot = await getDocs(q);
-              if (!querySnapshot.empty) {
-                const userData = querySnapshot.docs[0].data();
-                this.firstName = userData.firstName;
-                sessionStorage.setItem("firstName", userData.firstName);
-                sessionStorage.setItem("username", userData.username);
-                sessionStorage.setItem("userId", user.uid);
-              } else {
-                console.log("User data not found in Firestore");
+      return new Promise((resolve, reject) => {
+        const { email, password } = payload;
+        signInWithEmailAndPassword(auth, email, password)
+          .then(async (userCredential) => {
+            const user = userCredential.user;
+            if (user) {
+              this.isAuthenticated = true;
+              sessionStorage.setItem("isAuthenticated", true);
+              sessionStorage.setItem("email", email);
+              try {
+                const usersCollection = collection(db, "users");
+                const q = query(
+                  usersCollection,
+                  where("email", "==", user.email)
+                );
+                const querySnapshot = await getDocs(q);
+                if (!querySnapshot.empty) {
+                  const userData = querySnapshot.docs[0].data();
+                  this.firstName = userData.firstName;
+                  sessionStorage.setItem("firstName", userData.firstName);
+                  sessionStorage.setItem("username", userData.username);
+                  sessionStorage.setItem("userId", user.uid);
+                } else {
+                  console.log("User data not found in Firestore");
+                }
+              } catch (error) {
+                reject(error);
               }
-            } catch (error) {
-              console.log("Error fetching user data from Firestore:", error);
+            } else {
+              reject("User not authenticated");
             }
-            getIdToken(user)
-              .then((token) => {
-                sessionStorage.setItem("userToken", token);
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-          } else {
-            router.replace("/sign-up");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
     },
 
     logout() {

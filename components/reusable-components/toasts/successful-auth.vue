@@ -1,18 +1,19 @@
 <template>
   <div>
     <transition name="toast-slide" @before-leave="beforeLeave" @after-leave="afterLeave">
-      <div v-if="isToastVisible"
+      <div v-if="visible"
         class="fixed flex items-center w-full max-w-md p-4 space-x-4 text-white bg-blue-500 rounded-lg shadow-lg bottom-5 left-5">
         <div class="bg-blue-500 rounded-full">
-          <icon name="mdi:login" class="w-10 h-10 text-white" />
-        </div>
-        <div class="flex-1 space-y-2">
-          <p class="text-sm font-semibold">Login Successful</p>
-          <p class="text-xs">You have successfully logged in. Welcome back!</p>
+          <icon :name="icon" class="w-10 h-10 text-white" />
         </div>
 
-        <button @click="closeToast" class="absolute mt-2 mr-2 text-white top-1 right-1 hover:text-gray-200">
-          <icon name="material-symbols:close" class="text-lg" />
+        <div class="flex-1 space-y-2">
+          <p class="text-sm font-semibold">{{ title }}</p>
+          <p class="text-xs">{{ message }}</p>
+        </div>
+
+        <button @click="hideToast" class="absolute mt-2 mr-2 text-white top-1 right-1 hover:text-gray-200">
+          <icon name="material-symbols:close-small" class="text-lg" />
         </button>
       </div>
     </transition>
@@ -20,15 +21,36 @@
 </template>
 
 <script setup>
-const isToastVisible = ref(true)
+const props = defineProps({
+  title: {
+    type: String,
+    default: 'Success',
+  },
+  message: {
+    type: String,
+    default: 'Operation completed successfully.',
+  },
+  duration: {
+    type: Number,
+    default: 6000,
+  },
+  icon: {
+    type: String,
+    default: 'material-symbols:check-circle',
+  },
+});
 
-const closeToast = () => {
-  isToastVisible.value = false
+const emit = defineEmits(['close']);
+const visible = ref(true);
+
+const hideToast = () => {
+  visible.value = false;
+  emit('close');
 };
 
 setTimeout(() => {
-  isToastVisible.value = false
-}, 5000)
+  hideToast();
+}, props.duration);
 
 const beforeLeave = (el) => {
   el.style.transition = "transform 0.5s ease-in-out, opacity 0.5s ease-in-out";
