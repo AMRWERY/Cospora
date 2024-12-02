@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-show="isLoading" class="fixed top-0 left-0 z-50 w-full h-1 transition-all duration-300 bg-blue-500"
+    <div v-show="isLoading" class="fixed top-0 start-0 z-50 w-full h-1 transition-all duration-300 bg-blue-500"
       :style="{ width: progress + '%' }"></div>
   </div>
 </template>

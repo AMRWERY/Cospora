@@ -78,7 +78,7 @@ const registrationSchema = [
         validation: "required|password|length:6,7",
         outerClass:
           "relative py-2 text-gray-800 transition duration-100 rounded ring-indigo-300 focus:ring",
-        innerClass: "outline-none bg-gray-50 border w-[400px] pr-10",
+        innerClass: "outline-none bg-gray-50 border w-[400px] pe-10",
       },
       {
         $el: "button",

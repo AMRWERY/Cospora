@@ -181,7 +181,7 @@
             <div class="relative flex items-center">
               <div class="relative hidden w-48 max-w-xs md:block">
                 <input type="text" placeholder="Search"
-                  class="w-48 py-2 pr-10 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md ms-5 ps-3" />
+                  class="w-48 py-2 pe-10 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md ms-5 ps-3" />
                 <icon name="heroicons:magnifying-glass" size="20px"
                   class="absolute text-gray-500 transform -translate-y-1/2 -end-2 top-1/2" />
               </div>

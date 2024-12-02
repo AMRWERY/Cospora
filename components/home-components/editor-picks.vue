@@ -13,19 +13,19 @@
           <div class="relative flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
             <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
               <div class="relative w-full h-full">
-                <img class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
+                <img class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
                   :src="card.imgOne" />
                 <img
-                  class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+                  class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
                   :src="card.imgTwo" />
               </div>
-              <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 left-2">
+              <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 start-2">
                 <p v-if="card.sale" class="px-2 py-1 text-white bg-red-500 rounded">Sale</p>
                 <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="card.new">New</p>
               </div>
             </nuxt-link>
 
-            <button type="button" class="absolute z-10 mt-5 rounded-full top-2 right-5"
+            <button type="button" class="absolute z-10 mt-5 rounded-full top-2 end-5"
               @click.stop="toggleFavorite(index)">
               <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
                 :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />

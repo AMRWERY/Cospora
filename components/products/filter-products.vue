@@ -175,7 +175,7 @@
               </button>
             </div>
             <div class="flex items-center space-s-4">
-              <HeadlessMenu as="div" class="relative inline-block text-left">
+              <HeadlessMenu as="div" class="relative inline-block text-start">
                 <div>
                   <HeadlessMenuButton
                     class="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
@@ -189,7 +189,7 @@
                   leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                   leave-to-class="transform scale-95 opacity-0">
                   <HeadlessMenuItems
-                    class="absolute right-0 z-10 w-20 mt-2 origin-top-right bg-white rounded-md shadow-2xl ring-1 ring-black/5 focus:outline-none">
+                    class="absolute end-0 z-10 w-20 mt-2 origin-top-right bg-white rounded-md shadow-2xl ring-1 ring-black/5 focus:outline-none">
                     <div class="py-1">
                       <HeadlessMenuItem v-for="option in sortPagesOptions" :key="option.name" v-slot="{ active }">
                         <nuxt-link :to="option.route"
@@ -201,7 +201,7 @@
                 </transition>
               </HeadlessMenu>
 
-              <HeadlessMenu as="div" class="relative inline-block text-left">
+              <HeadlessMenu as="div" class="relative inline-block text-start">
                 <div>
                   <HeadlessMenuButton
                     class="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
@@ -215,7 +215,7 @@
                   leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                   leave-to-class="transform scale-95 opacity-0">
                   <HeadlessMenuItems
-                    class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-2xl w-44 ring-1 ring-black/5 focus:outline-none">
+                    class="absolute end-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-2xl w-44 ring-1 ring-black/5 focus:outline-none">
                     <div class="py-1">
                       <HeadlessMenuItem v-for="option in sortByOptions" :key="option.name" v-slot="{ active }">
                         <nuxt-link :to="option.route"

@@ -25,9 +25,9 @@
               enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
               leave-to="opacity-0 scale-95">
               <HeadlessDialogPanel
-                class="w-full max-w-5xl p-4 overflow-y-scroll text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl max-h-[80vh] custom-scroll">
+                class="w-full max-w-5xl p-4 overflow-y-scroll text-start align-middle transition-all transform bg-white shadow-xl rounded-2xl max-h-[80vh] custom-scroll">
                 <button @click="closeModal"
-                  class="sticky z-50 flex items-center justify-center p-2 text-black bg-white rounded-full outline-none focus:outline-none top-1 left-1 hover:bg-black hover:text-white">
+                  class="sticky z-50 flex items-center justify-center p-2 text-black bg-white rounded-full outline-none focus:outline-none top-1 start-1 hover:bg-black hover:text-white">
                   <icon name="material-symbols:close" />
                 </button>
                 <section class="overflow-hidden bg-white font-poppins dark:bg-gray-800">
@@ -205,7 +205,7 @@
                             </button>
                           </div>
 
-                          <div class="flex items-center space-x-2 text-xs">
+                          <div class="flex items-center space-s-2 text-xs">
                             <icon name="entypo:eye" class="text-lg" />
                             <p>193 customers are viewing this product</p>
                           </div>

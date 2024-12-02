@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- Footer container -->
-    <footer class="text-center text-white bg-black lg:text-left">
-      <div class="py-10 mx-auto text-center md:text-left max-w-7xl">
+    <footer class="text-center text-white bg-black lg:text-start">
+      <div class="py-10 mx-auto text-center md:text-start max-w-7xl">
         <div class="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-5">
           <!-- Navigate section -->
           <div>
@@ -128,12 +128,12 @@
       <div class="p-6 mx-auto border-t-2 bg-black/5 border-neutral-50 max-w-7xl">
         <div class="grid grid-cols-1 gap-4 p-6 md:grid-cols-2">
           <!-- Column 1: Newsletter Signup -->
-          <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+          <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-s-4">
             <p class="text-lg font-semibold whitespace-nowrap">Sign up for our Newsletter</p>
             <div class="relative w-[240px] sm:max-w-sm">
-              <input type="email" placeholder="Your email address" class="w-full p-2 pr-10 text-gray-800 rounded-md" />
-              <span class="absolute inset-y-0 right-0 flex items-center pr-2">
-                <icon name="material-symbols:arrow-circle-right-rounded" class="w-6 h-6 p-1 text-black" />
+              <input type="email" placeholder="Your email address" class="w-full p-2 pe-10 text-gray-800 rounded-md" />
+              <span class="absolute inset-y-0 end-0 flex items-center pe-2">
+                <icon name="material-symbols:arrow-circle-end-rounded" class="w-6 h-6 p-1 text-black" />
               </span>
             </div>
           </div>

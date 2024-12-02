@@ -12,7 +12,7 @@
           <p class="text-xs">{{ message }}</p>
         </div>
 
-        <button @click="hideToast" class="absolute mt-2 text-white me-2 top-1 right-1 hover:text-gray-200">
+        <button @click="hideToast" class="absolute mt-2 text-white me-2 top-1 end-1 hover:text-gray-200">
           <icon name="mdi:close" class="text-lg" />
         </button>
       </div>

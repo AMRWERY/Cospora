@@ -3,7 +3,7 @@
     <!-- share via social media -->
     <div class="space-y-2 mt-7">
       <p class="text-base text-gray-700">Share my {{ itemName }} via:</p>
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center space-s-4">
         <SocialShare network="facebook" :styled="false" :label="false"
           class="p-0.5 text-white bg-blue-700 border rounded-md" />
         <SocialShare network="twitter" user="Amr" :hashtags="itemName" :styled="false" :label="false"
@@ -18,7 +18,7 @@
     </div>
 
     <!-- share via email only -->
-    <!-- <a href="mailto:?subject=My Wishlist&body=Check out my wishlist!" class="flex items-center space-x-2 mt-7">
+    <!-- <a href="mailto:?subject=My Wishlist&body=Check out my wishlist!" class="flex items-center space-s-2 mt-7">
         <icon name="ic:outline-mail" class="text-gray-700" size="19px" />
         <p class="text-[13px] text-gray-700">Share my Wishlist Via Email</p>
       </a> -->

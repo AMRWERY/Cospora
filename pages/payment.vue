@@ -114,7 +114,7 @@
             </div>
           </div>
 
-          <p class="mt-6 text-center text-gray-500 dark:text-gray-400 sm:mt-8 lg:text-left">
+          <p class="mt-6 text-center text-gray-500 dark:text-gray-400 sm:mt-8 lg:text-start">
             Payment processed by
             <nuxt-link to="" title=""
               class="font-medium underline text-primary-700 hover:no-underline dark:text-primary-500">Paddle</nuxt-link>

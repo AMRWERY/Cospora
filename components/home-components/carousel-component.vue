@@ -3,7 +3,7 @@
         <div id="carouselExampleIndicators" class="relative" data-twe-carousel-init data-twe-ride="carousel"
             data-twe-interval="3000" data-twe-keyboard="true">
             <!--Carousel indicators-->
-            <div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+            <div class="absolute bottom-0 start-0 end-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
                 data-twe-carousel-indicators>
                 <button type="button" data-twe-target="#carouselExampleIndicators" data-twe-slide-to="0"
                     data-twe-carousel-active
@@ -83,7 +83,7 @@
 
             <!--Carousel controls - prev item-->
             <button
-                class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                class="absolute bottom-0 start-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
                 type="button" data-twe-target="#carouselExampleIndicators" data-twe-slide="prev">
                 <span class="inline-block w-8 h-8">
                     <icon name="material-symbols:arrow-back-ios" class="w-6 h-6 text-black" />
@@ -93,7 +93,7 @@
             </button>
             <!--Carousel controls - next item-->
             <button
-                class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                class="absolute bottom-0 end-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
                 type="button" data-twe-target="#carouselExampleIndicators" data-twe-slide="next">
                 <span class="inline-block w-8 h-8">
                     <icon name="material-symbols:arrow-forward-ios-rounded" class="w-6 h-6 text-black" />
@@ -113,7 +113,7 @@
                         <h3 class="relative overflow-hidden text-xl font-semibold text-white capitalize">
                             {{ card.title }}
                             <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full">
+                                class="absolute bottom-0 start-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full">
                             </span>
                         </h3>
                     </div>

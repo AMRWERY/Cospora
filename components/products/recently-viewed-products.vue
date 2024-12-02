@@ -6,25 +6,25 @@
         <div class="relative group" v-for="(card, index) in products" :key="card">
           <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
             <div class="relative w-full h-full">
-              <img class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
+              <img class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
                 :src="card.imgOne" />
               <img
-                class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+                class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
                 :src="card.imgTwo" />
             </div>
-            <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 left-2">
+            <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 start-2">
               <p v-if="card.sale" class="px-2 py-1 text-white bg-red-500 rounded">Sale</p>
               <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="card.new">New</p>
             </div>
           </nuxt-link>
 
           <div class="transition-opacity opacity-0 group-hover:opacity-100">
-            <button type="button" class="absolute z-10 mt-5 rounded-full top-2 right-5"
+            <button type="button" class="absolute z-10 mt-5 rounded-full top-2 end-5"
               @click.stop="toggleFavorite(index)">
               <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
                 :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
             </button>
-            <button type="button" class="absolute z-10 rounded-full top-16 right-5" data-twe-toggle="tooltip"
+            <button type="button" class="absolute z-10 rounded-full top-16 end-5" data-twe-toggle="tooltip"
               title="Add to Compare" data-twe-placement="bottom" @click.stop="toggleCompare(index)">
               <icon :name="isCompare[index] ? 'ion:git-compare-sharp' : 'ion:ios-git-compare'" class="w-5 h-5"
                 :class="isCompare[index] ? 'text-red-400' : 'text-gray-500'" />

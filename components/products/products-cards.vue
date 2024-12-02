@@ -5,24 +5,24 @@
       <div class="relative group" v-for="(card, index) in products" :key="card">
         <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
           <div class="relative w-full h-full">
-            <img class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
+            <img class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
               :src="card.imgOne" />
             <img
-              class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+              class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
               :src="card.imgTwo" />
           </div>
-          <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 left-2">
+          <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 start-2">
             <p v-if="card.sale" class="px-2 py-1 text-white bg-red-500 rounded">Sale</p>
             <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="card.new">New</p>
           </div>
         </nuxt-link>
         <div class="transition-opacity opacity-0 group-hover:opacity-100">
-          <button type="button" class="absolute z-10 mt-5 rounded-full top-2 right-5"
+          <button type="button" class="absolute z-10 mt-5 rounded-full top-2 end-5"
             @click.stop="toggleFavorite(index)">
             <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
               :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
           </button>
-          <button type="button" class="absolute z-10 rounded-full top-16 right-5" data-twe-toggle="tooltip"
+          <button type="button" class="absolute z-10 rounded-full top-16 end-5" data-twe-toggle="tooltip"
             title="Add to Compare" data-twe-placement="bottom" @click.stop="toggleCompare(index)">
             <icon :name="isCompare[index] ? 'ion:git-compare-sharp' : 'ion:ios-git-compare'" class="w-5 h-5"
               :class="isCompare[index] ? 'text-red-400' : 'text-gray-500'" />
@@ -68,13 +68,13 @@
         <nuxt-link class="relative flex w-full mx-3 mt-3 overflow-hidden sm:w-1/2 md:w-1/4 h-60 rounded-xl group" to="">
           <div class="relative w-full h-full">
             <img
-              class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-100 group-hover:opacity-0"
+              class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-100 group-hover:opacity-0"
               :src="card.imgOne" />
             <img
-              class="absolute top-0 right-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+              class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
               :src="card.imgTwo" />
           </div>
-          <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 left-2">
+          <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 start-2">
             <p v-if="card.sale" class="px-2 py-1 text-white bg-red-500 rounded">Sale</p>
             <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="card.new">New</p>
           </div>
@@ -99,19 +99,19 @@
           </div>
 
           <!-- Action Buttons -->
-          <div class="flex items-center mt-4 space-x-6">
+          <div class="flex items-center mt-4 space-s-6">
             <button type="button"
               class="rounded-md bg-slate-900 px-12 py-2.5 text-center text-sm text-white hover:bg-gray-700 focus:bg-red-500 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 capitalize font-semibold">
               Select Options
             </button>
-            <button type="button" class="flex items-center space-x-2" @click.stop="toggleFavorite(index)">
+            <button type="button" class="flex items-center space-s-2" @click.stop="toggleFavorite(index)">
               <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
                 :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
               <span class="text-sm font-medium text-gray-700">
                 {{ isFavorite[index] ? 'Remove wishlist' : 'Add to wishlist' }}
               </span>
             </button>
-            <button type="button" class="flex items-center space-x-2" @click.stop="toggleCompare(index)">
+            <button type="button" class="flex items-center space-s-2" @click.stop="toggleCompare(index)">
               <icon :name="isCompare[index] ? 'ion:git-compare-sharp' : 'ion:ios-git-compare'" class="w-5 h-5"
                 :class="isCompare[index] ? 'text-red-400' : 'text-gray-500'" />
               <span class="text-sm font-medium text-gray-700">

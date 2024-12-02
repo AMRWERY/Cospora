@@ -18,7 +18,7 @@
                   class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
               </div>
               <div
-                class="absolute bottom-0 w-full p-4 text-center transform -translate-x-1/2 translate-y-0 bg-black bg-opacity-50 left-1/2">
+                class="absolute bottom-0 w-full p-4 text-center transform -translate-x-1/2 translate-y-0 bg-black bg-opacity-50 start-1/2">
                 <p class="text-[10px] font-semibold text-gray-200">{{ card.subtitle }}</p>
                 <h2 class="mt-2 mb-4 text-lg font-semibold text-white">{{ card.title }}</h2>
                 <span class="text-[9px] line-clamp-3 leading-loose text-gray-200">{{ card.content }}</span>

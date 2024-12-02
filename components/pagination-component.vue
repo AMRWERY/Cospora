@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav aria-label="Page navigation example">
-      <ul class="inline-flex -space-x-px text-sm">
+      <ul class="inline-flex -space-s-px text-sm">
         <li>
           <nuxt-link to=""
             class="flex items-center justify-center h-8 px-3 leading-tight text-gray-500 bg-white border border-gray-300 cursor-pointer ms-0 border-e-0 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</nuxt-link>

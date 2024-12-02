@@ -115,7 +115,7 @@
             </div>
 
             <div class="p-4">
-              <div class="flex items-center space-x-2">
+              <div class="flex items-center space-s-2">
                 <icon name="solar:shield-bold-duotone" />
                 <p class="m-0 text-gray-700">Secure Shopping Guarantee.</p>
               </div>

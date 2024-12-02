@@ -13,13 +13,13 @@
               enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
               leave-to="opacity-0 scale-95">
               <HeadlessDialogPanel
-                class="w-full max-w-xl p-3 overflow-y-auto text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl scrollbar-hidden max-h-[80vh]">
+                class="w-full max-w-xl p-3 overflow-y-auto text-start align-middle transition-all transform bg-white shadow-xl rounded-2xl scrollbar-hidden max-h-[80vh]">
 
                 <!-- Image Container with Close Button -->
                 <div class="relative">
                   <img src="https://justfields.com/storage/projects/7M5rV059/newsletter.jpg"
                     class="object-cover w-full mb-4 rounded-lg h-96" />
-                  <button @click="closeModal" class="absolute text-black rounded-full top-2 right-2">
+                  <button @click="closeModal" class="absolute text-black rounded-full top-2 end-2">
                     <icon name="ci:close-small" class="w-8 h-8" />
                   </button>
                 </div>
@@ -35,10 +35,10 @@
                 <div class="w-full max-w-sm min-w-[200px] mx-auto mt-4">
                   <div class="relative">
                     <input type="email"
-                      class="w-full py-3 pl-3 pr-16 text-sm transition duration-300 bg-transparent border rounded-md shadow-sm placeholder:text-slate-400 text-slate-700 border-slate-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
+                      class="w-full py-3 pl-3 pe-16 text-sm transition duration-300 bg-transparent border rounded-md shadow-sm placeholder:text-slate-400 text-slate-700 border-slate-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
                       placeholder="Your Email Address" />
                     <button
-                      class="absolute right-1 top-1 rounded bg-black py-2 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                      class="absolute end-1 top-1 rounded bg-black py-2 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                       type="submit">
                       Submit
                     </button>

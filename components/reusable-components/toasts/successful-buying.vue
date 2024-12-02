@@ -2,7 +2,7 @@
   <div>
     <transition name="toast-fade" @before-leave="beforeLeave" @after-leave="afterLeave">
       <div v-if="isToastVisible"
-        class="fixed flex items-center w-full max-w-md p-4 space-x-4 bg-white rounded-lg shadow-lg bottom-5 left-5">
+        class="fixed flex items-center w-full max-w-md p-4 space-s-4 bg-white rounded-lg shadow-lg bottom-5 start-5">
         <img src="https://justfields.com/storage/projects/7M5rV059/product-01.jpg"
           class="object-cover w-20 h-20 rounded-full">
         <div class="flex-1 space-y-2">
@@ -12,7 +12,7 @@
           <p class="text-sm text-gray-600">about 50 minutes ago</p>
         </div>
 
-        <button @click="closeToast" class="absolute mt-2 mr-2 text-gray-500 top-1 right-1 hover:text-gray-700">
+        <button @click="closeToast" class="absolute mt-2 mr-2 text-gray-500 top-1 end-1 hover:text-gray-700">
           <icon name="material-symbols:close" class="text-lg" />
         </button>
       </div>

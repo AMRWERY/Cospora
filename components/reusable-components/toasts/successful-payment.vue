@@ -2,7 +2,7 @@
   <div>
     <transition name="toast-slide" @before-leave="beforeLeave" @after-leave="afterLeave">
       <div v-if="isToastVisible"
-        class="fixed flex items-center w-full max-w-md p-4 space-x-4 text-white bg-green-500 rounded-lg shadow-lg bottom-5 left-5">
+        class="fixed flex items-center w-full max-w-md p-4 space-s-4 text-white bg-green-500 rounded-lg shadow-lg bottom-5 start-5">
         <div class="bg-green-500 rounded-full">
           <icon name="mdi:check-circle" class="w-10 h-10 text-white" />
         </div>
@@ -11,7 +11,7 @@
           <p class="text-xs">Your payment was processed successfully. Thank you for your purchase!</p>
         </div>
 
-        <button @click="closeToast" class="absolute mt-2 mr-2 text-white top-1 right-1 hover:text-gray-200">
+        <button @click="closeToast" class="absolute mt-2 mr-2 text-white top-1 end-1 hover:text-gray-200">
           <icon name="material-symbols:close" class="text-lg" />
         </button>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="showCookiesToast"
-      class="fixed flex flex-col p-7 space-y-4 text-white rounded-lg shadow-lg bottom-2 right-2 w-96 bg-black/70 h-[200px]">
+      class="fixed flex flex-col p-7 space-y-4 text-white rounded-lg shadow-lg bottom-2 end-2 w-96 bg-black/70 h-[200px]">
       <div>
         <p class="text-sm">
           The cookie settings on this website are set to 'allow all cookies' to give you the very best experience.

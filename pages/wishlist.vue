@@ -6,7 +6,7 @@
       <h2 class="text-2xl font-bold text-gray-800">Wishlist</h2>
       <div class="overflow-x-auto">
         <table class="w-[1000px] mt-12 border-collapse divide-y mx-auto">
-          <thead class="text-left bg-gray-50 whitespace-nowrap">
+          <thead class="text-start bg-gray-50 whitespace-nowrap">
             <tr class="">
               <th class="p-2 text-base font-medium text-gray-600">Product Image</th>
               <th class="p-2 text-base font-medium text-gray-600">Product Name</th>

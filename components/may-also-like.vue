@@ -8,13 +8,13 @@
           class="p-3 space-y-6 overflow-hidden bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800">
           <nuxt-link to="" class="relative flex overflow-hidden rounded group">
             <div class="relative mx-auto h-44 w-44">
-              <img class="absolute top-0 right-0 object-cover transition-all duration-500 ease-in-out h-44 w-44"
+              <img class="absolute top-0 end-0 object-cover transition-all duration-500 ease-in-out h-44 w-44"
                 :src="product.imgOne" />
               <img
-                class="absolute top-0 right-0 object-cover transition-all duration-500 ease-in-out opacity-0 h-44 w-44 group-hover:opacity-100"
+                class="absolute top-0 end-0 object-cover transition-all duration-500 ease-in-out opacity-0 h-44 w-44 group-hover:opacity-100"
                 :src="product.imgTwo" />
             </div>
-            <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 left-2">
+            <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 start-2">
               <p v-if="product.sale" class="px-2 py-1 text-white bg-red-500 rounded">Sale</p>
               <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="product.new">New</p>
             </div>
