@@ -25,5 +25,9 @@
   },
   "head": {
     "register": "انشاء حساب جديد"
+  },
+  "alert": {
+    "success": "نجاح",
+    "operation_completed_successfully": "تمت العملية بنجاح"
   }
 }

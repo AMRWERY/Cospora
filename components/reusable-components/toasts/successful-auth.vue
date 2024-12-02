@@ -21,14 +21,16 @@
 </template>
 
 <script setup>
+const { t } = useI18n()
+
 const props = defineProps({
   title: {
     type: String,
-    default: 'Success',
+    default: t('alert.success'),
   },
   message: {
     type: String,
-    default: 'Operation completed successfully.',
+    default: t('alert.operation_completed_successfully'),
   },
   duration: {
     type: Number,

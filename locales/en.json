@@ -25,5 +25,9 @@
   },
   "head": {
     "register": "Register"
+  },
+  "alert": {
+    "success": "Success",
+    "operation_completed_successfully.": "Operation completed successfully."
   }
 }
