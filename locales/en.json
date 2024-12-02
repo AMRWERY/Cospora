@@ -28,6 +28,6 @@
   },
   "alert": {
     "success": "Success",
-    "operation_completed_successfully.": "Operation completed successfully."
+    "operation_completed_successfully": "Operation completed successfully."
   }
 }

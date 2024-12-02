@@ -26,11 +26,11 @@ const { t } = useI18n()
 const props = defineProps({
   title: {
     type: String,
-    default: t('alert.success'),
+    default: 'Success',
   },
   message: {
     type: String,
-    default: t('alert.operation_completed_successfully'),
+    default: 'Operation completed successfully.',
   },
   duration: {
     type: Number,
@@ -44,6 +44,15 @@ const props = defineProps({
 
 const emit = defineEmits(['close']);
 const visible = ref(true);
+
+// Set translated values after setup
+const title = ref(t('alert.success'));
+const message = ref(t('alert.operation_completed_successfully'));
+
+watchEffect(() => {
+  title.value = t('alert.success');
+  message.value = t('alert.operation_completed_successfully');
+});
 
 const hideToast = () => {
   visible.value = false;
