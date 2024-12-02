@@ -33,6 +33,7 @@ export const useAuthStore = defineStore("auth", {
       password: "",
       userToken: null,
       isUserLoggedIn: false,
+      suggestions: [],
     };
   },
 
@@ -192,11 +193,42 @@ export const useAuthStore = defineStore("auth", {
         router.replace("/");
       });
     },
+
+    async checkNameAvailability(name) {
+      if (!name.trim()) {
+        this.suggestions = [];
+        return;
+      }
+      try {
+        const usersCollection = collection(db, "users");
+        const q = query(usersCollection, where("firstName", "==", name));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+          const recommendedSuffixes = [
+            "123",
+            "_Pro",
+            "_2024",
+            "TheReal",
+            "_Super",
+          ];
+          this.suggestions = recommendedSuffixes.map(
+            (suffix) => `${name}${suffix}`
+          );
+        } else {
+          this.suggestions = [];
+        }
+      } catch (error) {
+        console.error("Error checking name availability:", error);
+        this.suggestions = [];
+      }
+    },
   },
 
   getters: {
     getUsername: (state) => state.firstName,
     getGoogleUsername: (state) => state.username,
     getUserEmail: (state) => state.email,
+    getSuggestions: (state) => state.suggestions,
   },
 });

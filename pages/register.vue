@@ -13,9 +13,21 @@
           }}</p>
           <div class="flex flex-col gap-2">
             <client-only>
-              <dynamic-inputs v-model="data.firstName" :label="t('form.first_name')"
-                :placeholder="t('form.enter_your_first_name')" type="text"
-                :validation="('required|contains_numeric|length:3,10')" :required="true" />
+              <div class="relative mb-3">
+                <dynamic-inputs v-model="data.firstName" :label="t('form.first_name')"
+                  :placeholder="t('form.enter_your_first_name')" type="text"
+                  :validation="('required|contains_numeric|length:3,10')" :required="true" />
+                <p v-if="store.suggestions.length" class="mt-2 text-sm text-red-500">
+                  {{ $t('form.name_is_already_taken_please_choose_one_of_the_suggestions_below') }}
+                </p>
+                <div v-if="store.suggestions.length" class="flex flex-wrap gap-2 mt-2">
+                  <span v-for="(suggestion, index) in store.suggestions" :key="index"
+                    @click="data.firstName = suggestion"
+                    class="px-3 py-1 text-sm text-gray-700 transition bg-blue-100 rounded-full cursor-pointer hover:bg-blue-200">
+                    {{ suggestion }}
+                  </span>
+                </div>
+              </div>
               <dynamic-inputs v-model="data.lastName" :label="t('form.last_name')"
                 :placeholder="t('form.enter_your_last_name')" type="text"
                 :validation="('required|contains_numeric|length:3,10')" :required="true" />
@@ -86,6 +98,12 @@ const signUp = async () => {
     loading.value = false;
   }
 };
+
+const firstNameRef = toRef(data.value, 'firstName');
+
+watch(firstNameRef, (newName) => {
+  store.checkNameAvailability(newName);
+});
 
 useHead({
   titleTemplate: t('head.register'),

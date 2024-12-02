@@ -25,7 +25,8 @@
     "reset_password_failed_please_check_your_information_and_try_again": "فشل إعادة تعيين كلمة المرور، يرجى التحقق من معلوماتك والمحاولة مرة أخرى.",
     "or": "أو",
     "successfully_reset_password": "تمت إعادة تعيين كلمة المرور بنجاح!",
-    "your_password_has_been_successfully_reset": "تمت إعادة تعيين كلمة المرور الخاصة بك بنجاح"
+    "your_password_has_been_successfully_reset": "تمت إعادة تعيين كلمة المرور الخاصة بك بنجاح",
+    "name_is_already_taken_please_choose_one_of_the_suggestions_below": "الاسم مُستخدم بالفعل. الرجاء اختيار أحد الاقتراحات أدناه:"
   },
   "btn": {
     "loading": "جار التحميل"
