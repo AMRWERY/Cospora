@@ -45,7 +45,7 @@
             </nuxt-link>
             <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center">
               <p>
-                <span class="mr-2 text-sm text-gray-400 line-through" v-if="card.discount">${{ card.discount }}</span>
+                <span class="me-2 text-sm text-gray-400 line-through" v-if="card.discount">${{ card.discount }}</span>
                 <span class="text-sm text-red-700">${{ card.price }}</span>
               </p>
             </div>

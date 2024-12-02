@@ -62,16 +62,16 @@
                               Long-Sleeved T-shirt
                             </h2>
                             <div class="flex">
-                              <div class="ml-auto text-[#e7040f] flex">
-                                <icon name="fa-solid:fire" size="13px" class="mr-2" />
+                              <div class="ms-auto text-[#e7040f] flex">
+                                <icon name="fa-solid:fire" size="13px" class="me-2" />
                                 <p class="text-xs">15 sold in last 18 hours</p>
                               </div>
                             </div>
                             <div class="my-8">
-                              <p class="text-sm font-semibold">Brand: <span class="ml-20 font-normal">Chanel</span></p>
-                              <p class="text-sm font-semibold">Product Code: <span class="font-normal ml-7">DP3</span>
+                              <p class="text-sm font-semibold">Brand: <span class="ms-20 font-normal">Chanel</span></p>
+                              <p class="text-sm font-semibold">Product Code: <span class="font-normal ms-7">DP3</span>
                               </p>
-                              <p class="text-sm font-semibold">Availability: <span class="ml-12 font-normal">in
+                              <p class="text-sm font-semibold">Availability: <span class="ms-12 font-normal">in
                                   stock</span></p>
                             </div>
                             <div class="mb-5">
@@ -79,19 +79,19 @@
                             </div>
                             <div class="pb-6 mb-4">
                               <div class="flex flex-wrap -mb-2">
-                                <nuxt-link to="" class="w-16 p-4 mb-2 mr-4 text-xs text-center border rounded-full">
+                                <nuxt-link to="" class="w-16 p-4 mb-2 me-4 text-xs text-center border rounded-full">
                                   <span class="block">00</span>
                                   <span class="block">days</span>
                                 </nuxt-link>
-                                <nuxt-link to="" class="w-16 p-4 mb-2 mr-4 text-xs text-center border rounded-full">
+                                <nuxt-link to="" class="w-16 p-4 mb-2 me-4 text-xs text-center border rounded-full">
                                   <span class="block">00</span>
                                   <span class="block">hours</span>
                                 </nuxt-link>
-                                <nuxt-link to="" class="w-16 p-4 mb-2 mr-4 text-xs text-center border rounded-full">
+                                <nuxt-link to="" class="w-16 p-4 mb-2 me-4 text-xs text-center border rounded-full">
                                   <span class="block">00</span>
                                   <span class="block">mins</span>
                                 </nuxt-link>
-                                <nuxt-link to="" class="w-16 p-4 mb-2 mr-4 text-xs text-center border rounded-full">
+                                <nuxt-link to="" class="w-16 p-4 mb-2 me-4 text-xs text-center border rounded-full">
                                   <span class="block">00</span>
                                   <span class="block">secs</span>
                                 </nuxt-link>
@@ -99,8 +99,8 @@
                             </div>
                             <p class="inline-flex items-center text-2xl font-semibold text-gray-700 dark:text-gray-400">
                               <span class="text-gray-500 line-through dark:text-gray-400">$89.00</span>
-                              <span class="ml-3 text-red-600">$39.00</span>
-                              <span class="px-2 py-1 ml-3 text-sm text-white bg-red-500">-30%</span>
+                              <span class="ms-3 text-red-600">$39.00</span>
+                              <span class="px-2 py-1 ms-3 text-sm text-white bg-red-500">-30%</span>
                             </p>
                           </div>
                           <div class="mb-6 -mt-7">
@@ -112,10 +112,10 @@
                           <div class="mb-8">
                             <h2 class="mb-2 text-sm font-bold">Color <span class="text-red-500">*</span></h2>
                             <div class="flex flex-wrap -mb-2">
-                              <button class="p-1 mb-2 mr-2 border border-transparent rounded-full">
+                              <button class="p-1 mb-2 me-2 border border-transparent rounded-full">
                                 <div class="w-8 h-8 bg-red-600 rounded-full"></div>
                               </button>
-                              <button class="p-1 mb-2 mr-2 border border-transparent rounded-full">
+                              <button class="p-1 mb-2 me-2 border border-transparent rounded-full">
                                 <div class="w-8 h-8 bg-green-600 rounded-full"></div>
                               </button>
                               <button class="p-1 mb-2 border border-transparent rounded-full">
@@ -170,7 +170,7 @@
                           <div class="mb-8">
                             <h2 class="mb-2 text-sm font-bold">Quantity:</h2>
                             <div class="flex flex-wrap items-center">
-                              <div class="mb-4 mr-4 lg:mb-0">
+                              <div class="mb-4 me-4 lg:mb-0">
                                 <div class="w-28">
                                   <div class="relative flex flex-row w-full h-10 bg-transparent rounded-lg ">
                                     <button

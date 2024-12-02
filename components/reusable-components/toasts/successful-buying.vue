@@ -12,7 +12,7 @@
           <p class="text-sm text-gray-600">about 50 minutes ago</p>
         </div>
 
-        <button @click="closeToast" class="absolute mt-2 mr-2 text-gray-500 top-1 end-1 hover:text-gray-700">
+        <button @click="closeToast" class="absolute mt-2 me-2 text-gray-500 top-1 end-1 hover:text-gray-700">
           <icon name="material-symbols:close" class="text-lg" />
         </button>
       </div>

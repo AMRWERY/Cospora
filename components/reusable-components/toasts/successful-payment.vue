@@ -11,7 +11,7 @@
           <p class="text-xs">Your payment was processed successfully. Thank you for your purchase!</p>
         </div>
 
-        <button @click="closeToast" class="absolute mt-2 mr-2 text-white top-1 end-1 hover:text-gray-200">
+        <button @click="closeToast" class="absolute mt-2 me-2 text-white top-1 end-1 hover:text-gray-200">
           <icon name="material-symbols:close" class="text-lg" />
         </button>
       </div>

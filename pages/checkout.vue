@@ -37,20 +37,20 @@
               <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Details</h2>
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                  <label for="your_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Your name
+                  <label for="your_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name
                   </label>
                   <input type="text" id="your_name"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="Bonnie Green" required />
+                    placeholder="Amr Mohamed" required />
                 </div>
 
                 <div>
-                  <label for="your_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Your
+                  <label for="your_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                     email <span class="text-red-500">*</span>
                   </label>
                   <input type="email" id="your_email"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="name@flowbite.com" required />
+                    placeholder="name@cospora.com" required />
                 </div>
 
                 <div>
@@ -167,7 +167,7 @@
                     Email</label>
                   <input type="email" id="email"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="name@flowbite.com" required />
+                    placeholder="name@cospora.com" required />
                 </div>
 
                 <div>
@@ -176,7 +176,7 @@
                   </label>
                   <input type="text" id="company_name"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="Flowbite LLC" required />
+                    placeholder="Cospora LLC" required />
                 </div>
 
                 <div>
@@ -335,7 +335,7 @@
             </div>
 
             <div>
-              <label for="voucher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Enter
+              <label for="voucher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter
                 a gift card, voucher or promotional code </label>
               <div class="flex items-center max-w-md gap-4">
                 <input type="text" id="voucher"

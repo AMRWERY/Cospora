@@ -8,10 +8,10 @@
           class="p-3 space-y-6 overflow-hidden bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800">
           <nuxt-link to="" class="relative flex overflow-hidden rounded group">
             <div class="relative mx-auto h-44 w-44">
-              <img class="absolute top-0 end-0 object-cover transition-all duration-500 ease-in-out h-44 w-44"
+              <img class="absolute top-0 object-cover transition-all duration-500 ease-in-out end-0 h-44 w-44"
                 :src="product.imgOne" />
               <img
-                class="absolute top-0 end-0 object-cover transition-all duration-500 ease-in-out opacity-0 h-44 w-44 group-hover:opacity-100"
+                class="absolute top-0 object-cover transition-all duration-500 ease-in-out opacity-0 end-0 h-44 w-44 group-hover:opacity-100"
                 :src="product.imgTwo" />
             </div>
             <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 start-2">
@@ -40,7 +40,7 @@
             </button>
             <button type="button"
               class="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-              <icon name="material-symbols-light:add-shopping-cart-rounded" class="w-5 h-5 me-0.5" />
+              <icon name="material-symbols-light:add-shopping-cart-rounded" class="w-5 h-5 me-1" />
               Add to cart
             </button>
           </div>

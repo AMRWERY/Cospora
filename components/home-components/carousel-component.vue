@@ -20,7 +20,7 @@
             <!--Carousel items-->
             <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                 <!--First item-->
-                <div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                <div class="relative float-left -me-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-twe-carousel-item data-twe-carousel-active>
                     <img src="https://justfields.com/storage/projects/7M5rV059/home-01.jpg"
                         class="block mx-auto w-7xl" />
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <!--Second item-->
-                <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                <div class="relative float-left -me-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-twe-carousel-item>
                     <img src="https://justfields.com/storage/projects/7M5rV059/home-03.jpg"
                         class="block mx-auto w-7xl" />
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <!--Third item-->
-                <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                <div class="relative float-left -me-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                     data-twe-carousel-item>
                     <img src="https://justfields.com/storage/projects/7M5rV059/home-02.jpg"
                         class="block mx-auto w-7xl" />
