@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="isNavVisible">
-      <nav class="fixed top-0 left-0 right-0 py-1.5 flex justify-center z-50 whitespace-nowrap nav-img">
-        <icon name="ci:close-sm" @click="isNavVisible = false" class="absolute text-white cursor-pointer right-4" />
+      <nav class="fixed top-0 start-0 end-0 py-1.5 flex justify-center z-50 whitespace-nowrap nav-img">
+        <icon name="ci:close-sm" @click="isNavVisible = false" class="absolute text-white cursor-pointer end-4" />
         <p class="mt-0.5 text-sm text-white nav-title capitalize tracking-wider font-normal">
           Sale up to 70% off on selected items. End in: 00D.00H.00M.00S
         </p>
@@ -12,7 +12,7 @@
     <HeadlessDisclosure as="nav" class="mt-10 bg-[#f7f7f7]" v-slot="{ open }">
       <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
-          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <div class="absolute inset-y-0 flex items-center start-0 sm:hidden">
             <!-- Mobile menu button-->
             <HeadlessDisclosureButton @click="toggleSidebar"
               class="relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md">
@@ -24,13 +24,13 @@
           </div>
           <!-- Left Section - Currency Menu -->
           <div class="flex items-center justify-start flex-1">
-            <HeadlessMenu as="div" class="relative hidden ml-3 sm:flex">
-              <div class="flex items-center space-x-5">
+            <HeadlessMenu as="div" class="relative hidden ms-3 sm:flex">
+              <div class="flex items-center space-s-5">
                 <!-- Currency Menu Button -->
                 <ClientOnly>
                   <HeadlessMenuButton class="relative flex items-center text-sm">
                     <span class="sr-only">Open currency menu</span>
-                    <span class="flex items-center space-x-2">
+                    <span class="flex items-center space-s-2">
                       <p class="text-xs">USD</p>
                       <icon name="ep:arrow-down" size="15px" />
                     </span>
@@ -38,7 +38,7 @@
                 </ClientOnly>
 
                 <!-- Find A Store Section -->
-                <span class="flex items-center space-x-2">
+                <span class="flex items-center space-s-2">
                   <icon name="ep:location" size="30px" />
                   <p class="text-xs capitalize">Find A Store</p>
                 </span>
@@ -49,11 +49,11 @@
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                 leave-to-class="transform scale-95 opacity-0">
                 <HeadlessMenuItems
-                  class="absolute left-0 z-10 w-32 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  class="absolute z-10 w-32 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg start-0 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <HeadlessMenuItem v-slot="{ active }">
                     <nuxt-link to=""
                       :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
-                      <span class="flex items-center space-x-2">
+                      <span class="flex items-center space-s-2">
                         <icon name="flagpack:us" size="15px" />
                         <p class="text-xs">USD</p>
                       </span>
@@ -62,7 +62,7 @@
                   <HeadlessMenuItem v-slot="{ active }">
                     <nuxt-link to=""
                       :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
-                      <span class="flex items-center space-x-2">
+                      <span class="flex items-center space-s-2">
                         <icon name="flag:eu-4x3" size="15px" />
                         <p class="text-xs">EUR</p>
                       </span>
@@ -71,7 +71,7 @@
                   <HeadlessMenuItem v-slot="{ active }">
                     <nuxt-link to=""
                       :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
-                      <span class="flex items-center space-x-2">
+                      <span class="flex items-center space-s-2">
                         <icon name="flag:gb-4x3" size="15px" />
                         <p class="text-xs">GBP</p>
                       </span>
@@ -80,7 +80,7 @@
                   <HeadlessMenuItem v-slot="{ active }">
                     <nuxt-link to=""
                       :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
-                      <span class="flex items-center space-x-2">
+                      <span class="flex items-center space-s-2">
                         <icon name="flag:ro-4x3" size="15px" />
                         <p class="text-xs">CHF</p>
                       </span>
@@ -97,19 +97,19 @@
           </div>
 
           <!-- Right Section - Notifications & Profile -->
-          <div class="flex items-center justify-end flex-1 space-x-3">
+          <div class="flex items-center justify-end flex-1 space-s-3">
             <HeadlessMenu as="div" class="relative ms-3">
               <ClientOnly>
                 <HeadlessMenuButton class="relative flex items-center hidden text-sm md:flex">
                   <span class="sr-only">Open Sign In menu</span>
-                  <span class="flex items-center space-x-1">
+                  <span class="flex items-center space-s-1">
                     <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
                     <icon name="ep:arrow-down" size="15px" />
                   </span>
                 </HeadlessMenuButton>
                 <HeadlessMenuButton class="relative flex items-center text-sm md:hidden">
                   <span class="sr-only">Open Sign In menu</span>
-                  <span class="flex items-center space-x-1">
+                  <span class="flex items-center space-s-1">
                     <icon name="ic:round-person-outline" class="w-6 h-6" />
                   </span>
                 </HeadlessMenuButton>
@@ -119,8 +119,8 @@
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                 leave-to-class="transform scale-95 opacity-0">
                 <HeadlessMenuItems
-                  class="absolute right-0 z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <!-- login-dialog -->
+                  class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg end-0 w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <!-- login-dialog component -->
                   <login-dialog />
                 </HeadlessMenuItems>
               </transition>
@@ -132,14 +132,14 @@
               <icon name="clarity:heart-line" size="26px" />
             </nuxt-link>
 
-            <HeadlessMenu as="div" class="relative ml-3">
+            <HeadlessMenu as="div" class="relative ms-3">
               <ClientOnly>
                 <HeadlessMenuButton class="relative flex items-center text-sm">
                   <span class="sr-only">Open Sign In menu</span>
-                  <span class="flex items-center space-x-1">
+                  <span class="flex items-center space-s-1">
                     <div class="relative">
                       <span
-                        class="absolute top-0 inline-flex items-center justify-center w-5 h-5 -mt-2 -mr-4 text-xs text-white bg-black rounded-full end-2">
+                        class="absolute top-0 inline-flex items-center justify-center w-5 h-5 -mt-2 text-xs text-white bg-black rounded-full -me-3 end-2">
                         0
                       </span>
                       <button type="button" class="relative mt-1 text-gray-700 rounded-full">
@@ -156,26 +156,41 @@
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                 leave-to-class="transform scale-95 opacity-0">
                 <HeadlessMenuItems
-                  class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -right-6 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -end-6 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <HeadlessMenuItem>
                     <cart-dialog />
                   </HeadlessMenuItem>
                 </HeadlessMenuItems>
               </transition>
             </HeadlessMenu>
+
+            <!-- Toggle Language -->
+            <nuxt-link class="me-4 text-neutral-600 dark:text-white" to="" role="button" v-if="isRTL"
+              @click="updateLocale('en'); changeLocale('en')">
+              <span class="[&>svg]:w-5">
+                En
+              </span>
+            </nuxt-link>
+            <nuxt-link class="me-4 text-neutral-600 dark:text-white" to="" role="button" v-else
+              @click="updateLocale('ar'); changeLocale('ar')">
+              <span class="[&>svg]:w-5">
+                العربية
+              </span>
+            </nuxt-link>
+
             <div class="relative flex items-center">
               <div class="relative hidden w-48 max-w-xs md:block">
                 <input type="text" placeholder="Search"
-                  class="w-48 py-2 pl-3 pr-10 ml-5 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md" />
+                  class="w-48 py-2 pr-10 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md ms-5 ps-3" />
                 <icon name="heroicons:magnifying-glass" size="20px"
-                  class="absolute text-gray-500 transform -translate-y-1/2 -right-1 top-1/2" />
+                  class="absolute text-gray-500 transform -translate-y-1/2 -end-2 top-1/2" />
               </div>
 
               <HeadlessMenu as="div" class="relative ms-3 md:hidden">
                 <ClientOnly>
                   <HeadlessMenuButton class="relative flex items-center text-sm">
                     <span class="sr-only">Open search menu</span>
-                    <span class="flex items-center space-x-1">
+                    <span class="flex items-center space-s-1">
                       <button type="button" class="relative mt-1 text-gray-700 rounded-full">
                         <span class="absolute -inset-1.5" />
                         <span class="sr-only">View search menu</span>
@@ -189,10 +204,10 @@
                   leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                   leave-to-class="transform scale-95 opacity-0">
                   <HeadlessMenuItems
-                    class="absolute z-10 p-3 mt-2 origin-top-right bg-white rounded-md shadow-lg right-2 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    class="absolute z-10 p-3 mt-2 origin-top-right bg-white rounded-md shadow-lg end-2 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <HeadlessMenuItem>
                       <input type="text" placeholder="Search"
-                        class="w-full py-2 pl-3 pr-10 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md" />
+                        class="w-full py-2 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md pe-10 ps-3" />
                     </HeadlessMenuItem>
                   </HeadlessMenuItems>
                 </transition>
@@ -221,7 +236,7 @@
 
       <div class="relative">
         <span
-          class="absolute top-0 inline-flex items-center justify-center ml-8 -mt-5 text-xs text-white rounded-lg bg-[#ec4065] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          class="absolute top-0 inline-flex items-center justify-center ms-8 -mt-5 text-xs text-white rounded-lg bg-[#ec4065] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
           Sale
         </span>
         <span class="absolute -inset-1.5" />
@@ -231,7 +246,7 @@
       </div>
       <div class="relative">
         <span
-          class="absolute top-0 inline-flex items-center justify-center ml-9 -mt-5 text-xs text-white rounded-lg bg-[#f79a00] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          class="absolute top-0 inline-flex items-center justify-center ms-9 -mt-5 text-xs text-white rounded-lg bg-[#f79a00] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
           Hot
         </span>
         <span class="absolute -inset-1.5" />
@@ -241,7 +256,7 @@
       </div>
       <div class="relative">
         <span
-          class="absolute top-0 inline-flex items-center justify-center ml-4 -mt-5 text-xs text-white rounded-lg bg-[#43b5f4] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          class="absolute top-0 inline-flex items-center justify-center ms-4 -mt-5 text-xs text-white rounded-lg bg-[#43b5f4] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
           New
         </span>
         <span class="absolute -inset-1.5" />
@@ -257,7 +272,7 @@
     <transition name="sidebar-transition" @before-enter="beforeEnter" @enter="enter" @leave="leave">
       <div v-if="isSidebarVisible" class="fixed inset-0 z-40 bg-gray-800 mt-7 bg-opacity-40 sm:hidden">
         <div class="relative w-64 h-full p-5 overflow-y-auto bg-white scrollbar-hidden">
-          <icon name="ci:close-sm" @click="toggleSidebar" class="absolute cursor-pointer top-4 right-4" />
+          <icon name="ci:close-sm" @click="toggleSidebar" class="absolute cursor-pointer top-4 end-4" />
           <nav class="space-y-4">
             <!-- nested-menu component-->
             <nested-menu />
@@ -274,6 +289,8 @@
 </template>
 
 <script setup>
+import { changeLocale } from '@formkit/vue'
+
 const isNavVisible = ref(true)
 
 const navigation = [
@@ -311,6 +328,29 @@ const leave = (el, done) => {
 
 //rotate logo composable
 const { el } = useAnimateRotation();
+
+const { locale, setLocale } = useI18n();
+
+const updateLocale = (value) => {
+  setLocale(value);
+  sessionStorage.setItem("locale", value);
+  setTimeout(() => {
+    location.reload();
+  }, 1000);
+};
+
+const isRTL = ref(false);
+
+watch(locale, (newVal) => {
+  isRTL.value = newVal === 'ar';
+});
+
+onMounted(() => {
+  const storedLocale = sessionStorage.getItem("locale");
+  if (storedLocale) {
+    setLocale(storedLocale);
+  }
+});
 
 const makeupCategories = [
   {

@@ -1,76 +1,3 @@
-<!-- <template>
-  <div>
-    <div class="inline-block group">
-      <nuxt-link to="" class="block text-lg font-bold">New In</nuxt-link>
-      <ul
-        class="absolute transition duration-150 ease-in-out origin-top transform scale-0 bg-white rounded-sm group-hover:scale-100 min-w-56">
-        <li class="px-3 py-1 text-sm font-thin cursor-pointer">Sustoproines</li>
-        <li class="px-3 py-1 text-sm font-thin cursor-pointer">Destetos Sarcudos</li>
-        <li class="relative px-3 py-1 text-sm font-thin cursor-pointer">
-          <button class="flex items-center w-full text-left outline-none focus:outline-none">
-            <span class="flex-1 pr-1">Hendrer Dulamcos</span>
-            <span class="mr-auto">
-              <icon name="material-symbols:arrow-forward-ios-rounded"
-                class="w-3 h-3 transition duration-150 ease-in-out fill-current" />
-            </span>
-          </button>
-          <ul
-            class="absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left bg-white rounded-sm min-w-48">
-            <li class="px-3 py-1 hover:bg-gray-100">Bibendumetos</li>
-            <li class="px-3 py-1 text-sm font-thin cursor-pointer">
-              Dincidunteros
-            </li>
-            <li class="px-3 py-1 hover:bg-gray-100">Loremouticas</li>
-            <li class="px-3 py-1 hover:bg-gray-100">Pellentes Habitanto</li>
-            <li class="px-3 py-1 hover:bg-gray-100">Scelerisque Yurnas</li>
-          </ul>
-        </li>
-        <li class="px-3 py-1 text-sm font-thin cursor-pointer">Loremous</li>
-        <li class="px-3 py-1 text-sm font-thin cursor-pointer">Maecenas Conguros</li>
-      </ul>
-    </div>
-  </div>
-</template>
-
-<script setup>
-
-</script>
-
-<style scoped>
-li>ul {
-  transform: translatex(100%) scale(0)
-}
-
-li:hover>ul {
-  transform: translatex(101%) scale(1)
-}
-
-li>button svg {
-  transform: rotate(-90deg)
-}
-
-li:hover>button svg {
-  transform: rotate(-270deg)
-}
-
-.group:hover .group-hover\:scale-100 {
-  transform: scale(1)
-}
-
-.group:hover .group-hover\:-rotate-180 {
-  transform: rotate(180deg)
-}
-
-.scale-0 {
-  transform: scale(0)
-}
-
-.min-w-32 {
-  min-width: 8rem
-}
-</style> -->
-
-
 <template>
    <div class="flex">
       <!-- Sidebar -->
@@ -78,7 +5,7 @@ li:hover>button svg {
          <ul>
             <!-- Level 1 Items -->
             <li v-for="item in sidebarItems" :key="item.id" class="text-sm">
-               <button class="flex items-center justify-between w-full px-4 py-2 text-left"
+               <button class="flex items-center justify-between w-full px-4 py-2 text-start"
                   @click="toggleItem(item.id)">
                   <span>{{ item.label }}</span>
                   <span v-if="item.children">
@@ -89,9 +16,9 @@ li:hover>button svg {
                </button>
 
                <!-- Level 2 -->
-               <ul v-if="item.children" :class="{ hidden: !isOpen(item.id) }" class="pl-4">
+               <ul v-if="item.children" :class="{ hidden: !isOpen(item.id) }" class="ps-4">
                   <li v-for="subItem in item.children" :key="subItem.id">
-                     <button class="flex items-center justify-between w-full px-4 py-2 text-left rounded"
+                     <button class="flex items-center justify-between w-full px-4 py-2 rounded text-start"
                         @click="toggleItem(subItem.id)">
                         <span>{{ subItem.label }}</span>
                         <span v-if="subItem.children">
@@ -102,9 +29,9 @@ li:hover>button svg {
                      </button>
 
                      <!-- Level 3 -->
-                     <ul v-if="subItem.children" :class="{ hidden: !isOpen(subItem.id) }" class="pl-4">
+                     <ul v-if="subItem.children" :class="{ hidden: !isOpen(subItem.id) }" class="ps-4">
                         <li v-for="subSubItem in subItem.children" :key="subSubItem.id">
-                           <button class="w-full px-4 py-2 text-left rounded">
+                           <button class="w-full px-4 py-2 rounded text-start">
                               {{ subSubItem.label }}
                            </button>
                         </li>

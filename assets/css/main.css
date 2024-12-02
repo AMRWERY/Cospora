@@ -7,3 +7,13 @@
 .nav-title {
   font-family: Oswald, sans-serif;
 }
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
