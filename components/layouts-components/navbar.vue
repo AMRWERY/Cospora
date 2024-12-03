@@ -184,14 +184,14 @@
               </nuxt-link>
 
               <ClientOnly>
-                <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
-                  class="flex items-center py-2 text-gray-800 transition ps-1.5">
-                  <icon name="mdi:logout" size="26px" />
-                </nuxt-link>
-
                 <nuxt-link v-if="store.isUserAuthenticated && userEmail === 'admin@cospora.com'"
                   class="me-4 text-neutral-600 dark:text-white" to="/dashboard">
                   {{ $t('btn.dashboard') }}
+                </nuxt-link>
+                
+                <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
+                  class="flex items-center py-2 text-gray-800 transition me-1.5">
+                  <icon name="mdi:logout" size="26px" />
                 </nuxt-link>
               </ClientOnly>
 
