@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-const { t } = useI18n()
+// const { t } = useI18n()
 
 const props = defineProps({
   // title: {
