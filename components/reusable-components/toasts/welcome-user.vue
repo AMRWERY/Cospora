@@ -12,19 +12,15 @@
 </template>
 
 <script setup>
-// const { t } = useI18n()
-
 const props = defineProps({
-  // title: {
-  //   type: String,
-  //   default: 'Success',
-  // },
   firstName: {
     type: String,
+    default: "",
     required: true,
   },
   lastName: {
     type: String,
+    default: "",
     required: true,
   },
   message: {
@@ -35,10 +31,6 @@ const props = defineProps({
     type: Number,
     default: 6000,
   },
-  // icon: {
-  //   type: String,
-  //   default: 'mdi:check-circle',
-  // },
 });
 
 const visible = ref(false);
@@ -49,6 +41,8 @@ const showToast = () => {
     visible.value = false;
   }, 6000);
 };
+
+const emit = defineEmits(['close']);
 
 const hideToast = () => {
   visible.value = false;

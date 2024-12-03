@@ -59,10 +59,6 @@
     <!-- successful-auth alert -->
     <successful-auth v-if="showToast" :title="t('form.account_created')"
       :message="t('form.your_account_has_been_successfully_created')" @close="showToast = false" />
-
-    <!-- welcome-user alert -->
-    <!-- <welcome-user v-if="showWelcomeMessage" :first-name="data.firstName" :last-name="data.lastName"
-      @close="showWelcomeMessage = false" /> -->
   </div>
 </template>
 
@@ -72,7 +68,6 @@ const loading = ref(false);
 const errorMessage = ref('');
 const router = useRouter()
 const showToast = ref(false);
-// const showWelcomeMessage = ref(false);
 const { t } = useI18n()
 
 const data = ref({
@@ -92,10 +87,14 @@ const signUp = async () => {
       password: data.value.password,
     });
     showToast.value = true;
+    store.setUserDetails({
+      firstName: data.value.firstName,
+      lastName: data.value.lastName,
+    });
+    store.setWelcomeMessageVisibility(true);
     setTimeout(() => {
       router.replace('/');
     }, 6000);
-    // showWelcomeMessage.value = true;
   }
   catch (error) {
     // console.error("Sign-up failed:", error);

@@ -34,6 +34,7 @@ export const useAuthStore = defineStore("auth", {
       userToken: null,
       isUserLoggedIn: false,
       suggestions: [],
+      showWelcomeMessage: false,
     };
   },
 
@@ -95,7 +96,9 @@ export const useAuthStore = defineStore("auth", {
                 if (!querySnapshot.empty) {
                   const userData = querySnapshot.docs[0].data();
                   this.firstName = userData.firstName;
+                  this.lastName = userData.lastName
                   sessionStorage.setItem("firstName", userData.firstName);
+                  sessionStorage.setItem("lastName", userData.lastName);
                   sessionStorage.setItem("username", userData.username);
                   sessionStorage.setItem("userId", user.uid);
                 } else {
@@ -225,6 +228,15 @@ export const useAuthStore = defineStore("auth", {
         console.error("Error checking name availability:", error);
         this.suggestions = [];
       }
+    },
+
+    setWelcomeMessageVisibility(visible) {
+      this.showWelcomeMessage = visible;
+    },
+
+    setUserDetails({ firstName, lastName }) {
+      this.firstName = firstName;
+      this.lastName = lastName;
     },
   },
 

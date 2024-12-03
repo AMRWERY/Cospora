@@ -59,7 +59,7 @@ const { t } = useI18n()
 
 const data = ref({
   email: '',
-  password: ''
+  password: '',
 });
 
 const signIn = async () => {

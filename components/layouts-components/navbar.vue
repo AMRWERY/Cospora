@@ -9,7 +9,8 @@
       </nav>
     </div>
 
-    <HeadlessDisclosure as="nav" class="mt-10 bg-[#f7f7f7]" v-slot="{ open }">
+    <ClientOnly>
+      <HeadlessDisclosure as="nav" class="mt-10 bg-[#f7f7f7]" v-slot="{ open }">
       <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
           <div class="absolute inset-y-0 flex items-center start-0 sm:hidden">
@@ -126,12 +127,14 @@
               </transition>
             </HeadlessMenu>
 
-            <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex"
+            <ClientOnly>
+              <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex"
               v-if="store.isUserAuthenticated">
               <span class="absolute -inset-1.5" />
               <span class="sr-only">View wishlist</span>
               <icon name="clarity:heart-line" size="26px" />
             </nuxt-link>
+            </ClientOnly>
 
             <HeadlessMenu as="div" class="relative ms-3" v-if="store.isUserAuthenticated">
               <ClientOnly>
@@ -179,17 +182,19 @@
               </span>
             </nuxt-link>
 
-            <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
+            <ClientOnly>
+              <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
               class="flex items-center py-2 text-gray-800 transition ps-1.5">
               <icon name="mdi:logout" size="26px" />
             </nuxt-link>
-
+            
             <nuxt-link v-if="store.isUserAuthenticated && userEmail === 'admin@cospora.com'"
-              class="block w-full px-4 py-2 text-sm font-normal bg-white whitespace-nowrap text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 text-start"
-              to="/dashboard">
-              <icon name="dashicons:chart-pie" size="20px" class="text-neutral-600 dark:text-neutral-300 me-2" />
-              {{ $t('btn.dashboard') }}
-            </nuxt-link>
+            class="block w-full px-4 py-2 text-sm font-normal bg-white whitespace-nowrap text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 text-start"
+            to="/dashboard">
+            <icon name="dashicons:chart-pie" size="20px" class="text-neutral-600 dark:text-neutral-300 me-2" />
+            {{ $t('btn.dashboard') }}
+          </nuxt-link>
+        </ClientOnly>
 
             <!-- <div class="relative flex items-center">
               <div class="relative hidden w-48 max-w-xs md:block">
@@ -230,6 +235,7 @@
         </div>
       </div>
     </HeadlessDisclosure>
+    </ClientOnly>
 
     <nav class="hidden max-w-5xl px-2 py-4 mx-auto sm:px-6 lg:px-8 space-s-10 md:flex sm:hidden">
       <!-- new-in-menu component -->
@@ -309,12 +315,12 @@ import { changeLocale } from '@formkit/vue'
 
 const isNavVisible = ref(true)
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-]
+// const navigation = [
+//   { name: 'Dashboard', href: '#', current: true },
+//   { name: 'Team', href: '#', current: false },
+//   { name: 'Projects', href: '#', current: false },
+//   { name: 'Calendar', href: '#', current: false },
+// ]
 
 const isSidebarVisible = ref(false)
 
