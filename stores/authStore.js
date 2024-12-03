@@ -130,18 +130,6 @@ export const useAuthStore = defineStore("auth", {
       });
     },
 
-    // logout() {
-    //   signOut(auth)
-    //     .then(() => {
-    //       // sessionStorage.clear();
-    //       this.isAuthenticated = false;
-    //       // router.replace("/sign-up");
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // },
-
     resetUserPassword(payload) {
       return new Promise(async (resolve, reject) => {
         const { email } = payload;
