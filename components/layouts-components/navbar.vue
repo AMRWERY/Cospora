@@ -11,192 +11,191 @@
 
     <ClientOnly>
       <HeadlessDisclosure as="nav" class="mt-10 bg-[#f7f7f7]" v-slot="{ open }">
-      <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="relative flex items-center justify-between h-16">
-          <div class="absolute inset-y-0 flex items-center start-0 sm:hidden">
-            <!-- Mobile menu button-->
-            <HeadlessDisclosureButton @click="toggleSidebar"
-              class="relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md">
-              <span class="absolute -inset-0.5" />
-              <span class="sr-only">Open main menu</span>
-              <icon name="heroicons-outline:menu" v-if="!open" class="block w-6 h-6" aria-hidden="true" />
-              <icon name="heroicons-outline:x-mark" v-else class="block w-6 h-6" aria-hidden="true" />
-            </HeadlessDisclosureButton>
-          </div>
-          <!-- Left Section - Currency Menu -->
-          <div class="flex items-center justify-start flex-1">
-            <HeadlessMenu as="div" class="relative hidden ms-3 sm:flex">
-              <div class="flex items-center space-s-5">
-                <!-- Currency Menu Button -->
+        <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div class="relative flex items-center justify-between h-16">
+            <div class="absolute inset-y-0 flex items-center start-0 sm:hidden">
+              <!-- Mobile menu button-->
+              <HeadlessDisclosureButton @click="toggleSidebar"
+                class="relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md">
+                <span class="absolute -inset-0.5" />
+                <span class="sr-only">Open main menu</span>
+                <icon name="heroicons-outline:menu" v-if="!open" class="block w-6 h-6" aria-hidden="true" />
+                <icon name="heroicons-outline:x-mark" v-else class="block w-6 h-6" aria-hidden="true" />
+              </HeadlessDisclosureButton>
+            </div>
+            <!-- Left Section - Currency Menu -->
+            <div class="flex items-center justify-start flex-1">
+              <HeadlessMenu as="div" class="relative hidden ms-3 sm:flex">
+                <div class="flex items-center space-s-5">
+                  <!-- Currency Menu Button -->
+                  <ClientOnly>
+                    <HeadlessMenuButton class="relative flex items-center text-sm">
+                      <span class="sr-only">Open currency menu</span>
+                      <span class="flex items-center space-s-2">
+                        <p class="text-xs">USD</p>
+                        <icon name="ep:arrow-down" size="15px" />
+                      </span>
+                    </HeadlessMenuButton>
+                  </ClientOnly>
+
+                  <!-- Find A Store Section -->
+                  <span class="flex items-center space-s-2">
+                    <icon name="ep:location" size="30px" />
+                    <p class="text-xs capitalize">Find A Store</p>
+                  </span>
+                </div>
+                <!-- Currency menu items -->
+                <transition enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0">
+                  <HeadlessMenuItems
+                    class="absolute z-10 w-32 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg start-0 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <HeadlessMenuItem v-slot="{ active }">
+                      <nuxt-link to=""
+                        :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
+                        <span class="flex items-center space-s-2">
+                          <icon name="flagpack:us" size="15px" />
+                          <p class="text-xs">USD</p>
+                        </span>
+                      </nuxt-link>
+                    </HeadlessMenuItem>
+                    <HeadlessMenuItem v-slot="{ active }">
+                      <nuxt-link to=""
+                        :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
+                        <span class="flex items-center space-s-2">
+                          <icon name="flag:eu-4x3" size="15px" />
+                          <p class="text-xs">EUR</p>
+                        </span>
+                      </nuxt-link>
+                    </HeadlessMenuItem>
+                    <HeadlessMenuItem v-slot="{ active }">
+                      <nuxt-link to=""
+                        :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
+                        <span class="flex items-center space-s-2">
+                          <icon name="flag:gb-4x3" size="15px" />
+                          <p class="text-xs">GBP</p>
+                        </span>
+                      </nuxt-link>
+                    </HeadlessMenuItem>
+                    <HeadlessMenuItem v-slot="{ active }">
+                      <nuxt-link to=""
+                        :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
+                        <span class="flex items-center space-s-2">
+                          <icon name="flag:ro-4x3" size="15px" />
+                          <p class="text-xs">CHF</p>
+                        </span>
+                      </nuxt-link>
+                    </HeadlessMenuItem>
+                  </HeadlessMenuItems>
+                </transition>
+              </HeadlessMenu>
+            </div>
+
+            <!-- Middle Section - Cospora -->
+            <div class="flex justify-center flex-1">
+              <nuxt-link to="/" class="text-3xl font-semibold capitalize opacity-100 max-h-7"
+                ref="el">Cospora</nuxt-link>
+            </div>
+
+            <!-- Right Section - Notifications & Profile -->
+            <div class="flex items-center justify-end flex-1 space-s-3">
+              <HeadlessMenu as="div" class="relative ms-3" v-if="!store.isUserAuthenticated">
                 <ClientOnly>
-                  <HeadlessMenuButton class="relative flex items-center text-sm">
-                    <span class="sr-only">Open currency menu</span>
-                    <span class="flex items-center space-s-2">
-                      <p class="text-xs">USD</p>
+                  <HeadlessMenuButton class="relative flex items-center hidden text-sm md:flex">
+                    <span class="sr-only">Open Sign In menu</span>
+                    <span class="flex items-center space-s-1">
+                      <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
                       <icon name="ep:arrow-down" size="15px" />
                     </span>
                   </HeadlessMenuButton>
+                  <HeadlessMenuButton class="relative flex items-center text-sm md:hidden">
+                    <span class="sr-only">Open Sign In menu</span>
+                    <span class="flex items-center space-s-1">
+                      <icon name="ic:round-person-outline" class="w-6 h-6" />
+                    </span>
+                  </HeadlessMenuButton>
                 </ClientOnly>
+                <transition enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0">
+                  <HeadlessMenuItems
+                    class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg end-0 w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <!-- login-dialog component -->
+                    <login-dialog />
+                  </HeadlessMenuItems>
+                </transition>
+              </HeadlessMenu>
 
-                <!-- Find A Store Section -->
-                <span class="flex items-center space-s-2">
-                  <icon name="ep:location" size="30px" />
-                  <p class="text-xs capitalize">Find A Store</p>
+              <ClientOnly>
+                <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex"
+                  v-if="store.isUserAuthenticated">
+                  <span class="absolute -inset-1.5" />
+                  <span class="sr-only">View wishlist</span>
+                  <icon name="clarity:heart-line" size="26px" />
+                </nuxt-link>
+              </ClientOnly>
+
+              <HeadlessMenu as="div" class="relative ms-3" v-if="store.isUserAuthenticated">
+                <ClientOnly>
+                  <HeadlessMenuButton class="relative flex items-center text-sm">
+                    <span class="sr-only">Open Sign In menu</span>
+                    <span class="flex items-center space-s-1">
+                      <div class="relative">
+                        <span
+                          class="absolute top-0 inline-flex items-center justify-center w-5 h-5 -mt-2 text-xs text-white bg-black rounded-full -me-3 end-2">
+                          0
+                        </span>
+                        <button type="button" class="relative mt-1 text-gray-700 rounded-full">
+                          <span class="absolute -inset-1.5" />
+                          <span class="sr-only">View cart</span>
+                          <icon name="clarity:shopping-cart-line" size="26px" />
+                        </button>
+                      </div>
+                    </span>
+                  </HeadlessMenuButton>
+                </ClientOnly>
+                <transition enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0">
+                  <HeadlessMenuItems
+                    class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -end-6 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <HeadlessMenuItem>
+                      <cart-dialog />
+                    </HeadlessMenuItem>
+                  </HeadlessMenuItems>
+                </transition>
+              </HeadlessMenu>
+
+              <!-- Toggle Language -->
+              <nuxt-link class="me-4 text-neutral-600 dark:text-white" to="" role="button" v-if="isRTL"
+                @click="updateLocale('en'); changeLocale('en')">
+                <span class="[&>svg]:w-5">
+                  En
                 </span>
-              </div>
-              <!-- Currency menu items -->
-              <transition enter-active-class="transition duration-100 ease-out"
-                enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
-                leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
-                leave-to-class="transform scale-95 opacity-0">
-                <HeadlessMenuItems
-                  class="absolute z-10 w-32 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg start-0 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <HeadlessMenuItem v-slot="{ active }">
-                    <nuxt-link to=""
-                      :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
-                      <span class="flex items-center space-s-2">
-                        <icon name="flagpack:us" size="15px" />
-                        <p class="text-xs">USD</p>
-                      </span>
-                    </nuxt-link>
-                  </HeadlessMenuItem>
-                  <HeadlessMenuItem v-slot="{ active }">
-                    <nuxt-link to=""
-                      :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
-                      <span class="flex items-center space-s-2">
-                        <icon name="flag:eu-4x3" size="15px" />
-                        <p class="text-xs">EUR</p>
-                      </span>
-                    </nuxt-link>
-                  </HeadlessMenuItem>
-                  <HeadlessMenuItem v-slot="{ active }">
-                    <nuxt-link to=""
-                      :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
-                      <span class="flex items-center space-s-2">
-                        <icon name="flag:gb-4x3" size="15px" />
-                        <p class="text-xs">GBP</p>
-                      </span>
-                    </nuxt-link>
-                  </HeadlessMenuItem>
-                  <HeadlessMenuItem v-slot="{ active }">
-                    <nuxt-link to=""
-                      :class="[active ? 'bg-gray-100 underline' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer']">
-                      <span class="flex items-center space-s-2">
-                        <icon name="flag:ro-4x3" size="15px" />
-                        <p class="text-xs">CHF</p>
-                      </span>
-                    </nuxt-link>
-                  </HeadlessMenuItem>
-                </HeadlessMenuItems>
-              </transition>
-            </HeadlessMenu>
-          </div>
+              </nuxt-link>
+              <nuxt-link class="me-4 text-neutral-600 dark:text-white" to="" role="button" v-else
+                @click="updateLocale('ar'); changeLocale('ar')">
+                <span class="[&>svg]:w-5">
+                  العربية
+                </span>
+              </nuxt-link>
 
-          <!-- Middle Section - Cospora -->
-          <div class="flex justify-center flex-1">
-            <nuxt-link to="/" class="text-3xl font-semibold capitalize opacity-100 max-h-7" ref="el">Cospora</nuxt-link>
-          </div>
-
-          <!-- Right Section - Notifications & Profile -->
-          <div class="flex items-center justify-end flex-1 space-s-3">
-            <HeadlessMenu as="div" class="relative ms-3" v-if="!store.isUserAuthenticated">
               <ClientOnly>
-                <HeadlessMenuButton class="relative flex items-center hidden text-sm md:flex">
-                  <span class="sr-only">Open Sign In menu</span>
-                  <span class="flex items-center space-s-1">
-                    <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
-                    <icon name="ep:arrow-down" size="15px" />
-                  </span>
-                </HeadlessMenuButton>
-                <HeadlessMenuButton class="relative flex items-center text-sm md:hidden">
-                  <span class="sr-only">Open Sign In menu</span>
-                  <span class="flex items-center space-s-1">
-                    <icon name="ic:round-person-outline" class="w-6 h-6" />
-                  </span>
-                </HeadlessMenuButton>
+                <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
+                  class="flex items-center py-2 text-gray-800 transition ps-1.5">
+                  <icon name="mdi:logout" size="26px" />
+                </nuxt-link>
+
+                <nuxt-link v-if="store.isUserAuthenticated && userEmail === 'admin@cospora.com'"
+                  class="me-4 text-neutral-600 dark:text-white" to="/dashboard">
+                  {{ $t('btn.dashboard') }}
+                </nuxt-link>
               </ClientOnly>
-              <transition enter-active-class="transition duration-100 ease-out"
-                enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
-                leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
-                leave-to-class="transform scale-95 opacity-0">
-                <HeadlessMenuItems
-                  class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg end-0 w-80 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <!-- login-dialog component -->
-                  <login-dialog />
-                </HeadlessMenuItems>
-              </transition>
-            </HeadlessMenu>
 
-            <ClientOnly>
-              <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex"
-              v-if="store.isUserAuthenticated">
-              <span class="absolute -inset-1.5" />
-              <span class="sr-only">View wishlist</span>
-              <icon name="clarity:heart-line" size="26px" />
-            </nuxt-link>
-            </ClientOnly>
-
-            <HeadlessMenu as="div" class="relative ms-3" v-if="store.isUserAuthenticated">
-              <ClientOnly>
-                <HeadlessMenuButton class="relative flex items-center text-sm">
-                  <span class="sr-only">Open Sign In menu</span>
-                  <span class="flex items-center space-s-1">
-                    <div class="relative">
-                      <span
-                        class="absolute top-0 inline-flex items-center justify-center w-5 h-5 -mt-2 text-xs text-white bg-black rounded-full -me-3 end-2">
-                        0
-                      </span>
-                      <button type="button" class="relative mt-1 text-gray-700 rounded-full">
-                        <span class="absolute -inset-1.5" />
-                        <span class="sr-only">View cart</span>
-                        <icon name="clarity:shopping-cart-line" size="26px" />
-                      </button>
-                    </div>
-                  </span>
-                </HeadlessMenuButton>
-              </ClientOnly>
-              <transition enter-active-class="transition duration-100 ease-out"
-                enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
-                leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
-                leave-to-class="transform scale-95 opacity-0">
-                <HeadlessMenuItems
-                  class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -end-6 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <HeadlessMenuItem>
-                    <cart-dialog />
-                  </HeadlessMenuItem>
-                </HeadlessMenuItems>
-              </transition>
-            </HeadlessMenu>
-
-            <!-- Toggle Language -->
-            <nuxt-link class="me-4 text-neutral-600 dark:text-white" to="" role="button" v-if="isRTL"
-              @click="updateLocale('en'); changeLocale('en')">
-              <span class="[&>svg]:w-5">
-                En
-              </span>
-            </nuxt-link>
-            <nuxt-link class="me-4 text-neutral-600 dark:text-white" to="" role="button" v-else
-              @click="updateLocale('ar'); changeLocale('ar')">
-              <span class="[&>svg]:w-5">
-                العربية
-              </span>
-            </nuxt-link>
-
-            <ClientOnly>
-              <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
-              class="flex items-center py-2 text-gray-800 transition ps-1.5">
-              <icon name="mdi:logout" size="26px" />
-            </nuxt-link>
-            
-            <nuxt-link v-if="store.isUserAuthenticated && userEmail === 'admin@cospora.com'"
-            class="block w-full px-4 py-2 text-sm font-normal bg-white whitespace-nowrap text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 text-start"
-            to="/dashboard">
-            <icon name="dashicons:chart-pie" size="20px" class="text-neutral-600 dark:text-neutral-300 me-2" />
-            {{ $t('btn.dashboard') }}
-          </nuxt-link>
-        </ClientOnly>
-
-            <!-- <div class="relative flex items-center">
+              <!-- <div class="relative flex items-center">
               <div class="relative hidden w-48 max-w-xs md:block">
                 <input type="text" placeholder="Search"
                   class="w-48 py-2 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md pe-10 ms-5 ps-3" />
@@ -231,10 +230,10 @@
                 </transition>
               </HeadlessMenu>
             </div> -->
+            </div>
           </div>
         </div>
-      </div>
-    </HeadlessDisclosure>
+      </HeadlessDisclosure>
     </ClientOnly>
 
     <nav class="hidden max-w-5xl px-2 py-4 mx-auto sm:px-6 lg:px-8 space-s-10 md:flex sm:hidden">
