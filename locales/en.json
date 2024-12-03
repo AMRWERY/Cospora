@@ -29,7 +29,7 @@
     "name_is_already_taken_please_choose_one_of_the_suggestions_below": "Name is already taken. Please choose one of the suggestions below:"
   },
   "btn": {
-    "loading": "loading",
+    "loading": "Loading",
     "reset_password": "Reset Password",
     "cancel": "Cancel"
   },
