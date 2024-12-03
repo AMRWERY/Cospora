@@ -98,7 +98,7 @@
 
           <!-- Right Section - Notifications & Profile -->
           <div class="flex items-center justify-end flex-1 space-s-3">
-            <HeadlessMenu as="div" class="relative ms-3">
+            <HeadlessMenu as="div" class="relative ms-3" v-if="!store.isUserAuthenticated">
               <ClientOnly>
                 <HeadlessMenuButton class="relative flex items-center hidden text-sm md:flex">
                   <span class="sr-only">Open Sign In menu</span>
@@ -126,13 +126,14 @@
               </transition>
             </HeadlessMenu>
 
-            <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex">
+            <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex"
+              v-if="store.isUserAuthenticated">
               <span class="absolute -inset-1.5" />
               <span class="sr-only">View wishlist</span>
               <icon name="clarity:heart-line" size="26px" />
             </nuxt-link>
 
-            <HeadlessMenu as="div" class="relative ms-3">
+            <HeadlessMenu as="div" class="relative ms-3" v-if="store.isUserAuthenticated">
               <ClientOnly>
                 <HeadlessMenuButton class="relative flex items-center text-sm">
                   <span class="sr-only">Open Sign In menu</span>
@@ -178,10 +179,22 @@
               </span>
             </nuxt-link>
 
-            <div class="relative flex items-center">
+            <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
+              class="flex items-center py-2 text-gray-800 transition ps-1.5">
+              <icon name="mdi:logout" size="26px" />
+            </nuxt-link>
+
+            <nuxt-link v-if="store.isUserAuthenticated && userEmail === 'admin@cospora.com'"
+              class="block w-full px-4 py-2 text-sm font-normal bg-white whitespace-nowrap text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25 text-start"
+              to="/dashboard">
+              <icon name="dashicons:chart-pie" size="20px" class="text-neutral-600 dark:text-neutral-300 me-2" />
+              {{ $t('btn.dashboard') }}
+            </nuxt-link>
+
+            <!-- <div class="relative flex items-center">
               <div class="relative hidden w-48 max-w-xs md:block">
                 <input type="text" placeholder="Search"
-                  class="w-48 py-2 pe-10 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md ms-5 ps-3" />
+                  class="w-48 py-2 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md pe-10 ms-5 ps-3" />
                 <icon name="heroicons:magnifying-glass" size="20px"
                   class="absolute text-gray-500 transform -translate-y-1/2 -end-2 top-1/2" />
               </div>
@@ -212,7 +225,7 @@
                   </HeadlessMenuItems>
                 </transition>
               </HeadlessMenu>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -285,6 +298,9 @@
         </div>
       </div>
     </transition>
+
+    <!-- overlay component -->
+    <overlay :visible="showOverlay" />
   </div>
 </template>
 
@@ -349,6 +365,30 @@ onMounted(() => {
   const storedLocale = sessionStorage.getItem("locale");
   if (storedLocale) {
     setLocale(storedLocale);
+  }
+});
+
+const store = useAuthStore()
+const showOverlay = ref(false);
+
+const logout = async () => {
+  try {
+    showOverlay.value = true;
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await store.logout();
+    sessionStorage.removeItem("isAuthenticated");
+  } catch (error) {
+    console.error("Logout error:", error);
+  } finally {
+    showOverlay.value = false;
+  }
+};
+
+const userEmail = computed(() => {
+  if (typeof sessionStorage !== 'undefined') {
+    return sessionStorage.getItem('email');
+  } else {
+    return null;
   }
 });
 

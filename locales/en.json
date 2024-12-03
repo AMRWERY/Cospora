@@ -31,11 +31,14 @@
   "btn": {
     "loading": "Loading",
     "reset_password": "Reset Password",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "dashboard": "Dashboard",
+    "processing": "Processing"
   },
   "head": {
     "register": "Register",
-    "forget_password": "Forget Password"
+    "forget_password": "Forget Password",
+    "dashboard": "Dashboard"
   },
   "alert": {
     "success": "Success",

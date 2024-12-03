@@ -116,16 +116,31 @@ export const useAuthStore = defineStore("auth", {
     },
 
     logout() {
-      signOut(auth)
-        .then(() => {
-          sessionStorage.clear();
-          this.isAuthenticated = false;
-          // router.replace("/sign-up");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      return new Promise((resolve, reject) => {
+        signOut(auth)
+          .then(() => {
+            sessionStorage.clear(); // Clear all session storage
+            this.isAuthenticated = false; // Update Pinia state
+            resolve();
+          })
+          .catch((error) => {
+            console.error("Logout error:", error);
+            reject(error);
+          });
+      });
     },
+
+    // logout() {
+    //   signOut(auth)
+    //     .then(() => {
+    //       // sessionStorage.clear();
+    //       this.isAuthenticated = false;
+    //       // router.replace("/sign-up");
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // },
 
     resetUserPassword(payload) {
       return new Promise(async (resolve, reject) => {
@@ -230,5 +245,12 @@ export const useAuthStore = defineStore("auth", {
     getGoogleUsername: (state) => state.username,
     getUserEmail: (state) => state.email,
     getSuggestions: (state) => state.suggestions,
+    isUserAuthenticated(state) {
+      return (
+        state.isAuthenticated ||
+        (typeof sessionStorage !== "undefined" &&
+          sessionStorage.getItem("isAuthenticated") === "true")
+      );
+    },
   },
 });
