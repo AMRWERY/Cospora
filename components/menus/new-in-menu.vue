@@ -12,7 +12,7 @@
         <li class="relative group">
           <nuxt-link to=""
             class="flex w-full px-4 py-2 text-sm font-normal transition-transform transform bg-white cursor-pointer whitespace-nowrap text-neutral-700 hover:translate-x-1 hover:text-zinc-800 focus:outline-none active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25">
-            <icon name="dashicons:arrow-end-alt2"
+            <icon name="solar:alt-arrow-down-line-duotone"
               class="hidden text-sm text-gray-500 me-2 group-hover:inline-block dark:text-gray-300" size="15px" />
             <span>Sustoproines</span>
           </nuxt-link>
@@ -21,7 +21,7 @@
         <li class="relative group">
           <nuxt-link to=""
             class="flex w-full px-4 py-2 text-sm font-normal transition-transform transform bg-white cursor-pointer whitespace-nowrap text-neutral-700 hover:translate-x-1 hover:text-zinc-800 focus:outline-none active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25">
-            <icon name="dashicons:arrow-end-alt2"
+            <icon name="solar:alt-arrow-down-line-duotone"
               class="hidden text-sm text-gray-500 me-2 group-hover:inline-block dark:text-gray-300" size="15px" />
             <span>Destetos Sarcudos</span>
           </nuxt-link>
@@ -30,7 +30,7 @@
         <li class="relative group">
           <nuxt-link to=""
             class="flex w-full px-4 py-2 text-sm font-normal transition-transform transform bg-white cursor-pointer whitespace-nowrap text-neutral-700 hover:translate-x-1 hover:text-zinc-800 focus:outline-none active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25">
-            <icon name="dashicons:arrow-end-alt2"
+            <icon name="solar:alt-arrow-down-line-duotone"
               class="hidden text-sm text-gray-500 me-2 group-hover:inline-block dark:text-gray-300" size="15px" />
             <span>Hendrer Dulamocos</span>
           </nuxt-link>
@@ -39,7 +39,7 @@
         <li class="relative group">
           <nuxt-link to=""
             class="flex w-full px-4 py-2 text-sm font-normal transition-transform transform bg-white cursor-pointer whitespace-nowrap text-neutral-700 hover:translate-x-1 hover:text-zinc-800 focus:outline-none active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25">
-            <icon name="dashicons:arrow-end-alt2"
+            <icon name="solar:alt-arrow-down-line-duotone"
               class="hidden text-sm text-gray-500 me-2 group-hover:inline-block dark:text-gray-300" size="15px" />
             <span>Loremous</span>
           </nuxt-link>
@@ -48,7 +48,7 @@
         <li class="relative group">
           <nuxt-link to=""
             class="flex w-full px-4 py-2 text-sm font-normal transition-transform transform bg-white cursor-pointer whitespace-nowrap text-neutral-700 hover:translate-x-1 hover:text-zinc-800 focus:outline-none active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25">
-            <icon name="dashicons:arrow-end-alt2"
+            <icon name="solar:alt-arrow-down-line-duotone"
               class="hidden text-sm text-gray-500 me-2 group-hover:inline-block dark:text-gray-300" size="15px" />
             <span>Maecenas Conguros</span>
           </nuxt-link>

@@ -131,9 +131,9 @@
           <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-s-4">
             <p class="text-lg font-semibold whitespace-nowrap">Sign up for our Newsletter</p>
             <div class="relative w-[240px] sm:max-w-sm">
-              <input type="email" placeholder="Your email address" class="w-full p-2 pe-10 text-gray-800 rounded-md" />
-              <span class="absolute inset-y-0 end-0 flex items-center pe-2">
-                <icon name="material-symbols:arrow-circle-end-rounded" class="w-6 h-6 p-1 text-black" />
+              <input type="email" placeholder="Your email address" class="w-full p-2 text-gray-800 rounded-md pe-10" />
+              <span class="absolute inset-y-0 flex items-center end-0 pe-2">
+                <icon name="solar:round-alt-arrow-right-bold" class="w-6 h-6 p-1 text-black" />
               </span>
             </div>
           </div>
