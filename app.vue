@@ -1,21 +1,19 @@
 <template>
   <div>
-    <div v-if="isLoading">
+    <ClientOnly v-if="isLoading">
       <skeleton-loader-main />
-    </div>
+    </ClientOnly>
 
-    <div v-else>
+    <ClientOnly v-else>
       <NuxtRouteAnnouncer />
       <!-- <NuxtLoadingIndicator /> -->
-      <!-- <ClientOnly> -->
-        <NuxtLayout>
-          <progress-bar />
-          <our-mail-list />
-          <NuxtPage />
-          <scroll-to-top />
-        </NuxtLayout>
-      <!-- </ClientOnly> -->
-    </div>
+      <NuxtLayout>
+        <progress-bar />
+        <our-mail-list />
+        <NuxtPage />
+        <scroll-to-top />
+      </NuxtLayout>
+    </ClientOnly>
   </div>
 </template>
 
