@@ -1,16 +1,33 @@
 <template>
   <div>
-    <NuxtRouteAnnouncer />
-    <NuxtLayout>
-      <progress-bar />
-      <our-mail-list />
-      <NuxtPage />
-      <scroll-to-top />
-    </NuxtLayout>
+    <div v-if="isLoading">
+      <skeleton-loader-main />
+    </div>
+
+    <div v-else>
+      <NuxtRouteAnnouncer />
+      <!-- <NuxtLoadingIndicator /> -->
+      <!-- <ClientOnly> -->
+        <NuxtLayout>
+          <progress-bar />
+          <our-mail-list />
+          <NuxtPage />
+          <scroll-to-top />
+        </NuxtLayout>
+      <!-- </ClientOnly> -->
+    </div>
   </div>
 </template>
 
 <script setup>
+const isLoading = ref(true);
+
+onMounted(() => {
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 5000);
+});
+
 // Use SSR-safe IDs for Headless UI
 provideHeadlessUseId(() => useId())
 
