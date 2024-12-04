@@ -122,8 +122,8 @@ export const useAuthStore = defineStore("auth", {
       return new Promise((resolve, reject) => {
         signOut(auth)
           .then(() => {
-            sessionStorage.clear(); // Clear all session storage
-            this.isAuthenticated = false; // Update Pinia state
+            sessionStorage.clear();
+            this.isAuthenticated = false;
             resolve();
           })
           .catch((error) => {

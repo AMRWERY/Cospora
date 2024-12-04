@@ -5,29 +5,65 @@
         <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
           <!-- Hamburger Toggle BTN -->
           <button class="z-50 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm lg:hidden"
-            @click="() => { toggleSidebar() }">
+            v-if="!isAuthPage" @click="() => { toggleSidebar() }">
             <span class="relative block h-[1.375rem] w-[1.375rem] cursor-pointer">
               <icon name="material-symbols:menu-rounded" />
             </span>
           </button>
         </div>
-        <!-- <div class="hidden sm:block">
-          <form action="" method="POST">
-            <div class="relative">
-              <input type="text" placeholder="Type to search..."
-                class="w-full bg-transparent xl:w-125 pe-10 ps-4 focus:outline-none" />
-              <button type="button" class="absolute -translate-y-1/2 top-1/2 end-2">
-                <icon name="heroicons-outline:magnifying-glass"
-                  class="mt-1 fill-body hover:fill-primary" />
-              </button>
-            </div>
-          </form>
-        </div> -->
+
+        <div class="flex ms-auto">
+          <nuxt-link class="me-4 text-neutral-600 dark:text-white" to="" role="button" v-if="isRTL"
+            @click="updateLocale('en'); changeLocale('en')">
+            <span class="[&>svg]:w-5">
+              En
+            </span>
+          </nuxt-link>
+          <nuxt-link class="me-4 text-neutral-600 dark:text-white" to="" role="button" v-else
+            @click="updateLocale('ar'); changeLocale('ar')">
+            <span class="[&>svg]:w-5">
+              العربية
+            </span>
+          </nuxt-link>
+
+          <nuxt-link to="/admin-login" v-if="!store.isUserAuthenticated" class="text-neutral-600 dark:text-white">{{
+            $t('form.login') }}</nuxt-link>
+        </div>
       </div>
     </header>
   </div>
 </template>
 
 <script setup>
+import { changeLocale } from '@formkit/vue'
+
 const { toggleSidebar } = useSidebarStore()
+
+const { locale, setLocale } = useI18n();
+
+const updateLocale = (value) => {
+  setLocale(value);
+  sessionStorage.setItem("locale", value);
+  setTimeout(() => {
+    location.reload();
+  }, 1000);
+};
+
+const isRTL = ref(false);
+
+watch(locale, (newVal) => {
+  isRTL.value = newVal === 'ar';
+});
+
+onMounted(() => {
+  const storedLocale = sessionStorage.getItem("locale");
+  if (storedLocale) {
+    setLocale(storedLocale);
+  }
+});
+
+//hide routes composable
+const { isAuthPage } = useAuthPage();
+
+const store = useAuthStore()
 </script>

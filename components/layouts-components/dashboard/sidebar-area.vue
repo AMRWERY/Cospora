@@ -1,10 +1,12 @@
 <template>
     <div>
-        <aside
+        <aside v-if="!isAuthPage"
             class="absolute start-0 top-0 z-50 flex h-screen w-[230px] flex-col overflow-y-hidden bg-black duration-300 ease-linear lg:static lg:translate-x-0"
             :class="{
-                'translate-x-0': sidebarStore.isSidebarOpen,
-                '-translate-x-full': !sidebarStore.isSidebarOpen
+                'translate-x-0': !sidebarStore.isSidebarOpen && !isRTL,
+                'translate-x-full': sidebarStore.isSidebarOpen && isRTL,
+                'translate-x-0': sidebarStore.isSidebarOpen && isRTL,
+                '-translate-x-full': !sidebarStore.isSidebarOpen && !isRTL
             }" ref="target">
             <!-- SIDEBAR HEADER -->
             <div class="flex items-center justify-between gap-3 px-6 py-[1.375rem] lg:py-6.5">
@@ -34,7 +36,16 @@
                 </nav>
                 <!-- Sidebar Menu -->
             </div>
+            <div class="px-6 pb-6 mt-auto">
+                <nuxt-link type="button" to="/admin-login" @click="logout"
+                    class="block py-2 text-center text-white transition-all duration-300 bg-transparent border-2 border-white rounded-md hover:bg-white hover:text-black">
+                    {{ $t('btn.logout') }}
+                </nuxt-link>
+            </div>
         </aside>
+
+        <!-- overlay component -->
+        <overlay :visible="showOverlay" />
     </div>
 </template>
 
@@ -49,6 +60,27 @@ onClickOutside(target, () => {
 
 //rotate logo composable
 const { el } = useAnimateRotation();
+
+const isRTL = computed(() => document.documentElement.dir === 'rtl');
+
+const store = useAuthStore()
+const showOverlay = ref(false);
+
+const logout = async () => {
+    try {
+        showOverlay.value = true;
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await store.logout();
+        sessionStorage.removeItem("isAuthenticated");
+    } catch (error) {
+        console.error("Logout error:", error);
+    } finally {
+        showOverlay.value = false;
+    }
+};
+
+//hide routes composable
+const { isAuthPage } = useAuthPage();
 
 const menuGroups = ref([
     {

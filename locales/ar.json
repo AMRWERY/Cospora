@@ -33,12 +33,14 @@
     "reset_password": "إعادة تعيين كلمة المرور",
     "cancel": "إلغاء",
     "dashboard": "لوحة التحكم",
-    "processing": "جارٍ المعالجة"
+    "processing": "جارٍ المعالجة",
+    "logout": "تسجيل الخروج"
   },
   "head": {
     "register": "انشاء حساب جديد",
     "forget_password": "استعاده كلمة المرور",
-    "dashboard": "لوحة التحكم"
+    "dashboard": "لوحة التحكم",
+    "login": "تسجيل الدخول"
   },
   "alert": {
     "success": "نجاح",
