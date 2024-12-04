@@ -9,13 +9,13 @@ export default {
     "./error.vue",
     "./node_modules/tw-elements/js/**/*.js",
   ],
-  theme: {
-    extend: {},
-  },
   corePlugins: {
     aspectRatio: false,
   },
   darkMode: "class",
+  theme: {
+    extend: {},
+  },
   plugins: [
     require("tw-elements/plugin.cjs"),
     require("@tailwindcss/typography"),

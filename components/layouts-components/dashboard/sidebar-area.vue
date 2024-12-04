@@ -1,0 +1,90 @@
+<template>
+    <div>
+        <aside
+            class="absolute start-0 top-0 z-50 flex h-screen w-[230px] flex-col overflow-y-hidden bg-black duration-300 ease-linear lg:static lg:translate-x-0"
+            :class="{
+                'translate-x-0': sidebarStore.isSidebarOpen,
+                '-translate-x-full': !sidebarStore.isSidebarOpen
+            }" ref="target">
+            <!-- SIDEBAR HEADER -->
+            <div class="flex items-center justify-between gap-3 px-6 py-[1.375rem] lg:py-6.5">
+                <nuxt-link to="/dashboard" ref="el">
+                    <p class="text-3xl font-semibold text-white capitalize opacity-100 max-h-7">Cospora</p>
+                </nuxt-link>
+
+                <button class="block lg:hidden" @click="sidebarStore.isSidebarOpen = false">
+                    <icon name="ic:baseline-arrow-back-ios-new" class="w-5 h-5 mt-2 text-white fill-current" />
+                </button>
+            </div>
+            <!-- SIDEBAR HEADER -->
+
+            <div class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
+                <!-- Sidebar Menu -->
+                <nav class="px-4 py-4 mt-5 text-white lg:mt-9 lg:px-6">
+                    <template v-for="menuGroup in menuGroups" :key="menuGroup.name">
+                        <div>
+                            <h3 class="mb-4 text-sm font-medium ms-4">{{ menuGroup.name }}</h3>
+
+                            <ul class="mb-6 flex flex-col gap-1.5">
+                                <sidebar-item v-for="(menuItem, index) in menuGroup.menuItems" :item="menuItem"
+                                    :key="index" :index="index" />
+                            </ul>
+                        </div>
+                    </template>
+                </nav>
+                <!-- Sidebar Menu -->
+            </div>
+        </aside>
+    </div>
+</template>
+
+<script setup>
+const target = ref(null)
+
+const sidebarStore = useSidebarStore()
+
+onClickOutside(target, () => {
+    sidebarStore.isSidebarOpen = false
+})
+
+//rotate logo composable
+const { el } = useAnimateRotation();
+
+const menuGroups = ref([
+    {
+        name: 'Menu',
+        menuItems: [
+            {
+                icon: 'material-symbols:dashboard-outline-rounded',
+                label: 'Dashboard',
+                route: '/',
+                children: [{ label: 'eCommerce', route: '/' }]
+            },
+            {
+                icon: 'material-symbols:calendar-month-sharp',
+                label: 'Calendar',
+                route: ''
+            },
+            {
+                icon: 'material-symbols:account-box-sharp',
+                label: 'Profile',
+                route: ''
+            },
+            {
+                icon: 'material-symbols:forms-add-on',
+                label: 'Forms',
+                route: '',
+                children: [
+                    { label: 'Form Elements', route: '' },
+                    { label: 'Form Layout', route: '' }
+                ]
+            },
+            {
+                icon: 'material-symbols:table-chart-outline',
+                label: 'Tables',
+                route: ''
+            },
+        ]
+    },
+])
+</script>

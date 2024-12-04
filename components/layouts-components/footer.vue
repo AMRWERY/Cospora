@@ -133,7 +133,7 @@
             <div class="relative w-[240px] sm:max-w-sm">
               <input type="email" placeholder="Your email address" class="w-full p-2 text-gray-800 rounded-md pe-10" />
               <span class="absolute inset-y-0 flex items-center end-0 pe-2">
-                <icon name="solar:round-alt-arrow-right-bold" class="w-6 h-6 p-1 text-black" />
+                <icon name="solar:round-alt-arrow-end-bold" class="w-6 h-6 p-1 text-black" />
               </span>
             </div>
           </div>

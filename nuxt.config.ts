@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     "vue3-carousel-nuxt",
     "@stefanobartoletti/nuxt-social-share",
     "@nuxtjs/i18n",
+    "@vueuse/nuxt",
   ],
   tailwindcss: {
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
