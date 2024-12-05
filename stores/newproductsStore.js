@@ -13,8 +13,8 @@ export const useNewProductsStoreStore = defineStore("new-products", {
         const querySnap = await getDocs(query(collection(db, "new-products")));
         const tempProducts = {
           makeup: [],
-          tshirt: [],
-          bags: [],
+          // tshirt: [],
+          // bags: [],
         };
         querySnap.forEach((doc) => {
           const data = doc.data();
