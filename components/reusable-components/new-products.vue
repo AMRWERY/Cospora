@@ -5,7 +5,7 @@
       <loading-spinner v-if="loading" @loaded="loading = false" />
 
       <Carousel v-bind="config" v-else>
-        <Slide v-for="(item, index) in store.products.makeup" :key="index">
+        <Slide v-for="(item, index) in products" :key="index">
           <div class="carousel__item">
             <div class="relative flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
               <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
@@ -96,18 +96,27 @@ const config = {
 };
 
 const loading = ref(true);
-const store = useNewProductsStoreStore()
-
-onMounted(() => {
-  store.fetchProducts()
-})
 
 // price mask / formatPrice composables
 const { formatPrice } = useFormatPrice();
+
+const store = useNewProductsStoreStore();
 
 const isFavorite = ref(store.products.makeup?.map(() => false) || []);
 
 const toggleFavorite = (index) => {
   isFavorite.value[index] = !isFavorite.value[index];
 };
+
+defineProps({
+  products: {
+    type: Array,
+    default: () => [],
+    required: true,
+  },
+  // toggleFavorite: {
+  //   type: Function,
+  //   required: true,
+  // },
+});
 </script>

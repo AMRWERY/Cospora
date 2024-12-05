@@ -73,15 +73,15 @@
     <div class="mb-2">
       <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-makeup" role="tabpanel" aria-labelledby="tabs-makeup-tab" data-twe-tab-active>
-        <makeup />
+        <new-products :products="products.makeup" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-nail" role="tabpanel" aria-labelledby="tabs-nail-tab">
-        <nail />
+        <new-products :products="products.nail" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-accessories" role="tabpanel" aria-labelledby="tabs-accessories-tab">
-        Tab 3 content
+        <new-products :products="products.accessories" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-body-art" role="tabpanel" aria-labelledby="tabs-body-art-tab">
@@ -114,6 +114,18 @@
 </template>
 
 <script setup>
+const newProductsStore = useNewProductsStoreStore();
+
+// Fetch data on component mount
+onMounted(() => {
+  if (newProductsStore.products.length === 0) {
+    newProductsStore.fetchProducts();
+  }
+});
+
+// Use computed property to get products from the store
+const products = computed(() => newProductsStore.products);
+
 onMounted(async () => {
   const { Tab, Ripple, initTWE } = await import("tw-elements");
   initTWE({ Tab, Ripple });

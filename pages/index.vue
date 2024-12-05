@@ -1,7 +1,7 @@
 <template>
   <div>
     <carousel-component />
-    <new-products />
+    <new-products-tabs />
     <featured-products />
     <editor-picks />
     <trending-now />

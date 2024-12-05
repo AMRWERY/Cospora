@@ -14,7 +14,7 @@ export const useNewProductsStoreStore = defineStore("new-products", {
         const tempProducts = {
           makeup: [],
           nail: [],
-          // bags: [],
+          accessories: [],
         };
         querySnap.forEach((doc) => {
           const data = doc.data();
@@ -25,10 +25,11 @@ export const useNewProductsStoreStore = defineStore("new-products", {
           ) {
             const makeup = data.newProducts[0]?.makeup;
             const nail = data.newProducts[0]?.nail;
-            // const bags = data.newProducts[0]?.bags;
+            const accessories = data.newProducts[0]?.accessories;
             if (Array.isArray(makeup)) tempProducts.makeup = [...makeup];
             if (Array.isArray(nail)) tempProducts.nail = [...nail];
-            // if (Array.isArray(bags)) tempProducts.bags = [...bags];
+            if (Array.isArray(accessories))
+              tempProducts.accessories = [...accessories];
           }
         });
         this.products = tempProducts;
