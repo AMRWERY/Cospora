@@ -7,7 +7,7 @@
     </div>
 
     <!--Tabs navigation-->
-    <ul class="flex flex-row flex-wrap justify-center mb-5 space-s-2 list-none border-b-0 ps-0" role="tablist"
+    <ul class="flex flex-row flex-wrap justify-center mb-5 list-none border-b-0 space-s-2 ps-0" role="tablist"
       data-twe-nav-ref>
       <li role="presentation">
         <nuxt-link to="#tabs-makeup" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500 
@@ -97,7 +97,7 @@
       </div>
     </div>
 
-    <div class="grid gap-4 space-s-4 space-y-6 md:grid-cols-2 lg:gap-x-6 lg:space-y-0">
+    <div class="grid gap-4 space-y-6 space-s-4 md:grid-cols-2 lg:gap-x-6 lg:space-y-0">
       <nuxt-link to="/collections/accessories" class="duration-300 transform hover:scale-105">
         <div class="h-64 overflow-hidden rounded-lg cursor-pointer" data-twe-ripple-init data-twe-ripple-color="dark">
           <img src="https://justfields.com/storage/projects/7M5rV059/home-07.jpg" class="object-cover w-full h-full">

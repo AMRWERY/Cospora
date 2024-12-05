@@ -5,20 +5,20 @@
       <loading-spinner v-if="loading" @loaded="loading = false" />
 
       <Carousel v-bind="config" v-else>
-        <Slide v-for="(card, index) in products" :key="index">
+        <Slide v-for="(item, index) in store.products.makeup" :key="index">
           <div class="carousel__item">
             <div class="relative flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
               <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
                 <div class="relative w-full h-full">
-                  <img class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
-                    :src="card.imgOne" />
+                  <img class="absolute top-0 object-cover w-full h-full transition-all duration-500 ease-in-out end-0"
+                    :src="item.imgOne" />
                   <img
-                    class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
-                    :src="card.imgTwo" />
+                    class="absolute top-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 end-0 group-hover:opacity-100"
+                    :src="item.imgTwo" />
                 </div>
                 <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 start-2">
-                  <p v-if="card.sale" class="px-2 py-1 text-white bg-red-500 rounded">Sale</p>
-                  <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="card.new">New</p>
+                  <p v-if="item.sale" class="px-2 py-1 text-white bg-red-500 rounded">Sale</p>
+                  <p class="px-2 py-1 mt-1 text-white bg-black rounded" v-if="item.new">New</p>
                 </div>
               </nuxt-link>
 
@@ -36,15 +36,16 @@
               <div class="px-5 pb-5 mt-4">
                 <nuxt-link to="">
                   <h5 class="text-xs font-bold tracking-tight capitalize text-slate-900">
-                    {{ card.title }}
+                    {{ item.title }}
                   </h5>
-                  <p>{{ card.subtitle }}</p>
+                  <p>{{ item.subtitle }}</p>
                 </nuxt-link>
                 <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center">
                   <p>
-                    <span class="me-2 text-sm text-gray-400 line-through" v-if="card.discount">${{ card.discount
-                      }}</span>
-                    <span class="text-sm text-red-700">${{ card.price }}</span>
+                    <span class="text-sm text-gray-400 line-through me-2" v-if="item.discount">${{
+                      formatPrice(item.discount)
+                    }}</span>
+                    <span class="text-sm text-red-700">${{ formatPrice(item.price) }}</span>
                   </p>
                 </div>
 
@@ -93,20 +94,19 @@ const config = {
   },
 };
 
-const products = ref([
-  { imgOne: 'https://justfields.com/storage/projects/7M5rV059/product-01.jpg', imgTwo: 'https://justfields.com/storage/projects/7M5rV059/product-02.jpg', sale: true, new: true, title: 'Chanel', subtitle: 'Ainterdu pretium de miancelos dincidunts', price: '89.00', discount: '39.00' },
-  { imgOne: 'https://justfields.com/storage/projects/7M5rV059/product-03.jpg', imgTwo: 'https://justfields.com/storage/projects/7M5rV059/product-04.jpg', sale: true, new: true, title: 'Chanel', subtitle: 'Baminos lementum disus an cras damos dincidunts', price: '89.00', discount: '39.00' },
-  { imgOne: 'https://justfields.com/storage/projects/7M5rV059/product-05.jpg', imgTwo: 'https://justfields.com/storage/projects/7M5rV059/product-06.jpg', sale: false, new: true, title: 'Marc', subtitle: 'Magnis lorem darturien medros  lacniados cosmopolis', price: '86.00' },
-  { imgOne: 'https://justfields.com/storage/projects/7M5rV059/product-07.jpg', imgTwo: 'https://justfields.com/storage/projects/7M5rV059/product-08.jpg', sale: true, new: true, title: 'Collette', subtitle: 'Magnis lorem darturien medros  laciniados cosmopoli', price: '86.00' },
-  { imgOne: 'https://justfields.com/storage/projects/7M5rV059/product-09.jpg', imgTwo: 'https://justfields.com/storage/projects/7M5rV059/product-010.jpg', sale: false, new: true, title: 'Jimmy Choo', subtitle: 'Dinterdum pretium de milancelos cras dincidunts', price: '89.00', discount: '39.00' },
-  { imgOne: 'https://justfields.com/storage/projects/7M5rV059/product-011.jpg', imgTwo: 'https://justfields.com/storage/projects/7M5rV059/product-012.jpg', sale: false, new: true, title: 'Burberry', subtitle: 'Naminos lementum disus an cras damos dincidunts', price: '39.00' }
-])
+const loading = ref(true);
+const store = useNewProductsStoreStore()
 
-const isFavorite = ref(products.value.map(() => false));
+onMounted(() => {
+  store.fetchProducts()
+})
+
+// price mask / formatPrice composables
+const { formatPrice } = useFormatPrice();
+
+const isFavorite = ref(store.products.makeup?.map(() => false) || []);
 
 const toggleFavorite = (index) => {
   isFavorite.value[index] = !isFavorite.value[index];
 };
-
-const loading = ref(true);
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="loading" class="flex items-center justify-center text-red-700">
-      <icon name="svg-spinners:wind-toy" size="80px" />
+      <icon name="svg-spinners:6-dots-rotate" size="80px" />
     </div>
     <slot v-else></slot>
   </div>
