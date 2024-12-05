@@ -77,7 +77,7 @@
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-nail" role="tabpanel" aria-labelledby="tabs-nail-tab">
-        Tab 2 content
+        <nail />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-accessories" role="tabpanel" aria-labelledby="tabs-accessories-tab">

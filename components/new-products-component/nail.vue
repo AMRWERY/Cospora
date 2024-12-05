@@ -5,7 +5,7 @@
       <loading-spinner v-if="loading" @loaded="loading = false" />
 
       <Carousel v-bind="config" v-else>
-        <Slide v-for="(item, index) in store.products.makeup" :key="index">
+        <Slide v-for="(item, index) in store.products.nail" :key="index">
           <div class="carousel__item">
             <div class="relative flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
               <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
@@ -45,7 +45,7 @@
                   <p>
                     <span class="text-sm text-gray-400 line-through me-2" v-if="item.discount">${{
                       formatPrice(item.discount)
-                    }}</span>
+                      }}</span>
                     <span class="text-sm text-red-700">${{ formatPrice(item.price) }}</span>
                   </p>
                 </div>
@@ -105,7 +105,7 @@ onMounted(() => {
 // price mask / formatPrice composables
 const { formatPrice } = useFormatPrice();
 
-const isFavorite = ref(store.products.makeup?.map(() => false) || []);
+const isFavorite = ref(store.products.nail?.map(() => false) || []);
 
 const toggleFavorite = (index) => {
   isFavorite.value[index] = !isFavorite.value[index];

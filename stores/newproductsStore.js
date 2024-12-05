@@ -13,7 +13,7 @@ export const useNewProductsStoreStore = defineStore("new-products", {
         const querySnap = await getDocs(query(collection(db, "new-products")));
         const tempProducts = {
           makeup: [],
-          // tshirt: [],
+          nail: [],
           // bags: [],
         };
         querySnap.forEach((doc) => {
@@ -24,10 +24,10 @@ export const useNewProductsStoreStore = defineStore("new-products", {
             data.newProducts.length > 0
           ) {
             const makeup = data.newProducts[0]?.makeup;
-            // const tshirt = data.newProducts[0]?.tshirt;
+            const nail = data.newProducts[0]?.nail;
             // const bags = data.newProducts[0]?.bags;
             if (Array.isArray(makeup)) tempProducts.makeup = [...makeup];
-            // if (Array.isArray(tshirt)) tempProducts.tshirt = [...tshirt];
+            if (Array.isArray(nail)) tempProducts.nail = [...nail];
             // if (Array.isArray(bags)) tempProducts.bags = [...bags];
           }
         });
