@@ -41,12 +41,12 @@
           </div>
         </div>
 
-        <div class="flex mx-auto mb-4 space-s-6">
-          <div v-if="product.imgOne" class="mt-4">
-            <img :src="product.imgOne" class="w-32 h-32 rounded-lg">
+        <div class="flex items-center justify-center mb-4 space-s-6">
+          <div v-if="product.imgOne" class="mt-4 border border-gray-200">
+            <img :src="product.imgOne" class="w-48 h-32 rounded-lg">
           </div>
-          <div v-if="product.imgTwo" class="mt-4">
-            <img :src="product.imgTwo" class="w-32 h-32 rounded-lg">
+          <div v-if="product.imgTwo" class="mt-4 border border-gray-200">
+            <img :src="product.imgTwo" class="w-48 h-32 rounded-lg">
           </div>
         </div>
 
@@ -92,19 +92,26 @@
 
         <div class="mb-4">
           <label for="price" class="block mb-2 font-medium text-gray-700">Price</label>
-          <input type="number" id="price" name="price" v-model="product.price"
+          <input type="text" id="price" name="price" v-model="product.price"
+            @input="(event) => handleInput(event, 'price')" @blur="() => handleBlur('price')"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
         </div>
 
         <div class="mb-4">
           <label for="discount" class="block mb-2 font-medium text-gray-700">Discount</label>
-          <input type="number" id="discount" name="discount" v-model="product.discount"
+          <input type="text" id="discount" name="discount" v-model="product.discount"
+            @input="(event) => handleInput(event, 'discount')" @blur="() => handleBlur('discount')"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
         </div>
 
         <div>
-          <button type="submit"
-            class="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">Submit</button>
+          <button type="submit" class="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
+            <div class="flex items-center justify-center" v-if="loading">
+              <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+              <icon name="svg-spinners:270-ring-with-bg" />
+            </div>
+            <span v-else>Submit</span>
+          </button>
         </div>
       </form>
     </div>
@@ -115,6 +122,7 @@
 import { useProductsStore } from '@/stores/productsStore'
 
 const store = useProductsStore()
+const loading = ref(false);
 const categories = ref([])
 const subCategories = ref([])
 const selectedCategory = ref('')
@@ -159,6 +167,7 @@ const convertToBase64 = (file) => {
 }
 
 const handleSubmit = async () => {
+  loading.value = true;
   const selectedCategoryObj = categories.value.find(category => category.id === selectedCategory.value);
   const selectedSubCategoryObj = subCategories.value.find(subCategory => subCategory.id === selectedSubCategory.value);
   const productData = {
@@ -178,6 +187,12 @@ const handleSubmit = async () => {
     alert("Product added successfully!");
   } catch (error) {
     console.error("Error adding product:", error);
+  } finally {
+    loading.value = false;
+    selectedCategory.value = '';
+    selectedSubCategory.value = '';
+    subCategories.value = [];
+    product.value = {};
   }
 };
 
@@ -201,6 +216,26 @@ onMounted(async () => {
   subCategories.value = store.subCategories;
   // console.log(store.subCategories);
 })
+
+const { formatDecimal, enforceTwoDecimalPlaces } = useFormatter();
+
+const handleInput = (event, key) => {
+  const inputElement = event.target;
+
+  const cursorPosition = inputElement.selectionStart;
+
+  const formattedValue = formatDecimal(inputElement.value);
+
+  product.value[key] = formattedValue;
+
+  nextTick(() => {
+    inputElement.setSelectionRange(cursorPosition, cursorPosition);
+  });
+};
+
+const handleBlur = (key) => {
+  product.value[key] = enforceTwoDecimalPlaces(product.value[key]);
+};
 
 const { t } = useI18n()
 
