@@ -115,6 +115,9 @@
         </div>
       </form>
     </div>
+
+    <complete-operation v-if="showToast" :title="t('form.account_created')"
+      :message="t('form.your_account_has_been_successfully_created')" @close="showToast = false" />
   </div>
 </template>
 
@@ -123,6 +126,7 @@ import { useProductsStore } from '@/stores/productsStore'
 
 const store = useProductsStore()
 const loading = ref(false);
+const showToast = ref(false);
 const categories = ref([])
 const subCategories = ref([])
 const selectedCategory = ref('')
@@ -184,7 +188,8 @@ const handleSubmit = async () => {
   if (product.value.imgTwo) productData.imgTwo = product.value.imgTwo;
   try {
     await store.createProduct(productData);
-    alert("Product added successfully!");
+    // alert("Product added successfully!");
+    showToast.value = true;
   } catch (error) {
     console.error("Error adding product:", error);
   } finally {
