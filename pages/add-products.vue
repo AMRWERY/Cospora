@@ -116,6 +116,7 @@
       </form>
     </div>
 
+    <!-- complete-operation component -->
     <complete-operation v-if="showToast" :title="t('form.account_created')"
       :message="t('form.your_account_has_been_successfully_created')" @close="showToast = false" />
   </div>
@@ -188,7 +189,6 @@ const handleSubmit = async () => {
   if (product.value.imgTwo) productData.imgTwo = product.value.imgTwo;
   try {
     await store.createProduct(productData);
-    // alert("Product added successfully!");
     showToast.value = true;
   } catch (error) {
     console.error("Error adding product:", error);
