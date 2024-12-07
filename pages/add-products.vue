@@ -7,7 +7,7 @@
           <label for="main-category" class="block mb-2 font-medium text-gray-700">Main Category</label>
           <select id="main-category" name="main-category" v-model="selectedCategory" @change="onCategoryChange"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
-            <option value="">Select Main Category</option>
+            <option value="" disabled>Select Main Category</option>
             <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.title }}</option>
           </select>
         </div>
@@ -16,7 +16,7 @@
           <label for="sub-category" class="block mb-2 font-medium text-gray-700">Sub Category</label>
           <select id="sub-category" name="sub-category" v-model="selectedSubCategory"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
-            <option value="">Select Sub Category</option>
+            <option value="" disabled>Select Sub Category</option>
             <option v-for="subCategory in subCategories" :key="subCategory.id" :value="subCategory.id">{{
               subCategory.title }}</option>
           </select>
