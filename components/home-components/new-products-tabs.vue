@@ -73,7 +73,7 @@
     <div class="mb-2">
       <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-makeup" role="tabpanel" aria-labelledby="tabs-makeup-tab" data-twe-tab-active>
-        <new-products :products="products.makeup" />
+        <new-products :products="products['Makeup']" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-nail" role="tabpanel" aria-labelledby="tabs-nail-tab">
@@ -116,7 +116,6 @@
 <script setup>
 const newProductsStore = useNewProductsStoreStore();
 
-// Fetch data on component mount
 onMounted(() => {
   if (newProductsStore.products.length === 0) {
     newProductsStore.fetchProducts();

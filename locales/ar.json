@@ -40,7 +40,9 @@
     "register": "انشاء حساب جديد",
     "forget_password": "استعاده كلمة المرور",
     "dashboard": "لوحة التحكم",
-    "login": "تسجيل الدخول"
+    "login": "تسجيل الدخول",
+    "products": "المنتجات",
+    "categories": "الفئات"
   },
   "alert": {
     "success": "نجاح",

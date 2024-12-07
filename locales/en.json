@@ -40,7 +40,9 @@
     "register": "Register",
     "forget_password": "Forget Password",
     "dashboard": "Dashboard",
-    "login": "Login"
+    "login": "Login",
+    "products": "Products",
+    "categories": "Categories"
   },
   "alert": {
     "success": "Success",

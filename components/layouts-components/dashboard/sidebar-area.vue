@@ -25,8 +25,6 @@
                 <nav class="px-4 py-4 mt-5 text-white lg:mt-9 lg:px-6">
                     <template v-for="menuGroup in menuGroups" :key="menuGroup.name">
                         <div>
-                            <h3 class="mb-4 text-sm font-medium ms-4">{{ menuGroup.name }}</h3>
-
                             <ul class="mb-6 flex flex-col gap-1.5">
                                 <sidebar-item v-for="(menuItem, index) in menuGroup.menuItems" :item="menuItem"
                                     :key="index" :index="index" />
@@ -84,37 +82,21 @@ const { isAuthPage } = useAuthPage();
 
 const menuGroups = ref([
     {
-        name: 'Menu',
         menuItems: [
             {
                 icon: 'material-symbols:dashboard-outline-rounded',
                 label: 'Dashboard',
-                route: '/',
-                children: [{ label: 'eCommerce', route: '/' }]
+                route: '/dashboard',
             },
             {
                 icon: 'material-symbols:calendar-month-sharp',
-                label: 'Calendar',
-                route: ''
+                label: 'Add Categories',
+                route: '/add-categories'
             },
             {
-                icon: 'material-symbols:account-box-sharp',
-                label: 'Profile',
-                route: ''
-            },
-            {
-                icon: 'material-symbols:forms-add-on',
-                label: 'Forms',
-                route: '',
-                children: [
-                    { label: 'Form Elements', route: '' },
-                    { label: 'Form Layout', route: '' }
-                ]
-            },
-            {
-                icon: 'material-symbols:table-chart-outline',
-                label: 'Tables',
-                route: ''
+                icon: 'material-symbols:calendar-month-sharp',
+                label: 'Add Products',
+                route: '/add-products'
             },
         ]
     },

@@ -10,29 +10,31 @@ export const useNewProductsStoreStore = defineStore("new-products", {
   actions: {
     async fetchProducts() {
       try {
-        const querySnap = await getDocs(query(collection(db, "new-products")));
-        const tempProducts = {
-          makeup: [],
-          nail: [],
-          accessories: [],
-        };
+        const querySnap = await getDocs(query(collection(db, "products")));
+        const tempProducts = {};
         querySnap.forEach((doc) => {
           const data = doc.data();
-          if (
-            data &&
-            Array.isArray(data.newProducts) &&
-            data.newProducts.length > 0
-          ) {
-            const makeup = data.newProducts[0]?.makeup;
-            const nail = data.newProducts[0]?.nail;
-            const accessories = data.newProducts[0]?.accessories;
-            if (Array.isArray(makeup)) tempProducts.makeup = [...makeup];
-            if (Array.isArray(nail)) tempProducts.nail = [...nail];
-            if (Array.isArray(accessories))
-              tempProducts.accessories = [...accessories];
+          const category = data.categoryTitle;
+          const subCategory = data.subCategoryTitle;
+
+          // Initialize category array if it doesn't exist
+          if (!tempProducts[category]) {
+            tempProducts[category] = [];
           }
+          if (!tempProducts[subCategory]) {
+            tempProducts[subCategory] = [];
+          }
+          tempProducts[category].push({
+            id: doc.id,
+            ...data,
+          });
+          tempProducts[subCategory].push({
+            id: doc.id,
+            ...data,
+          });
         });
         this.products = tempProducts;
+        console.log("Products fetched and organized:", this.products);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
