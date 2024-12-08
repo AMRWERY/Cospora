@@ -28,16 +28,16 @@
                     <div class="flex flex-wrap -mx-4">
                       <div class="w-full px-4 md:w-1/2">
                         <div class="relative mb-6 lg:mb-10">
-                          <img :src="selectedImage" class="object-contain w-full h-full" />
+                          <img :src="selectedImage" class="object-contain w-full h-[350px]" />
                         </div>
                         <p class="my-6 text-xs text-center text-gray-600">Roll over or click image to zoom in</p>
                         <div class="flex-wrap hidden md:flex">
                           <ClientOnly>
                             <Carousel v-bind="config">
-                              <Slide v-for="slide in slides" :key="slide">
+                              <Slide v-for="(image, index) in imageList" :key="index">
                                 <div class="carousel__item">
-                                  <button @click="selectedImage = slide.img" type="button" class="block">
-                                    <img :src="slide.img" class="object-cover w-full h-32" />
+                                  <button @click="setSelectedImage(image)" type="button" class="block">
+                                    <img :src="image" class="object-cover w-full h-32" />
                                   </button>
                                 </div>
                               </Slide>
@@ -52,7 +52,6 @@
                         <div class="lg:ps-20">
                           <div class="pb-6 mb-8">
                             <h2 class="max-w-xl mb-6 text-xl font-bold dark:text-gray-300 md:text-xl">
-                              <!-- Long-Sleeved T-shirt -->
                               {{ store.selectedProduct?.title }}
                             </h2>
                             <div class="flex">
@@ -62,11 +61,11 @@
                               </div>
                             </div>
                             <div class="my-8">
-                              <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">Chanel</span></p>
-                              <p class="text-sm font-semibold">Product Code: <span class="font-normal ms-7">DP3</span>
+                              <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{ store.selectedProduct?.brand }}</span></p>
+                              <p class="text-sm font-semibold">Product Code: <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
-                              <p class="text-sm font-semibold">Availability: <span class="font-normal ms-12">in
-                                  stock</span></p>
+                              <p class="text-sm font-semibold">Availability: <span class="font-normal ms-12">{{ store.selectedProduct?.availability }}</span>
+                                </p>
                             </div>
                             <div class="mb-5">
                               <p class="text-xs font-thin underline">Limited-Time Offers, End in:</p>
@@ -92,15 +91,14 @@
                               </div>
                             </div>
                             <p class="inline-flex items-center text-2xl font-semibold text-gray-700 dark:text-gray-400">
-                              <span class="text-gray-500 line-through dark:text-gray-400">$89.00</span>
-                              <span class="text-red-600 ms-3">$39.00</span>
-                              <span class="px-2 py-1 text-sm text-white bg-red-500 ms-3">-30%</span>
+                              <span class="text-gray-500 line-through dark:text-gray-400">${{ store.selectedProduct?.price }}</span>
+                              <span class="text-red-600 ms-3">${{ store.selectedProduct?.originalPrice }}</span>
+                              <span class="px-2 py-1 text-sm text-white bg-red-500 ms-3">-{{ store.selectedProduct?.discount }}%</span>
                             </p>
                           </div>
                           <div class="mb-6 -mt-7">
                             <p class="max-w-md text-xs text-gray-700">
-                              Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis.
-                              Pellentesque diam dolor, elementum ...
+                              {{ store.selectedProduct?.subtitle }}
                             </p>
                           </div>
                           <div class="mb-8">
@@ -185,7 +183,7 @@
                           </div>
 
                           <div class="mb-6">
-                            <p class="text-xs">Subtotal: <span class="font-semibold">$39.00</span></p>
+                            <p class="text-xs">Subtotal: <span class="font-semibold">${{ store.selectedProduct?.price }}</span></p>
                           </div>
 
                           <div class="flex flex-wrap items-center gap-4 mb-6">
@@ -248,20 +246,23 @@ const config = {
   },
 };
 
-const selectedImage = ref('https://justfields.com/storage/projects/7M5rV059/product-013.jpg');
-
-const slides = ref([
-  { img: 'https://justfields.com/storage/projects/7M5rV059/product-013.jpg' },
-  { img: 'https://justfields.com/storage/projects/7M5rV059/product-014.jpg' },
-  { img: 'https://justfields.com/storage/projects/7M5rV059/product-015.jpg' },
-  { img: 'https://justfields.com/storage/projects/7M5rV059/product-016.jpg' },
-  { img: 'https://justfields.com/storage/projects/7M5rV059/product-017.jpg' },
-  { img: 'https://justfields.com/storage/projects/7M5rV059/product-018.jpg' },
-  { img: 'https://justfields.com/storage/projects/7M5rV059/product-019.jpg' },
-  { img: 'https://justfields.com/storage/projects/7M5rV059/product-020.jpg' },
-])
-
 const store = useNewProductsStoreStore()
+const selectedImage = ref('');
+
+watch(
+  () => store.selectedProduct,
+  (newProduct) => {
+    if (newProduct) {
+      selectedImage.value = newProduct.imgOne || "";
+    }
+  },
+  { immediate: true }
+);
+
+const setSelectedImage = (image) => {
+  selectedImage.value = image;
+};
+
 const productDetails = ref(null);
 
 watch(() => store.selectedProduct, (newProduct) => {
@@ -279,6 +280,15 @@ const props = defineProps({
     default: null,
   },
 })
+
+const imageList = computed(() =>
+  [
+    store.selectedProduct?.imgOne,
+    store.selectedProduct?.imgTwo,
+    store.selectedProduct?.imgThree,
+    store.selectedProduct?.imgFour,
+  ].filter(Boolean)
+);
 </script>
 
 <style scoped>
