@@ -128,6 +128,7 @@
                 </transition>
               </HeadlessMenu>
 
+              <!-- .. -->
               <ClientOnly>
                 <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex"
                   v-if="store.isUserAuthenticated">
