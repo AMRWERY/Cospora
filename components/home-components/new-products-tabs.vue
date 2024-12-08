@@ -73,7 +73,7 @@
     <div class="mb-2">
       <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-makeup" role="tabpanel" aria-labelledby="tabs-makeup-tab" data-twe-tab-active>
-        <new-products :products="products['Makeup']" />
+        <new-products :products="products" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-nail" role="tabpanel" aria-labelledby="tabs-nail-tab">
@@ -114,16 +114,16 @@
 </template>
 
 <script setup>
-const newProductsStore = useNewProductsStoreStore();
+const store = useNewProductsStoreStore();
 
 onMounted(() => {
-  if (newProductsStore.products.length === 0) {
-    newProductsStore.fetchProducts();
+  if (store.products.length === 0) {
+    store.fetchProducts();
   }
 });
 
 // Use computed property to get products from the store
-const products = computed(() => newProductsStore.products);
+const products = computed(() => store.products);
 
 onMounted(async () => {
   const { Tab, Ripple, initTWE } = await import("tw-elements");

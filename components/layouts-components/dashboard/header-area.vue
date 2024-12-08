@@ -26,6 +26,13 @@
             </span>
           </nuxt-link>
 
+          <nuxt-link to="/" type="button" class="relative hidden text-gray-700 rounded-full sm:flex"
+            v-if="store.isUserAuthenticated">
+            <span class="absolute -inset-1.5" />
+            <span class="sr-only">Back to Home Page</span>
+            <icon name="ph:house-line-bold" />
+          </nuxt-link>
+
           <nuxt-link to="/admin-login" v-if="!store.isUserAuthenticated" class="text-neutral-600 dark:text-white">{{
             $t('form.login') }}</nuxt-link>
         </div>

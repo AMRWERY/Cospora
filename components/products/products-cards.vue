@@ -31,7 +31,7 @@
 
         <div
           class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 mb-28 group-hover:opacity-100">
-          <new-products-dialog />
+          <products-dialog />
         </div>
 
         <div class="px-5 pb-5 mt-4">

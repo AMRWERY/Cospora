@@ -48,6 +48,12 @@
           <div v-if="product.imgTwo" class="mt-4 border border-gray-200">
             <img :src="product.imgTwo" class="w-48 h-32 rounded-lg">
           </div>
+          <div v-if="product.imgThree" class="mt-4 border border-gray-200">
+            <img :src="product.imgThree" class="w-48 h-32 rounded-lg">
+          </div>
+          <div v-if="product.imgFour" class="mt-4 border border-gray-200">
+            <img :src="product.imgFour" class="w-48 h-32 rounded-lg">
+          </div>
         </div>
 
         <div class="mb-4">
@@ -91,6 +97,13 @@
         </div>
 
         <div class="mb-4">
+          <label for="original-price" class="block mb-2 font-medium text-gray-700">Original Price</label>
+          <input type="text" id="original-price" name="original-price" v-model="product.originalPrice"
+            @input="(event) => handleInput(event, 'originalPrice')" @blur="() => handleBlur('originalPrice')"
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+        </div>
+
+        <div class="mb-4">
           <label for="price" class="block mb-2 font-medium text-gray-700">Price</label>
           <input type="text" id="price" name="price" v-model="product.price"
             @input="(event) => handleInput(event, 'price')" @blur="() => handleBlur('price')"
@@ -100,8 +113,29 @@
         <div class="mb-4">
           <label for="discount" class="block mb-2 font-medium text-gray-700">Discount</label>
           <input type="text" id="discount" name="discount" v-model="product.discount"
-            @input="(event) => handleInput(event, 'discount')" @blur="() => handleBlur('discount')"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="product-code" class="block mb-2 font-medium text-gray-700">Product Code</label>
+          <input type="text" id="product-code" name="product-code" v-model="product.productCode"
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="brand" class="block mb-2 font-medium text-gray-700">Brand</label>
+          <input type="text" id="brand" name="brand" v-model="product.brand"
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="availability" class="block mb-2 font-medium text-gray-700">Availability</label>
+          <select id="availability" name="availability" v-model="product.availability"
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            <option value="" disabled>Select Availability</option>
+            <option>In stock</option>
+            <option>Out of stock</option>
+          </select>
         </div>
 
         <div>
@@ -132,12 +166,12 @@ const categories = ref([])
 const subCategories = ref([])
 const selectedCategory = ref('')
 const selectedSubCategory = ref('')
-const product = ref({ title: '', subtitle: '', price: '', discount: '', productTypes: [] })
+const product = ref({ title: '', subtitle: '', price: '', originalPrice: '', discount: '', productCode: '', brand: '', productTypes: [] })
 
 const handleFileChange = async (event) => {
   const files = Array.from(event.target.files);
-  if (files.length > 2) {
-    alert("You can only upload up to two images.");
+  if (files.length > 4) {
+    alert("You can only upload up to 4 images.");
     return;
   }
   for (let i = 0; i < files.length; i++) {
@@ -147,7 +181,7 @@ const handleFileChange = async (event) => {
       alert('Please upload an image in JPEG, PNG, or WebP format.');
       return;
     }
-    const maxSize = 2 * 1024 * 1024;
+    const maxSize = 4 * 1024 * 1024;
     if (file.size > maxSize) {
       alert('Image size must not exceed 2MB.');
       return;
@@ -157,6 +191,10 @@ const handleFileChange = async (event) => {
       product.value.imgOne = base64Image;
     } else if (i === 1) {
       product.value.imgTwo = base64Image;
+    } else if (i === 2) {
+      product.value.imgThree = base64Image;
+    } else if (i === 3) {
+      product.value.imgFour = base64Image;
     }
   }
 };
@@ -183,10 +221,15 @@ const handleSubmit = async () => {
     subCategoryTitle: selectedSubCategoryObj?.title || '',
     imgOne: product.value.imgOne || null,
     imgTwo: product.value.imgTwo || null,
+    imgThree: product.value.imgThree || null,
+    imgFour: product.value.imgFour || null,
     productTypes: product.value.productTypes,
+    availability: product.value.availability,
   };
   if (product.value.imgOne) productData.imgOne = product.value.imgOne;
   if (product.value.imgTwo) productData.imgTwo = product.value.imgTwo;
+  if (product.value.imgThree) productData.imgThree = product.value.imgThree;
+  if (product.value.imgFour) productData.imgFour = product.value.imgFour;
   try {
     await store.createProduct(productData);
     showToast.value = true;
@@ -226,13 +269,9 @@ const { formatDecimal, enforceTwoDecimalPlaces } = useFormatter();
 
 const handleInput = (event, key) => {
   const inputElement = event.target;
-
   const cursorPosition = inputElement.selectionStart;
-
   const formattedValue = formatDecimal(inputElement.value);
-
   product.value[key] = formattedValue;
-
   nextTick(() => {
     inputElement.setSelectionRange(cursorPosition, cursorPosition);
   });

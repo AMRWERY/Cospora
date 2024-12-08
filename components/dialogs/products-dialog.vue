@@ -1,19 +1,12 @@
 <template>
   <div>
-    <div class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100">
-      <button @click="handleQuickViewClick"
-        class="px-3 py-2 text-xs font-medium text-black capitalize bg-white rounded hover:bg-black hover:text-white">
-        Quick View
-      </button>
-    </div>
-
     <!-- Show spinner while loading -->
     <div v-if="isLoading" class="absolute inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-50">
       <icon name="svg-spinners:6-dots-rotate" class="bg-blue-800 spinner" />
     </div>
 
     <HeadlessTransitionRoot appear :show="isOpen" as="template">
-      <HeadlessDialog as="div" @close="closeModal" class="relative z-10">
+      <HeadlessDialog as="div" @close="handleClose" class="relative z-10">
         <HeadlessTransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0"
           enter-to="opacity-100" leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
           <div class="fixed inset-0 bg-black/25" />
@@ -26,7 +19,7 @@
               leave-to="opacity-0 scale-95">
               <HeadlessDialogPanel
                 class="w-full max-w-5xl p-4 overflow-y-scroll text-start align-middle transition-all transform bg-white shadow-xl rounded-2xl max-h-[80vh] custom-scroll">
-                <button @click="closeModal"
+                <button @click="handleClose"
                   class="sticky z-50 flex items-center justify-center p-2 text-black bg-white rounded-full outline-none focus:outline-none top-1 start-1 hover:bg-black hover:text-white">
                   <icon name="material-symbols:close" />
                 </button>
@@ -59,7 +52,8 @@
                         <div class="lg:ps-20">
                           <div class="pb-6 mb-8">
                             <h2 class="max-w-xl mb-6 text-xl font-bold dark:text-gray-300 md:text-xl">
-                              Long-Sleeved T-shirt
+                              <!-- Long-Sleeved T-shirt -->
+                              {{ store.selectedProduct?.title }}
                             </h2>
                             <div class="flex">
                               <div class="ms-auto text-[#e7040f] flex">
@@ -68,10 +62,10 @@
                               </div>
                             </div>
                             <div class="my-8">
-                              <p class="text-sm font-semibold">Brand: <span class="ms-20 font-normal">Chanel</span></p>
+                              <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">Chanel</span></p>
                               <p class="text-sm font-semibold">Product Code: <span class="font-normal ms-7">DP3</span>
                               </p>
-                              <p class="text-sm font-semibold">Availability: <span class="ms-12 font-normal">in
+                              <p class="text-sm font-semibold">Availability: <span class="font-normal ms-12">in
                                   stock</span></p>
                             </div>
                             <div class="mb-5">
@@ -79,19 +73,19 @@
                             </div>
                             <div class="pb-6 mb-4">
                               <div class="flex flex-wrap -mb-2">
-                                <nuxt-link to="" class="w-16 p-4 mb-2 me-4 text-xs text-center border rounded-full">
+                                <nuxt-link to="" class="w-16 p-4 mb-2 text-xs text-center border rounded-full me-4">
                                   <span class="block">00</span>
                                   <span class="block">days</span>
                                 </nuxt-link>
-                                <nuxt-link to="" class="w-16 p-4 mb-2 me-4 text-xs text-center border rounded-full">
+                                <nuxt-link to="" class="w-16 p-4 mb-2 text-xs text-center border rounded-full me-4">
                                   <span class="block">00</span>
                                   <span class="block">hours</span>
                                 </nuxt-link>
-                                <nuxt-link to="" class="w-16 p-4 mb-2 me-4 text-xs text-center border rounded-full">
+                                <nuxt-link to="" class="w-16 p-4 mb-2 text-xs text-center border rounded-full me-4">
                                   <span class="block">00</span>
                                   <span class="block">mins</span>
                                 </nuxt-link>
-                                <nuxt-link to="" class="w-16 p-4 mb-2 me-4 text-xs text-center border rounded-full">
+                                <nuxt-link to="" class="w-16 p-4 mb-2 text-xs text-center border rounded-full me-4">
                                   <span class="block">00</span>
                                   <span class="block">secs</span>
                                 </nuxt-link>
@@ -99,8 +93,8 @@
                             </div>
                             <p class="inline-flex items-center text-2xl font-semibold text-gray-700 dark:text-gray-400">
                               <span class="text-gray-500 line-through dark:text-gray-400">$89.00</span>
-                              <span class="ms-3 text-red-600">$39.00</span>
-                              <span class="px-2 py-1 ms-3 text-sm text-white bg-red-500">-30%</span>
+                              <span class="text-red-600 ms-3">$39.00</span>
+                              <span class="px-2 py-1 text-sm text-white bg-red-500 ms-3">-30%</span>
                             </p>
                           </div>
                           <div class="mb-6 -mt-7">
@@ -112,10 +106,10 @@
                           <div class="mb-8">
                             <h2 class="mb-2 text-sm font-bold">Color <span class="text-red-500">*</span></h2>
                             <div class="flex flex-wrap -mb-2">
-                              <button class="p-1 mb-2 me-2 border border-transparent rounded-full">
+                              <button class="p-1 mb-2 border border-transparent rounded-full me-2">
                                 <div class="w-8 h-8 bg-red-600 rounded-full"></div>
                               </button>
-                              <button class="p-1 mb-2 me-2 border border-transparent rounded-full">
+                              <button class="p-1 mb-2 border border-transparent rounded-full me-2">
                                 <div class="w-8 h-8 bg-green-600 rounded-full"></div>
                               </button>
                               <button class="p-1 mb-2 border border-transparent rounded-full">
@@ -205,7 +199,7 @@
                             </button>
                           </div>
 
-                          <div class="flex items-center space-s-2 text-xs">
+                          <div class="flex items-center text-xs space-s-2">
                             <icon name="entypo:eye" class="text-lg" />
                             <p>193 customers are viewing this product</p>
                           </div>
@@ -224,24 +218,12 @@
 </template>
 
 <script setup>
-const isOpen = ref(false)
+const emit = defineEmits(['update:isOpen'])
+
+const handleClose = () => {
+  emit('update:isOpen', false);
+}
 const isLoading = ref(false)
-
-const closeModal = () => {
-  isOpen.value = false
-};
-
-const openModal = () => {
-  isOpen.value = true
-};
-
-const handleQuickViewClick = () => {
-  isLoading.value = true;
-  setTimeout(() => {
-    isLoading.value = false;
-    openModal();
-  }, 2000);
-};
 
 const config = {
   itemsToShow: 4,
@@ -278,6 +260,25 @@ const slides = ref([
   { img: 'https://justfields.com/storage/projects/7M5rV059/product-019.jpg' },
   { img: 'https://justfields.com/storage/projects/7M5rV059/product-020.jpg' },
 ])
+
+const store = useNewProductsStoreStore()
+const productDetails = ref(null);
+
+watch(() => store.selectedProduct, (newProduct) => {
+  if (newProduct) {
+    productDetails.value = newProduct;
+  }
+});
+
+const props = defineProps({
+  isOpen: {
+    type: Boolean,
+  },
+  productId: {
+    type: [String, Number],
+    default: null,
+  },
+})
 </script>
 
 <style scoped>

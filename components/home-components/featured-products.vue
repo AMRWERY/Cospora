@@ -13,10 +13,10 @@
             <div class="relative flex flex-col w-full max-w-xs my-10 overflow-hidden bg-white group">
               <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" to="">
                 <div class="relative w-full h-full">
-                  <img class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out"
+                  <img class="absolute top-0 object-cover w-full h-full transition-all duration-500 ease-in-out end-0"
                     :src="card.imgOne" />
                   <img
-                    class="absolute top-0 end-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"
+                    class="absolute top-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 end-0 group-hover:opacity-100"
                     :src="card.imgTwo" />
                 </div>
                 <div class="absolute px-2 py-1 text-xs text-white bg-opacity-50 top-2 start-2">
@@ -33,7 +33,7 @@
 
               <div
                 class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 mb-28 group-hover:opacity-100">
-                <new-products-dialog />
+                <products-dialog />
               </div>
 
               <div class="px-5 pb-5 mt-4">
@@ -45,7 +45,7 @@
                 </nuxt-link>
                 <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center">
                   <p>
-                    <span class="me-2 text-sm text-gray-400 line-through" v-if="card.discount">${{ card.discount
+                    <span class="text-sm text-gray-400 line-through me-2" v-if="card.discount">${{ card.discount
                       }}</span>
                     <span class="text-sm text-red-700">${{ card.price }}</span>
                   </p>

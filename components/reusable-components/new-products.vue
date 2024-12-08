@@ -31,9 +31,13 @@
                   :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
               </button>
 
+              <!-- open dialog button -->
               <div
-                class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 mb-28 group-hover:opacity-100">
-                <new-products-dialog />
+                class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100">
+                <button @click="openDialog(item.id)"
+                  class="px-3 py-2 text-xs font-medium text-black capitalize bg-white rounded hover:bg-black hover:text-white">
+                  Quick View
+                </button>
               </div>
 
               <div class="px-5 pb-5 mt-4">
@@ -69,6 +73,12 @@
         </template>
       </Carousel>
     </ClientOnly>
+
+    <!-- products-dialog component -->
+    <div
+      class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 mb-28 group-hover:opacity-100">
+      <products-dialog :productId="selectedProduct" :isOpen="isDialogOpen" @update:isOpen="isDialogOpen = $event" />
+    </div>
   </div>
 </template>
 
@@ -110,15 +120,23 @@ const toggleFavorite = (index) => {
   isFavorite.value[index] = !isFavorite.value[index];
 };
 
-defineProps({
+const props = defineProps({
   products: {
     type: Array,
     default: () => [],
     required: true,
   },
-  // toggleFavorite: {
-  //   type: Function,
-  //   required: true,
-  // },
-});
+})
+
+const isDialogOpen = ref(false)
+const isLoading = ref(false)
+const selectedProduct = ref(null);
+
+const openDialog = async (productId) => {
+  isDialogOpen.value = true;
+  isLoading.value = true;
+  await store.fetchProductDetail(productId);
+  selectedProduct.value = productId;
+  isLoading.value = false;
+};
 </script>
