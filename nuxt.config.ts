@@ -44,9 +44,9 @@ export default defineNuxtConfig({
     autoImport: true,
     configFile: "./plugins/formkit.config.js",
   },
-  headlessui: {
-    prefix: "Headless",
-  },
+  // headlessui: {
+  //   prefix: "Headless",
+  // },
   carousel: {
     prefix: "MyPrefix",
   },

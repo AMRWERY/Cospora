@@ -10,7 +10,7 @@
     </div>
 
     <ClientOnly>
-      <HeadlessDisclosure as="nav" class="mt-10 bg-[#f7f7f7]" v-slot="{ open }">
+      <HeadlessDisclosure as="nav" class="mt-10 bg-[#f7f7f7] relative z-10" v-slot="{ open }">
         <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="relative flex items-center justify-between h-16">
             <div class="absolute inset-y-0 flex items-center start-0 sm:hidden">

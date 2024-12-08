@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="loading" class="flex items-center justify-center text-red-700">
+    <div v-if="store.isLoading" class="flex items-center justify-center text-red-700">
       <icon name="svg-spinners:6-dots-rotate" size="80px" />
     </div>
     <slot v-else></slot>
@@ -8,14 +8,16 @@
 </template>
 
 <script setup>
-const loading = ref(true);
+import {useLoaderStore} from '@/stores/loadingStore'
 const emit = defineEmits(["loaded"]);
+
+const store = useLoaderStore()
 
 const simulateLoading = () => {
   setTimeout(() => {
-    loading.value = false;
+    store.hideLoader();
     emit("loaded");
-  }, 2000);
+  }, 10000);
 };
 
 onMounted(simulateLoading);

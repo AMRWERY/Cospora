@@ -41,7 +41,7 @@
                       <div class="flex items-end justify-between mt-4 sm:mt-0 sm:items-start sm:justify-end">
                         <button type="button"
                           class="flex text-center text-gray-500 transition-all duration-200 ease-in-out rounded focus:shadow hover:text-gray-900">
-                          <icon name="ci:close-small" class="w-6 h-6" />
+                          <icon name="proicons:cancelall" class="w-6 h-6" />
                         </button>
                       </div>
                     </div>
@@ -75,7 +75,7 @@
                       <div class="flex items-end justify-between mt-4 sm:mt-0 sm:items-start sm:justify-end">
                         <button type="button"
                           class="flex text-center text-gray-500 transition-all duration-200 ease-in-out rounded focus:shadow hover:text-gray-900">
-                          <icon name="ci:close-small" class="w-6 h-6" />
+                          <icon name="proicons:cancelall" class="w-6 h-6" />
                         </button>
                       </div>
                     </div>

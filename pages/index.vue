@@ -1,5 +1,7 @@
 <template>
   <div>
+    <!-- <loading-spinner   /> -->
+
     <carousel-component />
     <new-products-tabs />
     <featured-products />

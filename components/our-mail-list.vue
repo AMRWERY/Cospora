@@ -20,7 +20,7 @@
                   <img src="https://justfields.com/storage/projects/7M5rV059/newsletter.jpg"
                     class="object-cover w-full mb-4 rounded-lg h-96" />
                   <button @click="closeModal" class="absolute text-black rounded-full top-2 end-2">
-                    <icon name="ci:close-small" class="w-8 h-8" />
+                    <icon name="proicons:cancelall" class="w-8 h-8" />
                   </button>
                 </div>
 
@@ -35,7 +35,7 @@
                 <div class="w-full max-w-sm min-w-[200px] mx-auto mt-4">
                   <div class="relative">
                     <input type="email"
-                      class="w-full py-3 ps-3 pe-16 text-sm transition duration-300 bg-transparent border rounded-md shadow-sm placeholder:text-slate-400 text-slate-700 border-slate-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
+                      class="w-full py-3 text-sm transition duration-300 bg-transparent border rounded-md shadow-sm ps-3 pe-16 placeholder:text-slate-400 text-slate-700 border-slate-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 focus:shadow"
                       placeholder="Your Email Address" />
                     <button
                       class="absolute end-1 top-1 rounded bg-black py-2 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
