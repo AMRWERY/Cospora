@@ -6,7 +6,7 @@
         <div class="mb-4">
           <label for="main-category" class="block mb-2 font-medium text-gray-700">Main Category</label>
           <select id="main-category" name="main-category" v-model="selectedCategory" @change="onCategoryChange"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
             <option value="" disabled>Select Main Category</option>
             <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.title }}</option>
           </select>
@@ -15,7 +15,7 @@
         <div class="mb-4">
           <label for="sub-category" class="block mb-2 font-medium text-gray-700">Sub Category</label>
           <select id="sub-category" name="sub-category" v-model="selectedSubCategory"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
             <option value="" disabled>Select Sub Category</option>
             <option v-for="subCategory in subCategories" :key="subCategory.id" :value="subCategory.id">{{
               subCategory.title }}</option>
@@ -59,13 +59,13 @@
         <div class="mb-4">
           <label for="title" class="block mb-2 font-medium text-gray-700">Title</label>
           <input type="text" id="title" name="title" v-model="product.title"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
           <label for="subtitle" class="block mb-2 font-medium text-gray-700">Subtitle</label>
           <input type="text" id="subtitle" name="subtitle" v-model="product.subtitle"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
@@ -100,38 +100,38 @@
           <label for="original-price" class="block mb-2 font-medium text-gray-700">Original Price</label>
           <input type="text" id="original-price" name="original-price" v-model="product.originalPrice"
             @input="(event) => handleInput(event, 'originalPrice')" @blur="() => handleBlur('originalPrice')"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
           <label for="price" class="block mb-2 font-medium text-gray-700">Price</label>
           <input type="text" id="price" name="price" v-model="product.price"
             @input="(event) => handleInput(event, 'price')" @blur="() => handleBlur('price')"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
           <label for="discount" class="block mb-2 font-medium text-gray-700">Discount</label>
           <input type="text" id="discount" name="discount" v-model="product.discount"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
           <label for="product-code" class="block mb-2 font-medium text-gray-700">Product Code</label>
           <input type="text" id="product-code" name="product-code" v-model="product.productCode"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
           <label for="brand" class="block mb-2 font-medium text-gray-700">Brand</label>
           <input type="text" id="brand" name="brand" v-model="product.brand"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
           <label for="availability" class="block mb-2 font-medium text-gray-700">Availability</label>
           <select id="availability" name="availability" v-model="product.availability"
-            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400" required>
+            class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
             <option value="" disabled>Select Availability</option>
             <option>In stock</option>
             <option>Out of stock</option>

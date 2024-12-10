@@ -42,10 +42,10 @@
 
               <div class="px-5 pb-5 mt-4">
                 <nuxt-link to="">
-                  <h5 class="text-xs font-bold tracking-tight capitalize text-slate-900">
+                  <h5 class="text-xs font-bold tracking-tight capitalize truncate text-slate-900">
                     {{ item.title }}
                   </h5>
-                  <p>{{ item.subtitle }}</p>
+                  <p class="truncate">{{ item.subtitle }}</p>
                 </nuxt-link>
                 <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center">
                   <p>
