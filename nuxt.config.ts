@@ -51,7 +51,7 @@ export default defineNuxtConfig({
     prefix: "MyPrefix",
   },
   i18n: {
-    vueI18n: "./plugins/i18n.config.js",
+    // vueI18n: "./plugins/i18n.config.js",
     locales: [
       { code: "en", language: "en-US" },
       { code: "fr", language: "fr-FR" },
