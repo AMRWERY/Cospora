@@ -46,11 +46,9 @@
                   </h5>
                   <p class="truncate">{{ item.subtitle }}</p>
                 </nuxt-link>
-                <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center">
+                <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center ms-1">
                   <p>
-                    <span class="text-sm text-gray-400 line-through me-2" v-if="item.discount">${{
-                      formatPrice(item.discount)
-                    }}</span>
+                    <span class="text-gray-500 line-through dark:text-gray-400" v-if="item.originalPrice">${{ formatPrice(item.originalPrice) }}</span>
                     <span class="text-sm text-red-700">${{ formatPrice(item.price) }}</span>
                   </p>
                 </div>
@@ -83,7 +81,7 @@
 
 <script setup>
 const config = {
-  itemsToShow: 5,
+  itemsToShow: 4,
   wrapAround: true,
   snapAlign: "center",
   breakpoints: {
@@ -96,11 +94,11 @@ const config = {
       snapAlign: "start",
     },
     700: {
-      itemsToShow: 3.5,
+      itemsToShow: 3,
       snapAlign: "center",
     },
     1024: {
-      itemsToShow: 5,
+      itemsToShow: 4,
       snapAlign: "start",
     },
   },
