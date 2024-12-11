@@ -60,7 +60,7 @@
                                 <p class="text-xs">15 sold in last 18 hours</p>
                               </div>
                             </div>
-                            <div class="my-8">
+                            <div class="my-8 space-y-2">
                               <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{ store.selectedProduct?.brand }}</span></p>
                               <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code: <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
@@ -91,8 +91,8 @@
                               </div>
                             </div>
                             <p class="inline-flex items-center text-2xl font-semibold text-gray-700 dark:text-gray-400">
-                              <span class="text-gray-500 line-through dark:text-gray-400">${{ store.selectedProduct?.price }}</span>
-                              <span class="text-red-600 ms-3" v-if="store.selectedProduct?.originalPrice">${{ store.selectedProduct?.originalPrice }}</span>
+                              <span class="text-gray-500 line-through dark:text-gray-400" v-if="store.selectedProduct?.originalPrice">${{ store.selectedProduct?.originalPrice }}</span>
+                              <span class="text-red-600 ms-3">${{ store.selectedProduct?.price }}</span>
                               <span class="px-2 py-1 text-sm text-white bg-red-500 ms-3" v-if="store.selectedProduct?.discount">-{{ store.selectedProduct?.discount }}%</span>
                             </p>
                           </div>
