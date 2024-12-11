@@ -93,7 +93,7 @@
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-fragrance" role="tabpanel" aria-labelledby="tabs-fragrance-tab">
-        Tab 6 content
+        <new-products :products="filteredProducts('Fragrance')" />
       </div>
     </div>
 
