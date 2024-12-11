@@ -20,8 +20,7 @@
                   <p class="px-2 bg-red-500 rounded" v-if="item.productTypes.includes('sale')">Sale</p>
                   <p class="px-2 mt-1 bg-black rounded" v-if="item.productTypes.includes('new')">New</p>
                   <p class="px-2 mt-1 bg-blue-600 rounded" v-if="item.productTypes.includes('bundle')">Bundle</p>
-                  <p class="px-2 mt-1 bg-green-600 rounded" v-if="item.productTypes.includes('custom-label')">Custom
-                    Label</p>
+                  <p class="px-2 mt-1 bg-green-600 rounded" v-if="item.productTypes.includes('custom')">Custom</p>
                 </div>
               </nuxt-link>
 

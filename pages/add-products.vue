@@ -90,7 +90,7 @@
             <div class="w-1/4 px-2">
               <label for="custom-label" class="block mb-2 font-medium text-gray-700">
                 <input type="checkbox" id="custom-label" name="custom-label" value="custom-label" class="me-2"
-                  v-model="product.productTypes">Custom Label
+                  v-model="product.productTypes">Custom
               </label>
             </div>
           </div>
