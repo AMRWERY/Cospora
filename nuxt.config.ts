@@ -2,6 +2,17 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@pinia/nuxt",
+    "@formkit/nuxt",
+    "@nuxt/icon",
+    "nuxt-headlessui",
+    "vue3-carousel-nuxt",
+    "@stefanobartoletti/nuxt-social-share",
+    "@nuxtjs/i18n",
+    "@vueuse/nuxt",
+  ],
   hooks: {
     "pages:extend"(pages) {
       // add a route
@@ -15,17 +26,6 @@ export default defineNuxtConfig({
       }
     },
   },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@pinia/nuxt",
-    "@formkit/nuxt",
-    "@nuxt/icon",
-    "nuxt-headlessui",
-    "vue3-carousel-nuxt",
-    "@stefanobartoletti/nuxt-social-share",
-    "@nuxtjs/i18n",
-    "@vueuse/nuxt",
-  ],
   tailwindcss: {
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config",
