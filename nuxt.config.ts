@@ -42,7 +42,7 @@ export default defineNuxtConfig({
   },
   formkit: {
     autoImport: true,
-    configFile: "./plugins/formkit.config.js",
+    configFile: "./formkit.config.js",
   },
   headlessui: {
     prefix: "Headless",
@@ -51,7 +51,7 @@ export default defineNuxtConfig({
     prefix: "MyPrefix",
   },
   i18n: {
-    vueI18n: "./plugins/i18n.config.js",
+    vueI18n: "./i18n.config.js",
   },
   css: ["~/assets/css/main.css"],
   routeRules: {
