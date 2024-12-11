@@ -73,15 +73,15 @@
     <div class="mb-2">
       <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-makeup" role="tabpanel" aria-labelledby="tabs-makeup-tab" data-twe-tab-active>
-        <new-products :products="products" />
+        <new-products :products="filteredProducts('Makeup')" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-nail" role="tabpanel" aria-labelledby="tabs-nail-tab">
-        <new-products :products="products.nail" />
+        <new-products :products="filteredProducts('Nail')" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-accessories" role="tabpanel" aria-labelledby="tabs-accessories-tab">
-        <new-products :products="products.accessories" />
+        <new-products :products="filteredProducts('Accessories')" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-body-art" role="tabpanel" aria-labelledby="tabs-body-art-tab">
@@ -124,6 +124,10 @@ onMounted(() => {
 
 // Use computed property to get products from the store
 const products = computed(() => store.products);
+
+const filteredProducts = (subCategoryTitle) => {
+  return products.value.filter((product) => product.subCategoryTitle === subCategoryTitle);
+};
 
 onMounted(async () => {
   const { Tab, Ripple, initTWE } = await import("tw-elements");
