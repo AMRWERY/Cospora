@@ -84,12 +84,12 @@
         <new-products :products="filteredProducts('Accessories')" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
-      id="tabs-body-art" role="tabpanel" aria-labelledby="tabs-body-art-tab">
-      <new-products :products="filteredProducts('Body Art')" />
+        id="tabs-body-art" role="tabpanel" aria-labelledby="tabs-body-art-tab">
+        <new-products :products="filteredProducts('Body Art')" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-makeup-tools" role="tabpanel" aria-labelledby="tabs-makeup-tools-tab">
-        Tab 5 content
+        <new-products :products="filteredProducts('Makeup Tools')" />
       </div>
       <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[twe-tab-active]:block"
         id="tabs-fragrance" role="tabpanel" aria-labelledby="tabs-fragrance-tab">
