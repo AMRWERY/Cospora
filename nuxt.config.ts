@@ -26,6 +26,14 @@ export default defineNuxtConfig({
       }
     },
   },
+  routeRules: {
+    "/accessories/**": {
+      redirect: "/collections/",
+    },
+    "/makeup/**": {
+      redirect: "/collections/",
+    },
+  },
   tailwindcss: {
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config",
@@ -54,14 +62,6 @@ export default defineNuxtConfig({
     vueI18n: "./i18n.config.js",
   },
   css: ["~/assets/css/main.css"],
-  routeRules: {
-    "/accessories/**": {
-      redirect: "/collections/",
-    },
-    "/makeup/**": {
-      redirect: "/collections/",
-    },
-  },
   components: [
     {
       path: "~/components",

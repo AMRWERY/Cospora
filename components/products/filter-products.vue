@@ -17,11 +17,11 @@
                 leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0"
                 leave-to="translate-x-full">
                 <HeadlessDialogPanel
-                  class="relative flex flex-col max-w-xs py-4 pb-12 ms-auto overflow-y-auto bg-white shadow-xl size-full">
+                  class="relative flex flex-col max-w-xs py-4 pb-12 overflow-y-auto bg-white shadow-xl ms-auto size-full">
                   <div class="flex items-center justify-between px-4">
                     <h2 class="text-lg font-medium text-gray-900">Filters</h2>
                     <button type="button"
-                      class="flex items-center justify-center p-2 -me-2 text-gray-400 bg-white rounded-md size-10"
+                      class="flex items-center justify-center p-2 text-gray-400 bg-white rounded-md -me-2 size-10"
                       @click="mobileFiltersOpen = false">
                       <span class="sr-only">Close menu</span>
                       <icon name="material-symbols:close-small-outline-rounded" class="size-6" aria-hidden="true" />
@@ -101,27 +101,27 @@
                           <div class="flex items-center">
                             <input id="size-xs" value="XS" type="checkbox"
                               class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                            <label for="size-xs" class="ms-3 text-sm text-gray-600">XS</label>
+                            <label for="size-xs" class="text-sm text-gray-600 ms-3">XS</label>
                           </div>
                           <div class="flex items-center">
                             <input id="size-sm" value="SM" type="checkbox"
                               class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                            <label for="size-sm" class="ms-3 text-sm text-gray-600">SM</label>
+                            <label for="size-sm" class="text-sm text-gray-600 ms-3">SM</label>
                           </div>
                           <div class="flex items-center">
                             <input id="size-m" value="M" type="checkbox"
                               class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                            <label for="size-m" class="ms-3 text-sm text-gray-600">M</label>
+                            <label for="size-m" class="text-sm text-gray-600 ms-3">M</label>
                           </div>
                           <div class="flex items-center">
                             <input id="size-l" value="L" type="checkbox"
                               class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                            <label for="size-l" class="ms-3 text-sm text-gray-600">L</label>
+                            <label for="size-l" class="text-sm text-gray-600 ms-3">L</label>
                           </div>
                           <div class="flex items-center">
                             <input id="size-2x" value="2X" type="checkbox"
                               class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                            <label for="size-2x" class="ms-3 text-sm text-gray-600">2X</label>
+                            <label for="size-2x" class="text-sm text-gray-600 ms-3">2X</label>
                           </div>
                         </div>
                       </HeadlessDisclosurePanel>
@@ -146,7 +146,7 @@
                               :value="option.value" type="checkbox" :checked="option.checked"
                               class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
                             <label :for="`filter-mobile-${section.id}-${optionIdx}`"
-                              class="flex-1 min-w-0 ms-3 text-gray-500">{{ option.label }}</label>
+                              class="flex-1 min-w-0 text-gray-500 ms-3">{{ option.label }}</label>
                           </div>
                         </div>
                       </HeadlessDisclosurePanel>
@@ -181,7 +181,7 @@
                     class="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
                     Items per page
                     <icon name="ic:twotone-keyboard-arrow-down"
-                      class="ms-1 -me-1 text-gray-400 size-5 shrink-0 group-hover:text-gray-500" aria-hidden="true" />
+                      class="text-gray-400 ms-1 -me-1 size-5 shrink-0 group-hover:text-gray-500" aria-hidden="true" />
                   </HeadlessMenuButton>
                 </div>
                 <transition enter-active-class="transition duration-100 ease-out"
@@ -189,7 +189,7 @@
                   leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                   leave-to-class="transform scale-95 opacity-0">
                   <HeadlessMenuItems
-                    class="absolute end-0 z-10 w-20 mt-2 origin-top-right bg-white rounded-md shadow-2xl ring-1 ring-black/5 focus:outline-none">
+                    class="absolute z-10 w-20 mt-2 origin-top-right bg-white rounded-md shadow-2xl end-0 ring-1 ring-black/5 focus:outline-none">
                     <div class="py-1">
                       <HeadlessMenuItem v-for="option in sortPagesOptions" :key="option.name" v-slot="{ active }">
                         <nuxt-link :to="option.route"
@@ -207,7 +207,7 @@
                     class="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
                     Sort by
                     <icon name="ic:twotone-keyboard-arrow-down"
-                      class="ms-1 -me-1 text-gray-400 size-5 shrink-0 group-hover:text-gray-500" aria-hidden="true" />
+                      class="text-gray-400 ms-1 -me-1 size-5 shrink-0 group-hover:text-gray-500" aria-hidden="true" />
                   </HeadlessMenuButton>
                 </div>
                 <transition enter-active-class="transition duration-100 ease-out"
@@ -215,7 +215,7 @@
                   leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                   leave-to-class="transform scale-95 opacity-0">
                   <HeadlessMenuItems
-                    class="absolute end-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-2xl w-44 ring-1 ring-black/5 focus:outline-none">
+                    class="absolute z-10 mt-2 origin-top-right bg-white rounded-md shadow-2xl end-0 w-44 ring-1 ring-black/5 focus:outline-none">
                     <div class="py-1">
                       <HeadlessMenuItem v-for="option in sortByOptions" :key="option.name" v-slot="{ active }">
                         <nuxt-link :to="option.route"
@@ -227,7 +227,7 @@
                 </transition>
               </HeadlessMenu>
 
-              <button type="button" class="p-2 ms-4 -m-2 text-gray-400 hover:text-gray-500 sm:ms-6 lg:hidden"
+              <button type="button" class="p-2 -m-2 text-gray-400 ms-4 hover:text-gray-500 sm:ms-6 lg:hidden"
                 @click="mobileFiltersOpen = true">
                 <span class="sr-only">Filters</span>
                 <icon name="flowbite:filter-solid" class="size-5" aria-hidden="true" />
@@ -258,22 +258,22 @@
                         <div class="flex items-center">
                           <input id="" value="" type="checkbox" checked
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="" class="ms-3 text-sm text-gray-600">Maecenas Commodos</label>
+                          <label for="" class="text-sm text-gray-600 ms-3">Maecenas Commodos</label>
                         </div>
                         <div class="flex items-center">
                           <input id="" value="" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="" class="ms-3 text-sm text-gray-600">Melesuada</label>
+                          <label for="" class="text-sm text-gray-600 ms-3">Melesuada</label>
                         </div>
                         <div class="flex items-center">
                           <input id="" value="" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="" class="ms-3 text-sm text-gray-600">Fermentum Loremous</label>
+                          <label for="" class="text-sm text-gray-600 ms-3">Fermentum Loremous</label>
                         </div>
                         <div class="flex items-center">
                           <input id="" value="" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="" class="ms-3 text-sm text-gray-600">Habitasse Molateas</label>
+                          <label for="" class="text-sm text-gray-600 ms-3">Habitasse Molateas</label>
                         </div>
                       </div>
                     </HeadlessDisclosurePanel>
@@ -349,27 +349,27 @@
                         <div class="flex items-center">
                           <input id="size-xs" value="XS" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="size-xs" class="ms-3 text-sm text-gray-600">XS</label>
+                          <label for="size-xs" class="text-sm text-gray-600 ms-3">XS</label>
                         </div>
                         <div class="flex items-center">
                           <input id="size-sm" value="SM" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="size-sm" class="ms-3 text-sm text-gray-600">SM</label>
+                          <label for="size-sm" class="text-sm text-gray-600 ms-3">SM</label>
                         </div>
                         <div class="flex items-center">
                           <input id="size-m" value="M" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="size-m" class="ms-3 text-sm text-gray-600">M</label>
+                          <label for="size-m" class="text-sm text-gray-600 ms-3">M</label>
                         </div>
                         <div class="flex items-center">
                           <input id="size-l" value="L" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="size-l" class="ms-3 text-sm text-gray-600">L</label>
+                          <label for="size-l" class="text-sm text-gray-600 ms-3">L</label>
                         </div>
                         <div class="flex items-center">
                           <input id="size-2x" value="2X" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label for="size-2x" class="ms-3 text-sm text-gray-600">2X</label>
+                          <label for="size-2x" class="text-sm text-gray-600 ms-3">2X</label>
                         </div>
                       </div>
                     </HeadlessDisclosurePanel>
@@ -393,7 +393,7 @@
                           <input :id="`filter-${section.id}-${optionIdx}`" :name="`${section.id}[]`"
                             :value="option.value" type="checkbox" :checked="option.checked"
                             class="text-indigo-600 border-gray-300 rounded size-4 focus:ring-indigo-500" />
-                          <label :for="`filter-${section.id}-${optionIdx}`" class="ms-3 text-sm text-gray-600">{{
+                          <label :for="`filter-${section.id}-${optionIdx}`" class="text-sm text-gray-600 ms-3">{{
                             option.label }}</label>
                         </div>
                       </div>
