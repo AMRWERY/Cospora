@@ -56,11 +56,12 @@
     </div>
 
     <!-- table cards -->
-    <div class="mb-10 gap-y-10" v-for="(card, index) in filteredProducts('Accessories')" :key="card"
+    <div class="mb-10 gap-y-10" v-for="(card, index) in filteredProducts('Accessories')" :key="card.id"
       v-if="view === 'table'">
       <div class="flex flex-wrap max-w-full overflow-hidden bg-white rounded-lg shadow-lg">
 
-        <nuxt-link class="relative flex w-full mx-3 mt-3 overflow-hidden sm:w-1/2 md:w-1/4 h-60 rounded-xl group" to="">
+        <nuxt-link class="relative flex w-full mx-3 mt-3 overflow-hidden sm:w-1/2 md:w-1/4 h-60 rounded-xl group"
+          :to="`/accessories/details/${card.id}`">
           <div class="relative w-full h-full">
             <img
               class="absolute top-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-100 end-0 group-hover:opacity-0"

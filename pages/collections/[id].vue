@@ -255,7 +255,7 @@ const route = useRoute();
 
 onMounted(async () => {
   const productId = route.params.id;
-  console.log('id', productId)
+  // console.log('id', productId)
   if (productId) {
     await store.fetchProductDetail(productId);
   }
