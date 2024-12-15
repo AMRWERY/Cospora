@@ -941,62 +941,6 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/retry/-/retry-0.4.1.tgz"
   integrity sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==
 
-"@iconify-json/clarity@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/@iconify-json/clarity/-/clarity-1.2.1.tgz"
-  integrity sha512-xUjFG3QU/Kqcs2O7/wHAj+xLlfJvzPY0bE5C5AaspwmOnau5R+rcTCAKtDZHUUvhSq+9t7GAJ5bUO5nkzmttrA==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/ep@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/@iconify-json/ep/-/ep-1.2.1.tgz"
-  integrity sha512-m72jNpdlWI7Wd3TPs3RUd6nPiU1WWnWSvpOkM67HWNsyQrZDlTtLstLF9hAK8nhOxENi6ZO670A16mDvWJD9Cw==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/flowbite@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.npmjs.org/@iconify-json/flowbite/-/flowbite-1.2.2.tgz"
-  integrity sha512-qqJIYvwE4vIX3GFgnx5l5SR+IcC9/FGzvMBnKY5jg+3R28u705bKG/zoEMQY+g7DAkXxa4BUUJEkJrmX76P3cw==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/heroicons-outline@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/@iconify-json/heroicons-outline/-/heroicons-outline-1.2.0.tgz"
-  integrity sha512-Qy1sRmQYqih6xRxwCtnX0hXJ4252t83C0CnNWAP3gF0fH0Qmp9RY66LMB0moYGxQxUhsTFIl2nNceSVSBUo8Tg==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/ic@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/@iconify-json/ic/-/ic-1.2.1.tgz"
-  integrity sha512-UjL/bjJP/T5EV881+hTzcfTKVo0KEUjhnMiJcLtPzNgPtU2KZZmRx8BSKKR61H4CN/5FTEbyawGyG0aEt3SwGQ==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/ion@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/@iconify-json/ion/-/ion-1.2.1.tgz"
-  integrity sha512-33jiBdtP8+uBV0KRz8Z9g54QFujzssiT9W6wdNuY61VQM1s3cvoAX89yiczRs4/6b2xJE5vqqvsEJAQPqfY5JA==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/material-symbols@^1.2.8":
-  version "1.2.8"
-  resolved "https://registry.npmjs.org/@iconify-json/material-symbols/-/material-symbols-1.2.8.tgz"
-  integrity sha512-X89QwN5eRMVHEfm5HWMYCZxkUqUPQM2TNv7D8rIPUn2jTzDmgjgiTMomn3DOXWyh1/geHPnTt1bTSFcUXlpGbw==
-  dependencies:
-    "@iconify/types" "*"
-
-"@iconify-json/proicons@^1.2.7":
-  version "1.2.7"
-  resolved "https://registry.npmjs.org/@iconify-json/proicons/-/proicons-1.2.7.tgz"
-  integrity sha512-JYg44faakkGcQnHEYYff66c/y59/X66i4ep/XyfXGWLRDFOgfQCKCFDKCEVLFpb8tPQSPpgBonKtUJ/EtbqfKQ==
-  dependencies:
-    "@iconify/types" "*"
-
 "@iconify/collections@^1.0.484":
   version "1.0.491"
   resolved "https://registry.npmjs.org/@iconify/collections/-/collections-1.0.491.tgz"
