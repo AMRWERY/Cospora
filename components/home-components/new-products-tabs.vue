@@ -104,7 +104,7 @@
         </div>
       </nuxt-link>
 
-      <nuxt-link to="/collections/makeup" class="duration-300 transform hover:scale-105">
+      <nuxt-link to="/collections/makeup/**" class="duration-300 transform hover:scale-105">
         <div class="h-64 overflow-hidden rounded-lg cursor-pointer" data-twe-ripple-init data-twe-ripple-color="dark">
           <img src="https://justfields.com/storage/projects/7M5rV059/home-08.jpg" class="object-cover w-full h-full">
         </div>

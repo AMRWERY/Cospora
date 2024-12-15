@@ -2,7 +2,7 @@
   <div>
     <!-- grid cards -->
     <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8" v-if="view === 'grid'">
-      <div class="relative group" v-for="(card, index) in filteredProducts('Accessories')" :key="card.id">
+      <div class="relative group" v-for="(card, index) in filteredProducts" :key="card.id">
         <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl"
           :to="`/accessories/details/${card.id}`">
           <div class="relative w-full h-full">
@@ -56,8 +56,7 @@
     </div>
 
     <!-- table cards -->
-    <div class="mb-10 gap-y-10" v-for="(card, index) in filteredProducts('Accessories')" :key="card.id"
-      v-if="view === 'table'">
+    <div class="mb-10 gap-y-10" v-for="(card, index) in filteredProducts" :key="card.id" v-if="view === 'table'">
       <div class="flex flex-wrap max-w-full overflow-hidden bg-white rounded-lg shadow-lg">
 
         <nuxt-link class="relative flex w-full mx-3 mt-3 overflow-hidden sm:w-1/2 md:w-1/4 h-60 rounded-xl group"
@@ -138,9 +137,20 @@ onMounted(() => {
 // Use computed property to get products from the store
 const products = computed(() => store.products);
 
-const filteredProducts = (subCategoryTitle) => {
-  return products.value.filter((product) => product.subCategoryTitle === subCategoryTitle);
-};
+const route = useRoute();
+
+const category = computed(() => {
+  if (route.path.includes('accessories')) {
+    return 'Accessories';
+  } else if (route.path.includes('makeup')) {
+    return 'Makeup';
+  }
+  return '';
+});
+
+const filteredProducts = computed(() => {
+  return products.value.filter((product) => product.subCategoryTitle === category.value);
+});
 
 const isFavorite = ref(products.value.map(() => false));
 const isCompare = ref(products.value.map(() => false));

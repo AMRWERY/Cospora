@@ -35,8 +35,8 @@ export default defineNuxtConfig({
     "/accessories/(?!details).+": {
       redirect: "/collections/**",
     },
-    "/makeup/**": {
-      redirect: "/collections/",
+    "/makeup/(?!details).+": {
+      redirect: "/collections/**",
     },
   },
   tailwindcss: {
