@@ -2,8 +2,9 @@
   <div>
     <!-- grid cards -->
     <div class="grid grid-cols-1 mt-6 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8" v-if="view === 'grid'">
-      <div class="relative group" v-for="(card, index) in filteredProducts('Accessories')" :key="card">
-        <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" :to="`/collections/${card.id}`">
+      <div class="relative group" v-for="(card, index) in filteredProducts('Accessories')" :key="card.id">
+        <nuxt-link class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl"
+          :to="`/accessories/details/${card.id}`">
           <div class="relative w-full h-full">
             <img class="absolute top-0 object-cover w-full h-full transition-all duration-500 ease-in-out end-0"
               :src="card.imgOne" />
@@ -27,11 +28,6 @@
               :class="isCompare[index] ? 'text-red-400' : 'text-gray-500'" />
           </button>
         </div>
-
-        <!-- <div
-          class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 mb-28 group-hover:opacity-100">
-          <products-dialog />
-        </div> -->
 
         <div class="px-5 pb-5 mt-4">
           <nuxt-link to="">

@@ -23,12 +23,17 @@ export default defineNuxtConfig({
           path: `/${route}/:id`,
           file: "~/pages/collections/[...slug].vue",
         });
+        pages.push({
+          name: `${route}-detail`,
+          path: `/${route}/details/:id`,
+          file: "~/pages/collections/[id].vue",
+        });
       }
     },
   },
   routeRules: {
-    "/accessories/**": {
-      redirect: "/collections/",
+    "/accessories/(?!details).+": {
+      redirect: "/collections/**",
     },
     "/makeup/**": {
       redirect: "/collections/",
