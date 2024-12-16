@@ -15,7 +15,7 @@ const simulateLoading = () => {
   setTimeout(() => {
     loading.value = false;
     emit("loaded");
-  }, 2000);
+  }, 5000);
 };
 
 onMounted(simulateLoading);

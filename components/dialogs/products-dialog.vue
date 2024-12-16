@@ -61,11 +61,15 @@
                               </div>
                             </div>
                             <div class="my-8 space-y-2">
-                              <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{ store.selectedProduct?.brand }}</span></p>
-                              <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code: <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
+                              <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{
+                                store.selectedProduct?.brand
+                                  }}</span></p>
+                              <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code:
+                                <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
-                              <p class="text-sm font-semibold">Availability: <span class="font-normal ms-12">{{ store.selectedProduct?.availability }}</span>
-                                </p>
+                              <p class="text-sm font-semibold">Availability: <span class="font-normal ms-12">{{
+                                store.selectedProduct?.availability }}</span>
+                              </p>
                             </div>
                             <div class="mb-5">
                               <p class="text-xs font-thin underline">Limited-Time Offers, End in:</p>
@@ -91,9 +95,13 @@
                               </div>
                             </div>
                             <p class="inline-flex items-center text-2xl font-semibold text-gray-700 dark:text-gray-400">
-                              <span class="text-gray-500 line-through dark:text-gray-400" v-if="store.selectedProduct?.originalPrice">${{ store.selectedProduct?.originalPrice }}</span>
+                              <span class="text-gray-500 line-through dark:text-gray-400"
+                                v-if="store.selectedProduct?.originalPrice">${{
+                                  store.selectedProduct?.originalPrice }}</span>
                               <span class="text-red-600 ms-3">${{ store.selectedProduct?.price }}</span>
-                              <span class="px-2 py-1 text-sm text-white bg-red-500 ms-3" v-if="store.selectedProduct?.discount">-{{ store.selectedProduct?.discount }}%</span>
+                              <span class="px-2 py-1 text-sm text-white bg-red-500 ms-3"
+                                v-if="store.selectedProduct?.discount">-{{
+                                  store.selectedProduct?.discount }}%</span>
                             </p>
                           </div>
                           <div class="mb-6 -mt-7">
@@ -183,7 +191,8 @@
                           </div>
 
                           <div class="mb-6">
-                            <p class="text-xs">Subtotal: <span class="font-semibold">${{ store.selectedProduct?.price }}</span></p>
+                            <p class="text-xs">Subtotal: <span class="font-semibold">${{ store.selectedProduct?.price
+                                }}</span></p>
                           </div>
 
                           <div class="flex flex-wrap items-center gap-4 mb-6">
@@ -191,11 +200,14 @@
                               class="flex-grow h-10 p-2 font-semibold capitalize bg-black text-gray-50 dark:text-gray-200 hover:bg-red-700">
                               Add to Cart
                             </button>
-                            <button
+                            <button @click="toggleWishlist"
                               class="flex items-center justify-center h-10 p-2 text-gray-700 border border-gray-300 w-11 hover:text-gray-50 hover:bg-black">
-                              <icon name="clarity:heart-line" size="20px" />
+                              <icon :name="isInWishlist ? 'clarity:heart-solid' : 'clarity:heart-line'" size="20px" />
                             </button>
                           </div>
+                          <p v-if="errorMessage" class="mt-2 mb-3 text-sm text-center text-red-500">{{ errorMessage }}
+                          </p>
+                          <p v-if="itemAdded" class="mt-2 mb-3 text-sm text-center text-green-500">{{ itemAdded }}</p>
 
                           <div class="flex items-center text-xs space-s-2">
                             <icon name="entypo:eye" class="text-lg" />
@@ -216,6 +228,8 @@
 </template>
 
 <script setup>
+import { useWishlistStore } from '@/stores/wishlistStore';
+
 const emit = defineEmits(['update:isOpen'])
 
 const handleClose = () => {
@@ -288,6 +302,41 @@ const imageList = computed(() =>
     store.selectedProduct?.imgThree,
     store.selectedProduct?.imgFour,
   ].filter(Boolean)
+);
+
+const wishlistStore = useWishlistStore();
+const errorMessage = ref("");
+const itemAdded = ref('')
+
+const toggleWishlist = async () => {
+  const product = store.selectedProduct;
+  if (!product) return;
+  if (wishlistStore.isInWishlist(product.id)) {
+    errorMessage.value = "Product already added to the wishlist.";
+    setTimeout(() => (errorMessage.value = ""), 3000);
+  } else {
+    try {
+      await wishlistStore.addToWishlist(
+        product.id,
+        product.title,
+        product.price,
+        product.imgOne
+      );
+      itemAdded.value = "Product added to wishlist!";
+      setTimeout(() => (itemAdded.value = ""), 3000);
+    } catch (error) {
+      if (error.message === "Product already added to the wishlist.") {
+        errorMessage.value = error.message;
+        setTimeout(() => (errorMessage.value = ""), 3000);
+      } else {
+        console.error("Error adding to wishlist:", error);
+      }
+    }
+  }
+};
+
+const isInWishlist = computed(() =>
+  wishlistStore.isInWishlist(store.selectedProduct?.id)
 );
 </script>
 
