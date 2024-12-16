@@ -145,7 +145,7 @@
                       <div class="relative">
                         <span
                           class="absolute top-0 inline-flex items-center justify-center w-5 h-5 -mt-2 text-xs text-white bg-black rounded-full -me-3 end-2">
-                          0
+                          {{ cartStore.cart.length }}
                         </span>
                         <button type="button" class="relative mt-1 text-gray-700 rounded-full">
                           <span class="absolute -inset-1.5" />
@@ -161,7 +161,7 @@
                   leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                   leave-to-class="transform scale-95 opacity-0">
                   <HeadlessMenuItems
-                    class="absolute z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -end-6 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    class="absolute w-[500px] z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -end-6 ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <HeadlessMenuItem>
                       <cart-dialog />
                     </HeadlessMenuItem>
@@ -188,7 +188,7 @@
                   class="me-4 text-neutral-600 dark:text-white" to="/dashboard">
                   {{ $t('btn.dashboard') }}
                 </nuxt-link>
-                
+
                 <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
                   class="flex items-center py-2 text-gray-800 transition me-1.5">
                   <icon name="mdi:logout" size="26px" />
@@ -311,6 +311,9 @@
 
 <script setup>
 import { changeLocale } from '@formkit/vue'
+import { useCartStore } from '@/stores/cartStore';
+
+const cartStore = useCartStore();
 
 const isNavVisible = ref(true)
 

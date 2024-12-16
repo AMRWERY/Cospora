@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isCartOpen">
-      <div class="p-4 space-y-4">
+      <div class="p-4 space-y-4" v-if="cartStore.cart.length === 0">
         <p class="text-[13px] text-center text-gray-800">Your cart is currently empty.</p>
         <button type="button"
           class="block w-full px-5 py-2 text-sm font-medium text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
@@ -9,73 +9,47 @@
         </button>
       </div>
 
-      <div>
-        <div class="max-w-md mx-auto">
-          <div class="px-4 py-6 sm:px-8 sm:py-10">
+      <!-- Loading Spinner -->
+      <div v-if="cartStore.isLoading"
+        class="absolute inset-0 flex items-center justify-center bg-gray-200 bg-opacity-50">
+        <icon name="svg-spinners:6-dots-rotate" class="bg-blue-800 spinner" />
+      </div>
+
+      <div v-if="cartStore.cart.length > 0">
+        <div class="max-w-2xl mx-auto">
+          <div class="px-4 py-6 sm:py-10">
             <div class="flow-root">
               <ul class="-my-8">
-                <li class="flex flex-col py-6 space-y-3 text-start sm:flex-row sm:space-s-5 sm:space-y-0">
+                <li class="flex flex-col py-6 space-y-3 text-start sm:flex-row sm:space-s-5 sm:space-y-0"
+                  v-for="item in cartStore.cart" :key="item.id">
                   <div class="relative shrink-0">
                     <span
                       class="absolute flex items-center justify-center w-6 h-6 text-sm font-medium text-gray-500 bg-white border rounded-full shadow top-1 start-1 sm:-top-2 sm:-end-2">1</span>
-                    <img class="object-cover w-24 h-24 max-w-full rounded-lg"
-                      src="https://images.unsplash.com/photo-1588484628369-dd7a85bfdc38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=150&q=60" />
+                    <img class="object-cover w-24 h-24 max-w-full rounded-lg" :src="item.imgOne" />
                   </div>
                   <div class="relative flex flex-col justify-between flex-1">
                     <div class="sm:col-gap-5 sm:grid sm:grid-cols-2">
                       <div class="pe-8 sm:pe-5">
-                        <p class="text-base font-semibold text-gray-900">
-                          Nike Air Max 2019
+                        <p class="text-base font-semibold text-gray-900 w-72">
+                          {{ item.title }}
                         </p>
                         <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">
-                          36EU - 4US
+                          {{ item.categoryTitle }}
                         </p>
                         <div class="flex items-center space-s-1">
-                          <span class="text-sm font-medium text-gray-600 shrink-0">1</span>
+                          <span class="text-sm font-medium text-gray-600 shrink-0">{{ item.quantity }}</span>
                           <span class="text-sm font-medium text-gray-600 shrink-0">x</span>
                           <p class="text-base font-semibold text-gray-900 shrink-0 sm:order-2">
-                            $1259.00
+                            ${{ item.price }}
                           </p>
                         </div>
                       </div>
                       <div class="flex items-end justify-between mt-4 sm:mt-0 sm:items-start sm:justify-end">
-                        <button type="button"
+                        <button type="button" @click.stop="removeItem(item.docId)"
                           class="flex text-center text-gray-500 transition-all duration-200 ease-in-out rounded focus:shadow hover:text-gray-900">
-                          <icon name="proicons:cancelall" class="w-6 h-6" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="flex flex-col py-6 space-y-3 text-start sm:flex-row sm:space-s-5 sm:space-y-0">
-                  <div class="relative shrink-0">
-                    <span
-                      class="absolute flex items-center justify-center w-6 h-6 text-sm font-medium text-gray-500 bg-white border rounded-full shadow top-1 start-1 sm:-top-2 sm:-end-2">1</span>
-                    <img class="object-cover w-24 h-24 max-w-full rounded-lg"
-                      src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=150&q=60" />
-                  </div>
-                  <div class="relative flex flex-col justify-between flex-1">
-                    <div class="sm:col-gap-5 sm:grid sm:grid-cols-2">
-                      <div class="pe-8 sm:pe-5">
-                        <p class="text-base font-semibold text-gray-900">
-                          Nike Air Max 2019
-                        </p>
-                        <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">
-                          36EU - 4US
-                        </p>
-                        <div class="flex items-center space-s-1">
-                          <span class="text-sm font-medium text-gray-600 shrink-0">2</span>
-                          <span class="text-sm font-medium text-gray-600 shrink-0">x</span>
-                          <p class="text-base font-semibold text-gray-900 shrink-0 sm:order-2">
-                            $1259.00
-                          </p>
-                        </div>
-                      </div>
-                      <div class="flex items-end justify-between mt-4 sm:mt-0 sm:items-start sm:justify-end">
-                        <button type="button"
-                          class="flex text-center text-gray-500 transition-all duration-200 ease-in-out rounded focus:shadow hover:text-gray-900">
-                          <icon name="proicons:cancelall" class="w-6 h-6" />
+                          <icon v-if="removingItem === item.docId" name="svg-spinners:6-dots-rotate" size="20px"
+                            class="text-red-500" />
+                          <icon name="grommet-icons:form-trash" class="w-6 h-6" v-else />
                         </button>
                       </div>
                     </div>
@@ -87,12 +61,7 @@
             <div class="py-8 mt-6 space-y-3 border-t border-b">
               <div class="flex items-center justify-between">
                 <p class="font-semibold text-gray-800">Total</p>
-                <p class="text-lg font-semibold text-gray-900">$2399.00</p>
-              </div>
-              <div class="flex items-center">
-                <input type="checkbox" class="text-indigo-600 border-gray-300 rounded size-4" />
-                <label for="" class="flex-1 min-w-0 text-[14px] text-gray-700 ms-3">I agree with the terms and
-                  conditions</label>
+                <p class="text-lg font-semibold text-gray-900">${{ totalAmount }}</p>
               </div>
             </div>
 
@@ -100,7 +69,7 @@
               <nuxt-link to="/checkout" type="button" @click="closeCart"
                 class="flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-white transition duration-300 border rounded-md bg-rose-500">
                 Checkout Now
-                <icon name="ci:arrow-end-md" class="w-5 h-5 transition-all ms-2" />
+                <icon name="material-symbols-light:arrow-circle-right" class="w-5 h-5 transition-all ms-2" />
               </nuxt-link>
               <nuxt-link to="/shopping-cart" type="button" @click="closeCart"
                 class="block w-full px-5 py-2 text-sm font-medium text-center text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
@@ -115,9 +84,41 @@
 </template>
 
 <script setup>
+import { useCartStore } from '@/stores/cartStore';
+
 const isCartOpen = ref(true);
 
 const closeCart = () => {
   isCartOpen.value = false;
 };
+
+const cartStore = useCartStore();
+const removingItem = ref(null);
+
+const removeItem = async (docId) => {
+  if (!docId) {
+    console.error("No docId provided for removal.");
+    return;
+  }
+
+  try {
+    removingItem.value = docId;
+    await cartStore.removeFromCart(docId);
+    setTimeout(() => {
+      removingItem.value = null;
+    }, 3000);
+  } catch (error) {
+    console.error("Error removing item:", error);
+  }
+};
+
+onMounted(async () => {
+  await cartStore.fetchCart();
+});
+
+const totalAmount = computed(() => {
+  return cartStore.cart.reduce((total, item) => {
+    return total + (parseFloat(item.price) * item.quantity);
+  }, 0).toFixed(2);
+});
 </script>

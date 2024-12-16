@@ -63,7 +63,7 @@
                             <div class="my-8 space-y-2">
                               <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{
                                 store.selectedProduct?.brand
-                                  }}</span></p>
+                              }}</span></p>
                               <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code:
                                 <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
@@ -173,14 +173,14 @@
                               <div class="mb-4 me-4 lg:mb-0">
                                 <div class="w-28">
                                   <div class="relative flex flex-row w-full h-10 bg-transparent rounded-lg ">
-                                    <button
+                                    <button @click="decrementQuantity"
                                       class="flex items-center justify-center w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300">
                                       <icon name="system-uicons:minus" />
                                     </button>
-                                    <input type="number"
+                                    <input type="number" v-model="quantity"
                                       class="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
                                       placeholder="1" />
-                                    <button
+                                    <button @click="incrementQuantity"
                                       class="flex items-center justify-center w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300">
                                       <icon name="system-uicons:plus" />
                                     </button>
@@ -196,9 +196,13 @@
                           </div>
 
                           <div class="flex flex-wrap items-center gap-4 mb-6">
-                            <button
+                            <button @click="handleAddToCart"
                               class="flex-grow h-10 p-2 font-semibold capitalize bg-black text-gray-50 dark:text-gray-200 hover:bg-red-700">
-                              Add to Cart
+                              <div class="flex items-center justify-center" v-if="loading">
+                                <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+                                <icon name="svg-spinners:270-ring-with-bg" />
+                              </div>
+                              <span v-else>Add to Cart</span>
                             </button>
                             <button @click="toggleWishlist"
                               class="flex items-center justify-center h-10 p-2 text-gray-700 border border-gray-300 w-11 hover:text-gray-50 hover:bg-black">
@@ -208,6 +212,7 @@
                           <p v-if="errorMessage" class="mt-2 mb-3 text-sm text-center text-red-500">{{ errorMessage }}
                           </p>
                           <p v-if="itemAdded" class="mt-2 mb-3 text-sm text-center text-green-500">{{ itemAdded }}</p>
+                          <!-- <p v-if="isInCart" class="mt-2 mb-3 text-sm text-center text-green-500"></p> -->
 
                           <div class="flex items-center text-xs space-s-2">
                             <icon name="entypo:eye" class="text-lg" />
@@ -229,6 +234,7 @@
 
 <script setup>
 import { useWishlistStore } from '@/stores/wishlistStore';
+import { useCartStore } from '@/stores/cartStore';
 
 const emit = defineEmits(['update:isOpen'])
 
@@ -338,6 +344,56 @@ const toggleWishlist = async () => {
 const isInWishlist = computed(() =>
   wishlistStore.isInWishlist(store.selectedProduct?.id)
 );
+
+const cartStore = useCartStore();
+const loading = ref(false);
+
+const isInCart = computed(() =>
+  cartStore.isInCart(store.selectedProduct?.id)
+);
+
+const handleAddToCart = async () => {
+  const product = store.selectedProduct;
+  if (!product) return;
+  try {
+    loading.value = true;
+    await cartStore.addToCart(
+      product.id,
+      product.title,
+      product.price,
+      product.imgOne,
+      product.categoryTitle,
+      quantity.value
+    );
+    itemAdded.value = "Product added to cart!";
+    setTimeout(() => (itemAdded.value = ""), 3000);
+  } catch (error) {
+    console.error("Error adding product to cart:", error);
+  } finally {
+    loading.value = false;
+  }
+};
+
+const quantity = ref(1);
+
+const incrementQuantity = () => {
+  quantity.value++;
+  updateQuantityInStore(quantity.value);
+};
+
+const decrementQuantity = () => {
+  if (quantity.value > 1) {
+    quantity.value--;
+    updateQuantityInStore(quantity.value);
+  }
+};
+
+const updateQuantityInStore = async (newQuantity) => {
+  const productId = store.selectedProduct?.id;
+  if (productId) {
+    await cartStore.updateQuantityInCart(productId, newQuantity);
+  }
+};
 </script>
 
 <style scoped>
