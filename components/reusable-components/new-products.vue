@@ -48,7 +48,7 @@
                 </nuxt-link>
                 <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center ms-1">
                   <p>
-                    <span class="text-gray-500 line-through dark:text-gray-400" v-if="item.originalPrice">${{ formatPrice(item.originalPrice) }}</span>
+                    <span class="text-gray-500 line-through dark:text-gray-400 me-1" v-if="item.originalPrice">${{ formatPrice(item.originalPrice) }}</span>
                     <span class="text-sm text-red-700">${{ formatPrice(item.price) }}</span>
                   </p>
                 </div>

@@ -44,7 +44,22 @@
                           </p>
                         </div>
                       </div>
-                      <div class="flex items-end justify-between mt-4 sm:mt-0 sm:items-start sm:justify-end">
+                    </div>
+                    <div class="flex items-center justify-between mt-5">
+                      <div class="flex items-center">
+                        <button type="button" @click.stop="decrementQuantity(item)"
+                          class="inline-flex items-center justify-center w-5 h-5 bg-gray-100 border border-gray-300 rounded-md shrink-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                          <icon name="system-uicons:minus" />
+                        </button>
+                        <input type="number" v-model="quantity" @change="updateQuantityInStore(item.id, item.quantity)"
+                          class="text-sm font-medium text-center text-gray-900 bg-transparent border-0 w-14 shrink-0 focus:outline-none focus:ring-0 dark:text-white"
+                          placeholder="1" />
+                        <button type="button" @click.stop="incrementQuantity(item)"
+                          class="inline-flex items-center justify-center w-5 h-5 bg-gray-100 border border-gray-300 rounded-md shrink-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                          <icon name="system-uicons:plus" />
+                        </button>
+                      </div>
+                      <div class="flex items-end justify-end">
                         <button type="button" @click.stop="removeItem(item.docId)"
                           class="flex text-center text-gray-500 transition-all duration-200 ease-in-out rounded focus:shadow hover:text-gray-900">
                           <icon v-if="removingItem === item.docId" name="svg-spinners:6-dots-rotate" size="20px"
@@ -100,7 +115,6 @@ const removeItem = async (docId) => {
     console.error("No docId provided for removal.");
     return;
   }
-
   try {
     removingItem.value = docId;
     await cartStore.removeFromCart(docId);
@@ -121,4 +135,24 @@ const totalAmount = computed(() => {
     return total + (parseFloat(item.price) * item.quantity);
   }, 0).toFixed(2);
 });
+
+const quantity = ref(1);
+
+const incrementQuantity = (item) => {
+  item.quantity++;
+  updateQuantityInStore(item.productId, item.quantity);
+};
+
+const decrementQuantity = (item) => {
+  if (item.quantity > 1) {
+    item.quantity--;
+    updateQuantityInStore(item.productId, item.quantity);
+  }
+};
+
+const updateQuantityInStore = async (productId, newQuantity) => {
+  if (productId) {
+    await cartStore.updateQuantityInCart(productId, newQuantity);
+  }
+};
 </script>

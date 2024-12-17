@@ -25,8 +25,10 @@ export const useCartStore = defineStore("cart", {
           productId: doc.data().productId,
           title: doc.data().title,
           price: doc.data().price,
+          originalPrice: doc.data().originalPrice,
           imgOne: doc.data().imgOne,
           categoryTitle: doc.data().categoryTitle,
+          subCategoryTitle: doc.data().subCategoryTitle,
           quantity: doc.data().quantity || 1,
         }));
       } catch (error) {
@@ -36,7 +38,16 @@ export const useCartStore = defineStore("cart", {
       }
     },
 
-    async addToCart(id, title, price, imgOne, categoryTitle, quantity) {
+    async addToCart(
+      id,
+      title,
+      price,
+      originalPrice,
+      imgOne,
+      categoryTitle,
+      subCategoryTitle,
+      quantity
+    ) {
       if (this.cart.length === 0) {
         await this.fetchCart();
       }
@@ -44,8 +55,10 @@ export const useCartStore = defineStore("cart", {
         typeof id !== "string" ||
         typeof title !== "string" ||
         typeof price !== "string" ||
+        typeof originalPrice !== "string" ||
         typeof imgOne !== "string" ||
-        typeof categoryTitle !== "string"
+        typeof categoryTitle !== "string" ||
+        typeof subCategoryTitle !== "string"
       ) {
         return;
       }
@@ -64,8 +77,10 @@ export const useCartStore = defineStore("cart", {
           productId: id,
           title,
           price,
+          originalPrice,
           imgOne,
           categoryTitle,
+          subCategoryTitle,
           quantity,
         };
         try {

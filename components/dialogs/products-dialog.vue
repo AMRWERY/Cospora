@@ -63,7 +63,7 @@
                             <div class="my-8 space-y-2">
                               <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{
                                 store.selectedProduct?.brand
-                              }}</span></p>
+                                  }}</span></p>
                               <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code:
                                 <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
@@ -172,7 +172,7 @@
                             <div class="flex flex-wrap items-center">
                               <div class="mb-4 me-4 lg:mb-0">
                                 <div class="w-28">
-                                  <div class="relative flex flex-row w-full h-10 bg-transparent rounded-lg ">
+                                  <div class="relative flex flex-row w-full h-10 bg-transparent rounded-lg">
                                     <button @click="decrementQuantity"
                                       class="flex items-center justify-center w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300">
                                       <icon name="system-uicons:minus" />
@@ -361,8 +361,10 @@ const handleAddToCart = async () => {
       product.id,
       product.title,
       product.price,
+      product.originalPrice,
       product.imgOne,
       product.categoryTitle,
+      product.subCategoryTitle,
       quantity.value
     );
     itemAdded.value = "Product added to cart!";
