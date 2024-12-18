@@ -365,6 +365,7 @@ const handleAddToCart = async () => {
       product.imgOne,
       product.categoryTitle,
       product.subCategoryTitle,
+      product.discount,
       quantity.value
     );
     itemAdded.value = "Product added to cart!";

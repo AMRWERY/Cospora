@@ -29,8 +29,10 @@ export const useCartStore = defineStore("cart", {
           imgOne: doc.data().imgOne,
           categoryTitle: doc.data().categoryTitle,
           subCategoryTitle: doc.data().subCategoryTitle,
+          discount: doc.data().discount,
           quantity: doc.data().quantity || 1,
         }));
+        // console.log(this.cart)
       } catch (error) {
         console.error("Error fetching cart:", error);
       } finally {
@@ -46,6 +48,7 @@ export const useCartStore = defineStore("cart", {
       imgOne,
       categoryTitle,
       subCategoryTitle,
+      discount,
       quantity
     ) {
       if (this.cart.length === 0) {
@@ -58,7 +61,8 @@ export const useCartStore = defineStore("cart", {
         typeof originalPrice !== "string" ||
         typeof imgOne !== "string" ||
         typeof categoryTitle !== "string" ||
-        typeof subCategoryTitle !== "string"
+        typeof subCategoryTitle !== "string" ||
+        typeof discount !== "string"
       ) {
         return;
       }
@@ -81,6 +85,7 @@ export const useCartStore = defineStore("cart", {
           imgOne,
           categoryTitle,
           subCategoryTitle,
+          discount,
           quantity,
         };
         try {
