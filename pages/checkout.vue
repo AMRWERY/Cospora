@@ -37,155 +37,90 @@
               <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Details</h2>
               <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                  <label for="your_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name
+                  <label for="your_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your name
                   </label>
                   <input type="text" id="your_name"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="Amr Mohamed" required />
+                    placeholder="Amr Mohamed" />
                 </div>
 
                 <div>
-                  <label for="your_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                  <label for="your_email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your
                     email <span class="text-red-500">*</span>
                   </label>
                   <input type="email" id="your_email"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="name@cospora.com" required />
+                    placeholder="name@cospora.com" />
                 </div>
 
                 <div>
-                  <div class="flex items-center gap-2 mb-2">
-                    <label for="select-country-input-3" class="block text-sm font-medium text-gray-900 dark:text-white">
-                      Country <span class="text-red-500">*</span>
-                    </label>
+                  <div class="flex items-center gap-2 mb-1">
+                    <label for="country" class="block text-sm font-medium text-gray-900 dark:text-white">Country</label>
                   </div>
-                  <select id="select-country-input-3"
-                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
-                    <option selected>United States</option>
-                    <option value="AS">Australia</option>
-                    <option value="FR">France</option>
-                    <option value="ES">Spain</option>
-                    <option value="UK">United Kingdom</option>
+                  <select id="country" name="country" autocomplete="country-name" v-model="selectedCountry"
+                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                    <option v-for=" country in countriesData" :key="country.country" :value="country.country">
+                      {{ country.country }}</option>
                   </select>
                 </div>
 
                 <div>
-                  <div class="flex items-center gap-2 mb-2">
-                    <label for="select-city-input-3" class="block text-sm font-medium text-gray-900 dark:text-white">
-                      City <span class="text-red-500">*</span></label>
+                  <div class="flex items-center gap-2 mb-1">
+                    <label for="province"
+                      class="block text-sm font-medium text-gray-900 dark:text-white">Province</label>
                   </div>
-                  <select id="select-city-input-3"
-                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
-                    <option selected>San Francisco</option>
-                    <option value="NY">New York</option>
-                    <option value="LA">Los Angeles</option>
-                    <option value="CH">Chicago</option>
-                    <option value="HU">Houston</option>
+                  <select id="province" name="province" autocomplete="province-name" v-model="selectedProvince"
+                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                    <option v-for="city in getCitiesForSelectedCountry" :key="city" :value="city">
+                      {{ city }}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label for="phone-input-3" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Phone
-                    Number <span class="text-red-500">*</span>
+                  <label for="phone-input-3" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+                    Phone Number <span class="text-red-500">*</span>
                   </label>
                   <div class="flex items-center">
-                    <button id="dropdown-phone-button-3" data-dropdown-toggle="dropdown-phone-3"
+                    <button id="dropdown-phone-button-3"
                       class="z-10 inline-flex shrink-0 items-center rounded-s-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
                       type="button">
-                      <icon name="cif:us" class="w-[19.5px] h-[14px] me-2" aria-hidden="true" />
-                      +1
-                      <icon name="material-symbols:keyboard-arrow-down-rounded" class="-me-0.5 ms-2 h-5 w-5"
-                        aria-hidden="true" />
+                      <img v-if="selectedCountryFlag" :src="selectedCountryFlag" alt="Country Flag"
+                        class="w-[19.5px] h-[14px] me-2" />
+                      <span v-if="selectedCallingCode">+{{ selectedCallingCode }}</span>
+                      <icon name="material-symbols:keyboard-arrow-down-rounded" class="-me-0.5 ms-2 h-5 w-5" />
                     </button>
-                    <div id="dropdown-phone-3"
-                      class="z-10 hidden w-56 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
-                      <ul class="p-2 text-sm font-medium text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdown-phone-button-2">
-                        <li>
-                          <button type="button"
-                            class="inline-flex w-full px-3 py-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                            role="menuitem">
-                            <span class="inline-flex items-center">
-                              <icon name="cif:us" class="w-[19.5px] h-[14px] me-2" aria-hidden="true" />
-                              United States (+1)
-                            </span>
-                          </button>
-                        </li>
-                        <li>
-                          <button type="button"
-                            class="inline-flex w-full px-3 py-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                            role="menuitem">
-                            <span class="inline-flex items-center">
-                              <icon name="twemoji:flag-for-flag-united-kingdom" class="w-[19.5px] h-[14px] me-2"
-                                aria-hidden="true" />
-                              United Kingdom (+44)
-                            </span>
-                          </button>
-                        </li>
-                        <li>
-                          <button type="button"
-                            class="inline-flex w-full px-3 py-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                            role="menuitem">
-                            <span class="inline-flex items-center">
-                              <icon name="flagpack:au" class="w-[19.5px] h-[14px] me-2" aria-hidden="true" />
-                              Australia (+61)
-                            </span>
-                          </button>
-                        </li>
-                        <li>
-                          <button type="button"
-                            class="inline-flex w-full px-3 py-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                            role="menuitem">
-                            <span class="inline-flex items-center">
-                              <icon name="flagpack:de" class="w-[19.5px] h-[14px] me-2" aria-hidden="true" />
-                              Germany (+49)
-                            </span>
-                          </button>
-                        </li>
-                        <li>
-                          <button type="button"
-                            class="inline-flex w-full px-3 py-2 text-sm text-gray-500 rounded-md hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                            role="menuitem">
-                            <span class="inline-flex items-center">
-                              <icon name="flagpack:fr" class="w-[19.5px] h-[14px] me-2" aria-hidden="true" />
-                              France (+33)
-                            </span>
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
                     <div class="relative w-full">
                       <input type="text" id="phone-input"
-                        class="z-20 block w-full rounded-e-lg border border-s-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-s-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required />
+                        class="z-20 block w-full rounded-e-lg border border-s-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-s-gray-700 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500"
+                        placeholder="123-456-7890" />
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
                     Email</label>
                   <input type="email" id="email"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="name@cospora.com" required />
+                    placeholder="name@cospora.com" />
                 </div>
 
                 <div>
-                  <label for="company_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  <label for="company_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
                     Company name
                   </label>
                   <input type="text" id="company_name"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="Cospora LLC" required />
+                    placeholder="Cospora LLC" />
                 </div>
 
                 <div>
-                  <label for="vat_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> VAT
+                  <label for="vat_number" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"> VAT
                     number
                   </label>
                   <input type="text" id="vat_number"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                    placeholder="DE42313253" required />
+                    placeholder="DE42313253" />
                 </div>
 
                 <div class="sm:col-span-2">
@@ -340,7 +275,7 @@
               <div class="flex items-center max-w-md gap-4">
                 <input type="text" id="voucher"
                   class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                  placeholder="" required />
+                  placeholder="" />
                 <button type="button"
                   class="flex items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply</button>
               </div>
@@ -392,5 +327,26 @@
 </template>
 
 <script setup>
+import dataBase from "@/assets/countries.json";
 
+const countriesData = ref(dataBase);
+const selectedCountry = ref(null);
+const selectedProvince = ref(null);
+const selectedCallingCode = ref(null);
+const selectedCountryFlag = ref(null);
+
+watch(selectedCountry, (newCountry) => {
+  const selected = countriesData.value.find(
+    (country) => country.country === newCountry
+  );
+  selectedCallingCode.value = selected ? selected.calling_code : null;
+  selectedCountryFlag.value = selected ? selected.flag_base64 : null;
+});
+
+const getCitiesForSelectedCountry = computed(() => {
+  const selected = countriesData.value.find(
+    (country) => country.country === selectedCountry.value
+  );
+  return selected ? selected.cities : [];
+});
 </script>
