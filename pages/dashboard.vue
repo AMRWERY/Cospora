@@ -12,6 +12,6 @@ definePageMeta({
 })
 
 useHead({
-  titleTemplate: t('head.dashboard'),
-})
+  titleTemplate: () => t("head.dashboard"),
+});
 </script>

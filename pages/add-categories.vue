@@ -95,6 +95,6 @@ definePageMeta({
 })
 
 useHead({
-  titleTemplate: t('head.categories'),
-})
+  titleTemplate: () => t("head.categories"),
+});
 </script>

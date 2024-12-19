@@ -288,6 +288,6 @@ definePageMeta({
 })
 
 useHead({
-  titleTemplate: t('head.products'),
-})
+  titleTemplate: () => t("head.products"),
+});
 </script>

@@ -377,6 +377,29 @@ watch(locale, (newVal) => {
   isRTL.value = newVal === 'ar';
 });
 
+// const { locale, setLocale } = useI18n();
+
+// const updateLocale = (value) => {
+//   setLocale(value);
+//   sessionStorage.setItem("locale", value);
+//   setTimeout(() => {
+//     location.reload();
+//   }, 1000);
+// };
+
+// const isRTL = ref(false);
+
+// watch(locale, (newVal) => {
+//   isRTL.value = newVal === 'ar';
+// });
+
+// onMounted(() => {
+//   const storedLocale = sessionStorage.getItem("locale");
+//   if (storedLocale) {
+//     setLocale(storedLocale);
+//   }
+// });
+
 const store = useAuthStore()
 const showOverlay = ref(false);
 

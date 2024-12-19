@@ -112,6 +112,6 @@ watch(firstNameRef, (newName) => {
 });
 
 useHead({
-  titleTemplate: t('head.register'),
-})
+  titleTemplate: () => t("head.register"),
+});
 </script>

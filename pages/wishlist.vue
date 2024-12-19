@@ -84,4 +84,10 @@ const removeItem = async (docId) => {
     removingItem.value = null;
   }, 3000);
 };
+
+const { t } = useI18n()
+
+useHead({
+  titleTemplate: () => t("head.wishlist"),
+});
 </script>

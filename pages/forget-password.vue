@@ -72,6 +72,6 @@ const resetPassword = async () => {
 };
 
 useHead({
-  titleTemplate: t('head.forget_password'),
-})
+  titleTemplate: () => t("head.forget_password"),
+});
 </script>

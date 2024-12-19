@@ -26,7 +26,8 @@
     "or": "أو",
     "successfully_reset_password": "تمت إعادة تعيين كلمة المرور بنجاح!",
     "your_password_has_been_successfully_reset": "تمت إعادة تعيين كلمة المرور الخاصة بك بنجاح",
-    "name_is_already_taken_please_choose_one_of_the_suggestions_below": "الاسم مُستخدم بالفعل. الرجاء اختيار أحد الاقتراحات أدناه:"
+    "name_is_already_taken_please_choose_one_of_the_suggestions_below": "الاسم مُستخدم بالفعل. الرجاء اختيار أحد الاقتراحات أدناه:",
+    "name": "الأسم"
   },
   "btn": {
     "loading": "جار التحميل",
@@ -42,7 +43,9 @@
     "dashboard": "لوحة التحكم",
     "login": "تسجيل الدخول",
     "products": "المنتجات",
-    "categories": "الفئات"
+    "categories": "الفئات",
+    "checkout": "الدفع",
+    "wishlist": "قائمة الرغبات"
   },
   "alert": {
     "success": "نجاح",

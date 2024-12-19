@@ -33,14 +33,17 @@
                   <div class="space-y-4">
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Details</h2>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <div>
+                      <!-- <div>
                         <label for="your_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your
                           name
                         </label>
                         <input type="text" id="your_name"
                           class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                           placeholder="Amr Mohamed" />
-                      </div>
+                      </div> -->
+                      <dynamic-inputs :label="t('form.name')"
+                  :placeholder="t('form.enter_your_first_name')" type="text"
+                  :validation="('required|contains_numeric|length:3,10')" :required="true" />
 
                       <div>
                         <label for="your_email"
@@ -331,6 +334,8 @@ onMounted(async () => {
   await cartStore.fetchCart();
 });
 
+const { t } = useI18n()
+
 const step = ref(1);
 
 // Method to go to Payment Form
@@ -347,4 +352,8 @@ const goBackToCheckout = () => {
 const submitPayment = () => {
   alert('Payment Submitted');
 };
+
+useHead({
+  titleTemplate: () => t("head.checkout"),
+});
 </script>

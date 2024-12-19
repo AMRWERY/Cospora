@@ -62,6 +62,6 @@ definePageMeta({
 })
 
 useHead({
-  titleTemplate: t('head.login'),
-})
+  titleTemplate: () => t("head.login"),
+});
 </script>

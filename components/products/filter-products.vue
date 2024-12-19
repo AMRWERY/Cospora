@@ -487,8 +487,4 @@ const setView = (newView) => {
   view.value = newView
   // console.log(`Current view: ${newView}`)
 }
-
-useHead({
-  titleTemplate: 'Products',
-})
 </script>
