@@ -354,26 +354,27 @@ const leave = (el, done) => {
 const { el } = useAnimateRotation();
 
 const { locale, setLocale } = useI18n();
+const isRTL = ref(false);
 
 const updateLocale = (value) => {
   setLocale(value);
-  sessionStorage.setItem("locale", value);
+  changeLocale(value);
+  sessionStorage.setItem('locale', value);
+  isRTL.value = value === 'ar';
   setTimeout(() => {
     location.reload();
   }, 1000);
 };
 
-const isRTL = ref(false);
+onMounted(() => {
+  const storedLocale = sessionStorage.getItem('locale') || 'en';
+  setLocale(storedLocale);
+  changeLocale(storedLocale);
+  isRTL.value = storedLocale === 'ar';
+});
 
 watch(locale, (newVal) => {
   isRTL.value = newVal === 'ar';
-});
-
-onMounted(() => {
-  const storedLocale = sessionStorage.getItem("locale");
-  if (storedLocale) {
-    setLocale(storedLocale);
-  }
 });
 
 const store = useAuthStore()
