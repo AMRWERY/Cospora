@@ -5,7 +5,8 @@
         {{ label }}
         <span v-if="required" class="text-red-800">*</span>
       </label>
-      <FormKit :id="id" :type="type" :placeholder="placeholder" v-model="internalValue" :validation="validation" :validation-label="label"
+      <FormKit :id="id" :type="type" :placeholder="placeholder" v-model="internalValue" :validation="validation"
+        :validation-label="label"
         class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50" />
     </FormKit>
   </div>

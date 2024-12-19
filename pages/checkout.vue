@@ -33,27 +33,11 @@
                   <div class="space-y-4">
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Details</h2>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <!-- <div>
-                        <label for="your_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your
-                          name
-                        </label>
-                        <input type="text" id="your_name"
-                          class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                          placeholder="Amr Mohamed" />
-                      </div> -->
-                      <dynamic-inputs :label="t('form.name')"
-                  :placeholder="t('form.enter_your_first_name')" type="text"
-                  :validation="('required|contains_numeric|length:3,10')" :required="true" />
+                      <dynamic-inputs :label="t('form.name')" :placeholder="t('form.enter_your_name')" type="text"
+                        :validation="('required|contains_numeric|length:3,10')" :required="true" />
 
-                      <div>
-                        <label for="your_email"
-                          class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your
-                          email <span class="text-red-500">*</span>
-                        </label>
-                        <input type="email" id="your_email"
-                          class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                          placeholder="name@cospora.com" />
-                      </div>
+                      <dynamic-inputs :label="t('form.email')" :placeholder="t('form.enter_your_email')" type="email"
+                        :validation="('required|email|ends_with:cospora.com')" :required="true" />
 
                       <div>
                         <div class="flex items-center gap-2 mb-1">
@@ -61,7 +45,7 @@
                             class="block text-sm font-medium text-gray-900 dark:text-white">Country</label>
                         </div>
                         <select id="country" name="country" autocomplete="country-name" v-model="selectedCountry"
-                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                          class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50">
                           <option v-for=" country in countriesData" :key="country.country" :value="country.country">
                             {{ country.country }}</option>
                         </select>
@@ -73,7 +57,7 @@
                             class="block text-sm font-medium text-gray-900 dark:text-white">Province</label>
                         </div>
                         <select id="province" name="province" autocomplete="province-name" v-model="selectedProvince"
-                          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+                          class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50">
                           <option v-for="city in getCitiesForSelectedCountry" :key="city" :value="city">
                             {{ city }}</option>
                         </select>
@@ -98,33 +82,6 @@
                               placeholder="123-456-7890" />
                           </div>
                         </div>
-                      </div>
-
-                      <div>
-                        <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-                          Email</label>
-                        <input type="email" id="email"
-                          class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                          placeholder="name@cospora.com" />
-                      </div>
-
-                      <div>
-                        <label for="company_name" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-                          Company name
-                        </label>
-                        <input type="text" id="company_name"
-                          class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                          placeholder="Cospora LLC" />
-                      </div>
-
-                      <div>
-                        <label for="vat_number" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-                          VAT
-                          number
-                        </label>
-                        <input type="text" id="vat_number"
-                          class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                          placeholder="DE42313253" />
                       </div>
                     </div>
                   </div>
@@ -157,57 +114,18 @@
                   <div class="space-y-4">
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Payment Details</h2>
                     <div class="grid grid-cols-2 gap-4 mb-6">
-                      <div class="col-span-2 sm:col-span-1">
-                        <label for="full_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                          Full name
-                          (as displayed on card) <span class="text-red-500">*</span></label>
-                        <input type="text" id="full_name"
-                          class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                          placeholder="Bonnie Green" required />
-                      </div>
+                      <dynamic-inputs :label="t('form.full_name_as_displayed_on_card')"
+                        :placeholder="t('form.enter_full_name_as_displayed_on_card')" type="text"
+                        :validation="('required|alpha')" :required="true" />
 
-                      <div class="col-span-2 sm:col-span-1">
-                        <label for="card-number-input"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                          Card
-                          number <span class="text-red-500">*</span></label>
-                        <input type="text" id="card-number-input"
-                          class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                          placeholder="xxxx-xxxx-xxxx-xxxx" pattern="^4[0-9]{12}(?:[0-9]{3})?$" required />
-                      </div>
+                      <dynamic-inputs :label="t('form.card_number')" placeholder="xxxx-xxxx-xxxx-xxxx" type="text"
+                        :validation="[['required'], ['matches', /^\d{4}-\d{4}-\d{4}-\d{4}$/]]" :required="true" />
 
-                      <div>
-                        <label for="card-expiration-input"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Card
-                          expiration <span class="text-red-500">*</span></label>
-                        <div class="relative">
-                          <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
-                            <icon name="ic:baseline-calendar-month" class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                              aria-hidden="true" />
-                          </div>
-                          <input datepicker datepicker-format="mm/yy" id="card-expiration-input" type="text"
-                            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                            placeholder="12/23" required />
-                        </div>
-                      </div>
-                      <div>
-                        <label for="cvv-input"
-                          class="flex items-center gap-1 mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                          CVV <span class="text-red-500">*</span>
-                          <button data-tooltip-target="cvv-desc" data-tooltip-trigger="hover"
-                            class="text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white">
-                            <icon name="flowbite:exclamation-circle-solid" class="w-4 h-4" aria-hidden="true" />
-                          </button>
-                          <div id="cvv-desc" role="tooltip"
-                            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                            The last 3 digits on back of card
-                            <div class="tooltip-arrow" data-popper-arrow></div>
-                          </div>
-                        </label>
-                        <input type="number" id="cvv-input" aria-describedby="helper-text-explanation"
-                          class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                          placeholder="•••" required />
-                      </div>
+                      <dynamic-inputs :label="t('form.card_expiration')" :placeholder="t('form.choose_card_expiration')"
+                        type="date" :validation="('required|date_format:MM/DD/YYYY')" :required="true" />
+
+                      <dynamic-inputs :label="t('form.cvv')" :placeholder="t('form.enter_cvv')" type="text"
+                        :validation="('required|length:3,3')" :required="true" />
                     </div>
                   </div>
                 </div>
