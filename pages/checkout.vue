@@ -168,11 +168,11 @@
                 </dl>
                 <dl class="flex items-center justify-between gap-4 py-3">
                   <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Store Pickup</dt>
-                  <dd class="text-base font-medium text-gray-900 dark:text-white">$25</dd>
+                  <dd class="text-base font-medium text-gray-900 dark:text-white">$25.00</dd>
                 </dl>
                 <dl class="flex items-center justify-between gap-4 py-3">
                   <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Tax</dt>
-                  <dd class="text-base font-medium text-gray-900 dark:text-white">$18</dd>
+                  <dd class="text-base font-medium text-gray-900 dark:text-white">$18.00</dd>
                 </dl>
                 <dl class="flex items-center justify-between gap-4 py-3">
                   <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
