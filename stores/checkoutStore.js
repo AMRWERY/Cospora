@@ -1,39 +1,53 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/firebase/config";
 
-export const useCheckoutStore = defineStore("checkout", () => {
-  const deliveryDetails = ref({
-    name: "",
-    email: "",
-    country: "",
-    province: "",
-    phoneNumber: "",
-  });
+export const useCheckoutStore = defineStore("checkout", {
+  state: () => ({
+    deliveryDetails: {
+      name: "",
+      email: "",
+      country: "",
+      province: "",
+      phoneNumber: "",
+    },
+    paymentDetails: {
+      fullNameOnCard: "",
+      cardNumber: "",
+      cardExpiration: "",
+      cvv: "",
+    },
+  }),
 
-  const paymentDetails = ref({
-    fullNameOnCard: "",
-    cardNumber: "",
-    cardExpiration: "",
-    cvv: "",
-  });
+  actions: {
+    generateOrderId() {
+      const timestamp = Date.now();
+      const randomNum = Math.floor(Math.random() * 10000);
+      return `ORDER-${timestamp}-${randomNum}`;
+    },
 
-  const saveCheckoutData = async () => {
-    try {
-      const docRef = await addDoc(collection(db, "checkout"), {
-        deliveryDetails: deliveryDetails.value,
-        paymentDetails: paymentDetails.value,
-      });
-      // console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  };
+    async saveCheckoutData() {
+      try {
+        const orderId = this.generateOrderId();
+        const docRef = await addDoc(collection(db, "checkout"), {
+          orderId: orderId,
+          deliveryDetails: this.deliveryDetails,
+          paymentDetails: this.paymentDetails,
+        });
+        // console.log("Order ID: ", orderId);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    },
+  },
 
-  return {
-    deliveryDetails,
-    paymentDetails,
-    saveCheckoutData,
-  };
+  getters: {
+    getDeliveryDetails(state) {
+      return state.deliveryDetails;
+    },
+
+    getPaymentDetails(state) {
+      return state.paymentDetails;
+    },
+  },
 });
