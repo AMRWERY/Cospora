@@ -95,8 +95,8 @@ const menuGroups = ref([
             },
             {
                 icon: 'material-symbols:calendar-month-sharp',
-                label: 'Add Products',
-                route: '/add-products'
+                label: 'Products',
+                route: '/products'
             },
         ]
     },
