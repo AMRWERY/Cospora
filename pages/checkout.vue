@@ -27,7 +27,6 @@
           <!-- Stepper Content -->
           <div v-if="step === 1">
             <!-- Checkout Form -->
-            <!-- <form action="#" class="max-w-screen-xl px-4 mx-auto 2xl:px-0" @submit.prevent="submitCheckoutForm"> -->
             <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
               <div class="flex-1 min-w-0 space-y-8">
                 <div class="space-y-4">
@@ -105,12 +104,10 @@
               <button type="button" @click="goToPaymentForm"
                 class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Next</button>
             </div>
-            <!-- </form> -->
           </div>
 
           <div v-if="step === 2">
             <!-- Payment Form -->
-            <!-- <form action="#" class="max-w-screen-xl px-4 mx-auto 2xl:px-0">0 -->
             <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
               <div class="flex-1 min-w-0 space-y-8">
                 <div class="space-y-4">
@@ -149,7 +146,6 @@
                 <span v-else>Pay Now</span>
               </button>
             </div>
-            <!-- </form> -->
           </div>
         </div>
 
