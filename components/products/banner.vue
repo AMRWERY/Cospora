@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="space-y-2 my-7 md:space-y-4">
-        <p class="text-2xl font-bold">Accessories</p>
+        <p class="text-2xl font-bold">{{ category }}</p>
         <p class="text-xs text-gray-800">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque non nulla
           nulla,
           nec tincidunt risus morbi
@@ -21,5 +21,14 @@
 </template>
 
 <script setup>
+const route = useRoute();
 
+const category = computed(() => {
+  if (route.path.includes('accessories')) {
+    return 'Accessories';
+  } else if (route.path.includes('makeup')) {
+    return 'Makeup';
+  }
+  return '';
+});
 </script>
