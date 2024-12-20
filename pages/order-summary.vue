@@ -1,11 +1,19 @@
 <template>
   <div>
-    <div class="max-w-4xl p-6 mx-auto mt-10 bg-white rounded-lg shadow-lg">
+    <div class="max-w-4xl p-6 mx-auto mt-10 bg-white rounded-lg shadow-lg" id="Cospora">
       <!-- Order Number -->
-      <div class="mb-6">
-        <h2 class="mb-2 text-2xl font-semibold text-gray-900">Order Summary</h2>
-        <p class="text-sm text-gray-500">Order Number: <span class="font-medium text-gray-900">{{ orderId }}</span>
-        </p>
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <h2 class="text-2xl font-semibold text-gray-900">Order Summary</h2>
+          <p class="mt-1 text-sm text-gray-500">
+            Order Number: <span class="font-semibold text-gray-900">{{ orderId }}</span>
+          </p>
+        </div>
+        <button @click="downloadPDF" data-twe-toggle="tooltip" data-twe-placement="top" data-twe-ripple-init
+          title="Download PDF"
+          class="flex items-center px-4 py-4 text-blue-700 border border-blue-700 rounded-full hover:bg-blue-100">
+          <icon name="icon-park:printer" class="w-5 h-5" />
+        </button>
       </div>
 
       <!-- Product Details -->
@@ -110,5 +118,35 @@ const totalAmount = computed(() => {
 
 onMounted(async () => {
   await cartStore.fetchCart();
+});
+
+// pdf file
+const downloadPDF = () => {
+  const html2pdf = useNuxtApp().$html2pdf;
+  if (html2pdf) {
+    const orderSummary = document.getElementById('Cospora');
+    const pdfContent = orderSummary.cloneNode(true);
+    const downloadButton = pdfContent.querySelector('button');
+    if (downloadButton) {
+      downloadButton.remove();
+    }
+    const titleElement = document.createElement('h1');
+    titleElement.textContent = 'Cospora';
+    titleElement.className = 'text-5xl font-bold text-blue-700 text-center mb-10';
+    pdfContent.prepend(titleElement);
+    const options = {
+      margin: 10,
+      filename: 'Cospora.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 4 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    };
+    html2pdf().from(pdfContent).set(options).save();
+  }
+};
+
+onMounted(async () => {
+  const { Tooltip, initTWE } = await import("tw-elements");
+  initTWE({ Tooltip });
 });
 </script>
