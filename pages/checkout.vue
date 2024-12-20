@@ -25,128 +25,133 @@
           </ol>
 
           <!-- Stepper Content -->
-          <div v-if="step === 1">
-            <!-- Checkout Form -->
-            <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
-              <div class="flex-1 min-w-0 space-y-8">
-                <div class="space-y-4">
-                  <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Details</h2>
-                  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <dynamic-inputs :label="t('form.name')" :placeholder="t('form.enter_your_name')" type="text"
-                      :validation="('required|contains_numeric|length:3,10')" :required="true"
-                      v-model="checkoutStore.deliveryDetails.name" />
+          <transition name="fade" @before-enter="beforeEnter" @enter="enter" @leave="leave">
+            <div v-if="step === 1">
+              <!-- Checkout Form -->
+              <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
+                <div class="flex-1 min-w-0 space-y-8">
+                  <div class="space-y-4">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Details</h2>
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <dynamic-inputs :label="t('form.name')" :placeholder="t('form.enter_your_name')" type="text"
+                        :validation="('required|contains_alpha|length:3,10')" :required="true"
+                        v-model="checkoutStore.deliveryDetails.name" />
 
-                    <dynamic-inputs :label="t('form.email')" :placeholder="t('form.enter_your_email')" type="email"
-                      :validation="('required|email|ends_with:cospora.com')" :required="true"
-                      v-model="checkoutStore.deliveryDetails.email" />
+                      <dynamic-inputs :label="t('form.email')" :placeholder="t('form.enter_your_email')" type="email"
+                        :validation="('required|email|ends_with:cospora.com')" :required="true"
+                        v-model="checkoutStore.deliveryDetails.email" />
 
-                    <div>
-                      <div class="flex items-center gap-2 mb-1">
-                        <label for="country"
-                          class="block text-sm font-medium text-gray-900 dark:text-white">Country</label>
+                      <div>
+                        <div class="flex items-center gap-2 mb-1">
+                          <label for="country"
+                            class="block text-sm font-medium text-gray-900 dark:text-white">Country</label>
+                        </div>
+                        <select id="country" name="country" autocomplete="country-name" v-model="selectedCountry"
+                          class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50">
+                          <option v-for=" country in countriesData" :key="country.country" :value="country.country">
+                            {{ country.country }}</option>
+                        </select>
                       </div>
-                      <select id="country" name="country" autocomplete="country-name" v-model="selectedCountry"
-                        class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50">
-                        <option v-for=" country in countriesData" :key="country.country" :value="country.country">
-                          {{ country.country }}</option>
-                      </select>
-                    </div>
 
-                    <div>
-                      <div class="flex items-center gap-2 mb-1">
-                        <label for="province"
-                          class="block text-sm font-medium text-gray-900 dark:text-white">Province</label>
+                      <div>
+                        <div class="flex items-center gap-2 mb-1">
+                          <label for="province"
+                            class="block text-sm font-medium text-gray-900 dark:text-white">Province</label>
+                        </div>
+                        <select id="province" name="province" autocomplete="province-name"
+                          v-model="checkoutStore.deliveryDetails.province"
+                          class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50">
+                          <option v-for="city in getCitiesForSelectedCountry" :key="city" :value="city">
+                            {{ city }}</option>
+                        </select>
                       </div>
-                      <select id="province" name="province" autocomplete="province-name"
-                        v-model="checkoutStore.deliveryDetails.province"
-                        class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50">
-                        <option v-for="city in getCitiesForSelectedCountry" :key="city" :value="city">
-                          {{ city }}</option>
-                      </select>
-                    </div>
 
-                    <div>
-                      <label for="phone-input-3" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-                        Phone Number <span class="text-red-500">*</span>
-                      </label>
-                      <div class="flex items-center">
-                        <button id="dropdown-phone-button-3"
-                          class="z-10 inline-flex shrink-0 items-center rounded-s-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
-                          type="button">
-                          <img v-if="selectedCountryFlag" :src="selectedCountryFlag" class="w-[19.5px] h-[14px] me-2" />
-                          <span v-if="selectedCallingCode">+{{ selectedCallingCode }}</span>
-                          <icon name="material-symbols:keyboard-arrow-down-rounded" class="-me-0.5 ms-2 h-5 w-5" />
-                        </button>
-                        <div class="relative w-full">
-                          <input type="text" id="phone-input" v-model="checkoutStore.deliveryDetails.phoneNumber"
-                            class="z-20 block w-full rounded-e-lg border border-s-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-s-gray-700 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500"
-                            placeholder="123-456-7890" />
+                      <div>
+                        <label for="phone-input-3" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+                          Phone Number <span class="text-red-500">*</span>
+                        </label>
+                        <div class="flex items-center">
+                          <button id="dropdown-phone-button-3"
+                            class="z-10 inline-flex shrink-0 items-center rounded-s-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+                            type="button">
+                            <img v-if="selectedCountryFlag" :src="selectedCountryFlag"
+                              class="w-[19.5px] h-[14px] me-2" />
+                            <span v-if="selectedCallingCode">+{{ selectedCallingCode }}</span>
+                            <icon name="material-symbols:keyboard-arrow-down-rounded" class="-me-0.5 ms-2 h-5 w-5" />
+                          </button>
+                          <div class="relative w-full">
+                            <input type="text" id="phone-input" v-model="checkoutStore.deliveryDetails.phoneNumber"
+                              class="z-20 block w-full rounded-e-lg border border-s-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-s-gray-700 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500"
+                              placeholder="123-456-7890" />
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div>
-                  <label for="voucher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter
-                    a gift card, voucher or promotional code </label>
-                  <div class="flex items-center max-w-md gap-4">
-                    <input type="text" id="voucher"
-                      class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                      placeholder="" />
-                    <button type="button"
-                      class="flex items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply</button>
+                  <div>
+                    <label for="voucher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter
+                      a gift card, voucher or promotional code </label>
+                    <div class="flex items-center max-w-md gap-4">
+                      <input type="text" id="voucher"
+                        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                        placeholder="Enter a gift card, voucher or promotional code" />
+                      <button type="button"
+                        class="flex items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply</button>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="flex items-center justify-end mt-6 gap-x-6">
+                <button type="button" @click="goToPaymentForm"
+                  class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Next</button>
+              </div>
             </div>
-            <div class="flex items-center justify-end mt-6 gap-x-6">
-              <button type="button" @click="goToPaymentForm"
-                class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Next</button>
-            </div>
-          </div>
+          </transition>
 
-          <div v-if="step === 2">
-            <!-- Payment Form -->
-            <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
-              <div class="flex-1 min-w-0 space-y-8">
-                <div class="space-y-4">
-                  <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Payment Details</h2>
-                  <div class="grid grid-cols-2 gap-4 mb-6">
-                    <dynamic-inputs :label="t('form.full_name_as_displayed_on_card')"
-                      :placeholder="t('form.enter_full_name_as_displayed_on_card')" type="text"
-                      :validation="('required|alpha')" :required="true"
-                      v-model="checkoutStore.paymentDetails.fullNameOnCard" />
+          <transition name="fade" @before-enter="beforeEnter" @enter="enter" @leave="leave">
+            <div v-if="step === 2">
+              <!-- Payment Form -->
+              <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
+                <div class="flex-1 min-w-0 space-y-8">
+                  <div class="space-y-4">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Payment Details</h2>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                      <dynamic-inputs :label="t('form.full_name_as_displayed_on_card')"
+                        :placeholder="t('form.enter_full_name_as_displayed_on_card')" type="text"
+                        :validation="('required|alpha')" :required="true"
+                        v-model="checkoutStore.paymentDetails.fullNameOnCard" />
 
-                    <dynamic-inputs :label="t('form.card_number')" placeholder="xxxx-xxxx-xxxx-xxxx" type="text"
-                      :validation="[['required'], ['matches', /^\d{4}-\d{4}-\d{4}-\d{4}$/]]" :required="true"
-                      v-model="checkoutStore.paymentDetails.cardNumber" />
+                      <dynamic-inputs :label="t('form.card_number')" placeholder="xxxx-xxxx-xxxx-xxxx" type="text"
+                        :validation="[['required'], ['matches', /^\d{4}-\d{4}-\d{4}-\d{4}$/]]" :required="true"
+                        v-model="checkoutStore.paymentDetails.cardNumber" />
 
-                    <dynamic-inputs :label="t('form.card_expiration')" :placeholder="t('form.choose_card_expiration')"
-                      type="date" :validation="('required')" :required="true"
-                      v-model="checkoutStore.paymentDetails.cardExpiration" />
+                      <dynamic-inputs :label="t('form.card_expiration')" :placeholder="t('form.choose_card_expiration')"
+                        type="date" :validation="('required')" :required="true"
+                        v-model="checkoutStore.paymentDetails.cardExpiration" />
 
-                    <dynamic-inputs :label="t('form.cvv')" :placeholder="t('form.enter_cvv')" type="text"
-                      :validation="('required|length:3,3')" :required="true"
-                      v-model="checkoutStore.paymentDetails.cvv" />
+                      <dynamic-inputs :label="t('form.cvv')" :placeholder="t('form.enter_cvv')" type="text"
+                        :validation="('required|length:3,3')" :required="true"
+                        v-model="checkoutStore.paymentDetails.cvv" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="flex justify-end mt-6 space-s-3">
-              <button @click="goBackToCheckout" type="button"
-                class="px-4 py-2 text-white bg-gray-500 rounded-md">Back</button>
-              <button type="submit" :disabled="loading" @click="submitCheckoutForm"
-                class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                <div class="flex items-center justify-center" v-if="loading">
-                  <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
-                  <icon name="svg-spinners:270-ring-with-bg" />
-                </div>
-                <span v-else>Pay Now</span>
-              </button>
+              <div class="flex justify-end mt-6 space-s-3">
+                <button @click="goBackToCheckout" type="button"
+                  class="px-4 py-2 text-white bg-gray-500 rounded-md">Back</button>
+                <button type="submit" :disabled="loading" @click="submitCheckoutForm"
+                  class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  <div class="flex items-center justify-center" v-if="loading">
+                    <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+                    <icon name="svg-spinners:270-ring-with-bg" />
+                  </div>
+                  <span v-else>Pay Now</span>
+                </button>
+              </div>
             </div>
-          </div>
+          </transition>
         </div>
 
         <div class="col-span-12 md:col-span-4">
@@ -280,7 +285,6 @@ const goBackToCheckout = () => {
 const submitCheckoutForm = async () => {
   loading.value = true;
   try {
-
     await new Promise(resolve => setTimeout(resolve, 3000));
     await checkoutStore.saveCheckoutData();
   } catch (error) {
@@ -290,7 +294,36 @@ const submitCheckoutForm = async () => {
   }
 };
 
+function beforeEnter(el) {
+  el.style.opacity = 0;
+}
+
+function enter(el, done) {
+  el.offsetHeight;
+  el.style.transition = 'opacity 0.5s ease';
+  el.style.opacity = 1;
+  done();
+}
+
+function leave(el, done) {
+  el.style.transition = 'opacity 0.5s ease';
+  el.style.opacity = 0;
+  done();
+}
+
 useHead({
   titleTemplate: () => t("head.checkout"),
 });
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
