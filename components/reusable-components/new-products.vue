@@ -17,10 +17,13 @@
                     :src="item.imgTwo" />
                 </div>
                 <div class="absolute py-1 text-xs text-white bg-opacity-50 top-2 left-2">
-                  <p class="px-2 bg-red-500 rounded" v-if="item.productTypes.includes('sale')">Sale</p>
-                  <p class="px-2 mt-1 bg-black rounded" v-if="item.productTypes.includes('new')">New</p>
-                  <p class="px-2 mt-1 bg-blue-600 rounded" v-if="item.productTypes.includes('bundle')">Bundle</p>
-                  <p class="px-2 mt-1 bg-green-600 rounded" v-if="item.productTypes.includes('custom')">Custom</p>
+                  <p class="px-2 bg-red-500 rounded" v-if="item.productTypes.includes('sale')">{{ $t('home.sale') }}</p>
+                  <p class="px-2 mt-1 bg-black rounded" v-if="item.productTypes.includes('new')">{{ $t('home.new') }}
+                  </p>
+                  <p class="px-2 mt-1 bg-blue-600 rounded" v-if="item.productTypes.includes('bundle')">{{
+                    $t('home.bundle') }}</p>
+                  <p class="px-2 mt-1 bg-green-600 rounded" v-if="item.productTypes.includes('custom')">{{
+                    $t('home.custom') }}</p>
                 </div>
               </nuxt-link>
 
@@ -35,7 +38,7 @@
                 class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100">
                 <button @click="openDialog(item.id)"
                   class="px-3 py-2 text-xs font-medium text-black capitalize bg-white rounded hover:bg-black hover:text-white">
-                  Quick View
+                  {{ $t('btn.quick_view') }}
                 </button>
               </div>
 
@@ -48,17 +51,10 @@
                 </nuxt-link>
                 <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center ms-1">
                   <p>
-                    <span class="text-gray-500 line-through dark:text-gray-400 me-1" v-if="item.originalPrice">${{ formatPrice(item.originalPrice) }}</span>
+                    <span class="text-gray-500 line-through dark:text-gray-400 me-1" v-if="item.originalPrice">${{
+                      formatPrice(item.originalPrice) }}</span>
                     <span class="text-sm text-red-700">${{ formatPrice(item.price) }}</span>
                   </p>
-                </div>
-
-                <!-- Select Options Button -->
-                <div class="relative transition-opacity opacity-0 group-hover:opacity-100">
-                  <button type="button"
-                    class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm text-white hover:bg-gray-700 focus:bg-red-500 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 w-full capitalize font-semibold">
-                    Select Options
-                  </button>
                 </div>
               </div>
             </div>

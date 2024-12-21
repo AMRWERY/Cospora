@@ -46,7 +46,8 @@
     "shop_now": "Shop Now",
     "shop_the_collection": "Shop The Collection",
     "submit": "Submit",
-    "browse_now": "Browse Now"
+    "browse_now": "Browse Now",
+    "quick_view": "Quick View"
   },
   "head": {
     "register": "Register",
@@ -98,7 +99,11 @@
     "trending_now": "#Trending Now",
     "new_products": "New Products",
     "body_art": "Body Art",
-    "featured_products": "Featured Products"
+    "featured_products": "Featured Products",
+    "sale": "Sale",
+    "new": "New",
+    "bundle": "Bundle",
+    "custom": "Custom"
   },
   "mail": {
     "join_our_mailing_list": "Join Our Mailing List",

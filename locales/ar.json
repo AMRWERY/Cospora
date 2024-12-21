@@ -46,7 +46,8 @@
     "shop_now": "تسوق الآن",
     "shop_the_collection": "تسوق المجموعة",
     "submit": "إرسال",
-    "browse_now": "تصفح الآن"
+    "browse_now": "تصفح الآن",
+    "quick_view": "عرض سريع"
   },
   "head": {
     "register": "انشاء حساب جديد",
@@ -98,7 +99,11 @@
     "trending_now": "#الموضة الآن",
     "new_products": "منتجات جديدة",
     "body_art": "فن الجسم",
-    "featured_products": "المنتجات المميزة"
+    "featured_products": "المنتجات المميزة",
+    "sale": "تخفيضات",
+    "new": "جديد",
+    "bundle": "مجموعة",
+    "custom": "مخصص"
   },
   "mail": {
     "join_our_mailing_list": "انضم إلى قائمتنا البريدية",
