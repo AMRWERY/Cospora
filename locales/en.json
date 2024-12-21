@@ -53,7 +53,8 @@
     "products": "Products",
     "categories": "Categories",
     "checkout": "Checkout",
-    "wishlist": "Wishlist"
+    "wishlist": "Wishlist",
+    "profile": "Profile"
   },
   "alert": {
     "success": "Success",

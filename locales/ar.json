@@ -53,7 +53,8 @@
     "products": "المنتجات",
     "categories": "الفئات",
     "checkout": "الدفع",
-    "wishlist": "قائمة الرغبات"
+    "wishlist": "قائمة الرغبات",
+    "profile": "الملف الشخصي"
   },
   "alert": {
     "success": "نجاح",
