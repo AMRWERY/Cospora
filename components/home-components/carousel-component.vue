@@ -131,7 +131,7 @@ const cards = ref([
 ])
 
 onMounted(async () => {
-    const { Carousel, Ripple, initTWE } = await import("tw-elements");
-    initTWE({ Carousel, Ripple });
+    const { Carousel, initTWE } = await import("tw-elements");
+    initTWE({ Carousel });
 });
 </script>
