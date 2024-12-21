@@ -2,7 +2,7 @@
   <div class="mx-auto max-w-7xl">
     <div class="flex items-center justify-center mt-8 mb-3">
       <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
-      <span class="mx-4 text-2xl font-bold leading-10 capitalize">New Products</span>
+      <span class="mx-4 text-2xl font-bold leading-10 capitalize">{{ $t('home.new_products') }}</span>
       <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
     </div>
 
@@ -16,7 +16,7 @@
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-makeup" data-twe-nav-active role="tab"
           aria-controls="tabs-makeup" aria-selected="true">
-          Makeup
+          {{ $t('layout.makeup') }}
         </nuxt-link>
       </li>
       <li role="presentation">
@@ -25,7 +25,7 @@
           data-[twe-nav-active]:border-gray-700 data-[twe-nav-active]:text-gray-700
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-nail" role="tab" aria-controls="tabs-nail"
-          aria-selected="false">Nail</nuxt-link>
+          aria-selected="false">{{ $t('layout.nail') }}</nuxt-link>
       </li>
       <li role="presentation">
         <nuxt-link to="#tabs-accessories" class="my-2 block rounded-full px-5 py-2 text-sm font-semibold leading-tight text-neutral-500
@@ -34,7 +34,7 @@
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-accessories" role="tab" aria-controls="tabs-accessories"
           aria-selected="false">
-          Accessories
+          {{ $t('layout.accessories') }}
         </nuxt-link>
       </li>
       <li role="presentation">
@@ -44,7 +44,7 @@
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-body-art" role="tab" aria-controls="tabs-body-art"
           aria-selected="false">
-          Body Art
+          {{ $t('home.body_art') }}
         </nuxt-link>
       </li>
       <li role="presentation">
@@ -54,7 +54,7 @@
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-makeup-tools" role="tab" aria-controls="tabs-makeup-tools"
           aria-selected="false">
-          Makeup Tools
+          {{ $t('layout.makeup_tools') }}
         </nuxt-link>
       </li>
       <li role="presentation">
@@ -64,7 +64,7 @@
           dark:text-white/50 dark:hover:border-neutral-500 dark:data-[twe-nav-active]:border-gray-700"
           data-twe-toggle="pill" data-twe-target="#tabs-fragrance" role="tab" aria-controls="tabs-fragrance"
           aria-selected="false">
-          Fragrance
+          {{ $t('layout.fragrance') }}
         </nuxt-link>
       </li>
     </ul>
