@@ -100,6 +100,56 @@
 
             <!-- Right Section - Notifications & Profile -->
             <div class="flex items-center justify-end flex-1 space-s-3">
+              <!-- Profile dropdown -->
+              <HeadlessMenu as="div" class="relative ms-3" v-if="store.isUserAuthenticated">
+                <div>
+                  <HeadlessMenuButton class="relative flex text-sm bg-gray-800 rounded-full">
+                    <span class="absolute -inset-1.5" />
+                    <span class="sr-only">Open user menu</span>
+                    <img class="rounded-full size-8"
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+                  </HeadlessMenuButton>
+                </div>
+                <transition enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0">
+                  <HeadlessMenuItems
+                    class="absolute z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg end-0 ring-1 ring-black/5 focus:outline-none">
+                    <HeadlessMenuItem v-slot="{ active }">
+                      <nuxt-link to="#"
+                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-s-4']">
+                        <icon name="dashicons:admin-users" class="w-6 h-6 text-gray-700" />
+                        <span>Your Profile</span>
+                      </nuxt-link>
+                    </HeadlessMenuItem>
+                    <HeadlessMenuItem v-slot="{ active }"
+                      v-if="store.isUserAuthenticated && userEmail === 'admin@cospora.com'">
+                      <nuxt-link to="/dashboard"
+                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-s-4']">
+                        <icon name="heroicons-solid:presentation-chart-line" class="w-6 h-6 text-gray-700" />
+                        <span>Dashboard</span>
+                      </nuxt-link>
+                    </HeadlessMenuItem>
+                    <HeadlessMenuItem v-slot="{ active }">
+                      <nuxt-link to="/order-summary"
+                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-s-4']">
+                        <icon name="material-symbols-light:list-alt" class="w-6 h-6 text-gray-700" />
+                        <span>Order Summary</span>
+                      </nuxt-link>
+                    </HeadlessMenuItem>
+                    <HeadlessMenuItem v-slot="{ active }">
+                      <nuxt-link to="" type="button" @click="logout"
+                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-s-4']">
+                        <icon name="mdi:logout" class="w-6 h-6 text-gray-700" />
+                        <span>Sign out</span>
+                      </nuxt-link>
+                    </HeadlessMenuItem>
+                  </HeadlessMenuItems>
+                </transition>
+              </HeadlessMenu>
+
+              <!-- login-dialog -->
               <HeadlessMenu as="div" class="relative ms-3" v-if="!store.isUserAuthenticated">
                 <ClientOnly>
                   <HeadlessMenuButton class="relative flex items-center hidden text-sm md:flex">
@@ -140,7 +190,7 @@
               <HeadlessMenu as="div" class="relative ms-3" v-if="store.isUserAuthenticated">
                 <ClientOnly>
                   <HeadlessMenuButton class="relative flex items-center text-sm">
-                    <span class="sr-only">Open Sign In menu</span>
+                    <span class="sr-only">Open Cart menu</span>
                     <span class="flex items-center space-s-1">
                       <div class="relative">
                         <span
@@ -163,6 +213,7 @@
                   <HeadlessMenuItems
                     class="absolute w-[500px] z-10 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg -end-6 ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <HeadlessMenuItem>
+                      <!-- cart-dialog component -->
                       <cart-dialog />
                     </HeadlessMenuItem>
                   </HeadlessMenuItems>
@@ -182,54 +233,6 @@
                   العربية
                 </span>
               </nuxt-link>
-
-              <ClientOnly>
-                <nuxt-link v-if="store.isUserAuthenticated && userEmail === 'admin@cospora.com'"
-                  class="me-4 text-neutral-600 dark:text-white" to="/dashboard">
-                  {{ $t('btn.dashboard') }}
-                </nuxt-link>
-
-                <nuxt-link to="" role="button" v-if="store.isUserAuthenticated" @click="logout"
-                  class="flex items-center py-2 text-gray-800 transition me-1.5">
-                  <icon name="mdi:logout" size="26px" />
-                </nuxt-link>
-              </ClientOnly>
-
-              <!-- <div class="relative flex items-center">
-              <div class="relative hidden w-48 max-w-xs md:block">
-                <input type="text" placeholder="Search"
-                  class="w-48 py-2 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md pe-10 ms-5 ps-3" />
-                <icon name="heroicons:magnifying-glass" size="20px"
-                  class="absolute text-gray-500 transform -translate-y-1/2 -end-2 top-1/2" />
-              </div>
-
-              <HeadlessMenu as="div" class="relative ms-3 md:hidden">
-                <ClientOnly>
-                  <HeadlessMenuButton class="relative flex items-center text-sm">
-                    <span class="sr-only">Open search menu</span>
-                    <span class="flex items-center space-s-1">
-                      <button type="button" class="relative mt-1 text-gray-700 rounded-full">
-                        <span class="absolute -inset-1.5" />
-                        <span class="sr-only">View search menu</span>
-                        <icon name="heroicons:magnifying-glass" size="26px" />
-                      </button>
-                    </span>
-                  </HeadlessMenuButton>
-                </ClientOnly>
-                <transition enter-active-class="transition duration-100 ease-out"
-                  enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
-                  leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
-                  leave-to-class="transform scale-95 opacity-0">
-                  <HeadlessMenuItems
-                    class="absolute z-10 p-3 mt-2 origin-top-right bg-white rounded-md shadow-lg end-2 w-96 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <HeadlessMenuItem>
-                      <input type="text" placeholder="Search"
-                        class="w-full py-2 text-sm text-gray-700 placeholder-gray-400 border border-gray-300 rounded-md pe-10 ps-3" />
-                    </HeadlessMenuItem>
-                  </HeadlessMenuItems>
-                </transition>
-              </HeadlessMenu>
-            </div> -->
             </div>
           </div>
         </div>
