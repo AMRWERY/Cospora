@@ -27,14 +27,14 @@
                     <div
                         class="absolute inset-y-0 flex flex-col items-center justify-center w-1/3 space-y-2 text-lg font-semibold text-center text-black ms-36 start-5">
                         <p class="text-lg font-semibold capitalize lg:text-4xl">
-                            Milancelos
+                            {{ $t('home.milancelos') }}
                         </p>
-                        <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
-                            scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
-                            velitos</p>
+                        <p class="hidden text-xs font-light line-clamp-2 sm:block">{{
+                            $t('home.pellentesque_posuere_morci_lobortis_scelerisque_blandit_donec_an_tellus_lacinia_an_tincidunt_risus_de_cosmopolis_consequat_velitos')
+                        }}</p>
                         <div class="hidden sm:block">
                             <button class="px-10 py-3 mt-8 text-sm text-white capitalize bg-black rounded">
-                                Shop Now
+                                {{ $t('btn.shop_now') }}
                             </button>
                         </div>
                     </div>
@@ -47,14 +47,14 @@
                     <div
                         class="absolute inset-y-0 flex flex-col items-center justify-center w-1/3 space-y-2 text-lg font-semibold text-center text-black me-36 end-5">
                         <p class="text-lg font-semibold capitalize lg:text-4xl">
-                            Lorémica
+                            {{ $t('home.lorémica') }}
                         </p>
-                        <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
-                            scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
-                            velitos</p>
+                        <p class="hidden text-xs font-light line-clamp-2 sm:block">{{
+                            $t('home.pellentesque_posuere_morci_lobortis_scelerisque_blandit_donec_an_tellus_lacinia_an_tincidunt_risus_de_cosmopolis_consequat_velitos')
+                        }}</p>
                         <div class="hidden sm:block">
                             <button class="px-10 py-3 mt-8 text-sm text-white capitalize bg-black rounded">
-                                Shop The Collection
+                                {{ $t('btn.shop_the_collection') }}
                             </button>
                         </div>
                     </div>
@@ -69,12 +69,12 @@
                         <p class="text-lg font-semibold capitalize lg:text-4xl">
                             Beauty Shop
                         </p>
-                        <p class="hidden text-xs font-light line-clamp-2 sm:block">Pellentesque posuere morci lobortis
-                            scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat
-                            velitos</p>
+                        <p class="hidden text-xs font-light line-clamp-2 sm:block">{{
+                            $t('home.pellentesque_posuere_morci_lobortis_scelerisque_blandit_donec_an_tellus_lacinia_an_tincidunt_risus_de_cosmopolis_consequat_velitos')
+                        }}</p>
                         <div class="hidden sm:block">
                             <button class="px-10 py-3 mt-8 text-sm text-white capitalize bg-black rounded">
-                                Shop Now
+                                {{ $t('btn.shop_now') }}
                             </button>
                         </div>
                     </div>
@@ -124,10 +124,12 @@
 </template>
 
 <script setup>
+const { t } = useI18n();
+
 const cards = ref([
-    { img: 'https://justfields.com/storage/projects/7M5rV059/home-04.jpg', title: 'Lipstick' },
-    { img: 'https://justfields.com/storage/projects/7M5rV059/home-05.jpg', title: 'Makeup' },
-    { img: 'https://justfields.com/storage/projects/7M5rV059/home-06.jpg', title: 'Tools' },
+    { img: 'https://justfields.com/storage/projects/7M5rV059/home-04.jpg', title: t('home.lipstick') },
+    { img: 'https://justfields.com/storage/projects/7M5rV059/home-05.jpg', title: t('layout.makeup') },
+    { img: 'https://justfields.com/storage/projects/7M5rV059/home-06.jpg', title: t('home.tools') },
 ])
 
 onMounted(async () => {

@@ -42,7 +42,9 @@
     "reset_password": "إعادة تعيين كلمة المرور",
     "cancel": "إلغاء",
     "processing": "جارٍ المعالجة",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "shop_now": "تسوق الآن",
+    "shop_the_collection": "تسوق المجموعة"
   },
   "head": {
     "register": "انشاء حساب جديد",
@@ -78,5 +80,12 @@
     "new": "جديد",
     "brands": "ماركات",
     "buy_theme": "شراء القالب"
+  },
+  "home": {
+    "milancelos": "ميلانسيلوس",
+    "pellentesque_posuere_morci_lobortis_scelerisque_blandit_donec_an_tellus_lacinia_an_tincidunt_risus_de_cosmopolis_consequat_velitos": "إنه محتوى نصي طويل بلغة لاتينية يستخدم عادةً كمثال. نواصل العمل على تفاصيل أخرى لنتحقق من استكمال المعلومات المطلوبة.",
+    "lorémica": "لوريميكا",
+    "lipstick": "أحمر شفاه",
+    "tools": "أدوات"
   }
 }

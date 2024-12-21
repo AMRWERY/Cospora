@@ -42,7 +42,9 @@
     "reset_password": "Reset Password",
     "cancel": "Cancel",
     "processing": "Processing",
-    "logout": "Logout"
+    "logout": "Logout",
+    "shop_now": "Shop Now",
+    "shop_the_collection": "Shop The Collection"
   },
   "head": {
     "register": "Register",
@@ -78,5 +80,12 @@
     "new": "New",
     "brands": "Brands",
     "buy_theme": "Buy Theme"
+  },
+  "home": {
+    "milancelos": "Milancelos",
+    "pellentesque_posuere_morci_lobortis_scelerisque_blandit_donec_an_tellus_lacinia_an_tincidunt_risus_de_cosmopolis_consequat_velitos": "Pellentesque posuere morci lobortis scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat velitos",
+    "lorémica": "Lorémica",
+    "lipstick": "Lipstick",
+    "tools": "Tools"
   }
 }
