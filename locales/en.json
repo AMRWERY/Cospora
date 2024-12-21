@@ -44,7 +44,8 @@
     "processing": "Processing",
     "logout": "Logout",
     "shop_now": "Shop Now",
-    "shop_the_collection": "Shop The Collection"
+    "shop_the_collection": "Shop The Collection",
+    "submit": "Submit"
   },
   "head": {
     "register": "Register",
@@ -87,5 +88,10 @@
     "lorémica": "Lorémica",
     "lipstick": "Lipstick",
     "tools": "Tools"
+  },
+  "mail": {
+    "join_our_mailing_list": "Join Our Mailing List",
+    "get_the_latest_updates_on_new_products_and_upcoming_sales": "Get the latest updates on new products and upcoming sales.",
+    "we_promise_to_only_send_you_good_things": "We promise to only send you good things!"
   }
 }

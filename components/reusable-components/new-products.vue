@@ -16,7 +16,7 @@
                     class="absolute top-0 object-cover w-full h-full transition-all duration-500 ease-in-out opacity-0 end-0 group-hover:opacity-100"
                     :src="item.imgTwo" />
                 </div>
-                <div class="absolute py-1 text-xs text-white bg-opacity-50 top-2 start-2">
+                <div class="absolute py-1 text-xs text-white bg-opacity-50 top-2 left-2">
                   <p class="px-2 bg-red-500 rounded" v-if="item.productTypes.includes('sale')">Sale</p>
                   <p class="px-2 mt-1 bg-black rounded" v-if="item.productTypes.includes('new')">New</p>
                   <p class="px-2 mt-1 bg-blue-600 rounded" v-if="item.productTypes.includes('bundle')">Bundle</p>

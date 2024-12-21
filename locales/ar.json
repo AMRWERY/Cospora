@@ -44,7 +44,8 @@
     "processing": "جارٍ المعالجة",
     "logout": "تسجيل الخروج",
     "shop_now": "تسوق الآن",
-    "shop_the_collection": "تسوق المجموعة"
+    "shop_the_collection": "تسوق المجموعة",
+    "submit": "إرسال"
   },
   "head": {
     "register": "انشاء حساب جديد",
@@ -87,5 +88,10 @@
     "lorémica": "لوريميكا",
     "lipstick": "أحمر شفاه",
     "tools": "أدوات"
-  }
+  },
+  "mail": {
+  "join_our_mailing_list": "انضم إلى قائمتنا البريدية",
+  "get_the_latest_updates_on_new_products_and_upcoming_sales": "احصل على أحدث التحديثات حول المنتجات الجديدة والمبيعات القادمة.",
+  "we_promise_to_only_send_you_good_things": "نعدك بإرسال الأشياء الجيدة فقط!"
+}
 }

@@ -26,11 +26,12 @@
 
                 <div class="max-w-sm mx-auto mt-8 text-center">
                   <p class="text-2xl font-semibold text-gray-800">
-                    Join Our Mailing List
+                    {{ $t('mail.join_our_mailing_list') }}
                   </p>
                   <div class="w-12 h-0.5 mx-auto my-2 bg-red-500"></div>
-                  <p class="mt-5 text-xs font-semibold">Get the latest updates on new products and upcoming sales.</p>
-                  <span class="text-xs text-gray-800">We promise to only send you good things!</span>
+                  <p class="mt-5 text-xs font-semibold">{{
+                    $t('mail.get_the_latest_updates_on_new_products_and_upcoming_sales') }}</p>
+                  <span class="text-xs text-gray-800">{{ $t('mail.we_promise_to_only_send_you_good_things') }}</span>
                 </div>
                 <div class="w-full max-w-sm min-w-[200px] mx-auto mt-4">
                   <div class="relative">
@@ -40,7 +41,7 @@
                     <button
                       class="absolute end-1 top-1 rounded bg-black py-2 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                       type="submit">
-                      Submit
+                      {{ $t('btn.submit') }}
                     </button>
                   </div>
                 </div>
