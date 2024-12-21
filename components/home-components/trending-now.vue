@@ -2,7 +2,7 @@
   <div>
     <div class="flex items-center justify-center mt-8 mb-3">
       <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
-      <span class="mx-4 text-2xl font-bold leading-10 capitalize">#Trending Now</span>
+      <span class="mx-4 text-2xl font-bold leading-10 capitalize">{{ $t('home.trending_now') }}</span>
       <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
     </div>
 
@@ -34,9 +34,29 @@
 </template>
 
 <script setup>
-const cards = ref([
-  { img: 'https://i.imghippo.com/files/oIPR9210MdE.jpg', subtitle: 'Make up', title: 'Milancé', content: 'Pellentesque lorem denim consequat feugiat sapien delos pretium libero. Destibulum ullamcorper melito an amet cosmopolis morttitor nulla lectus.', btn: 'Browse Now' },
-  { img: 'https://i.imghippo.com/files/GwH9379BVw.jpg', subtitle: 'New Arrivals', title: '#Loremis', content: 'Pellentesque lorem denim consequat feugiat sapien delos pretium libero. Destibulum ullamcorper melito an amet cosmopolis morttitor nulla lectus.', btn: 'Shop Now' },
-  { img: 'https://i.imghippo.com/files/QOws8545QZc.jpg', subtitle: 'Beauty Care', title: 'Ziloues', content: 'Pellentesque lorem denim consequat feugiat sapien delos pretium libero. Destibulum ullamcorper melito an amet cosmopolis morttitor nulla lectus.', btn: 'Discover Now' },
-])
+const { t } = useI18n();
+
+const cards = computed(() => [
+  {
+    img: 'https://i.imghippo.com/files/oIPR9210MdE.jpg',
+    subtitle: t('layout.makeup'),
+    title: t('home.milancé'),
+    content: t('home.pellentesque_lorem_denim_consequat_feugiat_sapien_delos_pretium_libero_destibulum_ullamcorper_melito_an_amet_cosmopolis_morttitor_nulla_lectus'),
+    btn: t('btn.browse_now'),
+  },
+  {
+    img: 'https://i.imghippo.com/files/GwH9379BVw.jpg',
+    subtitle: t('home.new_arrivals'),
+    title: t('home.loremis'),
+    content: t('home.pellentesque_lorem_denim_consequat_feugiat_sapien_delos_pretium_libero_destibulum_ullamcorper_melito_an_amet_cosmopolis_morttitor_nulla_lectus'),
+    btn: t('btn.browse_now'),
+  },
+  {
+    img: 'https://i.imghippo.com/files/QOws8545QZc.jpg',
+    subtitle: t('home.beauty_care'),
+    title: t('home.ziloues'),
+    content: t('home.pellentesque_lorem_denim_consequat_feugiat_sapien_delos_pretium_libero_destibulum_ullamcorper_melito_an_amet_cosmopolis_morttitor_nulla_lectus'),
+    btn: t('btn.browse_now'),
+  },
+]);
 </script>

@@ -45,7 +45,8 @@
     "logout": "تسجيل الخروج",
     "shop_now": "تسوق الآن",
     "shop_the_collection": "تسوق المجموعة",
-    "submit": "إرسال"
+    "submit": "إرسال",
+    "browse_now": "تصفح الآن"
   },
   "head": {
     "register": "انشاء حساب جديد",
@@ -87,7 +88,14 @@
     "pellentesque_posuere_morci_lobortis_scelerisque_blandit_donec_an_tellus_lacinia_an_tincidunt_risus_de_cosmopolis_consequat_velitos": "إنه محتوى نصي طويل بلغة لاتينية يستخدم عادةً كمثال. نواصل العمل على تفاصيل أخرى لنتحقق من استكمال المعلومات المطلوبة.",
     "lorémica": "لوريميكا",
     "lipstick": "أحمر شفاه",
-    "tools": "أدوات"
+    "tools": "أدوات",
+    "milancé": "ميلانسي",
+    "loremis": "لوريميس#",
+    "new_arrivals": "وصل حديثاً",
+    "beauty_care": "العناية بالجمال",
+    "ziloues": "زيلويس",
+    "pellentesque_lorem_denim_consequat_feugiat_sapien_delos_pretium_libero_destibulum_ullamcorper_melito_an_amet_cosmopolis_morttitor_nulla_lectus": "بيلينتيسكوي لوريم دينيوم كونسكوات فيوغات سابين ديلوس بريتيوم ليبيرو. ديستيبلوم أولامكوربر ميليتو أن أميت كوزموبوليس مورتيتور نولا لكتوس.",
+    "trending_now": "#الموضة الآن"
   },
   "mail": {
     "join_our_mailing_list": "انضم إلى قائمتنا البريدية",

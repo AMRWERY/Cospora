@@ -14,7 +14,7 @@
     "@formkit/barcode": "^1.0.2",
     "@formkit/nuxt": "^1.6.7",
     "@nuxt/icon": "^1.9.1",
-    "@nuxtjs/i18n": "^9.1.0",
+    "@nuxtjs/i18n": "^9.0.0-rc.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@pinia/nuxt": "^0.6.0",
     "@tailwindcss/container-queries": "^0.1.1",

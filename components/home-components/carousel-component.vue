@@ -126,11 +126,11 @@
 <script setup>
 const { t } = useI18n();
 
-const cards = ref([
+const cards = computed(() => [
     { img: 'https://justfields.com/storage/projects/7M5rV059/home-04.jpg', title: t('home.lipstick') },
     { img: 'https://justfields.com/storage/projects/7M5rV059/home-05.jpg', title: t('layout.makeup') },
     { img: 'https://justfields.com/storage/projects/7M5rV059/home-06.jpg', title: t('home.tools') },
-])
+]);
 
 onMounted(async () => {
     const { Carousel, initTWE } = await import("tw-elements");
