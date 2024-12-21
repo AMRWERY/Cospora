@@ -3,7 +3,7 @@
     <div class="relative group">
       <nuxt-link to="" class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2"
         id="dropdownMenuButton1" aria-expanded="false" Dropdown divider>
-        New in
+        {{ $t('layout.new_in') }}
       </nuxt-link>
 
       <ul

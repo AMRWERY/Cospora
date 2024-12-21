@@ -41,7 +41,7 @@
                   <!-- Find A Store Section -->
                   <span class="flex items-center space-s-2">
                     <icon name="ep:location" size="30px" />
-                    <p class="text-xs capitalize">Find A Store</p>
+                    <p class="text-xs capitalize">{{ $t('layout.find_a_store') }}</p>
                   </span>
                 </div>
                 <!-- Currency menu items -->
@@ -117,31 +117,31 @@
                     class="absolute z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg end-0 ring-1 ring-black/5 focus:outline-none">
                     <HeadlessMenuItem v-slot="{ active }">
                       <nuxt-link to="/profile"
-                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-x-4']">
+                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-s-4']">
                         <icon name="dashicons:admin-users" class="w-5 h-5 text-grey-700" />
-                        <span>Your Profile</span>
+                        <span>{{ $t('layout.your_profile') }}</span>
                       </nuxt-link>
                     </HeadlessMenuItem>
                     <HeadlessMenuItem v-slot="{ active }"
                       v-if="store.isUserAuthenticated && userEmail === 'admin@cospora.com'">
                       <nuxt-link to="/dashboard"
-                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-x-4']">
+                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-s-4']">
                         <icon name="heroicons-solid:presentation-chart-line" class="w-5 h-5 text-grey-700" />
-                        <span>Dashboard</span>
+                        <span>{{ $t('layout.dashboard') }}</span>
                       </nuxt-link>
                     </HeadlessMenuItem>
                     <HeadlessMenuItem v-slot="{ active }">
                       <nuxt-link to="/order-summary"
-                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-x-4']">
+                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-s-4']">
                         <icon name="material-symbols-light:list-alt" class="w-5 h-5 text-grey-700" />
-                        <span>Order Summary</span>
+                        <span>{{ $t('layout.order_summary') }}</span>
                       </nuxt-link>
                     </HeadlessMenuItem>
                     <HeadlessMenuItem v-slot="{ active }">
                       <nuxt-link to="" @click="logout"
-                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-x-4']">
+                        :class="[active ? 'bg-gray-100 outline-none' : '', 'flex items-center px-4 py-2 text-sm text-gray-700 cursor-pointer space-s-4']">
                         <icon name="mdi:logout" class="w-5 h-5 text-grey-700" />
-                        <span>Sign out</span>
+                        <span>{{ $t('btn.logout') }}</span>
                       </nuxt-link>
                     </HeadlessMenuItem>
                   </HeadlessMenuItems>
@@ -153,7 +153,7 @@
                   <HeadlessMenuButton class="relative flex items-center hidden text-sm md:flex">
                     <span class="sr-only">Open Sign In menu</span>
                     <span class="flex items-center space-s-1">
-                      <p class="text-xs capitalize whitespace-nowrap">Sign In</p>
+                      <p class="text-xs capitalize whitespace-nowrap">{{ $t('layout.sign_in') }}</p>
                       <icon name="ep:arrow-down" size="15px" />
                     </span>
                   </HeadlessMenuButton>
@@ -236,55 +236,55 @@
       </HeadlessDisclosure>
     </ClientOnly>
 
-    <nav class="hidden max-w-5xl px-2 py-4 mx-auto sm:px-6 lg:px-8 space-s-10 md:flex sm:hidden">
+    <nav class="hidden max-w-5xl px-2 py-4 mx-auto mt-4 sm:px-6 lg:px-8 space-s-10 md:flex sm:hidden">
       <!-- new-in-menu component -->
       <new-in-menu />
 
       <!-- mega-menu (Makeup) -->
-      <mega-menu title="Makeup" :categories="makeupCategories" />
+      <mega-menu :title="t('layout.makeup')" :categories="makeupCategories" />
 
       <!-- mega-menu (Nail) -->
-      <mega-menu title="Nail" :categories="nailCategories" />
+      <mega-menu :title="t('layout.nail')" :categories="nailCategories" />
 
       <!-- mega-menu (Accessories) -->
-      <mega-menu title="Accessories" :categories="accessoriesCategories" />
+      <mega-menu :title="t('layout.accessories')" :categories="accessoriesCategories" />
 
       <!-- mega-menu (Makeup Tools) -->
-      <mega-menu title="Makeup Tools" :categories="makeupToolsCategories" />
+      <mega-menu :title="t('layout.makeup_tools')" :categories="makeupToolsCategories" />
 
       <div class="relative">
         <span
-          class="absolute top-0 inline-flex items-center justify-center ms-8 -mt-5 text-xs text-white rounded-lg bg-[#ec4065] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
-          Sale
+          class="absolute top-0 inline-flex items-center justify-center ml-8 -mt-5 text-xs text-white rounded-lg bg-[#ec4065] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          {{ $t('layout.sale') }}
         </span>
         <span class="absolute -inset-1.5" />
         <nuxt-link to="" class="relative text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
-          Fragrance
+          {{ $t('layout.fragrance') }}
         </nuxt-link>
       </div>
       <div class="relative">
         <span
-          class="absolute top-0 inline-flex items-center justify-center ms-9 -mt-5 text-xs text-white rounded-lg bg-[#f79a00] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
-          Hot
+          class="absolute top-0 inline-flex items-center justify-center ml-9 -mt-5 text-xs text-white rounded-lg bg-[#f79a00] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          {{ $t('layout.hot') }}
         </span>
         <span class="absolute -inset-1.5" />
         <nuxt-link to="" class="relative text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
-          LookBook
+          {{ $t('layout.lookbook') }}
         </nuxt-link>
       </div>
       <div class="relative">
         <span
-          class="absolute top-0 inline-flex items-center justify-center ms-4 -mt-5 text-xs text-white rounded-lg bg-[#43b5f4] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
-          New
+          class="absolute top-0 inline-flex items-center justify-center ml-4 -mt-5 text-xs text-white rounded-lg bg-[#43b5f4] ring-1 ring-inset ring-red-600/10 px-1.5 py-0.5">
+          {{ $t('layout.new') }}
         </span>
         <span class="absolute -inset-1.5" />
         <nuxt-link to="/brands"
           class="relative text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">
-          Brands
+          {{ $t('layout.brands') }}
         </nuxt-link>
       </div>
-      <nuxt-link to="" class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">Buy
-        Theme</nuxt-link>
+      <nuxt-link to="" class="text-base font-bold cursor-pointer hover:underline hover:underline-offset-2">{{
+        $t('layout.buy_theme') }}</nuxt-link>
     </nav>
 
     <transition name="sidebar-transition" @before-enter="beforeEnter" @enter="enter" @leave="leave">
@@ -689,6 +689,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   clearInterval(interval.value);
 });
+
+const { t } = useI18n();
 </script>
 
 <style scoped>

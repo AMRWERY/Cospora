@@ -41,7 +41,6 @@
     "loading": "Loading",
     "reset_password": "Reset Password",
     "cancel": "Cancel",
-    "dashboard": "Dashboard",
     "processing": "Processing",
     "logout": "Logout"
   },
@@ -61,6 +60,23 @@
     "operation_completed_successfully": "Operation completed successfully."
   },
   "layout": {
-    "sale_up_to_off_on_selected_items_end_in": "Sale up to 70% off on selected items. End in:"
+    "sale_up_to_off_on_selected_items_end_in": "Sale up to 70% off on selected items. End in:",
+    "find_a_store": "Find A Store",
+    "sign_in": "Sign In",
+    "your_profile": "Your Profile",
+    "dashboard": "Dashboard",
+    "order_summary": "Order Summary",
+    "new_in": "New in",
+    "makeup": "Makeup",
+    "nail": "Nail",
+    "accessories": "Accessories",
+    "makeup_tools": "Makeup Tools",
+    "sale": "Sale",
+    "fragrance": "Fragrance",
+    "hot": "Hot",
+    "lookbook": "LookBook",
+    "new": "New",
+    "brands": "Brands",
+    "buy_theme": "Buy Theme"
   }
 }

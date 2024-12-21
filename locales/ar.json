@@ -41,7 +41,6 @@
     "loading": "جار التحميل",
     "reset_password": "إعادة تعيين كلمة المرور",
     "cancel": "إلغاء",
-    "dashboard": "لوحة التحكم",
     "processing": "جارٍ المعالجة",
     "logout": "تسجيل الخروج"
   },
@@ -61,6 +60,23 @@
     "operation_completed_successfully": "تمت العملية بنجاح"
   },
   "layout": {
-  "sale_up_to_off_on_selected_items_end_in": "تخفيضات تصل إلى 70% على العناصر المحددة. تنتهي في:"
-}
+    "sale_up_to_off_on_selected_items_end_in": "تخفيضات تصل إلى 70% على العناصر المحددة. تنتهي في:",
+    "find_a_store": "ابحث عن متجر",
+    "sign_in": "تسجيل الدخول",
+    "your_profile": "ملفك الشخصي",
+    "dashboard": "لوحة التحكم",
+    "order_summary": "ملخص الطلب",
+    "new_in": "جديد في",
+    "makeup": "مكياج",
+    "nail": "أظافر",
+    "accessories": "إكسسوارات",
+    "makeup_tools": "أدوات المكياج",
+    "sale": "تخفيضات",
+    "fragrance": "عطر",
+    "hot": "رائج",
+    "lookbook": "لوك بوك",
+    "new": "جديد",
+    "brands": "ماركات",
+    "buy_theme": "شراء القالب"
+  }
 }
