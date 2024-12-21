@@ -413,6 +413,9 @@ const logout = async () => {
     console.error("Logout error:", error);
   } finally {
     showOverlay.value = false;
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   }
 };
 
