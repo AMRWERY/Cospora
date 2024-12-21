@@ -4,7 +4,7 @@
       <nav class="fixed top-0 start-0 end-0 py-1.5 flex justify-center z-50 whitespace-nowrap nav-img">
         <icon name="ci:close-sm" @click="isNavVisible = false" class="absolute text-white cursor-pointer end-4" />
         <p class="mt-0.5 text-sm text-white nav-title capitalize tracking-wider font-normal">
-          Sale up to 70% off on selected items. End in: 00D.00H.00M.00S
+          {{ $t('layout.sale_up_to_off_on_selected_items_end_in') }} {{ timer }}
         </p>
       </nav>
     </div>
@@ -652,6 +652,43 @@ const makeupToolsCategories = [
     ],
   },
 ]
+
+//nav timer
+const targetTime = ref(new Date().getTime() + 86400000);
+const timer = ref("");
+
+const formatTime = (ms) => {
+  const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+  return `${pad(days)}D.${pad(hours)}H.${pad(minutes)}M.${pad(seconds)}S`;
+};
+
+const pad = (value) => (value < 10 ? `0${value}` : value);
+
+const updateTimer = () => {
+  const currentTime = new Date().getTime();
+  const remainingTime = targetTime.value - currentTime;
+
+  if (remainingTime <= 0) {
+    timer.value = "00D.00H.00M.00S";
+    clearInterval(interval.value);
+  } else {
+    timer.value = formatTime(remainingTime);
+  }
+};
+
+const interval = ref(null);
+
+onMounted(() => {
+  updateTimer();
+  interval.value = setInterval(updateTimer, 1000);
+});
+
+onBeforeUnmount(() => {
+  clearInterval(interval.value);
+});
 </script>
 
 <style scoped>

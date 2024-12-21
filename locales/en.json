@@ -59,5 +59,8 @@
   "alert": {
     "success": "Success",
     "operation_completed_successfully": "Operation completed successfully."
+  },
+  "layout": {
+    "sale_up_to_off_on_selected_items_end_in": "Sale up to 70% off on selected items. End in:"
   }
 }

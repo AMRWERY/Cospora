@@ -59,5 +59,8 @@
   "alert": {
     "success": "نجاح",
     "operation_completed_successfully": "تمت العملية بنجاح"
-  }
+  },
+  "layout": {
+  "sale_up_to_off_on_selected_items_end_in": "تخفيضات تصل إلى 70% على العناصر المحددة. تنتهي في:"
+}
 }
