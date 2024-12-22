@@ -28,9 +28,9 @@
               </nuxt-link>
 
               <button type="button" class="absolute z-10 mt-5 rounded-full top-2 end-5"
-                @click.stop="toggleFavorite(index)">
-                <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
-                  :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
+                @click.stop="toggleWishlist(item)">
+                <icon :name="isInWishlist(item.id) ? 'heroicons-solid:heart' : 'heroicons-outline:heart'"
+                  class="w-5 h-5" :class="isInWishlist(item.id) ? 'text-red-600' : 'text-gray-500'" />
               </button>
 
               <!-- open dialog button -->
@@ -106,11 +106,26 @@ const loading = ref(true);
 const { formatPrice } = useFormatPrice();
 
 const store = useNewProductsStoreStore();
+const wishlistStore = useWishlistStore();
 
-const isFavorite = ref(store.products.makeup?.map(() => false) || []);
+const isInWishlist = (productId) => {
+  return wishlistStore.isInWishlist(productId);
+};
 
-const toggleFavorite = (index) => {
-  isFavorite.value[index] = !isFavorite.value[index];
+const toggleWishlist = async (product) => {
+  if (!product) return;
+  try {
+    if (!wishlistStore.isInWishlist(product.id)) {
+      await wishlistStore.addToWishlist(
+        product.id,
+        product.title,
+        product.price,
+        product.imgOne
+      );
+    }
+  } catch (error) {
+    console.error("Error adding to wishlist:", error);
+  }
 };
 
 const props = defineProps({
