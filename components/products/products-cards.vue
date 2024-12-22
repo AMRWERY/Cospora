@@ -45,12 +45,12 @@
           </div>
 
           <!-- Select Options Button -->
-          <div class="relative transition-opacity opacity-0 group-hover:opacity-100">
+          <!-- <div class="relative transition-opacity opacity-0 group-hover:opacity-100">
             <button type="button"
               class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm text-white hover:bg-gray-700 focus:bg-red-500 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 w-full capitalize font-semibold">
               Select Options
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
