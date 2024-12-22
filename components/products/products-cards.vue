@@ -38,7 +38,9 @@
           </nuxt-link>
           <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center">
             <p>
-              <span class="text-sm text-gray-400 line-through me-2" v-if="card.discount">${{ card.discount
+              <span class="text-sm text-gray-400 me-2" v-if="card.discount">{{ card.discount
+                }}%</span>
+              <span class="text-sm text-gray-400 line-through me-2" v-if="card.originalPrice">${{ card.originalPrice
                 }}</span>
               <span class="text-sm text-red-700">${{ card.price }}</span>
             </p>
@@ -83,7 +85,9 @@
           <div class="flex items-center justify-between mt-3">
             <div class="flex flex-col items-center justify-between mt-2 mb-5 font-semibold text-center">
               <p>
-                <span class="text-sm text-gray-400 line-through me-2" v-if="card.discount">${{ card.discount }}</span>
+                <span class="text-sm text-gray-400 me-2" v-if="card.discount">{{ card.discount }}%</span>
+                <span class="text-sm text-gray-400 line-through me-2" v-if="card.originalPrice">${{ card.originalPrice
+                  }}</span>
                 <span class="text-sm text-red-700">${{ card.price }}</span>
               </p>
             </div>
@@ -93,10 +97,10 @@
           </div>
 
           <div class="flex items-center mt-4 space-s-6">
-            <button type="button"
+            <!-- <button type="button"
               class="rounded-md bg-slate-900 px-12 py-2.5 text-center text-sm text-white hover:bg-gray-700 focus:bg-red-500 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 capitalize font-semibold">
               Select Options
-            </button>
+            </button> -->
             <button type="button" class="flex items-center space-s-2" @click.stop="toggleFavorite(index)">
               <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
                 :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
