@@ -18,9 +18,9 @@
           </div>
         </nuxt-link>
         <div class="transition-opacity opacity-0 group-hover:opacity-100">
-          <button type="button" class="absolute z-10 mt-5 rounded-full top-2 end-5" @click.stop="toggleFavorite(index)">
-            <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
-              :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
+          <button type="button" class="absolute z-10 mt-5 rounded-full top-2 end-5" @click.stop="toggleWishlist(card)">
+            <icon :name="isInWishlist(card.id) ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
+              :class="isInWishlist(card.id) ? 'text-red-600' : 'text-gray-500'" />
           </button>
           <button type="button" class="absolute z-10 rounded-full top-16 end-5" data-twe-toggle="tooltip"
             title="Add to Compare" data-twe-placement="bottom" @click.stop="toggleCompare(index)">
@@ -101,11 +101,11 @@
               class="rounded-md bg-slate-900 px-12 py-2.5 text-center text-sm text-white hover:bg-gray-700 focus:bg-red-500 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 capitalize font-semibold">
               Select Options
             </button> -->
-            <button type="button" class="flex items-center space-s-2" @click.stop="toggleFavorite(index)">
-              <icon :name="isFavorite[index] ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
-                :class="isFavorite[index] ? 'text-red-500' : 'text-gray-500'" />
+            <button type="button" class="flex items-center space-s-2" @click.stop="toggleWishlist(card)">
+              <icon :name="isInWishlist(card.id) ? 'heroicons-solid:heart' : 'heroicons-outline:heart'" class="w-5 h-5"
+                :class="isInWishlist(card.id) ? 'text-red-500' : 'text-gray-500'" />
               <span class="text-sm font-medium text-gray-700">
-                {{ isFavorite[index] ? 'Remove wishlist' : 'Add to wishlist' }}
+                {{ isInWishlist(card.id) ? 'Remove wishlist' : 'Add to wishlist' }}
               </span>
             </button>
             <button type="button" class="flex items-center space-s-2" @click.stop="toggleCompare(index)">
@@ -157,11 +157,29 @@ const filteredProducts = computed(() => {
   return products.value.filter((product) => product.subCategoryTitle === category.value);
 });
 
-const isFavorite = ref(products.value.map(() => false));
+// const isFavorite = ref(products.value.map(() => false));
 const isCompare = ref(products.value.map(() => false));
 
-const toggleFavorite = (index) => {
-  isFavorite.value[index] = !isFavorite.value[index];
+const wishlistStore = useWishlistStore();
+
+const isInWishlist = (productId) => {
+  return wishlistStore.isInWishlist(productId);
+};
+
+const toggleWishlist = async (product) => {
+  if (!product) return;
+  try {
+    if (!wishlistStore.isInWishlist(product.id)) {
+      await wishlistStore.addToWishlist(
+        product.id,
+        product.title,
+        product.price,
+        product.imgOne
+      );
+    }
+  } catch (error) {
+    console.error("Error adding to wishlist:", error);
+  }
 };
 
 const toggleCompare = (index) => {
