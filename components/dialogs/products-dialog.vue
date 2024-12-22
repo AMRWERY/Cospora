@@ -229,11 +229,11 @@
           </div>
         </div>
 
-        <!-- not-auth-toast component -->
-        <div class="fixed z-50 pointer-events-none bottom-5 start-5">
+        <!-- dynamic-toast component -->
+        <div class="fixed z-50 pointer-events-none bottom-5 start-5 w-96">
           <div class="pointer-events-auto">
-            <not-auth-toast v-if="showToast" :message="toastMessage" :toastType="toastType" :duration="3000"
-              @toastClosed="showToast = false" />
+            <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+              :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
           </div>
         </div>
       </HeadlessDialog>
@@ -329,8 +329,10 @@ const toggleWishlist = async () => {
   const authStore = useAuthStore();
   if (!authStore.isUserAuthenticated) {
     showToast.value = true;
+    toastTitle.value = 'ah ah!';
     toastMessage.value = 'Please log in first to add to wishlist.';
-    toastType.value = 'red-500';
+    toastType.value = 'warning';
+    toastIcon.value = 'material-symbols:warning-outline-rounded'
     return;
   }
   if (wishlistStore.isInWishlist(product.id)) {
@@ -346,6 +348,11 @@ const toggleWishlist = async () => {
       );
       itemAdded.value = "Product added to wishlist!";
       setTimeout(() => (itemAdded.value = ""), 3000);
+      showToast.value = true;
+      toastTitle.value = 'Great!';
+      toastMessage.value = 'Item added to your wishlist';
+      toastType.value = 'success';
+      toastIcon.value = 'clarity:heart-line'
     } catch (error) {
       if (error.message === "Product already added to the wishlist.") {
         errorMessage.value = error.message;
@@ -369,8 +376,10 @@ const isInCart = computed(() =>
 );
 
 const showToast = ref(false);
+const toastTitle = ref('');
 const toastMessage = ref('');
-const toastType = ref('red-500');
+const toastType = ref('');
+const toastIcon = ref('')
 
 const handleAddToCart = async () => {
   const product = store.selectedProduct;
@@ -378,8 +387,10 @@ const handleAddToCart = async () => {
   const authStore = useAuthStore();
   if (!authStore.isUserAuthenticated) {
     showToast.value = true;
+    toastTitle.value = 'ah ah!';
     toastMessage.value = 'Please log in first to add to cart.';
-    toastType.value = 'red-500';
+    toastType.value = 'warning';
+    toastIcon.value = 'material-symbols:warning-outline-rounded'
     return;
   }
   try {
@@ -397,6 +408,11 @@ const handleAddToCart = async () => {
     );
     itemAdded.value = "Product added to cart!";
     setTimeout(() => (itemAdded.value = ""), 3000);
+    showToast.value = true;
+    toastTitle.value = 'Great!';
+    toastMessage.value = 'Item added to your cart';
+    toastType.value = 'success';
+    toastIcon.value = 'clarity:shopping-cart-line'
   } catch (error) {
     console.error("Error adding product to cart:", error);
   } finally {

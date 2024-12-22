@@ -46,9 +46,13 @@
       </form>
     </div>
 
-    <!-- complete-operation component -->
-    <complete-operation v-if="showToast" :title="t('form.account_created')"
-      :message="t('form.your_account_has_been_successfully_created')" @close="showToast = false" />
+    <!-- dynamic-toast component -->
+    <div class="fixed z-50 pointer-events-none bottom-5 start-5 w-96">
+      <div class="pointer-events-auto">
+        <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+          :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -58,15 +62,25 @@ import { useCategoriesStore } from '@/stores/categoriesStore';
 const store = useCategoriesStore();
 const loadingOne = ref(false);
 const loadingTwo = ref(false);
-const showToast = ref(false);
 const newCategoryTitle = ref('');
 const newSubCategoryTitle = ref('');
 const selectedCategoryId = ref('');
+
+const showToast = ref(false);
+const toastTitle = ref('');
+const toastMessage = ref('');
+const toastType = ref('');
+const toastIcon = ref('')
 
 const handleAddCategory = async () => {
   loadingOne.value = true;
   if (newCategoryTitle.value.trim()) {
     await store.addCategory(newCategoryTitle.value.trim());
+    showToast.value = true;
+    toastTitle.value = 'Great!';
+    toastMessage.value = 'Category added successfully';
+    toastType.value = 'success';
+    toastIcon.value = 'mdi:check-circle'
     newCategoryTitle.value = '';
   }
   loadingOne.value = false;
@@ -77,6 +91,11 @@ const handleAddSubCategory = async () => {
   loadingTwo.value = true;
   if (newSubCategoryTitle.value.trim() && selectedCategoryId.value) {
     await store.addSubCategory(newSubCategoryTitle.value.trim(), selectedCategoryId.value);
+    showToast.value = true;
+    toastTitle.value = 'Great!';
+    toastMessage.value = 'Subcategory added successfully';
+    toastType.value = 'success';
+    toastIcon.value = 'mdi:check-circle'
     newSubCategoryTitle.value = '';
     selectedCategoryId.value = '';
   }

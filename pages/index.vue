@@ -8,7 +8,7 @@
     <recent-posts />
     <on-instagram />
 
-    <!-- welcome-user alert -->
+    <!-- welcome-user toast -->
     <welcome-user v-if="store.showWelcomeMessage" :first-name="store.firstName" :last-name="store.lastName"
       @close="setWelcomeMessageVisibility = false" />
   </div>

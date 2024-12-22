@@ -150,9 +150,13 @@
       </form>
     </div>
 
-    <!-- complete-operation component -->
-    <complete-operation v-if="showToast" :title="t('form.account_created')"
-      :message="t('form.your_account_has_been_successfully_created')" @close="showToast = false" />
+    <!-- dynamic-toast component -->
+    <div class="fixed z-50 pointer-events-none bottom-5 start-5 w-96">
+      <div class="pointer-events-auto">
+        <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+          :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -161,12 +165,17 @@ import { useProductsStore } from '@/stores/productsStore'
 
 const store = useProductsStore()
 const loading = ref(false);
-const showToast = ref(false);
 const categories = ref([])
 const subCategories = ref([])
 const selectedCategory = ref('')
 const selectedSubCategory = ref('')
 const product = ref({ title: '', subtitle: '', price: '', originalPrice: '', discount: '', productCode: '', brand: '', productTypes: [] })
+
+const showToast = ref(false);
+const toastTitle = ref('');
+const toastMessage = ref('');
+const toastType = ref('');
+const toastIcon = ref('')
 
 const handleFileChange = async (event) => {
   const files = Array.from(event.target.files);
@@ -233,6 +242,10 @@ const handleSubmit = async () => {
   try {
     await store.createProduct(productData);
     showToast.value = true;
+    toastTitle.value = 'Great!';
+    toastMessage.value = 'Product added successfully';
+    toastType.value = 'success';
+    toastIcon.value = 'mdi:check-circle'
   } catch (error) {
     console.error("Error adding product:", error);
   } finally {

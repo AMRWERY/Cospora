@@ -67,11 +67,11 @@
       </Carousel>
     </ClientOnly>
 
-    <!-- not-auth-toast component -->
+    <!-- dynamic-toast component -->
     <div class="fixed z-50 pointer-events-none bottom-5 start-5">
       <div class="pointer-events-auto">
-        <not-auth-toast v-if="showToast" :message="toastMessage" :toastType="toastType" :duration="3000"
-          @toastClosed="showToast = false" />
+        <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+          :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
       </div>
     </div>
 
@@ -110,8 +110,10 @@ const config = {
 
 const loading = ref(true);
 const showToast = ref(false);
+const toastTitle = ref('');
 const toastMessage = ref('');
-const toastType = ref('red-500');
+const toastType = ref('');
+const toastIcon = ref('')
 
 // price mask / formatPrice composables
 const { formatPrice } = useFormatPrice();
@@ -128,8 +130,10 @@ const toggleWishlist = async (product) => {
   const authStore = useAuthStore();
   if (!authStore.isUserAuthenticated) {
     showToast.value = true;
+    toastTitle.value = 'ah ah!';
     toastMessage.value = 'Please log in first to add to wishlist.';
-    toastType.value = 'red-500';
+    toastType.value = 'warning';
+    toastIcon.value = 'material-symbols:warning-outline-rounded'
     return;
   }
   try {

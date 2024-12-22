@@ -204,6 +204,14 @@
         </div>
       </div>
     </section>
+
+    <!-- dynamic-toast component -->
+    <div class="fixed z-50 pointer-events-none bottom-5 start-5 w-96">
+      <div class="pointer-events-auto">
+        <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+          :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -287,12 +295,23 @@ const submitCheckoutForm = async () => {
   try {
     await new Promise(resolve => setTimeout(resolve, 3000));
     await checkoutStore.saveCheckoutData();
+    showToast.value = true;
+    toastTitle.value = 'Payment Successful';
+    toastMessage.value = 'Your payment was processed successfully. Thank you for your purchase!';
+    toastType.value = 'success';
+    toastIcon.value = 'mdi:check-circle'
   } catch (error) {
     console.error("Error during checkout:", error);
   } finally {
     loading.value = false;
   }
 };
+
+const showToast = ref(false);
+const toastTitle = ref('');
+const toastMessage = ref('');
+const toastType = ref('');
+const toastIcon = ref('')
 
 function beforeEnter(el) {
   el.style.opacity = 0;

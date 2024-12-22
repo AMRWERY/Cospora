@@ -42,9 +42,13 @@
       </div>
     </div>
 
-    <!-- successful-auth alert -->
-    <successful-auth v-if="showToast" :title="t('form.successfully_logged_in')"
-      :message="t('form.your_account_has_been_successfully_logged_in')" @close="showToast = false" />
+    <!-- dynamic-toast component -->
+    <div class="fixed z-50 pointer-events-none bottom-5 start-5 w-96">
+      <div class="pointer-events-auto">
+        <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+          :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -53,9 +57,14 @@ const store = useAuthStore()
 const loading = ref(false);
 const errorMessage = ref('');
 const router = useRouter()
-const showToast = ref(false);
 const dialogVisible = ref(true);
 const { t } = useI18n()
+
+const showToast = ref(false);
+const toastTitle = ref('');
+const toastMessage = ref('');
+const toastType = ref('');
+const toastIcon = ref('')
 
 const data = ref({
   email: '',
@@ -70,6 +79,10 @@ const signIn = async () => {
       password: data.value.password,
     });
     showToast.value = true;
+    toastTitle.value = t('form.successfully_logged_in');
+    toastMessage.value = t('form.your_account_has_been_successfully_logged_in');
+    toastType.value = 'success';
+    toastIcon.value = 'mdi:check-circle'
     dialogVisible.value = false;
     setTimeout(() => {
       router.replace('/');

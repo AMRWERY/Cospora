@@ -39,9 +39,13 @@
       </div>
     </section>
 
-    <!-- successful-auth alert -->
-    <successful-auth v-if="showToast" :title="t('form.successfully_reset_password')"
-      :message="t('form.your_password_has_been_successfully_reset')" @close="showToast = false" />
+    <!-- dynamic-toast component -->
+    <div class="fixed z-50 pointer-events-none bottom-5 start-5 w-96">
+      <div class="pointer-events-auto">
+        <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+          :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -49,8 +53,13 @@
 const store = useAuthStore()
 const loading = ref(false);
 const errorMessage = ref('');
-const showToast = ref(false);
 const { t } = useI18n()
+
+const showToast = ref(false);
+const toastTitle = ref('');
+const toastMessage = ref('');
+const toastType = ref('');
+const toastIcon = ref('')
 
 const data = ref({
   email: '',
@@ -63,6 +72,10 @@ const resetPassword = async () => {
       email: data.value.email,
     });
     showToast.value = true;
+    toastTitle.value = 'Password Reset!';
+    toastMessage.value = 'Please check your email inbox';
+    toastType.value = 'success';
+    toastIcon.value = 'mdi:check-circle'
   } catch (error) {
     // console.error("Login failed:", error);
     errorMessage.value = t('form.reset_password_failed_please_check_your_information_and_try_again');
