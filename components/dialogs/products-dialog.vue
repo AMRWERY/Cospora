@@ -63,7 +63,7 @@
                             <div class="my-8 space-y-2">
                               <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{
                                 store.selectedProduct?.brand
-                                  }}</span></p>
+                              }}</span></p>
                               <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code:
                                 <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
@@ -206,7 +206,8 @@
                             </button>
                             <button @click="toggleWishlist"
                               class="flex items-center justify-center h-10 p-2 text-gray-700 border border-gray-300 w-11 hover:text-gray-50 hover:bg-black">
-                              <icon :name="isInWishlist ? 'clarity:heart-solid' : 'clarity:heart-line'" size="20px" />
+                              <icon :name="isInWishlist ? 'clarity:heart-solid' : 'clarity:heart-line'" size="20px"
+                                :class="isInWishlist ? 'bg-red-600' : ''" class="p-1 rounded-full" />
                             </button>
                           </div>
                           <p v-if="errorMessage" class="mt-2 mb-3 text-sm text-center text-red-500">{{ errorMessage }}
