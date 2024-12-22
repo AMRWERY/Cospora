@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="visible" class="relative w-full max-w-lg p-5 bg-red-100 rounded-lg shadow sm:max-w-lg">
+        <div v-if="visible" class="relative w-full max-w-md p-5 bg-red-100 rounded-lg shadow sm:max-w-lg">
             <button @click="closeToast" class="absolute mt-2 text-gray-500 top-2 end-2 hover:text-gray-700">
                 <icon name="material-symbols:close" class="w-5 h-5" />
             </button>

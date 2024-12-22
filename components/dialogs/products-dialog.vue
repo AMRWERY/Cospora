@@ -63,7 +63,7 @@
                             <div class="my-8 space-y-2">
                               <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{
                                 store.selectedProduct?.brand
-                              }}</span></p>
+                                  }}</span></p>
                               <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code:
                                 <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
@@ -230,7 +230,7 @@
         </div>
 
         <!-- not-auth-toast component -->
-        <div class="fixed top-0 left-0 right-0 z-50 flex items-start justify-center mt-20 pointer-events-none">
+        <div class="fixed z-50 pointer-events-none bottom-5 start-5">
           <div class="pointer-events-auto">
             <not-auth-toast v-if="showToast" :message="toastMessage" :toastType="toastType" :duration="3000"
               @toastClosed="showToast = false" />
