@@ -67,6 +67,14 @@
       </Carousel>
     </ClientOnly>
 
+    <!-- not-auth-toast component -->
+    <div class="fixed top-0 left-0 right-0 z-50 flex items-start justify-center mt-20 pointer-events-none">
+      <div class="pointer-events-auto">
+        <not-auth-toast v-if="showToast" :message="toastMessage" :toastType="toastType" :duration="3000"
+          @toastClosed="showToast = false" />
+      </div>
+    </div>
+
     <!-- products-dialog component -->
     <div
       class="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 mb-28 group-hover:opacity-100">
@@ -101,6 +109,9 @@ const config = {
 };
 
 const loading = ref(true);
+const showToast = ref(false);
+const toastMessage = ref('');
+const toastType = ref('red-500');
 
 // price mask / formatPrice composables
 const { formatPrice } = useFormatPrice();
@@ -114,6 +125,13 @@ const isInWishlist = (productId) => {
 
 const toggleWishlist = async (product) => {
   if (!product) return;
+  const authStore = useAuthStore();
+  if (!authStore.isUserAuthenticated) {
+    showToast.value = true;
+    toastMessage.value = 'Please log in first to add to wishlist.';
+    toastType.value = 'red-500';
+    return;
+  }
   try {
     if (!wishlistStore.isInWishlist(product.id)) {
       await wishlistStore.addToWishlist(
@@ -127,6 +145,22 @@ const toggleWishlist = async (product) => {
     console.error("Error adding to wishlist:", error);
   }
 };
+
+// const toggleWishlist = async (product) => {
+//   if (!product) return;
+//   try {
+//     if (!wishlistStore.isInWishlist(product.id)) {
+//       await wishlistStore.addToWishlist(
+//         product.id,
+//         product.title,
+//         product.price,
+//         product.imgOne
+//       );
+//     }
+//   } catch (error) {
+//     console.error("Error adding to wishlist:", error);
+//   }
+// };
 
 const props = defineProps({
   products: {

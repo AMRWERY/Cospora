@@ -228,6 +228,14 @@
             </HeadlessTransitionChild>
           </div>
         </div>
+
+        <!-- not-auth-toast component -->
+        <div class="fixed top-0 left-0 right-0 z-50 flex items-start justify-center mt-20 pointer-events-none">
+          <div class="pointer-events-auto">
+            <not-auth-toast v-if="showToast" :message="toastMessage" :toastType="toastType" :duration="3000"
+              @toastClosed="showToast = false" />
+          </div>
+        </div>
       </HeadlessDialog>
     </HeadlessTransitionRoot>
   </div>
@@ -318,6 +326,13 @@ const itemAdded = ref('')
 const toggleWishlist = async () => {
   const product = store.selectedProduct;
   if (!product) return;
+  const authStore = useAuthStore();
+  if (!authStore.isUserAuthenticated) {
+    showToast.value = true;
+    toastMessage.value = 'Please log in first to add to wishlist.';
+    toastType.value = 'red-500';
+    return;
+  }
   if (wishlistStore.isInWishlist(product.id)) {
     errorMessage.value = "Product already added to the wishlist.";
     setTimeout(() => (errorMessage.value = ""), 3000);
@@ -353,9 +368,20 @@ const isInCart = computed(() =>
   cartStore.isInCart(store.selectedProduct?.id)
 );
 
+const showToast = ref(false);
+const toastMessage = ref('');
+const toastType = ref('red-500');
+
 const handleAddToCart = async () => {
   const product = store.selectedProduct;
   if (!product) return;
+  const authStore = useAuthStore();
+  if (!authStore.isUserAuthenticated) {
+    showToast.value = true;
+    toastMessage.value = 'Please log in first to add to cart.';
+    toastType.value = 'red-500';
+    return;
+  }
   try {
     loading.value = true;
     await cartStore.addToCart(
