@@ -38,16 +38,23 @@
     "enter_cvv": "أدخل رمز التحقق من البطاقة"
   },
   "btn": {
-    "loading": "جار التحميل",
     "reset_password": "إعادة تعيين كلمة المرور",
     "cancel": "إلغاء",
-    "processing": "جارٍ المعالجة",
     "logout": "تسجيل الخروج",
     "shop_now": "تسوق الآن",
     "shop_the_collection": "تسوق المجموعة",
     "submit": "إرسال",
     "browse_now": "تصفح الآن",
     "quick_view": "عرض سريع"
+  },
+  "loading_btn": {
+    "loading": "جاري التحميل",
+    "logging": "جاري تسجيل الدخول",
+    "signing_up": "جاري التسجيل",
+    "please_wait": "يرجى الانتظار",
+    "adding_to_cart": "إضافة إلى السلة",
+    "processing": "جارٍي المعالجة",
+    "logging_out": "جاري تسجيل الخروج"
   },
   "head": {
     "register": "انشاء حساب جديد",

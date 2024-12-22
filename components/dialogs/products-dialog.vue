@@ -199,7 +199,7 @@
                             <button @click="handleAddToCart"
                               class="flex-grow h-10 p-2 font-semibold capitalize bg-black text-gray-50 dark:text-gray-200 hover:bg-red-700">
                               <div class="flex items-center justify-center" v-if="loading">
-                                <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+                                <span class="text-center me-2">{{ $t('loading_btn.adding_to_cart') }}...</span>
                                 <icon name="svg-spinners:270-ring-with-bg" />
                               </div>
                               <span v-else>Add to Cart</span>

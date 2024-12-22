@@ -141,7 +141,7 @@
         <div>
           <button type="submit" class="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
             <div class="flex items-center justify-center" v-if="loading">
-              <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+              <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
               <icon name="svg-spinners:270-ring-with-bg" />
             </div>
             <span v-else>Submit</span>

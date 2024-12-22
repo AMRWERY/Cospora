@@ -144,7 +144,7 @@
                 <button type="submit" :disabled="loading" @click="submitCheckoutForm"
                   class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                   <div class="flex items-center justify-center" v-if="loading">
-                    <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+                    <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
                     <icon name="svg-spinners:270-ring-with-bg" />
                   </div>
                   <span v-else>Pay Now</span>

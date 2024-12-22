@@ -19,7 +19,7 @@ const props = defineProps({
   },
   message: {
     type: String,
-    default: 'btn.processing'
+    default: 'loading_btn.logging_out'
   }
 });
 

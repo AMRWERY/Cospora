@@ -44,9 +44,13 @@
                     <icon name="material-symbols:close-rounded" class="inline w-6 text-red-500" v-else />
                   </button>
                   <div class="flex overflow-hidden border rounded-lg w-max">
-                    <button type="button"
+                    <button type="button" @click="moveToCart(item)"
                       class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm text-white hover:bg-white hover:text-black hover:border-black border-transparent border w-full capitalize font-semibold">
-                      Add to Cart
+                      <div class="flex items-center justify-center" v-if="loading">
+                        <span class="text-center me-2">{{ $t('loading_btn.adding_to_cart') }}...</span>
+                        <icon name="svg-spinners:270-ring-with-bg" />
+                      </div>
+                      <span v-else>Add to Cart</span>
                     </button>
                   </div>
                 </div>
@@ -68,11 +72,14 @@
 
 <script setup>
 import { useWishlistStore } from '@/stores/wishlistStore';
+import { useCartStore } from "@/stores/cartStore";
 
 const store = useWishlistStore();
+const cartStore = useCartStore();
 
 onMounted(async () => {
   await store.fetchWishlist();
+  await cartStore.fetchCart();
 });
 
 const removingItem = ref(null);
@@ -82,6 +89,24 @@ const removeItem = async (docId) => {
   await store.removeFromWishlist(docId);
   setTimeout(() => {
     removingItem.value = null;
+  }, 3000);
+};
+
+const loading = ref(false);
+
+const moveToCart = async (item) => {
+  loading.value = true;
+  setTimeout(async () => {
+    const { productId, title, price, imgOne } = item;
+    const existingProduct = cartStore.cart.find((product) => product.productId === productId);
+    if (existingProduct) {
+      const newQuantity = existingProduct.quantity + 1;
+      await cartStore.updateQuantityInCart(productId, newQuantity);
+    } else {
+      await cartStore.addToCart(productId, title, price, price, imgOne, "", "", "0", 1);
+    }
+    await store.removeFromWishlist(item.docId);
+    loading.value = false;
   }, 3000);
 };
 

@@ -40,7 +40,7 @@
                 <button type="submit" :disabled="loading" @click="signUp"
                   class="block w-[400px] px-5 py-2 text-sm font-medium text-center text-white transition duration-300 bg-black border border-black rounded-md hover:bg-red-600 hover:text-white">
                   <div class="flex items-center justify-center" v-if="loading">
-                    <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+                    <span class="text-center me-2">{{ $t('loading_btn.signing_up') }}...</span>
                     <icon name="svg-spinners:270-ring-with-bg" />
                   </div>
                   <span v-else>{{ $t('form.create_an_account') }}</span>

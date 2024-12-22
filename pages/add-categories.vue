@@ -11,7 +11,7 @@
         </div>
         <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-lg">
           <div class="flex items-center justify-center" v-if="loadingOne">
-            <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+            <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
             <icon name="svg-spinners:270-ring-with-bg" />
           </div>
           <span v-else>Add Category</span>
@@ -38,7 +38,7 @@
         </div>
         <button type="submit" class="px-4 py-2 text-white bg-green-500 rounded-lg">
           <div class="flex items-center justify-center" v-if="loadingTwo">
-            <span class="text-center me-2">{{ $t('btn.loading') }}...</span>
+            <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
             <icon name="svg-spinners:270-ring-with-bg" />
           </div>
           <span v-else>Add Subcategory</span>

@@ -38,16 +38,23 @@
     "enter_cvv": "Enter CVV"
   },
   "btn": {
-    "loading": "Loading",
     "reset_password": "Reset Password",
     "cancel": "Cancel",
-    "processing": "Processing",
     "logout": "Logout",
     "shop_now": "Shop Now",
     "shop_the_collection": "Shop The Collection",
     "submit": "Submit",
     "browse_now": "Browse Now",
     "quick_view": "Quick View"
+  },
+  "loading_btn": {
+    "loading": "Loading",
+    "logging": "Logging",
+    "signing_up": "Signing up",
+    "please_wait": "Please Wait",
+    "adding_to_cart": "Adding to Cart",
+    "processing": "Processing",
+    "logging_out": "Logging out"
   },
   "head": {
     "register": "Register",
