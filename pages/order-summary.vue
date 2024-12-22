@@ -98,18 +98,29 @@ const subTotalAmount = computed(() => {
 
 const totalDiscount = computed(() => {
   return cartStore.cart.reduce((total, item) => {
-    return total + (parseFloat(item.discount) * item.quantity);
+    const discount = parseFloat(item.discount);
+    const quantity = item.quantity;
+    if (isNaN(discount) || isNaN(quantity)) {
+      // console.error('Invalid discount or quantity', item);
+      return total;
+    }
+    return total + (discount * quantity);
   }, 0);
 });
 
 const averageDiscount = computed(() => {
   const totalItems = cartStore.cart.reduce((total, item) => total + item.quantity, 0);
-  return totalItems > 0 ? (totalDiscount.value / totalItems).toFixed(2) : 0;
+  if (totalItems > 0) {
+    return (totalDiscount.value / totalItems).toFixed(2);
+  } else {
+    return 0;
+  }
 });
 
 const totalAmount = computed(() => {
   const subtotal = parseFloat(subTotalAmount.value);
-  const savingsAmount = (subtotal * (parseFloat(averageDiscount.value) / 100));
+  const discount = parseFloat(averageDiscount.value) || 0;
+  const savingsAmount = (subtotal * (discount / 100));
   const storePickup = 25;
   const tax = 18;
   const total = subtotal - savingsAmount + storePickup + tax;
