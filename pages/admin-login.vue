@@ -11,7 +11,7 @@
             :required="true" />
           <div>
             <button type="submit" :disabled="loading" @click="signIn"
-              class="w-full px-5 py-2 text-sm font-medium text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
+              class="w-[400px] px-5 py-2 text-sm font-medium text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
               <div class="flex items-center justify-center" v-if="loading">
                 <span class="text-center me-2">{{ $t('loading_btn.logging') }}...</span>
                 <icon name="svg-spinners:270-ring-with-bg" />
