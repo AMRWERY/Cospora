@@ -16,7 +16,7 @@
               <div class="relative mb-3">
                 <dynamic-inputs v-model="data.firstName" :label="t('form.first_name')"
                   :placeholder="t('form.enter_your_first_name')" type="text"
-                  :validation="('required|contains_numeric|length:3,10')" :required="true" />
+                  :validation="('required|length:3,10')" :required="true" />
                 <p v-if="store.suggestions.length" class="mt-2 text-sm text-red-500">
                   {{ $t('form.name_is_already_taken_please_choose_one_of_the_suggestions_below') }}
                 </p>
@@ -30,7 +30,7 @@
               </div>
               <dynamic-inputs v-model="data.lastName" :label="t('form.last_name')"
                 :placeholder="t('form.enter_your_last_name')" type="text"
-                :validation="('required|contains_numeric|length:3,10')" :required="true" />
+                :validation="('required|length:3,10')" :required="true" />
               <dynamic-inputs v-model="data.email" :label="t('form.email')" :placeholder="t('form.enter_your_email')"
                 type="email" :validation="('required|email|ends_with:cospora.com')" :required="true" />
               <dynamic-inputs v-model="data.password" :label="t('form.password')"

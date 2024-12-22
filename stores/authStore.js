@@ -209,7 +209,6 @@ export const useAuthStore = defineStore("auth", {
         const usersCollection = collection(db, "users");
         const q = query(usersCollection, where("firstName", "==", name));
         const querySnapshot = await getDocs(q);
-
         if (!querySnapshot.empty) {
           const recommendedSuffixes = [
             "123",
