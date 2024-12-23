@@ -6,7 +6,7 @@
           <label for="category" class="block mb-2 text-sm font-medium text-gray-700">
             Category
           </label>
-          <select id="category" v-model="selectedCategory"
+          <select id="category" v-model="selectedCategory" @change="applyFilter"
             class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
             <option value="" disabled selected>Select a Category</option>
             <option v-for="category in uniqueCategories" :key="category" :value="category">{{ category }}</option>
@@ -17,7 +17,7 @@
           <label for="availability" class="block mb-2 text-sm font-medium text-gray-700">
             Availability
           </label>
-          <select id="availability" v-model="selectedAvailability"
+          <select id="availability" v-model="selectedAvailability" @change="applyFilter"
             class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
             <option value="" disabled selected>Select availability</option>
             <option v-for="available in uniqueAvailability" :key="available" :value="available">{{ available }}</option>
@@ -25,7 +25,12 @@
         </div>
       </div>
 
-      <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-6">
+      <!-- Loading Spinner -->
+      <div v-if="loading" class="flex items-center justify-center h-48 text-gray-600">
+        <icon name="svg-spinners:blocks-shuffle-3" class="w-24 h-24" />
+      </div>
+
+      <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-6" v-else>
         <div
           class="flex flex-col w-full max-w-xs mx-auto overflow-hidden border border-gray-100 rounded-lg shadow-md group"
           v-for="product in paginatedProducts" :key="product">
@@ -70,12 +75,20 @@ const currentPage = ref(1);
 const perPage = 10;
 const selectedCategory = ref('');
 const selectedAvailability = ref('');
+const loading = ref(false);
 
 onMounted(() => {
   if (store.products.length === 0) {
     store.fetchProducts();
   }
 });
+
+const applyFilter = () => {
+  loading.value = true;
+  setTimeout(() => {
+    loading.value = false;
+  }, 2000);
+};
 
 const uniqueCategories = computed(() => {
   return [...new Set(store.products.map((product) => product.categoryTitle))];
