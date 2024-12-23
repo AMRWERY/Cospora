@@ -19,8 +19,19 @@
           </label>
           <select id="availability" v-model="selectedAvailability" @change="applyFilter"
             class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-            <option value="" disabled selected>Select availability</option>
+            <option value="" disabled selected>Select Availability</option>
             <option v-for="available in uniqueAvailability" :key="available" :value="available">{{ available }}</option>
+          </select>
+        </div>
+
+        <div class="w-full sm:w-1/2">
+          <label for="availability" class="block mb-2 text-sm font-medium text-gray-700">
+            Brand
+          </label>
+          <select id="brand" v-model="selectedBrand" @change="applyFilter"
+            class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            <option value="" disabled selected>Select Brand</option>
+            <option v-for="brand in uniqueBrand" :key="brand" :value="brand">{{ brand }}</option>
           </select>
         </div>
       </div>
@@ -28,6 +39,10 @@
       <!-- Loading Spinner -->
       <div v-if="loading" class="flex items-center justify-center h-48 text-gray-600">
         <icon name="svg-spinners:blocks-shuffle-3" class="w-24 h-24" />
+      </div>
+
+      <div v-else-if="filteredProducts.length === 0" class="flex items-center justify-center h-48 text-gray-600">
+        <p class="text-2xl font-semibold">No products available</p>
       </div>
 
       <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-6" v-else>
@@ -75,6 +90,7 @@ const currentPage = ref(1);
 const perPage = 10;
 const selectedCategory = ref('');
 const selectedAvailability = ref('');
+const selectedBrand = ref('');
 const loading = ref(false);
 
 onMounted(() => {
@@ -98,13 +114,19 @@ const uniqueAvailability = computed(() => {
   return [...new Set(store.products.map((product) => product.availability))];
 });
 
+const uniqueBrand = computed(() => {
+  return [...new Set(store.products.map((product) => product.brand))];
+});
+
 const filteredProducts = computed(() => {
   return store.products.filter((product) => {
     const matchesCategory =
       !selectedCategory.value || product.categoryTitle === selectedCategory.value;
     const matchesAvailability =
       !selectedAvailability.value || product.availability === selectedAvailability.value
-    return matchesCategory && matchesAvailability;
+    const matchesBrand =
+      !selectedBrand.value || product.brand === selectedBrand.value
+    return matchesCategory && matchesAvailability && matchesBrand;
   });
 });
 

@@ -18,12 +18,14 @@ export const useNewProductsStoreStore = defineStore("new-products", {
           const category = data.categoryTitle;
           const subCategory = data.subCategoryTitle;
           const availability = data.availability;
+          const brand = data.brand;
           const product = {
             id: doc.id,
             ...data,
             categoryTitle: category,
             subCategoryTitle: subCategory,
             availability: availability,
+            brand: brand,
           };
           tempProducts.push(product);
         });
