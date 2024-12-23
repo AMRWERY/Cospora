@@ -90,13 +90,13 @@ const menuGroups = ref([
             },
             {
                 icon: 'material-symbols:calendar-month-sharp',
-                label: 'Add Categories',
-                route: '/add-categories'
+                label: 'Products',
+                route: '/products'
             },
             {
                 icon: 'material-symbols:calendar-month-sharp',
-                label: 'Products',
-                route: '/products'
+                label: 'Add Categories',
+                route: '/add-categories'
             },
         ]
     },
