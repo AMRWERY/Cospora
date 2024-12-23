@@ -17,16 +17,18 @@ export const useNewProductsStoreStore = defineStore("new-products", {
           const data = doc.data();
           const category = data.categoryTitle;
           const subCategory = data.subCategoryTitle;
+          const availability = data.availability;
           const product = {
             id: doc.id,
             ...data,
             categoryTitle: category,
             subCategoryTitle: subCategory,
+            availability: availability
           };
           tempProducts.push(product);
         });
         this.products = tempProducts;
-        // console.log("Products fetched and organized:", this.products);
+        console.log("Products fetched and organized:", this.products);
       } catch (error) {
         console.error("Error fetching products:", error);
       }

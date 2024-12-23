@@ -1,6 +1,30 @@
 <template>
   <div>
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-4 p-4 sm:flex-row">
+        <div class="w-full sm:w-1/2">
+          <label for="category" class="block mb-2 text-sm font-medium text-gray-700">
+            Category
+          </label>
+          <select id="category" v-model="selectedCategory"
+            class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            <option value="" disabled selected>Select a Category</option>
+            <option v-for="category in uniqueCategories" :key="category" :value="category">{{ category }}</option>
+          </select>
+        </div>
+
+        <div class="w-full sm:w-1/2">
+          <label for="availability" class="block mb-2 text-sm font-medium text-gray-700">
+            Availability
+          </label>
+          <select id="availability" v-model="selectedAvailability"
+            class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            <option value="" disabled selected>Select availability</option>
+            <option v-for="available in uniqueAvailability" :key="available" :value="available">{{ available }}</option>
+          </select>
+        </div>
+      </div>
+
       <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-6">
         <div
           class="flex flex-col w-full max-w-xs mx-auto overflow-hidden border border-gray-100 rounded-lg shadow-md group"
@@ -42,6 +66,10 @@
 
 <script setup>
 const store = useNewProductsStoreStore();
+const currentPage = ref(1);
+const perPage = 10;
+const selectedCategory = ref('');
+const selectedAvailability = ref('');
 
 onMounted(() => {
   if (store.products.length === 0) {
@@ -49,30 +77,46 @@ onMounted(() => {
   }
 });
 
-const currentPage = ref(1);
-const perPage = 10
+const uniqueCategories = computed(() => {
+  return [...new Set(store.products.map((product) => product.categoryTitle))];
+});
+
+const uniqueAvailability = computed(() => {
+  return [...new Set(store.products.map((product) => product.availability))];
+});
+
+const filteredProducts = computed(() => {
+  return store.products.filter((product) => {
+    const matchesCategory =
+      !selectedCategory.value || product.categoryTitle === selectedCategory.value;
+    const matchesAvailability =
+      !selectedAvailability.value || product.availability === selectedAvailability.value
+    return matchesCategory && matchesAvailability;
+  });
+});
+
 
 const totalPages = computed(() => {
-  return Math.ceil(store.products.length / perPage);
+  return Math.ceil(filteredProducts.value.length / perPage);
 });
 
 const paginatedProducts = computed(() => {
   const start = (currentPage.value - 1) * perPage;
   const end = start + perPage;
-  return store.products.slice(start, end);
+  return filteredProducts.value.slice(start, end);
 });
 
 const onPageChanged = (pageNumber) => {
   currentPage.value = pageNumber;
 };
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 definePageMeta({
-  layout: 'dashboard'
-})
+  layout: 'dashboard',
+});
 
 useHead({
-  titleTemplate: () => t("head.products"),
+  titleTemplate: () => t('head.products'),
 });
 </script>
