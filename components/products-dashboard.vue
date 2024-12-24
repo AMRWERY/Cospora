@@ -103,6 +103,7 @@
 
 <script setup>
 const store = useNewProductsStoreStore();
+const productStore = useProductsStore()
 const currentPage = ref(1);
 const perPage = 10;
 const selectedCategory = ref('');
@@ -162,14 +163,14 @@ const onPageChanged = (pageNumber) => {
 };
 
 const deleteProduct = async (productId) => {
-  console.log('Deleting product with ID:', productId);
+  // console.log('Deleting product with ID:', productId);
   const confirmDelete = confirm('Are you sure you want to delete this product?');
   if (confirmDelete) {
     try {
-      await store.deleteProduct(productId);
+      await productStore.deleteProduct(productId);
       alert('Product deleted successfully!');
     } catch (error) {
-      console.error('Failed to delete product:', error);
+      // console.error('Failed to delete product:', error);
       alert('Failed to delete the product. Please try again.');
     }
   }

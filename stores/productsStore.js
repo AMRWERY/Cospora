@@ -65,14 +65,12 @@ export const useProductsStore = defineStore("products", {
 
     async deleteProduct(productId) {
       try {
-        const productRef = doc(db, "products", productId);
+        // const productRef = doc(db, "products", productId);
         await deleteDoc(productRef);
-        this.products = this.products.filter(
-          (product) => product.id !== productId
-        );
-        console.log("Product deleted successfully");
+        this.products = this.products.filter((product) => product.id !== productId);
+        // console.log("Product deleted successfully");
       } catch (error) {
-        console.error("Error deleting product:", error);
+        // console.error("Error deleting product:", error);
         throw new Error("Failed to delete the product. Please try again.");
       }
     },
