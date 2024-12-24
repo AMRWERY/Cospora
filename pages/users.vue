@@ -24,6 +24,11 @@
           <tr>
             <th class="p-4 border-b border-slate-200 bg-slate-50">
               <p class="text-sm font-normal leading-none text-slate-500">
+                #
+              </p>
+            </th>
+            <th class="p-4 border-b border-slate-200 bg-slate-50">
+              <p class="text-sm font-normal leading-none text-slate-500">
                 Email
               </p>
             </th>
@@ -42,8 +47,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="border-b hover:bg-slate-50 border-slate-200" v-for="user in userStore.paginatedUsers"
+          <tr class="border-b hover:bg-slate-50 border-slate-200" v-for="(user, index) in userStore.paginatedUsers"
             :key="user.id">
+            <td class="p-4 py-5">
+              <p class="block text-sm text-slate-500">{{ (userStore.currentPage - 1) * userStore.usersPerPage + index +
+                1 }}</p>
+            </td>
             <td class="p-4 py-5">
               <p class="block text-sm text-slate-500">{{ user.email }}</p>
             </td>

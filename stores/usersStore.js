@@ -6,7 +6,7 @@ export const useUserStore = defineStore("userStore", {
   state: () => ({
     users: [],
     currentPage: 1,
-    usersPerPage: 6,
+    usersPerPage: 8,
   }),
 
   actions: {
