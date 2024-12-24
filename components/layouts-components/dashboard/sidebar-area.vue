@@ -89,7 +89,7 @@ const menuGroups = ref([
                 route: '/dashboard',
             },
             {
-                icon: 'material-symbols:calendar-month-sharp',
+                icon: 'ion:tshirt',
                 label: 'Products',
                 route: '/products'
             },
@@ -97,6 +97,11 @@ const menuGroups = ref([
                 icon: 'material-symbols:calendar-month-sharp',
                 label: 'Add Categories',
                 route: '/add-categories'
+            },
+            {
+                icon: 'gravity-ui:persons',
+                label: 'Users',
+                route: '/users'
             },
         ]
     },

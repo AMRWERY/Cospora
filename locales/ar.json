@@ -67,7 +67,8 @@
     "wishlist": "قائمة الرغبات",
     "profile": "الملف الشخصي",
     "edit_product": "تعديل منتج",
-    "add_product": "اضافه منتج"
+    "add_product": "اضافه منتج",
+    "users": "المستخدمين"
   },
   "alert": {
     "success": "نجاح",

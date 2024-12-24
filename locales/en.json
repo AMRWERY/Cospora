@@ -67,7 +67,8 @@
     "wishlist": "Wishlist",
     "profile": "Profile",
     "edit_product": "Edit Product",
-    "add_product": "Add Product"
+    "add_product": "Add Product",
+    "users": "Users"
   },
   "alert": {
     "success": "Success",
