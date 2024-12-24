@@ -6,6 +6,7 @@ import {
   addDoc,
   doc,
   updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 export const useProductsStore = defineStore("products", {
@@ -59,6 +60,20 @@ export const useProductsStore = defineStore("products", {
         // console.log("Product updated successfully!");
       } catch (error) {
         console.error("Error updating product:", error);
+      }
+    },
+
+    async deleteProduct(productId) {
+      try {
+        const productRef = doc(db, "products", productId);
+        await deleteDoc(productRef);
+        this.products = this.products.filter(
+          (product) => product.id !== productId
+        );
+        console.log("Product deleted successfully");
+      } catch (error) {
+        console.error("Error deleting product:", error);
+        throw new Error("Failed to delete the product. Please try again.");
       }
     },
   },

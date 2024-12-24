@@ -69,6 +69,10 @@
                 data-twe-placement="top" title="Edit Product">
                 <icon name="ep:edit" class="text-gray-600" />
               </nuxt-link>
+              <button @click="deleteProduct(product.id)" class="absolute bg-white rounded-full shadow-lg top-10 end-2"
+                data-twe-toggle="tooltip" data-twe-placement="top" title="Delete Product">
+                <icon name="ep:delete" class="text-red-600" />
+              </button>
             </nuxt-link>
             <div class="flex flex-col justify-end flex-grow px-5 pb-2 mt-6">
               <nuxt-link to="">
@@ -143,7 +147,6 @@ const filteredProducts = computed(() => {
   });
 });
 
-
 const totalPages = computed(() => {
   return Math.ceil(filteredProducts.value.length / perPage);
 });
@@ -156,6 +159,20 @@ const paginatedProducts = computed(() => {
 
 const onPageChanged = (pageNumber) => {
   currentPage.value = pageNumber;
+};
+
+const deleteProduct = async (productId) => {
+  console.log('Deleting product with ID:', productId);
+  const confirmDelete = confirm('Are you sure you want to delete this product?');
+  if (confirmDelete) {
+    try {
+      await store.deleteProduct(productId);
+      alert('Product deleted successfully!');
+    } catch (error) {
+      console.error('Failed to delete product:', error);
+      alert('Failed to delete the product. Please try again.');
+    }
+  }
 };
 
 onMounted(async () => {
