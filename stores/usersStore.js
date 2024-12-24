@@ -1,10 +1,17 @@
 import { defineStore } from "pinia";
-import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/config";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  updateDoc,
+  getDocs,
+} from "firebase/firestore";
 
-export const useUserStore = defineStore("userStore", {
+export const useUserStore = defineStore("users", {
   state: () => ({
     users: [],
+    paginatedUsers: [],
     currentPage: 1,
     usersPerPage: 8,
   }),
@@ -17,33 +24,55 @@ export const useUserStore = defineStore("userStore", {
           id: doc.id,
           ...doc.data(),
         }));
+        this.updatePagination();
       } catch (error) {
         console.error("Error fetching users:", error);
+      }
+    },
+
+    updatePagination() {
+      this.paginatedUsers = this.users.slice(
+        (this.currentPage - 1) * this.usersPerPage,
+        this.currentPage * this.usersPerPage
+      );
+    },
+
+    async deleteUser(userId) {
+      try {
+        console.log("Deleting user with ID:", userId);
+        const userRef = doc(db, "users", userId);
+        console.log("Firestore reference:", userRef);
+        await deleteDoc(userRef);
+        console.log(`User with ID: ${userId} deleted successfully`);
+        this.users = this.users.filter((user) => user.id !== userId);
+        this.updatePagination();
+      } catch (error) {
+        console.error("Failed to delete user:", error);
+      }
+    },
+
+    async blockUser(userId) {
+      try {
+        const userRef = doc(db, "users", userId);
+        await updateDoc(userRef, { isBlocked: true });
+        const user = this.users.find((user) => user.id === userId);
+        if (user) user.isBlocked = true;
+      } catch (error) {
+        console.error("Failed to block user:", error);
       }
     },
 
     changePage(page) {
       if (page > 0 && page <= this.totalPages) {
         this.currentPage = page;
+        this.updatePagination();
       }
     },
   },
 
   getters: {
-    getUserById: (state) => (id) => {
-      return state.users.find((user) => user.id === id);
-    },
-
-    totalUsers: (state) => {
-      return state.users.length;
-    },
-
-    totalPages: (state) => Math.ceil(state.users.length / state.usersPerPage),
-
-    paginatedUsers: (state) => {
-      const start = (state.currentPage - 1) * state.usersPerPage;
-      const end = start + state.usersPerPage;
-      return state.users.slice(start, end);
+    totalPages() {
+      return Math.ceil(this.users.length / this.usersPerPage);
     },
   },
 });

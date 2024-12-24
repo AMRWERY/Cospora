@@ -49,7 +49,18 @@
               <p class="text-sm text-slate-500">{{ user.lastName }}</p>
             </td>
             <td class="p-4 py-5">
-              <p class="font-medium text-blue-600 dark:text-blue-500 hover:underline">actions</p>
+              <div class="flex space-s-2">
+                <button @click="userStore.deleteUser(user.id)"
+                  class="flex items-center justify-center w-8 h-8 text-red-500 rounded hover:text-red-600">
+                  <icon name="heroicons-solid:trash" class="w-6 h-6" />
+                </button>
+
+                <!-- Block User Button -->
+                <button @click="userStore.blockUser(user.id)"
+                  class="flex items-center justify-center w-8 h-8 text-yellow-500 rounded hover:text-yellow-600">
+                  <icon name="heroicons-solid:ban" class="w-6 h-6" />
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>
