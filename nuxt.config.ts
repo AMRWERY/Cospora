@@ -15,7 +15,6 @@ export default defineNuxtConfig({
   ],
   hooks: {
     "pages:extend"(pages) {
-      // add a route
       const routesToSameComponent = ["accessories", "makeup"];
       for (const route of routesToSameComponent) {
         pages.push({
@@ -29,6 +28,20 @@ export default defineNuxtConfig({
           file: "~/pages/collections/[id].vue",
         });
       }
+
+      const routes = ["add-product", "edit-product"];
+      for (const router of routes) {
+        pages.push({
+          name: router,
+          path: "/products/add-products",
+          file: "~/pages/products/[...slug].vue",
+        });
+        pages.push({
+          name: router,
+          path: "/products/edit-product/:id",
+          file: "~/pages/products/[...slug].vue",
+        });
+      }
     },
   },
   routeRules: {
@@ -37,6 +50,12 @@ export default defineNuxtConfig({
     },
     "/makeup/(?!details).+": {
       redirect: "/collections/**",
+    },
+    "/add-product": {
+      redirect: "/products/add-products",
+    },
+    "/edit-product/(?!details).+": {
+      redirect: "/products/edit-product/**",
     },
   },
   tailwindcss: {

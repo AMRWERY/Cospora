@@ -65,7 +65,9 @@
     "categories": "الفئات",
     "checkout": "الدفع",
     "wishlist": "قائمة الرغبات",
-    "profile": "الملف الشخصي"
+    "profile": "الملف الشخصي",
+    "edit_product": "تعديل منتج",
+    "add_product": "اضافه منتج"
   },
   "alert": {
     "success": "نجاح",

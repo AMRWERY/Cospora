@@ -1,6 +1,12 @@
 import { defineStore } from "pinia";
 import { db } from "@/firebase/config";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 
 export const useProductsStore = defineStore("products", {
   state: () => ({
@@ -43,6 +49,16 @@ export const useProductsStore = defineStore("products", {
         await addDoc(productRef, productData);
       } catch (error) {
         console.error("Error adding product:", error);
+      }
+    },
+
+    async updateProduct(productId, updatedData) {
+      try {
+        const productRef = doc(db, "products", productId);
+        await updateDoc(productRef, updatedData);
+        // console.log("Product updated successfully!");
+      } catch (error) {
+        console.error("Error updating product:", error);
       }
     },
   },

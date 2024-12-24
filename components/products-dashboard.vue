@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-4 p-4 sm:flex-row">
-        <div class="w-full sm:w-1/2">
+      <div class="flex flex-col gap-4 p-4 sm:flex-row sm:gap-4">
+        <div class="w-full sm:w-1/4">
           <label for="category" class="block mb-2 text-sm font-medium text-gray-700">
             Category
           </label>
@@ -13,7 +13,7 @@
           </select>
         </div>
 
-        <div class="w-full sm:w-1/2">
+        <div class="w-full sm:w-1/4">
           <label for="availability" class="block mb-2 text-sm font-medium text-gray-700">
             Availability
           </label>
@@ -24,8 +24,8 @@
           </select>
         </div>
 
-        <div class="w-full sm:w-1/2">
-          <label for="availability" class="block mb-2 text-sm font-medium text-gray-700">
+        <div class="w-full sm:w-1/4">
+          <label for="brand" class="block mb-2 text-sm font-medium text-gray-700">
             Brand
           </label>
           <select id="brand" v-model="selectedBrand" @change="applyFilter"
@@ -33,6 +33,14 @@
             <option value="" disabled selected>Select Brand</option>
             <option v-for="brand in uniqueBrand" :key="brand" :value="brand">{{ brand }}</option>
           </select>
+        </div>
+
+        <div class="flex items-end w-full sm:w-auto ms-auto">
+          <nuxt-link to="/products/add-products" type="button"
+            class="flex items-center px-4 py-2.5 text-sm font-semibold text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <icon name="ep:plus" class="w-5 h-5 me-2" />
+            <span>Add Product</span>
+          </nuxt-link>
         </div>
       </div>
 
@@ -48,7 +56,7 @@
       <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-6" v-else>
         <div
           class="flex flex-col w-full max-w-xs mx-auto overflow-hidden border border-gray-100 rounded-lg shadow-md group"
-          v-for="product in paginatedProducts" :key="product">
+          v-for="product in paginatedProducts" :key="product.id">
           <!-- Card Body with Flex Layout -->
           <div class="flex flex-col h-full">
             <nuxt-link to="" class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl">
@@ -56,6 +64,11 @@
               <img
                 class="absolute top-0 object-cover w-full h-full transition-all duration-1000 delay-100 peer -right-96 hover:right-0 peer-hover:right-0"
                 :src="product.imgTwo" />
+              <nuxt-link :to="`/products/edit-product/${product.id}`" type="button"
+                class="absolute bg-white rounded-full shadow-lg top-2 end-2" data-twe-toggle="tooltip"
+                data-twe-placement="top" title="Edit Product">
+                <icon name="ep:edit" class="text-gray-600" />
+              </nuxt-link>
             </nuxt-link>
             <div class="flex flex-col justify-end flex-grow px-5 pb-2 mt-6">
               <nuxt-link to="">
@@ -145,13 +158,8 @@ const onPageChanged = (pageNumber) => {
   currentPage.value = pageNumber;
 };
 
-const { t } = useI18n();
-
-definePageMeta({
-  layout: 'dashboard',
-});
-
-useHead({
-  titleTemplate: () => t('head.products'),
+onMounted(async () => {
+  const { Tooltip, initTWE } = await import("tw-elements");
+  initTWE({ Tooltip });
 });
 </script>

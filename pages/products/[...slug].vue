@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="max-w-2xl px-8 py-6 mx-auto my-8 bg-white border rounded-lg">
-      <h2 class="mb-4 text-2xl font-medium text-center">Add product</h2>
+      <h2 class="mb-4 text-2xl font-medium text-center">{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h2>
       <form @submit.prevent="handleSubmit">
         <div class="mb-4">
           <label for="main-category" class="block mb-2 font-medium text-gray-700">Main Category</label>
@@ -161,9 +161,13 @@
 </template>
 
 <script setup>
-import { useProductsStore } from '@/stores/productsStore'
+import { useProductsStore } from '@/stores/productsStore';
+
+const route = useRoute();
+const isEditMode = computed(() => !!route.params.id);
 
 const store = useProductsStore()
+const productStore = useNewProductsStoreStore()
 const loading = ref(false);
 const categories = ref([])
 const subCategories = ref([])
@@ -176,6 +180,25 @@ const toastTitle = ref('');
 const toastMessage = ref('');
 const toastType = ref('');
 const toastIcon = ref('')
+
+onMounted(async () => {
+  if (isEditMode.value) {
+    const productId = route.params.id;
+    try {
+      const fetchedProduct = await productStore.fetchProductDetail(productId);
+      // console.log("Fetched Product:", fetchedProduct);
+      if (fetchedProduct) {
+        product.value = { ...fetchedProduct };
+        selectedCategory.value = fetchedProduct.categoryId;
+        selectedSubCategory.value = fetchedProduct.subCategoryId;
+      } else {
+        console.error("Product not found");
+      }
+    } catch (error) {
+      console.error("Failed to fetch product details:", error);
+    }
+  }
+});
 
 const handleFileChange = async (event) => {
   const files = Array.from(event.target.files);
@@ -220,41 +243,61 @@ const convertToBase64 = (file) => {
 
 const handleSubmit = async () => {
   loading.value = true;
-  const selectedCategoryObj = categories.value.find(category => category.id === selectedCategory.value);
-  const selectedSubCategoryObj = subCategories.value.find(subCategory => subCategory.id === selectedSubCategory.value);
-  const productData = {
-    ...product.value,
-    categoryId: selectedCategory.value,
-    subCategoryId: selectedSubCategory.value,
-    categoryTitle: selectedCategoryObj?.title || '',
-    subCategoryTitle: selectedSubCategoryObj?.title || '',
-    imgOne: product.value.imgOne || null,
-    imgTwo: product.value.imgTwo || null,
-    imgThree: product.value.imgThree || null,
-    imgFour: product.value.imgFour || null,
-    productTypes: product.value.productTypes,
-    availability: product.value.availability,
-  };
-  if (product.value.imgOne) productData.imgOne = product.value.imgOne;
-  if (product.value.imgTwo) productData.imgTwo = product.value.imgTwo;
-  if (product.value.imgThree) productData.imgThree = product.value.imgThree;
-  if (product.value.imgFour) productData.imgFour = product.value.imgFour;
   try {
-    await store.createProduct(productData);
+    if (!product.value.title || !product.value.price || !selectedCategory.value) {
+      toastTitle.value = "Error";
+      toastMessage.value = "Please fill all required fields.";
+      toastType.value = "error";
+      toastIcon.value = "mdi-alert-circle";
+      showToast.value = true;
+      loading.value = false;
+      return;
+    }
+    if (isEditMode.value) {
+      await store.updateProduct(route.params.id, {
+        ...product.value,
+        categoryId: selectedCategory.value,
+        subCategoryId: selectedSubCategory.value,
+      });
+      toastTitle.value = "Success";
+      toastMessage.value = "Product updated successfully!";
+    } else {
+      await store.addProduct({
+        ...product.value,
+        categoryId: selectedCategory.value,
+        subCategoryId: selectedSubCategory.value,
+      });
+      toastTitle.value = "Success";
+      toastMessage.value = "Product added successfully!";
+      resetForm();
+    }
+    toastType.value = "success";
+    toastIcon.value = "mdi-check-circle";
     showToast.value = true;
-    toastTitle.value = 'Great!';
-    toastMessage.value = 'Product added successfully';
-    toastType.value = 'success';
-    toastIcon.value = 'mdi:check-circle'
   } catch (error) {
-    console.error("Error adding product:", error);
+    console.error("Error submitting product:", error);
+    toastTitle.value = "Error";
+    toastMessage.value = "Something went wrong. Please try again.";
+    toastType.value = "error";
+    toastIcon.value = "mdi-alert-circle";
+    showToast.value = true;
   } finally {
     loading.value = false;
-    selectedCategory.value = '';
-    selectedSubCategory.value = '';
-    subCategories.value = [];
-    product.value = {};
   }
+};
+
+watch(() => route.params.id, (newId) => {
+  if (newId) {
+    productStore.fetchProductDetail(newId).then((data) => {
+      product.value = data;
+    });
+  }
+});
+
+const resetForm = () => {
+  product.value = { title: '', subtitle: '', price: '', originalPrice: '', discount: '', productCode: '', brand: '', productTypes: [] };
+  selectedCategory.value = '';
+  selectedSubCategory.value = '';
 };
 
 const onCategoryChange = () => {
@@ -264,7 +307,6 @@ const onCategoryChange = () => {
   }
 };
 
-// Watch for category changes
 watch(() => selectedCategory.value, onCategoryChange, { immediate: true });
 
 onMounted(async () => {
@@ -294,13 +336,15 @@ const handleBlur = (key) => {
   product.value[key] = enforceTwoDecimalPlaces(product.value[key]);
 };
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 definePageMeta({
-  layout: 'dashboard'
-})
+  layout: "dashboard",
+});
 
-useHead({
-  titleTemplate: () => t("head.products"),
+onMounted(() => {
+  useHead({
+    titleTemplate: isEditMode.value ? t("head.edit_product") : t("head.add_product"),
+  });
 });
 </script>

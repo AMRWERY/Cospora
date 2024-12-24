@@ -38,22 +38,24 @@ export const useNewProductsStoreStore = defineStore("new-products", {
 
     async fetchProductDetail(productId) {
       if (!productId) {
-        return;
+        // console.error("Product ID is missing or invalid");
+        return null;
       }
       try {
-        // console.log("Fetching product details for ID:", productId);
         const docRef = doc(db, "products", productId);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          let product = { ...docSnap.data(), id: productId };
-          // console.log("Fetched product:", product);
+          const product = { ...docSnap.data(), id: productId };
           this.selectedProduct = product;
-          // console.log('selected product:', this.selectedProduct)
+          return product;
         } else {
-          console.error("No product found for ID:", id);
+          // console.error("No product found for ID:", productId);
+          this.selectedProduct = null;
+          return null;
         }
       } catch (error) {
         console.error("Error fetching product details:", error);
+        return null;
       }
     },
   },
