@@ -4,7 +4,7 @@
 
     <h3 class="py-2 mt-5 mb-12 text-2xl font-bold text-start">Users</h3>
     <div
-      class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white rounded-lg shadow-md bg-clip-border">
+      class="relative flex flex-col w-full h-full overflow-scroll overflow-y-hidden text-gray-700 bg-white rounded-lg shadow-md bg-clip-border">
       <table class="w-full text-left table-auto min-w-max">
         <thead>
           <tr>
