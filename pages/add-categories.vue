@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="max-w-2xl p-6 mx-auto bg-white border rounded-lg">
+    <breadcrumb />
+
+    <div class="max-w-2xl p-6 mx-auto mt-5 bg-white border rounded-lg">
       <h2 class="mb-4 text-xl font-bold">Add Category</h2>
       <form @submit.prevent="handleAddCategory">
         <div class="mb-4">

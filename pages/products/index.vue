@@ -1,6 +1,10 @@
 <template>
   <div>
-    <products-dashboard />
+    <breadcrumb />
+
+    <div class="mt-5">
+      <products-dashboard />
+    </div>
   </div>
 </template>
 

@@ -1,22 +1,8 @@
 <template>
   <div>
-    <h3 class="py-2 mb-12 text-2xl font-bold text-start">Users</h3>
-    <div class="flex items-center justify-between w-full pl-3 mt-1 mb-3">
-      <div class="ms-auto">
-        <div class="w-full max-w-sm min-w-[200px] relative">
-          <div class="relative">
-            <input
-              class="w-full h-10 py-2 pl-3 text-sm transition duration-200 bg-transparent bg-white border rounded shadow-sm pr-11 placeholder:text-slate-400 text-slate-700 border-slate-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 focus:shadow-md"
-              placeholder="Search for user..." />
-            <button class="absolute flex items-center w-8 h-8 px-2 my-auto bg-white rounded right-1 top-1 "
-              type="button">
-              <icon name="heroicons-solid:magnifying-glass" class="w-8 h-8 text-slate-600" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <breadcrumb />
 
+    <h3 class="py-2 mt-5 mb-12 text-2xl font-bold text-start">Users</h3>
     <div
       class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white rounded-lg shadow-md bg-clip-border">
       <table class="w-full text-left table-auto min-w-max">
