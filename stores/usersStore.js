@@ -6,6 +6,7 @@ import {
   doc,
   updateDoc,
   getDocs,
+  getDoc,
 } from "firebase/firestore";
 
 export const useUserStore = defineStore("users", {
@@ -39,15 +40,16 @@ export const useUserStore = defineStore("users", {
 
     async deleteUser(userId) {
       try {
-        console.log("Deleting user with ID:", userId);
         const userRef = doc(db, "users", userId);
-        console.log("Firestore reference:", userRef);
-        await deleteDoc(userRef);
-        console.log(`User with ID: ${userId} deleted successfully`);
-        this.users = this.users.filter((user) => user.id !== userId);
+        this.users = this.users.filter((user) => user.id === userId);
         this.updatePagination();
+        await deleteDoc(userRef);
+        console.log(
+          `User with ID: ${userId} deleted successfully from Firestore.`
+        );
       } catch (error) {
         console.error("Failed to delete user:", error);
+        await this.fetchUsers();
       }
     },
 
