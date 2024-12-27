@@ -185,6 +185,7 @@ const deleteProduct = async (productId) => {
   try {
     await productStore.deleteProduct(productId);
     setTimeout(() => {
+      store.products = store.products.filter(product => product.id !== productId);
       deleteProd.value = null;
       showToast.value = true;
       toastTitle.value = 'Great!';
@@ -194,6 +195,11 @@ const deleteProduct = async (productId) => {
     }, 3000);
   } catch (error) {
     deleteProd.value = null;
+    showToast.value = true;
+    toastTitle.value = 'Error';
+    toastMessage.value = 'Failed to delete the product';
+    toastType.value = 'error';
+    toastIcon.value = 'mdi:alert-circle';
   }
 };
 

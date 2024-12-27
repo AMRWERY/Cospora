@@ -72,7 +72,7 @@ export const useProductsStore = defineStore("products", {
             (product) => product.id !== productId
           );
         } else {
-          console.warn("Products array is not properly initialized");
+          // console.warn("Products array is not properly initialized");
         }
         console.log("Product deleted successfully");
       } catch (error) {
