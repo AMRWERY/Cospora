@@ -1,12 +1,25 @@
 <template>
   <div>
-    <div id="chart">
-      <apexchart type="area" height="350" :options="chartOptions" :series="series"></apexchart>
-    </div>
+    <apexchart type="area" height="350" :options="chartOptions" :series="series"></apexchart>
   </div>
 </template>
 
 <script setup>
+defineProps({
+  totalOrders: {
+    type: Number,
+    required: true,
+  },
+  totalInventory: {
+    type: Number,
+    required: true,
+  },
+  totalCustomers: {
+    type: Number,
+    required: true,
+  }
+});
+
 const generateDayWiseTimeSeries = (baseval, count, yrange) => {
   let i = 0;
   const series = [];
@@ -25,7 +38,7 @@ const series = ref([
   {
     name: "Orders",
     data: generateDayWiseTimeSeries(
-      new Date("11 Feb 2017 GMT").getTime(),
+      new Date("11 Dec 2024 GMT").getTime(),
       20,
       { min: 10, max: 60 }
     ),
@@ -33,7 +46,7 @@ const series = ref([
   {
     name: "Inventory",
     data: generateDayWiseTimeSeries(
-      new Date("11 Feb 2017 GMT").getTime(),
+      new Date("11 Dec 2024 GMT").getTime(),
       20,
       { min: 10, max: 20 }
     ),
@@ -41,7 +54,7 @@ const series = ref([
   {
     name: "Customers",
     data: generateDayWiseTimeSeries(
-      new Date("11 Feb 2017 GMT").getTime(),
+      new Date("11 Dec 2024 GMT").getTime(),
       20,
       { min: 10, max: 15 }
     ),
