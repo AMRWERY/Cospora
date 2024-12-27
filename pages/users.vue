@@ -89,6 +89,14 @@
         </div>
       </div>
     </div>
+
+    <!-- dynamic-toast component -->
+    <div class="fixed z-50 pointer-events-none bottom-5 start-5 w-96">
+      <div class="pointer-events-auto">
+        <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+          :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -97,11 +105,17 @@ import { useUserStore } from "@/stores/usersStore";
 
 const userStore = useUserStore();
 
+const showToast = ref(false);
+const toastTitle = ref('');
+const toastMessage = ref('');
+const toastType = ref('');
+const toastIcon = ref('')
+
 const removingUser = ref(null);
 
 const removeUser = async (userId) => {
   if (!userId) {
-    console.error("No userId provided for removal.");
+    // console.error("No userId provided for removal.");
     return;
   }
   try {
@@ -110,6 +124,11 @@ const removeUser = async (userId) => {
     setTimeout(() => {
       removingUser.value = null;
     }, 3000);
+    showToast.value = true;
+    toastTitle.value = 'Great!';
+    toastMessage.value = 'User deleted successfully';
+    toastType.value = 'success';
+    toastIcon.value = 'mdi:check-circle'
   } catch (error) {
     console.error("Error removing user:", error);
   }
