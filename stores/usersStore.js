@@ -25,6 +25,9 @@ export const useUserStore = defineStore("users", {
           ...doc.data(),
           id: doc.id,
         }));
+        this.users = this.users.filter(
+          (user) => user.email !== "admin@cospora.com"
+        );
         this.updatePagination();
       } catch (error) {
         console.error("Error fetching users:", error);
