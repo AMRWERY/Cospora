@@ -44,7 +44,7 @@ export const useUserStore = defineStore("users", {
         await deleteDoc(docRef);
         this.users = this.users.filter((user) => user.id !== userId);
         this.updatePagination();
-        console.log(`User with ID ${userId} deleted successfully.`);
+        // console.log(`User with ID ${userId} deleted successfully.`);
       } catch (error) {
         console.error("Error deleting user:", error);
       }
