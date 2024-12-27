@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container p-2 mx-auto">
+    <div class="p-2 mx-auto">
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         <!-- Card 1 - Orders -->
         <div class="p-4 bg-white rounded-lg shadow-md">
@@ -41,6 +41,29 @@
         </div>
       </div>
     </div>
+
+    <div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-12">
+  <div class="col-span-12 p-4 bg-white rounded-lg shadow-md md:col-span-9">
+    <h3 class="text-xl font-semibold text-center">Sales Chart</h3>
+    <div class="mt-4">
+     <!-- charts component -->
+      <charts />
+    </div>
+  </div>
+
+  <div class="col-span-12 p-4 bg-white rounded-lg shadow-md md:col-span-3">
+    <h3 class="text-xl font-semibold text-center">Inventory</h3>
+    <div class="flex items-center justify-between mt-4">
+      <icon name="si:inventory-line" class="text-gray-700 h-7 w-7"></icon>
+      <p class="text-xl font-semibold text-gray-700">40</p>
+    </div>
+    <div class="mt-6 text-center">
+      <nuxt-link to="/products" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">
+        View Details
+      </nuxt-link>
+    </div>
+  </div>
+</div>
   </div>
 </template>
 
