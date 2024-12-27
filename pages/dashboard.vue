@@ -44,10 +44,11 @@
           <h3 class="text-xl font-semibold text-center">Inventory</h3>
           <div class="flex items-center justify-between mt-4">
             <icon name="si:inventory-line" class="text-gray-700 h-7 w-7" />
-            <p class="text-xl font-semibold text-gray-700">40</p>
+            <p class="text-xl font-semibold text-gray-700">{{ inStockCount }}</p>
           </div>
           <div class="mt-6 text-center">
-            <nuxt-link to="" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</nuxt-link>
+            <nuxt-link to="/products" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">View
+              Details</nuxt-link>
           </div>
         </div>
       </div>
@@ -59,15 +60,20 @@
 <script setup>
 const checkoutStore = useCheckoutStore();
 const userStore = useUserStore();
+const productStore = useNewProductsStoreStore();
+
 
 onMounted(() => {
   checkoutStore.fetchTotalCheckouts();
   userStore.fetchUsers();
+  productStore.fetchProducts();
 });
 
 const totalCheckouts = computed(() => checkoutStore.getTotalCheckouts);
 
 const totalCustomers = computed(() => userStore.totalCustomers);
+
+const inStockCount = computed(() => productStore.inStockProducts);
 
 const { t } = useI18n()
 

@@ -60,5 +60,11 @@ export const useNewProductsStoreStore = defineStore("new-products", {
     },
   },
 
-  getters: {},
+  getters: {
+    inStockProducts() {
+      return this.products.filter(
+        (product) => product.availability === "In stock"
+      ).length;
+    },
+  },
 });
