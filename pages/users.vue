@@ -29,6 +29,11 @@
               </p>
             </th>
             <th class="p-4 border-b border-slate-200 bg-slate-50">
+              <p class="text-sm font-normal leading-none text-slate-500">
+                Status
+              </p>
+            </th>
+            <th class="p-4 border-b border-slate-200 bg-slate-50">
             </th>
           </tr>
         </thead>
@@ -49,16 +54,22 @@
               <p class="text-sm text-slate-500">{{ user.lastName }}</p>
             </td>
             <td class="p-4 py-5">
+              <p class="text-sm font-semibold" :class="user.isBlocked ? 'text-red-500' : 'text-green-500'">
+                {{ user.isBlocked ? 'Blocked' : 'Active' }}
+              </p>
+            </td>
+            <td class="p-4 py-5">
               <div class="flex space-s-2">
-                <button @click="removeUser(user.id)"
+                <button @click="removeUser(user.id)" data-twe-toggle="tooltip" data-twe-placement="top"
+                  title="Delete user"
                   class="flex items-center justify-center w-8 h-8 text-red-500 rounded hover:text-red-600">
                   <icon v-if="removingUser === user.id" name="svg-spinners:6-dots-rotate" size="20px"
                     class="text-red-500" />
                   <icon name="grommet-icons:form-trash" class="w-6 h-6" v-else />
                 </button>
 
-                <!-- Block User Button -->
-                <button @click="userStore.blockUser(user.id)"
+                <button @click="userStore.blockUser(user.id)" data-twe-toggle="tooltip" data-twe-placement="top"
+                  title="Block / Unblock user"
                   class="flex items-center justify-center w-8 h-8 text-yellow-500 rounded hover:text-yellow-600">
                   <icon name="heroicons-solid:ban" class="w-6 h-6" />
                 </button>
@@ -136,6 +147,8 @@ const removeUser = async (userId) => {
 
 onMounted(async () => {
   await userStore.fetchUsers();
+  const { Tooltip, initTWE } = await import("tw-elements");
+  initTWE({ Tooltip });
 });
 
 const { t } = useI18n()
