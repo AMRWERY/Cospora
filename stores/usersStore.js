@@ -104,5 +104,9 @@ export const useUserStore = defineStore("users", {
     totalPages() {
       return Math.ceil(this.users.length / this.usersPerPage);
     },
+
+    totalCustomers() {
+      return this.users.length;
+    },
   },
 });
