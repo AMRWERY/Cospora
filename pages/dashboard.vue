@@ -43,7 +43,7 @@
         <div class="p-4 bg-white rounded-lg shadow-md">
           <h3 class="text-xl font-semibold text-center">Inventory</h3>
           <div class="flex items-center justify-between mt-4">
-            <icon name="si:inventory-line" class="text-gray-700 h-7 w-7" />
+            <icon name="lucide:boxes" class="text-gray-700 h-7 w-7" />
             <p class="text-xl font-semibold text-gray-700">{{ inStockCount }}</p>
           </div>
           <div class="mt-6 text-center">
@@ -61,7 +61,6 @@
 const checkoutStore = useCheckoutStore();
 const userStore = useUserStore();
 const productStore = useNewProductsStoreStore();
-
 
 onMounted(() => {
   checkoutStore.fetchTotalCheckouts();
