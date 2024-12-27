@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/config";
 
 export const useCheckoutStore = defineStore("checkout", {
@@ -17,6 +17,7 @@ export const useCheckoutStore = defineStore("checkout", {
       cardExpiration: "",
       cvv: "",
     },
+    totalCheckouts: 0,
   }),
 
   actions: {
@@ -39,6 +40,15 @@ export const useCheckoutStore = defineStore("checkout", {
         console.error("Error adding document: ", e);
       }
     },
+
+    async fetchTotalCheckouts() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "checkout"));
+        this.totalCheckouts = querySnapshot.size;
+      } catch (e) {
+        console.error("Error fetching total checkouts: ", e);
+      }
+    },
   },
 
   getters: {
@@ -48,6 +58,10 @@ export const useCheckoutStore = defineStore("checkout", {
 
     getPaymentDetails(state) {
       return state.paymentDetails;
+    },
+
+    getTotalCheckouts(state) {
+      return state.totalCheckouts;
     },
   },
 });

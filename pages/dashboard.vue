@@ -7,9 +7,8 @@
           <h3 class="text-xl font-semibold text-center">Total Sales This Month</h3>
           <div class="flex items-center justify-between mt-4">
             <icon name="material-symbols:attach-money" class="text-gray-700 h-7 w-7" />
-            <p class="text-xl font-semibold text-gray-700">10</p>
+            <p class="text-xl font-semibold text-gray-700">{{ totalCheckouts }}</p>
           </div>
-          <!-- Button stays under the new div -->
           <div class="mt-6 text-center">
             <nuxt-link to="" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</nuxt-link>
           </div>
@@ -58,6 +57,14 @@
 </template>
 
 <script setup>
+const checkoutStore = useCheckoutStore();
+
+onMounted(() => {
+  checkoutStore.fetchTotalCheckouts();
+});
+
+const totalCheckouts = computed(() => checkoutStore.getTotalCheckouts);
+
 const { t } = useI18n()
 
 definePageMeta({
