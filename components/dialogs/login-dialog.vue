@@ -82,14 +82,19 @@ const signIn = async () => {
     toastTitle.value = t('form.successfully_logged_in');
     toastMessage.value = t('form.your_account_has_been_successfully_logged_in');
     toastType.value = 'success';
-    toastIcon.value = 'mdi:check-circle'
+    toastIcon.value = 'mdi:check-circle';
     dialogVisible.value = false;
     setTimeout(() => {
       router.replace('/');
     }, 6000);
   } catch (error) {
-    // console.error("Login failed:", error);
-    errorMessage.value = t('form.login_failed_please_check_your_information_and_try_again');
+    console.error('Login Error:', error);
+    const errorResponse = error.response?.data;
+    if (errorResponse?.errors?.[0] === 'Your account has been blocked.') {
+      errorMessage.value = t('form.account_blocked_please_contact_support');
+    } else {
+      errorMessage.value = t('form.login_failed_please_check_your_information_and_try_again');
+    }
   } finally {
     loading.value = false;
   }

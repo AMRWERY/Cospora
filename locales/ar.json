@@ -19,6 +19,7 @@
     "successfully_logged_in": "تم تسجيل الدخول بنجاح!",
     "your_account_has_been_successfully_logged_in": "تم تسجيل دخول حسابك بنجاح.",
     "login_failed_please_check_your_information_and_try_again": "فشل تسجيل الدخول. يرجى التحقق من معلوماتك والمحاولة مرة أخرى.",
+    "account_blocked_please_contact_support": "تم حظر الحساب الرجاء التواصل مع الدعم",
     "returning_customer": "عميل عائد",
     "if_you_have_an_account_with_us_please_log_in": "إذا كان لديك حساب معنا، يرجى تسجيل الدخول.",
     "we_will_send_you_an_email_to_reset_your_password": "سنرسل لك بريدًا إلكترونيًا لإعادة تعيين كلمة المرور الخاصة بك.",

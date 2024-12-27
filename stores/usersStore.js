@@ -54,8 +54,14 @@ export const useUserStore = defineStore("users", {
       try {
         const userRef = doc(db, "users", userId);
         await updateDoc(userRef, { isBlocked: true });
-        const user = this.users.find((user) => user.id === userId);
-        if (user) user.isBlocked = true;
+
+        const userIndex = this.users.findIndex((user) => user.id === userId);
+        if (userIndex > -1) {
+          this.users[userIndex].isBlocked = true;
+        } else {
+          console.warn("User not found in local store while blocking:", userId);
+        }
+        console.log(`User with ID ${userId} blocked successfully.`);
       } catch (error) {
         console.error("Failed to block user:", error);
       }
