@@ -67,6 +67,28 @@ export const useUserStore = defineStore("users", {
       }
     },
 
+    async toggleBlockUser(userId) {
+      try {
+        const userIndex = this.users.findIndex((user) => user.id === userId);
+        if (userIndex > -1) {
+          const user = this.users[userIndex];
+          const newStatus = !user.isBlocked;
+          const userRef = doc(db, "users", userId);
+          await updateDoc(userRef, { isBlocked: newStatus });
+          this.users[userIndex].isBlocked = newStatus;
+          console.log(
+            `User with ID ${userId} ${
+              newStatus ? "blocked" : "unblocked"
+            } successfully.`
+          );
+        } else {
+          console.warn("User not found in local store:", userId);
+        }
+      } catch (error) {
+        console.error("Failed to toggle block status for user:", error);
+      }
+    },
+
     changePage(page) {
       if (page > 0 && page <= this.totalPages) {
         this.currentPage = page;

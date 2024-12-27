@@ -68,10 +68,12 @@
                   <icon name="grommet-icons:form-trash" class="w-6 h-6" v-else />
                 </button>
 
-                <button @click="userStore.blockUser(user.id)" data-twe-toggle="tooltip" data-twe-placement="top"
-                  title="Block / Unblock user"
-                  class="flex items-center justify-center w-8 h-8 text-yellow-500 rounded hover:text-yellow-600">
-                  <icon name="heroicons-solid:ban" class="w-6 h-6" />
+                <button @click="userStore.toggleBlockUser(user.id)"
+                  :title="user.isBlocked ? 'Unblock user' : 'Block user'"
+                  class="flex items-center justify-center w-8 h-8 rounded"
+                  :class="user.isBlocked ? 'text-green-500 hover:text-green-600' : 'text-yellow-500 hover:text-yellow-600'">
+                  <icon :name="user.isBlocked ? 'heroicons-solid:check-circle' : 'heroicons-solid:ban'"
+                    class="w-6 h-6" />
                 </button>
               </div>
             </td>
