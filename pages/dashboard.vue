@@ -44,7 +44,6 @@
 
     <div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-12">
       <div class="col-span-12 p-4 bg-white rounded-lg shadow-md md:col-span-9">
-        <h3 class="text-xl font-semibold text-center">Sales Chart</h3>
         <div class="mt-4">
           <!-- charts component -->
           <charts />

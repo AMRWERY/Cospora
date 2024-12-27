@@ -23,7 +23,7 @@ const generateDayWiseTimeSeries = (baseval, count, yrange) => {
 
 const series = ref([
   {
-    name: "South",
+    name: "Orders",
     data: generateDayWiseTimeSeries(
       new Date("11 Feb 2017 GMT").getTime(),
       20,
@@ -31,7 +31,7 @@ const series = ref([
     ),
   },
   {
-    name: "North",
+    name: "Inventory",
     data: generateDayWiseTimeSeries(
       new Date("11 Feb 2017 GMT").getTime(),
       20,
@@ -39,7 +39,7 @@ const series = ref([
     ),
   },
   {
-    name: "Central",
+    name: "Customers",
     data: generateDayWiseTimeSeries(
       new Date("11 Feb 2017 GMT").getTime(),
       20,
@@ -53,6 +53,9 @@ const chartOptions = ref({
     type: "area",
     height: 350,
     stacked: true,
+    toolbar: {
+      show: false,
+    },
     events: {
       selection: function (chart, e) {
         console.log(new Date(e.xaxis.min));
