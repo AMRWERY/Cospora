@@ -10,8 +10,8 @@
             <p class="text-xl font-semibold text-gray-700">10</p>
           </div>
           <!-- Button stays under the new div -->
-          <div class="mt-4 text-center">
-            <button class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</button>
+          <div class="mt-6 text-center">
+            <nuxt-link to="" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</nuxt-link>
           </div>
         </div>
 
@@ -22,8 +22,8 @@
             <icon name="material-symbols:shopping-cart-checkout" class="text-gray-700 h-7 w-7" />
             <p class="text-xl font-semibold text-gray-700">20</p>
           </div>
-          <div class="mt-4 text-center">
-            <button class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</button>
+          <div class="mt-6 text-center">
+            <nuxt-link to="" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</nuxt-link>
           </div>
         </div>
 
@@ -34,8 +34,9 @@
             <icon name="ci:users-group" class="text-gray-700 h-7 w-7" />
             <p class="text-xl font-semibold text-gray-700">30</p>
           </div>
-          <div class="mt-4 text-center">
-            <button class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</button>
+          <div class="mt-6 text-center">
+            <nuxt-link to="/users" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">View
+              Details</nuxt-link>
           </div>
         </div>
 
@@ -46,8 +47,8 @@
             <icon name="si:inventory-line" class="text-gray-700 h-7 w-7" />
             <p class="text-xl font-semibold text-gray-700">40</p>
           </div>
-          <div class="mt-4 text-center">
-            <button class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</button>
+          <div class="mt-6 text-center">
+            <nuxt-link to="" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">View Details</nuxt-link>
           </div>
         </div>
       </div>
