@@ -88,10 +88,9 @@ const signIn = async () => {
       router.replace('/');
     }, 6000);
   } catch (error) {
-    console.error('Login Error:', error);
-    const errorResponse = error.response?.data;
-    if (errorResponse?.errors?.[0] === 'Your account has been blocked.') {
+    if (error === 'Your account has been blocked.') {
       errorMessage.value = t('form.account_blocked_please_contact_support');
+      // console.log(error)
     } else {
       errorMessage.value = t('form.login_failed_please_check_your_information_and_try_again');
     }
