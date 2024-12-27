@@ -71,7 +71,9 @@
               </nuxt-link>
               <button @click="deleteProduct(product.id)" class="absolute bg-white rounded-full shadow-lg top-10 end-2"
                 data-twe-toggle="tooltip" data-twe-placement="top" title="Delete Product">
-                <icon name="ep:delete" class="text-red-600" />
+                <icon v-if="deleteProd === product.id" name="svg-spinners:6-dots-rotate" size="20px"
+                  class="text-red-500" />
+                <icon name="ep:delete" class="text-red-600" v-else />
               </button>
             </nuxt-link>
             <div class="flex flex-col justify-end flex-grow px-5 pb-2 mt-6">
@@ -98,6 +100,14 @@
         <pagination-component :total-pages="totalPages" :current-page="currentPage" @page-changed="onPageChanged" />
       </div>
     </div>
+
+    <!-- dynamic-toast component -->
+    <div class="fixed z-50 pointer-events-none bottom-5 start-5 w-96">
+      <div class="pointer-events-auto">
+        <dynamic-toast v-if="showToast" :title="toastTitle" :message="toastMessage" :toastType="toastType"
+          :duration="5000" :toastIcon="toastIcon" @toastClosed="showToast = false" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -110,6 +120,14 @@ const selectedCategory = ref('');
 const selectedAvailability = ref('');
 const selectedBrand = ref('');
 const loading = ref(false);
+
+const showToast = ref(false);
+const toastTitle = ref('');
+const toastMessage = ref('');
+const toastType = ref('');
+const toastIcon = ref('')
+
+const deleteProd = ref(null);
 
 onMounted(() => {
   if (store.products.length === 0) {
@@ -163,16 +181,19 @@ const onPageChanged = (pageNumber) => {
 };
 
 const deleteProduct = async (productId) => {
-  // console.log('Deleting product with ID:', productId);
-  const confirmDelete = confirm('Are you sure you want to delete this product?');
-  if (confirmDelete) {
-    try {
-      await productStore.deleteProduct(productId);
-      alert('Product deleted successfully!');
-    } catch (error) {
-      // console.error('Failed to delete product:', error);
-      alert('Failed to delete the product. Please try again.');
-    }
+  deleteProd.value = productId;
+  try {
+    await productStore.deleteProduct(productId);
+    setTimeout(() => {
+      deleteProd.value = null;
+      showToast.value = true;
+      toastTitle.value = 'Great!';
+      toastMessage.value = 'Product deleted successfully';
+      toastType.value = 'success';
+      toastIcon.value = 'mdi:check-circle';
+    }, 3000);
+  } catch (error) {
+    deleteProd.value = null;
   }
 };
 
