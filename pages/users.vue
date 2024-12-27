@@ -50,9 +50,11 @@
             </td>
             <td class="p-4 py-5">
               <div class="flex space-s-2">
-                <button @click="userStore.deleteUser(user.id)"
+                <button @click="removeUser(user.id)"
                   class="flex items-center justify-center w-8 h-8 text-red-500 rounded hover:text-red-600">
-                  <icon name="heroicons-solid:trash" class="w-6 h-6" />
+                  <icon v-if="removingUser === user.id" name="svg-spinners:6-dots-rotate" size="20px"
+                    class="text-red-500" />
+                  <icon name="grommet-icons:form-trash" class="w-6 h-6" v-else />
                 </button>
 
                 <!-- Block User Button -->
@@ -95,8 +97,26 @@ import { useUserStore } from "@/stores/usersStore";
 
 const userStore = useUserStore();
 
-onMounted(() => {
-  userStore.fetchUsers();
+const removingUser = ref(null);
+
+const removeUser = async (userId) => {
+  if (!userId) {
+    console.error("No userId provided for removal.");
+    return;
+  }
+  try {
+    removingUser.value = userId;
+    await userStore.deleteUser(userId);
+    setTimeout(() => {
+      removingUser.value = null;
+    }, 3000);
+  } catch (error) {
+    console.error("Error removing user:", error);
+  }
+};
+
+onMounted(async () => {
+  await userStore.fetchUsers();
 });
 
 const { t } = useI18n()

@@ -22,8 +22,8 @@ export const useUserStore = defineStore("users", {
       try {
         const querySnapshot = await getDocs(collection(db, "users"));
         this.users = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
           ...doc.data(),
+          id: doc.id,
         }));
         this.updatePagination();
       } catch (error) {
@@ -40,16 +40,13 @@ export const useUserStore = defineStore("users", {
 
     async deleteUser(userId) {
       try {
-        const userRef = doc(db, "users", userId);
-        this.users = this.users.filter((user) => user.id === userId);
+        const docRef = doc(db, "users", userId);
+        await deleteDoc(docRef);
+        this.users = this.users.filter((user) => user.id !== userId);
         this.updatePagination();
-        await deleteDoc(userRef);
-        console.log(
-          `User with ID: ${userId} deleted successfully from Firestore.`
-        );
+        console.log(`User with ID ${userId} deleted successfully.`);
       } catch (error) {
-        console.error("Failed to delete user:", error);
-        await this.fetchUsers();
+        console.error("Error deleting user:", error);
       }
     },
 
