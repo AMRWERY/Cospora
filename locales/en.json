@@ -62,7 +62,8 @@
     "next": "Next",
     "back": "Back",
     "pay_now": "Pay Now",
-    "order_summary": "Order Summary"
+    "order_summary": "Order Summary",
+    "add_to_cart": "Add to cart"
   },
   "loading_btn": {
     "loading": "Loading",
@@ -245,5 +246,8 @@
   "social_media": {
     "share_my": "Share my",
     "via": "via:"
+  },
+  "other": {
+    "you_may_also_like": "You may also like"
   }
 }

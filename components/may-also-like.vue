@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="block xs:mt-8 xl:block">
-      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">You may also like</h3>
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $t('other.you_may_also_like') }}</h3>
       <div class="grid gap-4 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3">
 
         <div v-for="product in products" :key="product"
@@ -41,7 +41,7 @@
             <button type="button"
               class="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
               <icon name="material-symbols-light:add-shopping-cart-rounded" class="w-5 h-5 me-1" />
-              Add to cart
+              {{ $t('btn.add_to_cart') }}
             </button>
           </div>
         </div>

@@ -62,7 +62,8 @@
     "next": "التالي",
     "back": "الرجوع",
     "pay_now": "ادفع الآن",
-    "order_summary": "ملخص الطلب"
+    "order_summary": "ملخص الطلب",
+    "add_to_cart": "أضف إلى السلة"
   },
   "loading_btn": {
     "loading": "جاري التحميل",
@@ -243,7 +244,10 @@
     "shopping_cart": "عربه التسوق"
   },
   "social_media": {
-  "share_my": "شارك موقعي",
-  "via": "عن طريق:"
-}
+    "share_my": "شارك موقعي",
+    "via": "عن طريق:"
+  },
+  "other": {
+    "you_may_also_like": "قد يعجبك أيضًا"
+  }
 }
