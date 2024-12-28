@@ -2,7 +2,8 @@
   <div>
     <!-- share via social media -->
     <div class="space-y-2 mt-7">
-      <p class="text-base text-gray-700">Share my {{ itemName }} via:</p>
+      <p class="text-base text-gray-700">{{ $t('social_media.share_my') }} {{ $t(`breadcrumb.${normalizedItemName}`) }}
+        {{ $t('social_media.via') }}</p>
       <div class="flex items-center space-s-4">
         <SocialShare network="facebook" :styled="false" :label="false"
           class="p-0.5 text-white bg-blue-700 border rounded-md" />
@@ -35,9 +36,13 @@ const itemName = computed(() => {
   if (route.name) {
     return route.name
       .replace(/-/g, ' ')
-      .replace(/\b\w/g, (char) => char.toUpperCase());
+      .replace(/\b\w/g, (char) => char.toLowerCase());
   }
   const pathSegments = route.path.split('/');
   return pathSegments[pathSegments.length - 1] || 'Unknown';
+});
+
+const normalizedItemName = computed(() => {
+  return itemName.value.toLowerCase().replace(/\s+/g, '_');
 });
 </script>

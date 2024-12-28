@@ -7,7 +7,7 @@
             <nuxt-link to="/"
               class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
               <icon name="material-symbols:home-outline-rounded" class="w-5 h-5 me-2.5" />
-              Home
+              {{ $t('breadcrumb.home') }}
             </nuxt-link>
           </li>
           <li v-if="breadcrumbLabel">
@@ -27,13 +27,17 @@
 
 <script setup>
 const route = useRoute();
+const { t } = useI18n();
 
 const breadcrumbLabel = computed(() => {
   if (route.meta && route.meta.breadcrumb) {
-    return route.meta.breadcrumb;
+    return t(`breadcrumb.${route.meta.breadcrumb}`);
   }
   if (route.name) {
-    return route.name.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+    const formattedName = route.name
+      .replace(/-/g, '_')
+      .toLowerCase();
+    return t(`breadcrumb.${formattedName}`);
   }
   const pathSegments = route.path.split('/');
   return pathSegments[pathSegments.length - 1] || 'Unknown';

@@ -224,5 +224,26 @@
     "store_pickup": "الاستلام من المتجر",
     "tax": "الضريبة",
     "total": "الإجمالي"
-  }
+  },
+  "breadcrumb": {
+    "home": "الصفحة الرئيسية",
+    "register": "إنشاء حساب",
+    "forget_password": "استعادة كلمة المرور",
+    "dashboard": "لوحة التحكم",
+    "login": "تسجيل الدخول",
+    "products": "المنتجات",
+    "categories": "الفئات",
+    "checkout": "الدفع",
+    "wishlist": "قائمة الرغبات",
+    "profile": "الملف الشخصي",
+    "edit_product": "تعديل منتج",
+    "add_product": "إضافة منتج",
+    "users": "المستخدمين",
+    "order_summary": "ملخص الطلب",
+    "shopping_cart": "عربه التسوق"
+  },
+  "social_media": {
+  "share_my": "شارك موقعي",
+  "via": "عن طريق:"
+}
 }

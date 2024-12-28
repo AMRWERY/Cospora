@@ -224,5 +224,26 @@
     "store_pickup": "Store Pickup",
     "tax": "Tax",
     "total": "Total"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "register": "Register",
+    "forget_password": "Forget Password",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "products": "Products",
+    "categories": "Categories",
+    "checkout": "Checkout",
+    "wishlist": "Wishlist",
+    "profile": "Profile",
+    "edit_product": "Edit Product",
+    "add_product": "Add Product",
+    "users": "Users",
+    "order_summary": "Order Summary",
+    "shopping_cart": "Shopping Cart"
+  },
+  "social_media": {
+    "share_my": "Share my",
+    "via": "via:"
   }
 }
