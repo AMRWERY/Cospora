@@ -39,7 +39,8 @@
     "enter_cvv": "Enter CVV",
     "country": "Country",
     "province": "Province",
-    "postal_zip_code": "Postal / Zip Code"
+    "postal_zip_code": "Postal / Zip Code",
+    "phone_number": "Phone Number"
   },
   "btn": {
     "reset_password": "Reset Password",
@@ -56,7 +57,12 @@
     "view_cart": "View Cart",
     "remove": "Remove",
     "proceed_to_checkout": "Proceed to Checkout",
-    "calculate_shipping": "Calculate Shipping"
+    "calculate_shipping": "Calculate Shipping",
+    "apply": "Apply",
+    "next": "Next",
+    "back": "Back",
+    "pay_now": "Pay Now",
+    "order_summary": "Order Summary"
   },
   "loading_btn": {
     "loading": "Loading",
@@ -194,5 +200,17 @@
     "note": "Note",
     "additional_comments": "Additional comments",
     "get_shipping_estimates": "Get Shipping Estimates"
+  },
+  "checkout": {
+    "checkout": "Checkout",
+    "payment": "Payment",
+    "delivery_details": "Delivery Details",
+    "enter_a_gift_card_voucher_or_promotional_code": "Enter a gift card, voucher or promotional code",
+    "subtotal": "Subtotal",
+    "savings": "Savings",
+    "store_pickup": "Store Pickup",
+    "tax": "Tax",
+    "total": "Total",
+    "payment_details": "Payment Details"
   }
 }

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <section class="py-8 mx-auto antialiased bg-white dark:bg-gray-900 md:py-16 max-w-7xl">
+    <breadcrumb />
+
+    <section class="py-8 mx-auto bg-white dark:bg-gray-900 md:py-16 max-w-7xl">
       <div class="grid grid-cols-12 gap-6">
         <div class="col-span-12 md:col-span-8">
           <ol
@@ -11,7 +13,7 @@
                 class="flex items-center after:mx-2 after:text-gray-200 after:content-['/'] dark:after:text-gray-500 sm:after:hidden">
                 <icon name="material-symbols:check-circle-outline-rounded" class="w-4 h-4 me-2 sm:h-5 sm:w-5"
                   aria-hidden="true" />
-                Checkout
+                {{ $t('checkout.checkout') }}
               </span>
             </li>
             <li class="flex items-center shrink-0 " :class="step === 2 ? 'text-blue-600' : 'text-gray-400'">
@@ -20,7 +22,7 @@
                 <icon name="material-symbols:check-circle-outline-rounded" class="w-4 h-4 me-2 sm:h-5 sm:w-5"
                   aria-hidden="true" />
               </span>
-              Payment
+              {{ $t('checkout.payment') }}
             </li>
           </ol>
 
@@ -31,7 +33,8 @@
               <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
                 <div class="flex-1 min-w-0 space-y-8">
                   <div class="space-y-4">
-                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Details</h2>
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $t('checkout.delivery_details')
+                      }}</h2>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <dynamic-inputs :label="t('form.name')" :placeholder="t('form.enter_your_name')" type="text"
                         :validation="('required|contains_alpha|length:3,10')" :required="true"
@@ -43,8 +46,8 @@
 
                       <div>
                         <div class="flex items-center gap-2 mb-1">
-                          <label for="country"
-                            class="block text-sm font-medium text-gray-900 dark:text-white">Country</label>
+                          <label for="country" class="block text-sm font-medium text-gray-900 dark:text-white">{{
+                            $t('form.country') }}</label>
                         </div>
                         <select id="country" name="country" autocomplete="country-name" v-model="selectedCountry"
                           class="w-full py-2 text-gray-800 transition duration-100 border rounded outline-none ring-indigo-300 focus:ring bg-gray-50">
@@ -55,8 +58,8 @@
 
                       <div>
                         <div class="flex items-center gap-2 mb-1">
-                          <label for="province"
-                            class="block text-sm font-medium text-gray-900 dark:text-white">Province</label>
+                          <label for="province" class="block text-sm font-medium text-gray-900 dark:text-white">{{
+                            $t('form.province') }}</label>
                         </div>
                         <select id="province" name="province" autocomplete="province-name"
                           v-model="checkoutStore.deliveryDetails.province"
@@ -68,7 +71,7 @@
 
                       <div>
                         <label for="phone-input-3" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-                          Phone Number <span class="text-red-500">*</span>
+                          {{ $t('form.phone_number') }} <span class="text-red-500">*</span>
                         </label>
                         <div class="flex items-center">
                           <button id="dropdown-phone-button-3"
@@ -90,21 +93,23 @@
                   </div>
 
                   <div>
-                    <label for="voucher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter
-                      a gift card, voucher or promotional code </label>
+                    <label for="voucher" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                      $t('checkout.enter_a_gift_card_voucher_or_promotional_code') }} </label>
                     <div class="flex items-center max-w-md gap-4">
                       <input type="text" id="voucher"
                         class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                        placeholder="Enter a gift card, voucher or promotional code" />
+                        :placeholder="$t('checkout.enter_a_gift_card_voucher_or_promotional_code')" />
                       <button type="button"
-                        class="flex items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply</button>
+                        class="flex items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">{{
+                        $t('btn.apply') }}</button>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="flex items-center justify-end mt-6 gap-x-6">
                 <button type="button" @click="goToPaymentForm"
-                  class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Next</button>
+                  class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">{{
+                    $t('btn.next') }}</button>
               </div>
             </div>
           </transition>
@@ -115,7 +120,8 @@
               <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
                 <div class="flex-1 min-w-0 space-y-8">
                   <div class="space-y-4">
-                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Payment Details</h2>
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $t('checkout.payment_details') }}
+                    </h2>
                     <div class="grid grid-cols-2 gap-4 mb-6">
                       <dynamic-inputs :label="t('form.full_name_as_displayed_on_card')"
                         :placeholder="t('form.enter_full_name_as_displayed_on_card')" type="text"
@@ -139,15 +145,15 @@
               </div>
 
               <div class="flex justify-end mt-6 space-s-3">
-                <button @click="goBackToCheckout" type="button"
-                  class="px-4 py-2 text-white bg-gray-500 rounded-md">Back</button>
+                <button @click="goBackToCheckout" type="button" class="px-4 py-2 text-white bg-gray-500 rounded-md">{{
+                  $t('btn.back') }}</button>
                 <button type="submit" :disabled="loading" @click="submitCheckoutForm"
                   class="items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                   <div class="flex items-center justify-center" v-if="loading">
                     <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
                     <icon name="svg-spinners:270-ring-with-bg" />
                   </div>
-                  <span v-else>Pay Now</span>
+                  <span v-else>{{ $t('btn.pay_now') }}</span>
                 </button>
               </div>
             </div>
@@ -159,23 +165,24 @@
             <div class="flow-root">
               <div class="-my-3 divide-y divide-gray-200 dark:divide-gray-800">
                 <dl class="flex items-center justify-between gap-4 py-3">
-                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Subtotal</dt>
+                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">{{ $t('checkout.subtotal') }}</dt>
                   <dd class="text-base font-medium text-gray-900 dark:text-white">${{ subTotalAmount }}</dd>
                 </dl>
                 <dl class="flex items-center justify-between gap-4 py-3">
-                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Savings</dt>
+                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">{{ $t('checkout.savings') }}</dt>
                   <dd class="text-base font-medium text-green-500">%{{ averageDiscount }}</dd>
                 </dl>
                 <dl class="flex items-center justify-between gap-4 py-3">
-                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Store Pickup</dt>
+                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">{{ $t('checkout.store_pickup') }}
+                  </dt>
                   <dd class="text-base font-medium text-gray-900 dark:text-white">$25.00</dd>
                 </dl>
                 <dl class="flex items-center justify-between gap-4 py-3">
-                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Tax</dt>
+                  <dt class="text-base font-normal text-gray-500 dark:text-gray-400">{{ $t('checkout.tax') }}</dt>
                   <dd class="text-base font-medium text-gray-900 dark:text-white">$18.00</dd>
                 </dl>
                 <dl class="flex items-center justify-between gap-4 py-3">
-                  <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
+                  <dt class="text-base font-bold text-gray-900 dark:text-white">{{ $t('checkout.total') }}</dt>
                   <dd class="text-base font-bold text-gray-900 dark:text-white">${{ totalAmount }}</dd>
                 </dl>
               </div>
@@ -183,8 +190,8 @@
 
             <div class="space-y-3">
               <nuxt-link to="/order-summary"
-                class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Order
-                Summary</nuxt-link>
+                class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">{{
+                  $t('btn.order_summary') }}</nuxt-link>
             </div>
           </div>
           <div class="flex items-center justify-center gap-8 mt-6">

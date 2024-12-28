@@ -39,7 +39,8 @@
     "enter_cvv": "أدخل رمز التحقق من البطاقة",
     "country": "الدولة",
     "province": "المقاطعة",
-    "postal_zip_code": "الرمز البريدي"
+    "postal_zip_code": "الرمز البريدي",
+    "phone_number": "رقم الهاتف"
   },
   "btn": {
     "reset_password": "إعادة تعيين كلمة المرور",
@@ -56,7 +57,12 @@
     "view_cart": "عرض السلة",
     "remove": "إزالة",
     "proceed_to_checkout": "المتابعة إلى الدفع",
-    "calculate_shipping": "احسب تكلفة الشحن"
+    "calculate_shipping": "احسب تكلفة الشحن",
+    "apply": "تطبيق",
+    "next": "التالي",
+    "back": "الرجوع",
+    "pay_now": "ادفع الآن",
+    "order_summary": "ملخص الطلب"
   },
   "loading_btn": {
     "loading": "جاري التحميل",
@@ -194,5 +200,17 @@
     "note": "ملاحظة",
     "additional_comments": "تعليقات إضافية",
     "get_shipping_estimates": "احصل على تقديرات الشحن"
+  },
+  "checkout": {
+    "checkout": "إتمام الشراء",
+    "payment": "الدفع",
+    "delivery_details": "تفاصيل التسليم",
+    "enter_a_gift_card_voucher_or_promotional_code": "أدخل بطاقة هدية أو قسيمة أو رمزًا ترويجيًا",
+    "subtotal": "الإجمالي الفرعي",
+    "savings": "التوفير",
+    "store_pickup": "استلام من المتجر",
+    "tax": "الضريبة",
+    "total": "الإجمالي",
+    "payment_details": "تفاصيل الدفع"
   }
 }
