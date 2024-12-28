@@ -1,5 +1,7 @@
 <template>
   <div>
+    <breadcrumb />
+    
     <div class="max-w-4xl p-6 mx-auto my-10 bg-white rounded-lg shadow-lg" id="Cospora">
       <!-- Order Number -->
       <div class="flex items-center justify-between mb-12">
