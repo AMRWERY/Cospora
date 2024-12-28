@@ -46,7 +46,8 @@
     "shop_the_collection": "Shop The Collection",
     "submit": "Submit",
     "browse_now": "Browse Now",
-    "quick_view": "Quick View"
+    "quick_view": "Quick View",
+    "read_more": "Read More"
   },
   "loading_btn": {
     "loading": "Loading",
@@ -114,7 +115,14 @@
     "sale": "Sale",
     "new": "New",
     "bundle": "Bundle",
-    "custom": "Custom"
+    "custom": "Custom",
+    "editor_picks": "Editor's Picks",
+    "recent_posts": "Recent Posts",
+    "by_halo_themes_on_september": "By Halo Themes on September 24, 2023",
+    "commodo_de_quis_magna_rutrum_delos_placerat_milancelos": "Commodo De Quis Magna Rutrum Delos Placerat Milancelos",
+    "naminos_delementum_disumos_an_cosmo_tincidunts_loremous": "Naminos Delementum Disumos An Cosmo Tincidunts Loremous",
+    "loremous_cosmopolis": "Loremous Cosmopolis",
+    "lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_risus_leo_elementum_in_malesuada_an_darius_ut_augue_cras_sit_amet_lectus_et_justo_feugiat_euismod_sed_non_erat_nulla_non_felis_id_metus": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus leo, elementum in malesuada an darius ut augue. Cras sit amet lectus et justo feugiat euismod sed non erat. Nulla non felis id metus..."
   },
   "mail": {
     "join_our_mailing_list": "Join Our Mailing List",

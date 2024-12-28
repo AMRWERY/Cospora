@@ -46,7 +46,8 @@
     "shop_the_collection": "تسوق المجموعة",
     "submit": "إرسال",
     "browse_now": "تصفح الآن",
-    "quick_view": "عرض سريع"
+    "quick_view": "عرض سريع",
+    "read_more": "اقرأ المزيد"
   },
   "loading_btn": {
     "loading": "جاري التحميل",
@@ -114,7 +115,14 @@
     "sale": "تخفيضات",
     "new": "جديد",
     "bundle": "مجموعة",
-    "custom": "مخصص"
+    "custom": "مخصص",
+    "editor_picks": "اختيارات المحرر",
+    "recent_posts": "المنشورات الأخيرة",
+    "by_halo_themes_on_september": "بواسطة هالو ثيمز في 24 سبتمبر 2023",
+    "commodo_de_quis_magna_rutrum_delos_placerat_milancelos": "كومودو دي كويز ماجنا روترم ديلوس بلاسييرات ميلانسيلوس",
+    "naminos_delementum_disumos_an_cosmo_tincidunts_loremous": "نامينوس ديليمنتوم ديسوموس آن كوسمو تينسيدنتس لوريموس",
+    "loremous_cosmopolis": "لوريموس كوزموبوليس",
+    "lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_risus_leo_elementum_in_malesuada_an_darius_ut_augue_cras_sit_amet_lectus_et_justo_feugiat_euismod_sed_non_erat_nulla_non_felis_id_metus": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبسينغ إليت. دويز ريسوس ليو، إليمنتوم في ماليسويدا أن داريوس أوت أغوي. كراس سيت أميت ليكتوس إيت جوستو فيوجيات إيوسيمود سيد نون إيرات. نولا نون فيليس إيد ميتوس..."
   },
   "mail": {
     "join_our_mailing_list": "انضم إلى قائمتنا البريدية",

@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-7xl">
       <div class="flex items-center justify-center">
         <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
-        <span class="mx-4 text-2xl font-bold leading-10 capitalize">Editor's Picks</span>
+        <span class="mx-4 text-2xl font-bold leading-10 capitalize">{{ $t('home.editor_picks') }}</span>
         <div class="w-1/12 h-1 border-t-2 border-gray-700"></div>
       </div>
 
