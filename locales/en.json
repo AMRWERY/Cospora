@@ -36,7 +36,10 @@
     "card_expiration": "Card Expiration",
     "choose_card_expiration": "Choose Card Expiration",
     "cvv": "CVV",
-    "enter_cvv": "Enter CVV"
+    "enter_cvv": "Enter CVV",
+    "country": "Country",
+    "province": "Province",
+    "postal_zip_code": "Postal / Zip Code"
   },
   "btn": {
     "reset_password": "Reset Password",
@@ -48,7 +51,12 @@
     "browse_now": "Browse Now",
     "quick_view": "Quick View",
     "read_more": "Read More",
-    "view_all": "View All"
+    "view_all": "View All",
+    "checkout_now": "Checkout Now",
+    "view_cart": "View Cart",
+    "remove": "Remove",
+    "proceed_to_checkout": "Proceed to Checkout",
+    "calculate_shipping": "Calculate Shipping"
   },
   "loading_btn": {
     "loading": "Loading",
@@ -172,6 +180,19 @@
   },
   "tooltip": {
     "your_wishlist": "Your Wishlist",
-    "your_cart": "Your Cart"
+    "your_cart": "Your Cart",
+    "delete_item": "Delete Item"
+  },
+  "cart": {
+    "your_cart_is_currently_empty": "Your cart is currently empty.",
+    "continue_shopping": "Continue Shopping",
+    "total": "Total",
+    "your_cart": "Your Cart",
+    "quantity": "Quantity:",
+    "secure_shopping_guarantee": "Secure Shopping Guarantee.",
+    "subtotal": "Subtotal",
+    "note": "Note",
+    "additional_comments": "Additional comments",
+    "get_shipping_estimates": "Get Shipping Estimates"
   }
 }

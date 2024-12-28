@@ -4,18 +4,18 @@
 
     <section class="py-8 dark:bg-gray-900 md:py-7">
       <div class="p-4 space-y-4" v-if="cartStore.cart.length === 0">
-        <p class="text-[13px] text-center text-gray-800">Your cart is currently empty.</p>
+        <p class="text-[13px] text-center text-gray-800">{{ $t('cart.your_cart_is_currently_empty') }}</p>
         <button type="button"
           class="block w-full px-5 py-2 text-sm font-medium text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
-          Continue Shopping
+          {{ $t('cart.continue_shopping') }}
         </button>
       </div>
 
       <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div class="flex items-center justify-between">
-          <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Your Cart</h2>
+          <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">{{ $t('cart.your_cart') }}</h2>
           <nuxt-link to="" class="inline-flex items-center text-sm cursor-pointer hover:underline">
-            Continue Shopping
+            {{ $t('cart.continue_shopping') }}
             <icon name="material-symbols:keyboard-arrow-right" class="w-4 h-4 mt-0.5" />
           </nuxt-link>
         </div>
@@ -53,13 +53,14 @@
                         <icon v-if="removingItem === item.docId" name="svg-spinners:6-dots-rotate" size="20px"
                           class="text-red-500" />
                         <icon name="material-symbols:close-small-rounded" class="w-5 h-5 me-0.5" v-else />
-                        Remove
+                        {{ $t('btn.remove') }}
                       </button>
                       <label for="counter-input" class="sr-only">Choose quantity:</label>
                       <div class="flex items-center justify-between md:order-3 md:justify-end ms-auto">
                         <div class="flex flex-col items-start md:order-3 md:justify-end">
-                          <p class="text-lg font-normal ms-2">Quantity: <span class="font-semibold text-blue-600">{{
-                            item.quantity }}</span></p>
+                          <p class="text-lg font-normal ms-2">{{ $t('cart.quantity') }} <span
+                              class="font-semibold text-blue-600">{{
+                                item.quantity }}</span></p>
                           <div class="flex items-center mt-2 space-x-2">
                             <button type="button" @click="decrementQuantity(item)"
                               class="inline-flex items-center justify-center w-5 h-5 bg-gray-100 border border-gray-300 rounded-md shrink-0 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
@@ -87,7 +88,7 @@
             <div class="p-4">
               <div class="flex items-center space-s-2">
                 <icon name="solar:shield-bold-duotone" />
-                <p class="m-0 text-gray-700">Secure Shopping Guarantee.</p>
+                <p class="m-0 text-gray-700">{{ $t('cart.secure_shopping_guarantee') }}</p>
               </div>
               <img src="https://justfields.com/storage/projects/7M5rV059/shield.jpg" class="mt-4">
             </div>
@@ -103,13 +104,14 @@
             <div
               class="p-4 space-y-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
               <div class="text-center">
-                <p class="text-xl font-semibold text-gray-900 dark:text-white">Subtotal</p>
+                <p class="text-xl font-semibold text-gray-900 dark:text-white">{{ $t('cart.subtotal') }}</p>
                 <span class="text-xl font-semibold text-gray-900 dark:text-white">${{ totalAmount }}</span>
               </div>
               <div class="inline-flex items-center">
                 <span
-                  class="inline-flex items-center px-1.5 py-0.5 text-xs font-medium text-white rounded-full bg-[#03c083] ring-1 ring-inset ring-green-600/20">Note</span>
-                <p class="ms-2 text-[12px]">Additional comments</p>
+                  class="inline-flex items-center px-1.5 py-0.5 text-xs font-medium text-white rounded-full bg-[#03c083] ring-1 ring-inset ring-green-600/20">{{
+                    $t('cart.note') }}</span>
+                <p class="ms-2 text-[12px]">{{ $t('cart.additional_comments') }}</p>
               </div>
               <div class="col-span-full">
                 <div class="mt-2">
@@ -118,16 +120,17 @@
                 </div>
               </div>
               <nuxt-link to="/checkout" type="button"
-                class="block w-full px-5 py-2 text-sm font-medium text-center text-white transition duration-300 bg-black border border-black rounded-md hover:bg-red-600 hover:text-white">Proceed
-                to Checkout</nuxt-link>
+                class="block w-full px-5 py-2 text-sm font-medium text-center text-white transition duration-300 bg-black border border-black rounded-md hover:bg-red-600 hover:text-white">{{
+                  $t('btn.proceed_to_checkout') }}</nuxt-link>
             </div>
 
             <div
               class="p-4 space-y-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
               <form class="space-y-4">
-                <p class="text-center text-[14px] font-medium">Get Shipping Estimates</p>
+                <p class="text-center text-[14px] font-medium">{{ $t('cart.get_shipping_estimates') }}</p>
                 <div>
-                  <label for="country" class="block font-medium text-gray-900 text-sm/6">Country</label>
+                  <label for="country" class="block font-medium text-gray-900 text-sm/6">{{ $t('form.country')
+                    }}</label>
                   <div class="mt-2">
                     <select id="country" name="country" autocomplete="country-name" v-model="selectedCountry"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
@@ -137,7 +140,8 @@
                   </div>
                 </div>
                 <div>
-                  <label for="province" class="block font-medium text-gray-900 text-sm/6">Province</label>
+                  <label for="province" class="block font-medium text-gray-900 text-sm/6">{{ $t('form.province')
+                    }}</label>
                   <div class="mt-2">
                     <select id="province" name="province" autocomplete="province-name" v-model="selectedProvince"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
@@ -147,7 +151,8 @@
                   </div>
                 </div>
                 <div>
-                  <label for="zip-code" class="block font-medium text-gray-900 text-sm/6">Postal / Zip Code</label>
+                  <label for="zip-code" class="block font-medium text-gray-900 text-sm/6">{{ $t('form.postal_zip_code')
+                    }}</label>
                   <div class="mt-2">
                     <input id="zip-code" name="zip-code" type="text" autocomplete="zip-code"
                       class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" />
@@ -155,7 +160,7 @@
                 </div>
                 <nuxt-link to="" type="submit"
                   class="block w-full px-5 py-2 text-sm font-medium text-center text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
-                  Calculate Shipping
+                  {{ $t('btn.calculate_shipping') }}
                 </nuxt-link>
               </form>
             </div>

@@ -2,10 +2,10 @@
   <div>
     <div v-if="isCartOpen">
       <div class="p-4 space-y-4" v-if="cartStore.cart.length === 0">
-        <p class="text-[13px] text-center text-gray-800">Your cart is currently empty.</p>
+        <p class="text-[13px] text-center text-gray-800">{{ $t('cart.your_cart_is_currently_empty') }}</p>
         <button type="button"
           class="block w-full px-5 py-2 text-sm font-medium text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
-          Continue Shopping
+          {{ $t('cart.continue_shopping') }}
         </button>
       </div>
 
@@ -60,7 +60,8 @@
                         </button>
                       </div>
                       <div class="flex items-end justify-end">
-                        <button type="button" @click.stop="removeItem(item.docId)"
+                        <button type="button" data-twe-toggle="tooltip" data-twe-placement="bottom"
+                          :title="$t('tooltip.delete_item')" @click.stop="removeItem(item.docId)"
                           class="flex text-center text-gray-500 transition-all duration-200 ease-in-out rounded focus:shadow hover:text-gray-900">
                           <icon v-if="removingItem === item.docId" name="svg-spinners:6-dots-rotate" size="20px"
                             class="text-red-500" />
@@ -75,7 +76,7 @@
 
             <div class="py-8 mt-6 space-y-3 border-t border-b">
               <div class="flex items-center justify-between">
-                <p class="font-semibold text-gray-800">Total</p>
+                <p class="font-semibold text-gray-800">{{ $t('cart.total') }}</p>
                 <p class="text-lg font-semibold text-gray-900">${{ totalAmount }}</p>
               </div>
             </div>
@@ -83,12 +84,12 @@
             <div class="space-y-3">
               <nuxt-link to="/checkout" type="button" @click="closeCart"
                 class="flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-white transition duration-300 border rounded-md bg-rose-500">
-                Checkout Now
+                {{ $t('btn.checkout_now') }}
                 <icon name="material-symbols-light:arrow-circle-right" class="w-5 h-5 transition-all ms-2" />
               </nuxt-link>
               <nuxt-link to="/shopping-cart" type="button" @click="closeCart"
                 class="block w-full px-5 py-2 text-sm font-medium text-center text-black transition duration-300 bg-white border border-black rounded-md hover:bg-black hover:text-white">
-                View Cart
+                {{ $t('btn.view_cart') }}
               </nuxt-link>
             </div>
           </div>
@@ -155,4 +156,9 @@ const updateQuantityInStore = async (productId, newQuantity) => {
     await cartStore.updateQuantityInCart(productId, newQuantity);
   }
 };
+
+onMounted(async () => {
+  const { Tooltip, initTWE } = await import("tw-elements");
+  initTWE({ Tooltip });
+});
 </script>

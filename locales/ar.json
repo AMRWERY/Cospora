@@ -36,7 +36,10 @@
     "card_expiration": "تاريخ انتهاء البطاقة",
     "choose_card_expiration": "اختر تاريخ انتهاء البطاقة",
     "cvv": "رمز التحقق من البطاقة",
-    "enter_cvv": "أدخل رمز التحقق من البطاقة"
+    "enter_cvv": "أدخل رمز التحقق من البطاقة",
+    "country": "الدولة",
+    "province": "المقاطعة",
+    "postal_zip_code": "الرمز البريدي"
   },
   "btn": {
     "reset_password": "إعادة تعيين كلمة المرور",
@@ -48,7 +51,12 @@
     "browse_now": "تصفح الآن",
     "quick_view": "عرض سريع",
     "read_more": "اقرأ المزيد",
-    "view_all": "عرض الكل"
+    "view_all": "عرض الكل",
+    "checkout_now": "إتمام الشراء الآن",
+    "view_cart": "عرض السلة",
+    "remove": "إزالة",
+    "proceed_to_checkout": "المتابعة إلى الدفع",
+    "calculate_shipping": "احسب تكلفة الشحن"
   },
   "loading_btn": {
     "loading": "جاري التحميل",
@@ -172,6 +180,19 @@
   },
   "tooltip": {
     "your_wishlist": "قائمة الرغبات الخاصة بك",
-    "your_cart": "عربتك"
+    "your_cart": "عربتك",
+    "delete_item": "حذف العنصر"
+  },
+  "cart": {
+    "your_cart_is_currently_empty": "عربتك فارغة حاليًا.",
+    "continue_shopping": "مواصلة التسوق",
+    "total": "الإجمالي",
+    "your_cart": "عربة التسوق الخاصة بك",
+    "quantity": "الكمية:",
+    "secure_shopping_guarantee": "ضمان التسوق الآمن.",
+    "subtotal": "الإجمالي الفرعي",
+    "note": "ملاحظة",
+    "additional_comments": "تعليقات إضافية",
+    "get_shipping_estimates": "احصل على تقديرات الشحن"
   }
 }
