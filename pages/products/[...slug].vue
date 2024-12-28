@@ -144,7 +144,7 @@
               <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
               <icon name="svg-spinners:270-ring-with-bg" />
             </div>
-            <span v-else>Submit</span>
+            <span v-else>{{ isEditMode ? 'Update Product' : 'Add Product' }}</span>
           </button>
         </div>
       </form>
