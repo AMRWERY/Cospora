@@ -7,118 +7,118 @@
           <!-- Navigate section -->
           <div>
             <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
-              Navigate
+              {{ $t('footer.navigate') }}
             </h6>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Blog</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.blog') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">About Us</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.about_us') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Contact Us</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.contact_us') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Shipping & Returns</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.shipping_returns') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Sitemap</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.sitemap') }}</nuxt-link>
             </p>
           </div>
           <!-- Categories section -->
           <div>
             <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
-              Categories
+              {{ $t('footer.categories') }}
             </h6>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">New in</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.new_in') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Makeup</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.makeup') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Nail</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.nail') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Beauty & Accessories</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.beauty_accessories') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Body Art</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.body_art') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Makeup Tools</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.makeup_tools') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Fragrance</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.fragrance') }}</nuxt-link>
             </p>
           </div>
           <!-- Popular Brands section -->
           <div>
             <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
-              Popular Brands
+              {{ $t('footer.popular_brands') }}
             </h6>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Anna</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.anna') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Benjamin Button</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.benjamin_button') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Burberry</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.burberry') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Carhart</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.carhart') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Chanel</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.chanel') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Coco Lee</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.coco_lee') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">View All</nuxt-link>
+              <nuxt-link to="">{{ $t('btn.view_all') }}</nuxt-link>
             </p>
           </div>
           <!-- Customer Service section -->
           <div>
             <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
-              Customer Service
+              {{ $t('footer.customer_service') }}
             </h6>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Search Teams</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.search_teams') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Advanced Search</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.advanced_search') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Help & FAQs</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.help_faqs') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Ask An Beauty Expert</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.ask_an_beauty_expert') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Find A Store</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.find_a_store') }}</nuxt-link>
             </p>
           </div>
           <!-- Info section -->
           <div>
             <h6 class="flex justify-center mb-4 text-sm font-semibold capitalize md:justify-start">
-              Info
+              {{ $t('footer.info') }}
             </h6>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">685 Market Street</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.685_market_street') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">San Francisco, CA 94105,</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.san_francisco_ca_94105') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">United States</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.united_states') }}</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs mt-6">
-              <nuxt-link to="">Call us at: 1-888-699-8900</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.call_us_at') }} 1-888-699-8900</nuxt-link>
             </p>
             <p class="mb-2.5 text-xs">
-              <nuxt-link to="">Email: email@domain.com</nuxt-link>
+              <nuxt-link to="">{{ $t('footer.email') }} email@cospora.com</nuxt-link>
             </p>
           </div>
         </div>
@@ -129,9 +129,10 @@
         <div class="grid grid-cols-1 gap-4 p-6 md:grid-cols-2">
           <!-- Column 1: Newsletter Signup -->
           <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-s-4">
-            <p class="text-lg font-semibold whitespace-nowrap">Sign up for our Newsletter</p>
+            <p class="text-lg font-semibold whitespace-nowrap">{{ $t('footer.sign_up_for_our_newsletter') }}</p>
             <div class="relative w-[240px] sm:max-w-sm">
-              <input type="email" placeholder="Your email address" class="w-full p-2 text-gray-800 rounded-md pe-10" />
+              <input type="email" :placeholder="$t('footer.your_email_address')"
+                class="w-full p-2 text-gray-800 rounded-md pe-10" />
               <span class="absolute inset-y-0 flex items-center end-0 pe-2">
                 <icon name="tdesign:arrow-right-circle" class="w-6 h-6 p-1 text-black" />
               </span>
@@ -162,9 +163,9 @@
         </div>
       </div>
       <div class="text-center">
-        <span class="block max-w-md mx-auto text-xs text-gray-400">© 2019 Cospora Demo. All Rights Reserved. Powered by
-          Shopify.
-          Shopify Themes & Templates by HaloThemes.com.</span>
+        <span class="block max-w-md mx-auto text-xs text-gray-400">{{
+          $t('footer.2019_cospora_demo_all_rights_reserved_powered_by_shopify_shopify_themes_templates_by') }}
+          HaloThemes.com.</span>
         <div class="flex justify-center pb-8 mx-0 mt-5 space-s-5">
           <img src="https://justfields.com/storage/projects/7M5rV059/footer-01.jpg" class="w-[35px] h-[24px]">
           <img src="https://justfields.com/storage/projects/7M5rV059/footer-02.jpg" class="w-[35px] h-[24px]">

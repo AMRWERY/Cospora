@@ -47,7 +47,8 @@
     "submit": "Submit",
     "browse_now": "Browse Now",
     "quick_view": "Quick View",
-    "read_more": "Read More"
+    "read_more": "Read More",
+    "view_all": "View All"
   },
   "loading_btn": {
     "loading": "Loading",
@@ -96,6 +97,44 @@
     "brands": "Brands",
     "buy_theme": "Buy Theme"
   },
+  "footer": {
+    "navigate": "Navigate",
+    "blog": "Blog",
+    "about_us": "About Us",
+    "contact_us": "Contact Us",
+    "shipping_returns": "Shipping & Returns",
+    "sitemap": "Sitemap",
+    "categories": "Categories",
+    "new_in": "New in",
+    "makeup": "Makeup",
+    "nail": "Nail",
+    "beauty_accessories": "Beauty & Accessories",
+    "body_art": "Body Art",
+    "makeup_tools": "Makeup Tools",
+    "fragrance": "Fragrance",
+    "popular_brands": "Popular Brands",
+    "anna": "Anna",
+    "benjamin_button": "Benjamin Button",
+    "burberry": "Burberry",
+    "carhart": "Carhart",
+    "chanel": "Chanel",
+    "coco_lee": "Coco Lee",
+    "customer_service": "Customer Service",
+    "search_teams": "Search Teams",
+    "advanced_search": "Advanced Search",
+    "help_faqs": "Help & FAQs",
+    "ask_an_beauty_expert": "Ask An Beauty Expert",
+    "find_a_store": "Find A Store",
+    "info": "Info",
+    "685_market_street": "685 Market Street",
+    "san_francisco_ca_94105": "San Francisco, CA 94105,",
+    "united_states": "United States",
+    "call_us_at": "Call us at:",
+    "email": "Email",
+    "sign_up_for_our_newsletter": "Sign up for our Newsletter",
+    "2019_cospora_demo_all_rights_reserved_powered_by_shopify_shopify_themes_templates_by": "© 2019 Cospora Demo. All Rights Reserved. Powered by Shopify. Shopify Themes & Templates by",
+    "your_email_address": "Your email address"
+  },
   "home": {
     "milancelos": "Milancelos",
     "pellentesque_posuere_morci_lobortis_scelerisque_blandit_donec_an_tellus_lacinia_an_tincidunt_risus_de_cosmopolis_consequat_velitos": "Pellentesque posuere morci lobortis scelerisque blandit. Donec an tellus lacinia an tincidunt risus de cosmopolis consequat velitos",
@@ -122,11 +161,17 @@
     "commodo_de_quis_magna_rutrum_delos_placerat_milancelos": "Commodo De Quis Magna Rutrum Delos Placerat Milancelos",
     "naminos_delementum_disumos_an_cosmo_tincidunts_loremous": "Naminos Delementum Disumos An Cosmo Tincidunts Loremous",
     "loremous_cosmopolis": "Loremous Cosmopolis",
-    "lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_risus_leo_elementum_in_malesuada_an_darius_ut_augue_cras_sit_amet_lectus_et_justo_feugiat_euismod_sed_non_erat_nulla_non_felis_id_metus": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus leo, elementum in malesuada an darius ut augue. Cras sit amet lectus et justo feugiat euismod sed non erat. Nulla non felis id metus..."
+    "lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_risus_leo_elementum_in_malesuada_an_darius_ut_augue_cras_sit_amet_lectus_et_justo_feugiat_euismod_sed_non_erat_nulla_non_felis_id_metus": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus leo, elementum in malesuada an darius ut augue. Cras sit amet lectus et justo feugiat euismod sed non erat. Nulla non felis id metus...",
+    "on_instagram": "On Instagram",
+    "cosmetics": "#Cosmetics"
   },
   "mail": {
     "join_our_mailing_list": "Join Our Mailing List",
     "get_the_latest_updates_on_new_products_and_upcoming_sales": "Get the latest updates on new products and upcoming sales.",
     "we_promise_to_only_send_you_good_things": "We promise to only send you good things!"
+  },
+  "tooltip": {
+    "your_wishlist": "Your Wishlist",
+    "your_cart": "Your Cart"
   }
 }

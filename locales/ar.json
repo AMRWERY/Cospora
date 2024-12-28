@@ -47,7 +47,8 @@
     "submit": "إرسال",
     "browse_now": "تصفح الآن",
     "quick_view": "عرض سريع",
-    "read_more": "اقرأ المزيد"
+    "read_more": "اقرأ المزيد",
+    "view_all": "عرض الكل"
   },
   "loading_btn": {
     "loading": "جاري التحميل",
@@ -96,6 +97,44 @@
     "brands": "ماركات",
     "buy_theme": "شراء القالب"
   },
+  "footer": {
+    "navigate": "تصفح",
+    "blog": "المدونة",
+    "about_us": "معلومات عنا",
+    "contact_us": "اتصل بنا",
+    "shipping_returns": "الشحن والإرجاع",
+    "sitemap": "خريطة الموقع",
+    "categories": "الفئات",
+    "new_in": "جديد في",
+    "makeup": "مكياج",
+    "nail": "أظافر",
+    "beauty_accessories": "إكسسوارات التجميل",
+    "body_art": "فن الجسم",
+    "makeup_tools": "أدوات المكياج",
+    "fragrance": "عطر",
+    "popular_brands": "العلامات التجارية الشهيرة",
+    "anna": "آنا",
+    "benjamin_button": "بينجامين باتون",
+    "burberry": "بربري",
+    "carhart": "كارهارت",
+    "chanel": "شانيل",
+    "coco_lee": "كوكو لي",
+    "customer_service": "خدمة العملاء",
+    "search_teams": "بحث الفرق",
+    "advanced_search": "بحث متقدم",
+    "help_faqs": "المساعدة والأسئلة الشائعة",
+    "ask_an_beauty_expert": "اسأل خبير تجميل",
+    "find_a_store": "ابحث عن متجر",
+    "info": "معلومات",
+    "685_market_street": "685 شارع ماركت",
+    "san_francisco_ca_94105": "سان فرانسيسكو، كاليفورنيا 94105",
+    "united_states": "الولايات المتحدة",
+    "call_us_at": "اتصل بنا على:",
+    "email": "البريد الإلكتروني",
+    "sign_up_for_our_newsletter": "اشترك في نشرتنا الإخبارية",
+    "2019_cospora_demo_all_rights_reserved_powered_by_shopify_shopify_themes_templates_by": "© 2019 ديمو كوسبورا. جميع الحقوق محفوظة. مدعوم من Shopify. قوالب وسمات Shopify بواسطة",
+    "your_email_address": "عنوان بريدك الإلكتروني"
+  },
   "home": {
     "milancelos": "ميلانسيلوس",
     "pellentesque_posuere_morci_lobortis_scelerisque_blandit_donec_an_tellus_lacinia_an_tincidunt_risus_de_cosmopolis_consequat_velitos": "إنه محتوى نصي طويل بلغة لاتينية يستخدم عادةً كمثال. نواصل العمل على تفاصيل أخرى لنتحقق من استكمال المعلومات المطلوبة.",
@@ -122,11 +161,17 @@
     "commodo_de_quis_magna_rutrum_delos_placerat_milancelos": "كومودو دي كويز ماجنا روترم ديلوس بلاسييرات ميلانسيلوس",
     "naminos_delementum_disumos_an_cosmo_tincidunts_loremous": "نامينوس ديليمنتوم ديسوموس آن كوسمو تينسيدنتس لوريموس",
     "loremous_cosmopolis": "لوريموس كوزموبوليس",
-    "lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_risus_leo_elementum_in_malesuada_an_darius_ut_augue_cras_sit_amet_lectus_et_justo_feugiat_euismod_sed_non_erat_nulla_non_felis_id_metus": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبسينغ إليت. دويز ريسوس ليو، إليمنتوم في ماليسويدا أن داريوس أوت أغوي. كراس سيت أميت ليكتوس إيت جوستو فيوجيات إيوسيمود سيد نون إيرات. نولا نون فيليس إيد ميتوس..."
+    "lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_risus_leo_elementum_in_malesuada_an_darius_ut_augue_cras_sit_amet_lectus_et_justo_feugiat_euismod_sed_non_erat_nulla_non_felis_id_metus": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبسينغ إليت. دويز ريسوس ليو، إليمنتوم في ماليسويدا أن داريوس أوت أغوي. كراس سيت أميت ليكتوس إيت جوستو فيوجيات إيوسيمود سيد نون إيرات. نولا نون فيليس إيد ميتوس...",
+    "on_instagram": "على إنستغرام",
+    "cosmetics": "#مستحضرات-التجميل"
   },
   "mail": {
     "join_our_mailing_list": "انضم إلى قائمتنا البريدية",
     "get_the_latest_updates_on_new_products_and_upcoming_sales": "احصل على أحدث التحديثات حول المنتجات الجديدة والمبيعات القادمة.",
     "we_promise_to_only_send_you_good_things": "نعدك بإرسال الأشياء الجيدة فقط!"
+  },
+  "tooltip": {
+    "your_wishlist": "قائمة الرغبات الخاصة بك",
+    "your_cart": "عربتك"
   }
 }

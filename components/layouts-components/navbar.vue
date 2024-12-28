@@ -178,6 +178,7 @@
 
               <ClientOnly>
                 <nuxt-link to="/wishlist" type="button" class="relative hidden mt-1 text-gray-700 rounded-full sm:flex"
+                  data-twe-toggle="tooltip" data-twe-placement="bottom" :title="$t('tooltip.your_wishlist')"
                   v-if="store.isUserAuthenticated">
                   <span class="absolute -inset-1.5" />
                   <span class="sr-only">View wishlist</span>
@@ -188,14 +189,15 @@
               <HeadlessMenu as="div" class="relative ms-3" v-if="store.isUserAuthenticated">
                 <ClientOnly>
                   <HeadlessMenuButton class="relative flex items-center text-sm">
-                    <span class="sr-only">Open Sign In menu</span>
+                    <span class="sr-only">Open Cart menu</span>
                     <span class="flex items-center space-s-1">
                       <div class="relative">
                         <span
                           class="absolute top-0 inline-flex items-center justify-center w-5 h-5 -mt-2 text-xs text-white bg-black rounded-full -me-3 end-2">
                           {{ cartStore.cart.length }}
                         </span>
-                        <button type="button" class="relative mt-1 text-gray-700 rounded-full">
+                        <button type="button" class="relative mt-1 text-gray-700 rounded-full" data-twe-toggle="tooltip"
+                          data-twe-placement="bottom" :title="$t('tooltip.your_cart')">
                           <span class="absolute -inset-1.5" />
                           <span class="sr-only">View cart</span>
                           <icon name="clarity:shopping-cart-line" size="26px" />
@@ -691,6 +693,11 @@ onBeforeUnmount(() => {
 });
 
 const { t } = useI18n();
+
+onMounted(async () => {
+  const { Tooltip, initTWE } = await import("tw-elements");
+  initTWE({ Tooltip });
+});
 </script>
 
 <style scoped>
