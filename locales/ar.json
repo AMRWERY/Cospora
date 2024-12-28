@@ -85,7 +85,8 @@
     "profile": "الملف الشخصي",
     "edit_product": "تعديل منتج",
     "add_product": "اضافه منتج",
-    "users": "المستخدمين"
+    "users": "المستخدمين",
+    "order_summary": "ملخص الطلب"
   },
   "alert": {
     "success": "نجاح",
@@ -187,7 +188,8 @@
   "tooltip": {
     "your_wishlist": "قائمة الرغبات الخاصة بك",
     "your_cart": "عربتك",
-    "delete_item": "حذف العنصر"
+    "delete_item": "حذف العنصر",
+    "download_pdf": "تنزيل PDF"
   },
   "cart": {
     "your_cart_is_currently_empty": "عربتك فارغة حاليًا.",
@@ -212,5 +214,15 @@
     "tax": "الضريبة",
     "total": "الإجمالي",
     "payment_details": "تفاصيل الدفع"
+  },
+  "order_summary": {
+    "order_summary": "ملخص الطلب",
+    "order_number": "رقم الطلب:",
+    "category": "الفئة:",
+    "subtotal": "المجموع الفرعي",
+    "savings": "التوفير",
+    "store_pickup": "الاستلام من المتجر",
+    "tax": "الضريبة",
+    "total": "الإجمالي"
   }
 }

@@ -85,7 +85,8 @@
     "profile": "Profile",
     "edit_product": "Edit Product",
     "add_product": "Add Product",
-    "users": "Users"
+    "users": "Users",
+    "order_summary": "Order Summary"
   },
   "alert": {
     "success": "Success",
@@ -187,7 +188,8 @@
   "tooltip": {
     "your_wishlist": "Your Wishlist",
     "your_cart": "Your Cart",
-    "delete_item": "Delete Item"
+    "delete_item": "Delete Item",
+    "download_pdf": "Download PDF"
   },
   "cart": {
     "your_cart_is_currently_empty": "Your cart is currently empty.",
@@ -212,5 +214,15 @@
     "tax": "Tax",
     "total": "Total",
     "payment_details": "Payment Details"
+  },
+  "order_summary": {
+    "order_summary": "Order Summary",
+    "order_number": "Order Number:",
+    "category": "Category:",
+    "subtotal": "Subtotal",
+    "savings": "Savings",
+    "store_pickup": "Store Pickup",
+    "tax": "Tax",
+    "total": "Total"
   }
 }
