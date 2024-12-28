@@ -3,7 +3,7 @@
     <breadcrumb />
 
     <div class="mx-auto font-sans mt-7 max-w-7xl">
-      <h2 class="text-2xl font-bold text-gray-800">Wishlist</h2>
+      <h2 class="text-2xl font-bold text-gray-800">{{ $t('wishlist.wishlist') }}</h2>
 
       <!-- skeleton-loader component -->
       <skeleton-loader v-if="store.loading" />
@@ -12,9 +12,9 @@
         <table class="w-[1000px] mt-12 border-collapse divide-y mx-auto">
           <thead class="text-start bg-gray-50 whitespace-nowrap">
             <tr class="">
-              <th class="p-2 text-base font-medium text-gray-600">Product Image</th>
-              <th class="p-2 text-base font-medium text-gray-600">Product Name</th>
-              <th class="p-2 text-base font-medium text-gray-600">Unit Price</th>
+              <th class="p-2 text-base font-medium text-gray-600">{{ $t('wishlist.product_image') }}</th>
+              <th class="p-2 text-base font-medium text-gray-600">{{ $t('wishlist.product_name') }}</th>
+              <th class="p-2 text-base font-medium text-gray-600">{{ $t('wishlist.unit_price') }}</th>
               <th class="p-2 text-base font-medium text-gray-600"></th>
             </tr>
           </thead>
@@ -37,7 +37,8 @@
               </td>
               <td class="py-4 ps-2">
                 <div class="flex justify-end space-s-5">
-                  <button type="button" @click="removeItem(item.docId)"
+                  <button type="button" data-twe-toggle="tooltip" data-twe-placement="bottom"
+                    :title="$t('tooltip.delete_item')" @click="removeItem(item.docId)"
                     class="flex items-center justify-center h-10 bg-transparent border rounded-lg w-11">
                     <icon v-if="removingItem === item.docId" name="svg-spinners:6-dots-rotate" size="20px"
                       class="text-red-500" />
@@ -50,7 +51,7 @@
                         <span class="text-center me-2">{{ $t('loading_btn.adding_to_cart') }}...</span>
                         <icon name="svg-spinners:270-ring-with-bg" />
                       </div>
-                      <span v-else>Add to Cart</span>
+                      <span v-else>{{ $t('btn.add_to_cart') }}</span>
                     </button>
                   </div>
                 </div>
@@ -61,11 +62,13 @@
       </div>
 
       <div v-else class="mt-8 text-center">
-        <p class="text-lg text-gray-600">Your wishlist is empty.</p>
+        <p class="text-lg text-gray-600">{{ $t('wishlist.your_wishlist_is_empty') }}</p>
       </div>
 
       <!-- social-media-sharing component -->
-      <social-media-sharing />
+      <div class="mb-6">
+        <social-media-sharing />
+      </div>
     </div>
   </div>
 </template>
@@ -111,6 +114,11 @@ const moveToCart = async (item) => {
 };
 
 const { t } = useI18n()
+
+onMounted(async () => {
+  const { Tooltip, initTWE } = await import("tw-elements");
+  initTWE({ Tooltip });
+});
 
 useHead({
   titleTemplate: () => t("head.wishlist"),

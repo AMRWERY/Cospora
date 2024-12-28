@@ -204,6 +204,13 @@
     "additional_comments": "تعليقات إضافية",
     "get_shipping_estimates": "احصل على تقديرات الشحن"
   },
+  "wishlist": {
+    "wishlist": "قائمة الرغبات",
+    "product_image": "صورة المنتج",
+    "product_name": "اسم المنتج",
+    "unit_price": "سعر الوحدة",
+    "your_wishlist_is_empty": "قائمة الرغبات الخاصة بك فارغة."
+  },
   "checkout": {
     "checkout": "إتمام الشراء",
     "payment": "الدفع",
@@ -244,7 +251,7 @@
     "shopping_cart": "عربه التسوق"
   },
   "social_media": {
-    "share_my": "شارك موقعي",
+    "share_my": "شارك",
     "via": "عن طريق:"
   },
   "other": {

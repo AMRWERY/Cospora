@@ -204,6 +204,13 @@
     "additional_comments": "Additional comments",
     "get_shipping_estimates": "Get Shipping Estimates"
   },
+  "wishlist": {
+    "wishlist": "Wishlist",
+    "product_image": "Product Image",
+    "product_name": "Product Name",
+    "unit_price": "Unit Price",
+    "your_wishlist_is_empty": "Your wishlist is empty."
+  },
   "checkout": {
     "checkout": "Checkout",
     "payment": "Payment",
