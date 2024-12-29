@@ -7,7 +7,8 @@ import {
   getDocs,
   doc,
   updateDoc,
-  query, where
+  query,
+  where,
 } from "firebase/firestore";
 
 export const useCartStore = defineStore("cart", {
@@ -19,28 +20,21 @@ export const useCartStore = defineStore("cart", {
   actions: {
     async fetchCart() {
       this.isLoading = true;
-
       try {
-        const authStore = useAuthStore()
-        const userId = authStore.userId
-        // const userId = sessionStorage.getItem("userId");
+        const authStore = useAuthStore();
+        const userId = authStore.userId;
         if (!userId) {
-          console.error("User ID is not defined.");
-          this.cart = []; // Ensure cart is empty if userId is missing
+          // console.error("User ID is not defined.");
+          this.cart = [];
           return;
         }
-
-        // Create a reference to the cart collection and filter by userId
         const cartRef = collection(db, "cart");
-        const cartQuery = query(cartRef, where("userId", "==", userId)); // Firestore query
-
-        const querySnapshot = await getDocs(cartQuery); // Execute the query
-
-        // Map the retrieved data to the cart array
+        const cartQuery = query(cartRef, where("userId", "==", userId));
+        const querySnapshot = await getDocs(cartQuery);
         this.cart = querySnapshot.docs.map((doc) => ({
           docId: doc.id,
           ...doc.data(),
-          quantity: doc.data().quantity || 1, // Default quantity to 1
+          quantity: doc.data().quantity || 1,
         }));
       } catch (error) {
         console.error("Error fetching cart:", error);
@@ -48,29 +42,6 @@ export const useCartStore = defineStore("cart", {
         this.isLoading = false;
       }
     },
-    // async fetchCart() {
-    //   this.isLoading = true;
-    //   try {
-    //     const querySnapshot = await getDocs(collection(db, "cart"));
-    //     this.cart = querySnapshot.docs.map((doc) => ({
-    //       docId: doc.id,
-    //       productId: doc.data().productId,
-    //       title: doc.data().title,
-    //       price: doc.data().price,
-    //       originalPrice: doc.data().originalPrice,
-    //       imgOne: doc.data().imgOne,
-    //       categoryTitle: doc.data().categoryTitle,
-    //       subCategoryTitle: doc.data().subCategoryTitle,
-    //       discount: doc.data().discount,
-    //       quantity: doc.data().quantity || 1,
-    //     }));
-    //     // console.log(this.cart)
-    //   } catch (error) {
-    //     console.error("Error fetching cart:", error);
-    //   } finally {
-    //     this.isLoading = false;
-    //   }
-    // },
 
     async addToCart(
       id,
