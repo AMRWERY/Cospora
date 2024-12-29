@@ -40,7 +40,15 @@
     "country": "Country",
     "province": "Province",
     "postal_zip_code": "Postal / Zip Code",
-    "phone_number": "Phone Number"
+    "phone_number": "Phone Number",
+    "add_categories": "Add Categories",
+    "category_title": "Category Title",
+    "add_subcategory": "Add Subcategory",
+    "subcategory_title": "Subcategory Title",
+    "main_category": "Main Category",
+    "enter_subcategory_title": "Enter subcategory title",
+    "enter_category_title": "Enter category title",
+    "select_a_main_category": "Select a main category"
   },
   "btn": {
     "reset_password": "Reset Password",
@@ -63,7 +71,9 @@
     "back": "Back",
     "pay_now": "Pay Now",
     "order_summary": "Order Summary",
-    "add_to_cart": "Add to cart"
+    "add_to_cart": "Add to cart",
+    "add_category": "Add Category",
+    "add_subcategory": "Add Subcategory"
   },
   "loading_btn": {
     "loading": "Loading",

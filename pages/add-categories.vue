@@ -3,36 +3,39 @@
     <breadcrumb />
 
     <div class="max-w-2xl p-6 mx-auto mt-5 bg-white border rounded-lg">
-      <h2 class="mb-4 text-xl font-bold">Add Category</h2>
+      <h2 class="mb-4 text-xl font-bold">{{ $t('form.add_categories') }}</h2>
       <form @submit.prevent="handleAddCategory">
         <div class="mb-4">
-          <label for="category-title" class="block text-sm font-medium text-gray-700">Category Title</label>
+          <label for="category-title" class="block text-sm font-medium text-gray-700">{{ $t('form.category_title')
+            }}</label>
           <input id="category-title" type="text" v-model="newCategoryTitle"
-            class="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-blue-300" placeholder="Enter category title"
-            required />
+            class="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-blue-300"
+            :placeholder="$t('form.enter_category_title')" required />
         </div>
         <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-lg">
           <div class="flex items-center justify-center" v-if="loadingOne">
             <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
             <icon name="svg-spinners:270-ring-with-bg" />
           </div>
-          <span v-else>Add Category</span>
+          <span v-else>{{ $t('btn.add_category') }}</span>
         </button>
       </form>
 
-      <h2 class="mt-8 mb-4 text-xl font-bold">Add Subcategory</h2>
+      <h2 class="mt-8 mb-4 text-xl font-bold">{{ $t('form.add_subcategory') }}</h2>
       <form @submit.prevent="handleAddSubCategory">
         <div class="mb-4">
-          <label for="subcategory-title" class="block text-sm font-medium text-gray-700">Subcategory Title</label>
+          <label for="subcategory-title" class="block text-sm font-medium text-gray-700">{{ $t('form.subcategory_title')
+            }}</label>
           <input id="subcategory-title" type="text" v-model="newSubCategoryTitle"
             class="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-blue-300"
-            placeholder="Enter subcategory title" required />
+            :placeholder="$t('form.enter_subcategory_title')" required />
         </div>
         <div class="mb-4">
-          <label for="main-category" class="block text-sm font-medium text-gray-700">Main Category</label>
+          <label for="main-category" class="block text-sm font-medium text-gray-700">{{ $t('form.main_category')
+            }}</label>
           <select id="main-category" v-model="selectedCategoryId"
             class="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-blue-300" required>
-            <option value="" disabled>Select a main category</option>
+            <option value="" disabled>{{ $t('form.select_a_main_category') }}</option>
             <option v-for="category in store.categories" :key="category.id" :value="category.id">
               {{ category.title }}
             </option>
@@ -43,7 +46,7 @@
             <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
             <icon name="svg-spinners:270-ring-with-bg" />
           </div>
-          <span v-else>Add Subcategory</span>
+          <span v-else>{{ $t('btn.add_subcategory') }}</span>
         </button>
       </form>
     </div>

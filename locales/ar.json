@@ -40,7 +40,15 @@
     "country": "الدولة",
     "province": "المقاطعة",
     "postal_zip_code": "الرمز البريدي",
-    "phone_number": "رقم الهاتف"
+    "phone_number": "رقم الهاتف",
+    "add_categories": "إضافة الفئات",
+    "category_title": "اسم الفئة",
+    "add_subcategory": "إضافة فئة فرعية",
+    "subcategory_title": "اسم الفئة الفرعية",
+    "main_category": "الفئة الرئيسية",
+    "enter_subcategory_title": "أدخل اسم الفئة الفرعية",
+    "enter_category_title": "أدخل اسم الفئة",
+    "select_a_main_category": "اختر فئة رئيسية"
   },
   "btn": {
     "reset_password": "إعادة تعيين كلمة المرور",
@@ -63,7 +71,9 @@
     "back": "الرجوع",
     "pay_now": "ادفع الآن",
     "order_summary": "ملخص الطلب",
-    "add_to_cart": "أضف إلى السلة"
+    "add_to_cart": "أضف إلى السلة",
+    "add_category": "اضافه فئه",
+    "add_subcategory": "إضافة فئة فرعية"
   },
   "loading_btn": {
     "loading": "جاري التحميل",
