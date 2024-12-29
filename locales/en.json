@@ -230,7 +230,10 @@
     "download_pdf": "Download PDF",
     "back_to_home": "Back to Home",
     "edit_product": "Edit Product",
-    "delete_product": "Delete Product"
+    "delete_product": "Delete Product",
+    "delete_user": "Delete user",
+    "unblock_user": "Unblock user",
+    "block_user": "Block user"
   },
   "cart": {
     "your_cart_is_currently_empty": "Your cart is currently empty.",
@@ -304,7 +307,14 @@
     "customers": "Customers",
     "top_products": "Top Products",
     "orders": "Orders",
-    "no_products_available": "No products available"
+    "no_products_available": "No products available",
+    "users": "Users",
+    "email": "Email",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "status": "Status",
+    "blocked": "Blocked",
+    "active": "Active"
   },
   "pagination": {
     "previous": "Previous",

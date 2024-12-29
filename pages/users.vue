@@ -2,10 +2,10 @@
   <div>
     <breadcrumb />
 
-    <h3 class="py-2 mt-5 mb-12 text-2xl font-bold text-start">Users</h3>
+    <h3 class="py-2 mt-5 mb-12 text-2xl font-bold text-start">{{ $t('dashboard.users') }}</h3>
     <div
       class="relative flex flex-col w-full h-full overflow-scroll overflow-y-hidden text-gray-700 bg-white rounded-lg shadow-md bg-clip-border">
-      <table class="w-full text-left table-auto min-w-max">
+      <table class="w-full text-start table-auto min-w-max">
         <thead>
           <tr>
             <th class="p-4 border-b border-slate-200 bg-slate-50">
@@ -15,22 +15,22 @@
             </th>
             <th class="p-4 border-b border-slate-200 bg-slate-50">
               <p class="text-sm font-normal leading-none text-slate-500">
-                Email
+                {{ $t('dashboard.email') }}
               </p>
             </th>
             <th class="p-4 border-b border-slate-200 bg-slate-50">
               <p class="text-sm font-normal leading-none text-slate-500">
-                First Name
+                {{ $t('dashboard.first_name') }}
               </p>
             </th>
             <th class="p-4 border-b border-slate-200 bg-slate-50">
               <p class="text-sm font-normal leading-none text-slate-500">
-                Last Name
+                {{ $t('dashboard.last_name') }}
               </p>
             </th>
             <th class="p-4 border-b border-slate-200 bg-slate-50">
               <p class="text-sm font-normal leading-none text-slate-500">
-                Status
+                {{ $t('dashboard.status') }}
               </p>
             </th>
             <th class="p-4 border-b border-slate-200 bg-slate-50">
@@ -55,13 +55,13 @@
             </td>
             <td class="p-4 py-5">
               <p class="text-sm font-semibold" :class="user.isBlocked ? 'text-red-500' : 'text-green-500'">
-                {{ user.isBlocked ? 'Blocked' : 'Active' }}
+                {{ user.isBlocked ? $t('dashboard.blocked') : $t('dashboard.active') }}
               </p>
             </td>
             <td class="p-4 py-5">
               <div class="flex space-s-2">
                 <button @click="removeUser(user.id)" data-twe-toggle="tooltip" data-twe-placement="top"
-                  title="Delete user"
+                  :title="$t('tooltip.delete_user')"
                   class="flex items-center justify-center w-8 h-8 text-red-500 rounded hover:text-red-600">
                   <icon v-if="removingUser === user.id" name="svg-spinners:6-dots-rotate" size="20px"
                     class="text-red-500" />
@@ -69,7 +69,7 @@
                 </button>
 
                 <button @click="userStore.toggleBlockUser(user.id)"
-                  :title="user.isBlocked ? 'Unblock user' : 'Block user'"
+                  :title="user.isBlocked ? $t('tooltip.unblock_user') : $t('tooltip.block_user')"
                   class="flex items-center justify-center w-8 h-8 rounded"
                   :class="user.isBlocked ? 'text-green-500 hover:text-green-600' : 'text-yellow-500 hover:text-yellow-600'">
                   <icon :name="user.isBlocked ? 'heroicons-solid:check-circle' : 'heroicons-solid:ban'"
@@ -85,7 +85,7 @@
         <div class="flex mt-3 space-x-1 ms-auto">
           <button @click="userStore.changePage(userStore.currentPage - 1)" :disabled="userStore.currentPage === 1"
             class="px-3 py-1 text-sm font-normal transition duration-200 bg-white border rounded min-w-9 min-h-9 text-slate-500 border-slate-200 hover:bg-slate-50 hover:border-slate-400 ease">
-            Prev
+            {{ $t('pagination.previous') }}
           </button>
           <button v-for="page in userStore.totalPages" :key="page" @click="userStore.changePage(page)" :class="{
             'bg-slate-800 text-white': page === userStore.currentPage,
@@ -97,7 +97,7 @@
           <button @click="userStore.changePage(userStore.currentPage + 1)"
             :disabled="userStore.currentPage === userStore.totalPages"
             class="px-3 py-1 text-sm font-normal transition duration-200 bg-white border rounded min-w-9 min-h-9 text-slate-500 border-slate-200 hover:bg-slate-50 hover:border-slate-400 ease">
-            Next
+            {{ $t('pagination.next') }}
           </button>
         </div>
       </div>

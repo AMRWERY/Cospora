@@ -230,7 +230,10 @@
     "download_pdf": "تنزيل PDF",
     "back_to_home": "العودة إلى الصفحة الرئيسية",
     "edit_product": "تعديل المنتج",
-    "delete_product": "حذف المنتج"
+    "delete_product": "حذف المنتج",
+    "delete_user": "حذف المستخدم",
+    "unblock_user": "إلغاء حظر المستخدم",
+    "block_user": "حظر المستخدم"
   },
   "cart": {
     "your_cart_is_currently_empty": "عربتك فارغة حاليًا.",
@@ -304,7 +307,14 @@
     "customers": "العملاء",
     "top_products": "المنتجات الأكثر مبيعًا",
     "orders": "الطلبات",
-    "no_products_available": "لا توجد منتجات متاحة"
+    "no_products_available": "لا توجد منتجات متاحة",
+    "users": "المستخدمون",
+    "email": "البريد الإلكتروني",
+    "first_name": "الاسم الأول",
+    "last_name": "الاسم الأخير",
+    "status": "الحالة",
+    "blocked": "محظور",
+    "active": "نشط"
   },
   "pagination": {
     "previous": "السابق",
