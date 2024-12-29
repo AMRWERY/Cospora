@@ -63,7 +63,7 @@
                             <div class="my-8 space-y-2">
                               <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{
                                 store.selectedProduct?.brand
-                              }}</span></p>
+                                  }}</span></p>
                               <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code:
                                 <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
@@ -395,6 +395,11 @@ const handleAddToCart = async () => {
     toastIcon.value = 'material-symbols:warning-outline-rounded'
     return;
   }
+  const userId = authStore.userId;
+  if (!userId) {
+    // console.error('User ID is not available');
+    return;
+  }
   try {
     loading.value = true;
     await cartStore.addToCart(
@@ -406,7 +411,8 @@ const handleAddToCart = async () => {
       product.categoryTitle,
       product.subCategoryTitle,
       product.discount,
-      quantity.value
+      quantity.value,
+      userId
     );
     itemAdded.value = "Product added to cart!";
     setTimeout(() => (itemAdded.value = ""), 3000);

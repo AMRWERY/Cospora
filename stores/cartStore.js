@@ -7,6 +7,7 @@ import {
   getDocs,
   doc,
   updateDoc,
+  query, where
 } from "firebase/firestore";
 
 export const useCartStore = defineStore("cart", {
@@ -51,22 +52,17 @@ export const useCartStore = defineStore("cart", {
       discount,
       quantity
     ) {
+      const userId = sessionStorage.getItem("userId");
+      if (!userId) {
+        console.error("User ID is not defined.");
+        return;
+      }
       if (this.cart.length === 0) {
         await this.fetchCart();
       }
-      if (
-        typeof id !== "string" ||
-        typeof title !== "string" ||
-        typeof price !== "string" ||
-        typeof originalPrice !== "string" ||
-        typeof imgOne !== "string" ||
-        typeof categoryTitle !== "string" ||
-        typeof subCategoryTitle !== "string" ||
-        typeof discount !== "string"
-      ) {
-        return;
-      }
-      const existingProduct = this.cart.find((item) => item.productId === id);
+      const existingProduct = this.cart.find(
+        (item) => item.productId === id && item.userId === userId
+      );
       if (existingProduct) {
         try {
           const docRef = doc(db, "cart", existingProduct.docId);
@@ -87,6 +83,7 @@ export const useCartStore = defineStore("cart", {
           subCategoryTitle,
           discount,
           quantity,
+          userId,
         };
         try {
           const docRef = await addDoc(collection(db, "cart"), product);
@@ -94,7 +91,6 @@ export const useCartStore = defineStore("cart", {
             docId: docRef.id,
             ...product,
           });
-          // console.log("New product added to Firestore and cart.");
         } catch (error) {
           console.error("Error adding new product to Firestore:", error);
         }

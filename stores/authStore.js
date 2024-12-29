@@ -250,5 +250,8 @@ export const useAuthStore = defineStore("auth", {
           sessionStorage.getItem("isAuthenticated") === "true")
       );
     },
+    userId: () => {
+      return sessionStorage.getItem("userId");
+    },
   },
 });
