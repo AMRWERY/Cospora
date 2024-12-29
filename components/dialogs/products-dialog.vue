@@ -337,6 +337,11 @@ const toggleWishlist = async () => {
     toastIcon.value = 'material-symbols:warning-outline-rounded'
     return;
   }
+  const userId = authStore.userId;
+  if (!userId) {
+    // console.error('User ID is not available');
+    return;
+  }
   if (wishlistStore.isInWishlist(product.id)) {
     errorMessage.value = "Product already added to the wishlist.";
     setTimeout(() => (errorMessage.value = ""), 3000);
@@ -346,7 +351,8 @@ const toggleWishlist = async () => {
         product.id,
         product.title,
         product.price,
-        product.imgOne
+        product.imgOne,
+        userId
       );
       itemAdded.value = "Product added to wishlist!";
       setTimeout(() => (itemAdded.value = ""), 3000);
