@@ -54,7 +54,22 @@
     "availability": "التوفر",
     "select_availability": "اختر التوفر",
     "brand": "العلامة التجارية",
-    "select_brand": "اختر العلامة التجارية"
+    "select_brand": "اختر العلامة التجارية",
+    "add_product": "إضافة منتج",
+    "edit_product": "تعديل المنتج",
+    "subcategory": "فئة فرعية",
+    "select_subcategory": "اختر فئة فرعية",
+    "attach_your_files_here": "قم بإرفاق ملفاتك هنا",
+    "title": "الأسم",
+    "subtitle": "الأسم الفرعي",
+    "sale": "تخفيضات",
+    "new": "جديد",
+    "bundle": "مجموعة",
+    "custom": "مخصص",
+    "original_price": "السعر الأصلي",
+    "price": "السعر",
+    "discount": "الخصم",
+    "product_code": "رمز المنتج"
   },
   "btn": {
     "reset_password": "إعادة تعيين كلمة المرور",
@@ -81,7 +96,8 @@
     "add_category": "اضافه فئه",
     "add_subcategory": "إضافة فئة فرعية",
     "view_details": "عرض التفاصيل",
-    "add_product": "إضافة منتج"
+    "add_product": "إضافة منتج",
+    "update_product": "تحديث المنتج"
   },
   "loading_btn": {
     "loading": "جاري التحميل",
@@ -212,7 +228,9 @@
     "your_cart": "عربتك",
     "delete_item": "حذف العنصر",
     "download_pdf": "تنزيل PDF",
-    "back_to_home": "العودة إلى الصفحة الرئيسية"
+    "back_to_home": "العودة إلى الصفحة الرئيسية",
+    "edit_product": "تعديل المنتج",
+    "delete_product": "حذف المنتج"
   },
   "cart": {
     "your_cart_is_currently_empty": "عربتك فارغة حاليًا.",

@@ -1,22 +1,23 @@
 <template>
   <div>
     <div class="max-w-2xl px-8 py-6 mx-auto my-8 bg-white border rounded-lg">
-      <h2 class="mb-4 text-2xl font-medium text-center">{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h2>
+      <h2 class="mb-4 text-2xl font-medium text-center">{{ isEditMode ? $t('form.edit_product') : $t('form.add_product')
+        }}</h2>
       <form @submit.prevent="handleSubmit">
         <div class="mb-4">
-          <label for="main-category" class="block mb-2 font-medium text-gray-700">Main Category</label>
+          <label for="main-category" class="block mb-2 font-medium text-gray-700">{{ $t('form.main_category') }}</label>
           <select id="main-category" name="main-category" v-model="selectedCategory" @change="onCategoryChange"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
-            <option value="" disabled>Select Main Category</option>
+            <option value="" disabled>{{ $t('form.select_a_main_category') }}</option>
             <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.title }}</option>
           </select>
         </div>
 
         <div class="mb-4">
-          <label for="sub-category" class="block mb-2 font-medium text-gray-700">Sub Category</label>
+          <label for="sub-category" class="block mb-2 font-medium text-gray-700">{{ $t('form.subcategory') }}</label>
           <select id="sub-category" name="sub-category" v-model="selectedSubCategory"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
-            <option value="" disabled>Select Sub Category</option>
+            <option value="" disabled>{{ $t('form.select_subcategory') }}</option>
             <option v-for="subCategory in subCategories" :key="subCategory.id" :value="subCategory.id">{{
               subCategory.title }}</option>
           </select>
@@ -31,7 +32,7 @@
                   <div class="absolute">
                     <div class="flex flex-col items-center">
                       <icon name="material-symbols:add-photo-alternate" class="w-20 h-20 text-blue-700" />
-                      <span class="block font-normal text-gray-400">Attach you files here</span>
+                      <span class="block font-normal text-gray-400">{{ $t('form.attach_your_files_here') }}</span>
                     </div>
                   </div>
                   <input type="file" class="w-full h-full opacity-0" @change="handleFileChange" multiple>
@@ -57,13 +58,13 @@
         </div>
 
         <div class="mb-4">
-          <label for="title" class="block mb-2 font-medium text-gray-700">Title</label>
+          <label for="title" class="block mb-2 font-medium text-gray-700">{{ $t('form.title') }}</label>
           <input type="text" id="title" name="title" v-model="product.title"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
-          <label for="subtitle" class="block mb-2 font-medium text-gray-700">Subtitle</label>
+          <label for="subtitle" class="block mb-2 font-medium text-gray-700">{{ $t('form.subtitle') }}</label>
           <input type="text" id="subtitle" name="subtitle" v-model="product.subtitle"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
@@ -72,67 +73,69 @@
           <div class="flex flex-wrap -mx-2">
             <div class="w-1/4 px-2">
               <label for="new" class="block mb-2 font-medium text-gray-700">
-                <input type="checkbox" id="new" name="new" value="new" class="me-2" v-model="product.productTypes">New
+                <input type="checkbox" id="new" name="new" value="new" class="me-2" v-model="product.productTypes">{{
+                  $t('form.new') }}
               </label>
             </div>
             <div class="w-1/4 px-2">
               <label for="sale" class="block mb-2 font-medium text-gray-700">
-                <input type="checkbox" id="sale" name="sale" value="sale" class="me-2"
-                  v-model="product.productTypes">Sale
+                <input type="checkbox" id="sale" name="sale" value="sale" class="me-2" v-model="product.productTypes">{{
+                  $t('form.sale') }}
               </label>
             </div>
             <div class="w-1/4 px-2">
               <label for="bundle" class="block mb-2 font-medium text-gray-700">
                 <input type="checkbox" id="bundle" name="bundle" value="bundle" class="me-2"
-                  v-model="product.productTypes">Bundle
+                  v-model="product.productTypes">{{ $t('form.bundle') }}
               </label>
             </div>
             <div class="w-1/4 px-2">
               <label for="custom-label" class="block mb-2 font-medium text-gray-700">
                 <input type="checkbox" id="custom-label" name="custom-label" value="custom-label" class="me-2"
-                  v-model="product.productTypes">Custom
+                  v-model="product.productTypes">{{ $t('form.custom') }}
               </label>
             </div>
           </div>
         </div>
 
         <div class="mb-4">
-          <label for="original-price" class="block mb-2 font-medium text-gray-700">Original Price</label>
+          <label for="original-price" class="block mb-2 font-medium text-gray-700">{{ $t('form.original_price')
+            }}</label>
           <input type="text" id="original-price" name="original-price" v-model="product.originalPrice"
             @input="(event) => handleInput(event, 'originalPrice')" @blur="() => handleBlur('originalPrice')"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
-          <label for="price" class="block mb-2 font-medium text-gray-700">Price</label>
+          <label for="price" class="block mb-2 font-medium text-gray-700">{{ $t('form.price') }}</label>
           <input type="text" id="price" name="price" v-model="product.price"
             @input="(event) => handleInput(event, 'price')" @blur="() => handleBlur('price')"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
-          <label for="discount" class="block mb-2 font-medium text-gray-700">Discount</label>
+          <label for="discount" class="block mb-2 font-medium text-gray-700">{{ $t('form.discount') }}</label>
           <input type="text" id="discount" name="discount" v-model="product.discount"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
-          <label for="product-code" class="block mb-2 font-medium text-gray-700">Product Code</label>
+          <label for="product-code" class="block mb-2 font-medium text-gray-700">{{ $t('form.product_code') }}</label>
           <input type="text" id="product-code" name="product-code" v-model="product.productCode"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
-          <label for="brand" class="block mb-2 font-medium text-gray-700">Brand</label>
+          <label for="brand" class="block mb-2 font-medium text-gray-700">{{ $t('form.brand') }}</label>
           <input type="text" id="brand" name="brand" v-model="product.brand"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
         </div>
 
         <div class="mb-4">
-          <label for="availability" class="block mb-2 font-medium text-gray-700">Availability</label>
+          <label for="availability" class="block mb-2 font-medium text-gray-700">{{ $t('form.availability') }}</label>
           <select id="availability" name="availability" v-model="product.availability"
             class="w-full p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-400">
-            <option value="" disabled>Select Availability</option>
+            <option value="" disabled>{{ $t('form.select_availability') }}</option>
             <option>In stock</option>
             <option>Out of stock</option>
           </select>
@@ -144,7 +147,7 @@
               <span class="text-center me-2">{{ $t('loading_btn.please_wait') }}...</span>
               <icon name="svg-spinners:270-ring-with-bg" />
             </div>
-            <span v-else>{{ isEditMode ? 'Update Product' : 'Add Product' }}</span>
+            <span v-else>{{ isEditMode ? $t('btn.update_product') : $t('btn.add_product') }}</span>
           </button>
         </div>
       </form>
@@ -343,8 +346,14 @@ definePageMeta({
 });
 
 onMounted(() => {
-  useHead({
-    titleTemplate: isEditMode.value ? t("head.edit_product") : t("head.add_product"),
-  });
+  watch(
+    () => isEditMode.value,
+    () => {
+      useHead({
+        titleTemplate: isEditMode.value ? t("head.edit_product") : t("head.add_product"),
+      });
+    },
+    { immediate: true }
+  );
 });
 </script>

@@ -54,7 +54,22 @@
     "availability": "Availability",
     "select_availability": "Select Availability",
     "brand": "Brand",
-    "select_brand": "Select Brand"
+    "select_brand": "Select Brand",
+    "add_product": "Add Product",
+    "edit_product": "Edit Product",
+    "subcategory": "Subcategory",
+    "select_subcategory": "Select Subcategory",
+    "attach_your_files_here": "Attach your files here",
+    "title": "Title",
+    "subtitle": "Subtitle",
+    "sale": "Sale",
+    "new": "New",
+    "bundle": "Bundle",
+    "custom": "Custom",
+    "original_price": "Original Price",
+    "price": "Price",
+    "discount": "Discount",
+    "product_code": "Product Code"
   },
   "btn": {
     "reset_password": "Reset Password",
@@ -81,7 +96,8 @@
     "add_category": "Add Category",
     "add_subcategory": "Add Subcategory",
     "view_details": "View Details",
-    "add_product": "Add Product"
+    "add_product": "Add Product",
+    "update_product": "Update Product"
   },
   "loading_btn": {
     "loading": "Loading",
@@ -212,7 +228,9 @@
     "your_cart": "Your Cart",
     "delete_item": "Delete Item",
     "download_pdf": "Download PDF",
-    "back_to_home": "Back to Home"
+    "back_to_home": "Back to Home",
+    "edit_product": "Edit Product",
+    "delete_product": "Delete Product"
   },
   "cart": {
     "your_cart_is_currently_empty": "Your cart is currently empty.",

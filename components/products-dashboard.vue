@@ -66,11 +66,11 @@
                 :src="product.imgTwo" />
               <nuxt-link :to="`/products/edit-product/${product.id}`" type="button"
                 class="absolute bg-white rounded-full shadow-lg top-2 end-2" data-twe-toggle="tooltip"
-                data-twe-placement="top" title="Edit Product">
+                data-twe-placement="top" :title="$t('tooltip.edit_product')">
                 <icon name="ep:edit" class="text-gray-600" />
               </nuxt-link>
               <button @click="deleteProduct(product.id)" class="absolute bg-white rounded-full shadow-lg top-10 end-2"
-                data-twe-toggle="tooltip" data-twe-placement="top" title="Delete Product">
+                data-twe-toggle="tooltip" data-twe-placement="top" :title="$t('tooltip.delete_product')">
                 <icon v-if="deleteProd === product.id" name="svg-spinners:6-dots-rotate" size="20px"
                   class="text-red-500" />
                 <icon name="ep:delete" class="text-red-600" v-else />
