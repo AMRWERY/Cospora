@@ -73,7 +73,8 @@
     "order_summary": "ملخص الطلب",
     "add_to_cart": "أضف إلى السلة",
     "add_category": "اضافه فئه",
-    "add_subcategory": "إضافة فئة فرعية"
+    "add_subcategory": "إضافة فئة فرعية",
+    "view_details": "عرض التفاصيل"
   },
   "loading_btn": {
     "loading": "جاري التحميل",

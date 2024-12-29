@@ -73,7 +73,8 @@
     "order_summary": "Order Summary",
     "add_to_cart": "Add to cart",
     "add_category": "Add Category",
-    "add_subcategory": "Add Subcategory"
+    "add_subcategory": "Add Subcategory",
+    "view_details": "View Details"
   },
   "loading_btn": {
     "loading": "Loading",

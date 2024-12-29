@@ -82,7 +82,7 @@ const { isAuthPage } = useAuthPage();
 
 const { t } = useI18n()
 
-const menuGroups = ref([
+const menuGroups = computed(() => [
     {
         menuItems: [
             {
@@ -93,19 +93,19 @@ const menuGroups = ref([
             {
                 icon: 'ion:tshirt',
                 label: t('layout.products'),
-                route: '/products'
+                route: '/products',
             },
             {
                 icon: 'material-symbols:calendar-month-sharp',
                 label: t('layout.add_categories'),
-                route: '/add-categories'
+                route: '/add-categories',
             },
             {
                 icon: 'gravity-ui:persons',
                 label: t('layout.users'),
-                route: '/users'
+                route: '/users',
             },
-        ]
+        ],
     },
-])
+]);
 </script>
