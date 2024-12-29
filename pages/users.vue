@@ -126,6 +126,8 @@ const toastIcon = ref('')
 
 const removingUser = ref(null);
 
+const { t } = useI18n()
+
 const removeUser = async (userId) => {
   if (!userId) {
     // console.error("No userId provided for removal.");
@@ -138,8 +140,8 @@ const removeUser = async (userId) => {
       removingUser.value = null;
     }, 3000);
     showToast.value = true;
-    toastTitle.value = 'Great!';
-    toastMessage.value = 'User deleted successfully';
+    toastTitle.value = t('toast.great');
+    toastMessage.value = t('toast.user_deleted_successfully');
     toastType.value = 'success';
     toastIcon.value = 'mdi:check-circle'
   } catch (error) {
@@ -152,8 +154,6 @@ onMounted(async () => {
   const { Tooltip, initTWE } = await import("tw-elements");
   initTWE({ Tooltip });
 });
-
-const { t } = useI18n()
 
 definePageMeta({
   layout: 'dashboard'

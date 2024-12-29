@@ -63,7 +63,7 @@
                             <div class="my-8 space-y-2">
                               <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{
                                 store.selectedProduct?.brand
-                                  }}</span></p>
+                              }}</span></p>
                               <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code:
                                 <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
@@ -323,14 +323,16 @@ const wishlistStore = useWishlistStore();
 const errorMessage = ref("");
 const itemAdded = ref('')
 
+const { t } = useI18n()
+
 const toggleWishlist = async () => {
   const product = store.selectedProduct;
   if (!product) return;
   const authStore = useAuthStore();
   if (!authStore.isUserAuthenticated) {
     showToast.value = true;
-    toastTitle.value = 'ah ah!';
-    toastMessage.value = 'Please log in first to add to wishlist.';
+    toastTitle.value = t('toast.ah_ah');
+    toastMessage.value = t('toast.please_log_in_first_to_add_to_wishlist');
     toastType.value = 'warning';
     toastIcon.value = 'material-symbols:warning-outline-rounded'
     return;
@@ -349,8 +351,8 @@ const toggleWishlist = async () => {
       itemAdded.value = "Product added to wishlist!";
       setTimeout(() => (itemAdded.value = ""), 3000);
       showToast.value = true;
-      toastTitle.value = 'Great!';
-      toastMessage.value = 'Item added to your wishlist';
+      toastTitle.value = t('toast.great');
+      toastMessage.value = t('toast.item_added_to_your_wishlist');
       toastType.value = 'success';
       toastIcon.value = 'clarity:heart-line'
     } catch (error) {
@@ -387,8 +389,8 @@ const handleAddToCart = async () => {
   const authStore = useAuthStore();
   if (!authStore.isUserAuthenticated) {
     showToast.value = true;
-    toastTitle.value = 'ah ah!';
-    toastMessage.value = 'Please log in first to add to cart.';
+    toastTitle.value = t('toast.ah_ah');
+    toastMessage.value = t('toast.please_log_in_first_to_add_to_cart');
     toastType.value = 'warning';
     toastIcon.value = 'material-symbols:warning-outline-rounded'
     return;
@@ -409,8 +411,8 @@ const handleAddToCart = async () => {
     itemAdded.value = "Product added to cart!";
     setTimeout(() => (itemAdded.value = ""), 3000);
     showToast.value = true;
-    toastTitle.value = 'Great!';
-    toastMessage.value = 'Item added to your cart';
+    toastTitle.value = t('toast.great');
+    toastMessage.value = t('toast.item_added_to_your_cart');
     toastType.value = 'success';
     toastIcon.value = 'clarity:shopping-cart-line'
   } catch (error) {

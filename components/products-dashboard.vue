@@ -180,6 +180,8 @@ const onPageChanged = (pageNumber) => {
   currentPage.value = pageNumber;
 };
 
+const { t } = useI18n()
+
 const deleteProduct = async (productId) => {
   deleteProd.value = productId;
   try {
@@ -188,16 +190,16 @@ const deleteProduct = async (productId) => {
       store.products = store.products.filter(product => product.id !== productId);
       deleteProd.value = null;
       showToast.value = true;
-      toastTitle.value = 'Great!';
-      toastMessage.value = 'Product deleted successfully';
+      toastTitle.value = t('toast.great');
+      toastMessage.value = t('toast.product_deleted_successfully');
       toastType.value = 'success';
       toastIcon.value = 'mdi:check-circle';
     }, 3000);
   } catch (error) {
     deleteProd.value = null;
     showToast.value = true;
-    toastTitle.value = 'Error';
-    toastMessage.value = 'Failed to delete the product';
+    toastTitle.value = t('toast.error');
+    toastMessage.value = t('toast.failed_to_delete_the_product');
     toastType.value = 'error';
     toastIcon.value = 'mdi:alert-circle';
   }

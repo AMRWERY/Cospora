@@ -79,8 +79,8 @@ const signIn = async () => {
       password: data.value.password,
     });
     showToast.value = true;
-    toastTitle.value = t('form.successfully_logged_in');
-    toastMessage.value = t('form.your_account_has_been_successfully_logged_in');
+    toastTitle.value = t('toast.successfully_logged_in');
+    toastMessage.value = t('toast.your_account_has_been_successfully_logged_in');
     toastType.value = 'success';
     toastIcon.value = 'mdi:check-circle';
     dialogVisible.value = false;

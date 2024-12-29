@@ -82,8 +82,8 @@ const handleAddCategory = async () => {
   if (newCategoryTitle.value.trim()) {
     await store.addCategory(newCategoryTitle.value.trim());
     showToast.value = true;
-    toastTitle.value = 'Great!';
-    toastMessage.value = 'Category added successfully';
+    toastTitle.value = t('toast.great');
+    toastMessage.value = t('toast.category_added_successfully');
     toastType.value = 'success';
     toastIcon.value = 'mdi:check-circle'
     newCategoryTitle.value = '';
@@ -97,8 +97,8 @@ const handleAddSubCategory = async () => {
   if (newSubCategoryTitle.value.trim() && selectedCategoryId.value) {
     await store.addSubCategory(newSubCategoryTitle.value.trim(), selectedCategoryId.value);
     showToast.value = true;
-    toastTitle.value = 'Great!';
-    toastMessage.value = 'Subcategory added successfully';
+    toastTitle.value = t('toast.great');
+    toastMessage.value = t('toast.subcategory_added_successfully');
     toastType.value = 'success';
     toastIcon.value = 'mdi:check-circle'
     newSubCategoryTitle.value = '';

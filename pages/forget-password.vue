@@ -72,8 +72,8 @@ const resetPassword = async () => {
       email: data.value.email,
     });
     showToast.value = true;
-    toastTitle.value = 'Password Reset!';
-    toastMessage.value = 'Please check your email inbox';
+    toastTitle.value = t('toast.password_reset');
+    toastMessage.value = t('toast.please_check_your_email_inbox');
     toastType.value = 'success';
     toastIcon.value = 'mdi:check-circle'
   } catch (error) {

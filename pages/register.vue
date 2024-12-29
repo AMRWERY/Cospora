@@ -96,8 +96,8 @@ const signUp = async () => {
       password: data.value.password,
     });
     showToast.value = true;
-    toastTitle.value = t('form.account_created');
-    toastMessage.value = t('form.your_account_has_been_successfully_created');
+    toastTitle.value = t('toast.account_created');
+    toastMessage.value = t('toast.your_account_has_been_successfully_created');
     toastType.value = 'success';
     toastIcon.value = 'mdi:check-circle'
     dialogVisible.value = false;

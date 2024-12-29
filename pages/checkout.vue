@@ -101,7 +101,7 @@
                         :placeholder="$t('checkout.enter_a_gift_card_voucher_or_promotional_code')" />
                       <button type="button"
                         class="flex items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">{{
-                        $t('btn.apply') }}</button>
+                          $t('btn.apply') }}</button>
                     </div>
                   </div>
                 </div>
@@ -303,8 +303,8 @@ const submitCheckoutForm = async () => {
     await new Promise(resolve => setTimeout(resolve, 3000));
     await checkoutStore.saveCheckoutData();
     showToast.value = true;
-    toastTitle.value = 'Payment Successful';
-    toastMessage.value = 'Your payment was processed successfully. Thank you for your purchase!';
+    toastTitle.value = t('toast.payment_successful');
+    toastMessage.value = t('toast.your_payment_was_processed_successfully_thank_you_for_your_purchase');
     toastType.value = 'success';
     toastIcon.value = 'mdi:check-circle'
   } catch (error) {

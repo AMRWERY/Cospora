@@ -244,12 +244,14 @@ const convertToBase64 = (file) => {
   })
 }
 
+const { t } = useI18n();
+
 const handleSubmit = async () => {
   loading.value = true;
   try {
     if (!product.value.title || !product.value.price || !selectedCategory.value) {
-      toastTitle.value = "Error";
-      toastMessage.value = "Please fill all required fields.";
+      toastTitle.value = t('toast.error');
+      toastMessage.value = t('toast.please_fill_all_required_fields');
       toastType.value = "error";
       toastIcon.value = "mdi-alert-circle";
       showToast.value = true;
@@ -262,16 +264,16 @@ const handleSubmit = async () => {
         categoryId: selectedCategory.value,
         subCategoryId: selectedSubCategory.value,
       });
-      toastTitle.value = "Success";
-      toastMessage.value = "Product updated successfully!";
+      toastTitle.value = t('toast.success');
+      toastMessage.value = t('toast.product_updated_successfully');
     } else {
       await store.addProduct({
         ...product.value,
         categoryId: selectedCategory.value,
         subCategoryId: selectedSubCategory.value,
       });
-      toastTitle.value = "Success";
-      toastMessage.value = "Product added successfully!";
+      toastTitle.value = t('toast.success');
+      toastMessage.value = t('toast.product_added_successfully');
       resetForm();
     }
     toastType.value = "success";
@@ -279,8 +281,8 @@ const handleSubmit = async () => {
     showToast.value = true;
   } catch (error) {
     console.error("Error submitting product:", error);
-    toastTitle.value = "Error";
-    toastMessage.value = "Something went wrong. Please try again.";
+    toastTitle.value = t('toast.error');
+    toastMessage.value = t('toast.something_went_wrong_please_try_again');
     toastType.value = "error";
     toastIcon.value = "mdi-alert-circle";
     showToast.value = true;
@@ -338,8 +340,6 @@ const handleInput = (event, key) => {
 const handleBlur = (key) => {
   product.value[key] = enforceTwoDecimalPlaces(product.value[key]);
 };
-
-const { t } = useI18n();
 
 definePageMeta({
   layout: "dashboard",

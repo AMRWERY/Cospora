@@ -125,13 +125,15 @@ const isInWishlist = (productId) => {
   return wishlistStore.isInWishlist(productId);
 };
 
+const { t } = useI18n()
+
 const toggleWishlist = async (product) => {
   if (!product) return;
   const authStore = useAuthStore();
   if (!authStore.isUserAuthenticated) {
     showToast.value = true;
-    toastTitle.value = 'ah ah!';
-    toastMessage.value = 'Please log in first to add to wishlist.';
+    toastTitle.value = t('toast.ah_ah');
+    toastMessage.value = t('toast.please_log_in_first_to_add_to_wishlist');
     toastType.value = 'warning';
     toastIcon.value = 'material-symbols:warning-outline-rounded'
     return;
@@ -149,22 +151,6 @@ const toggleWishlist = async (product) => {
     console.error("Error adding to wishlist:", error);
   }
 };
-
-// const toggleWishlist = async (product) => {
-//   if (!product) return;
-//   try {
-//     if (!wishlistStore.isInWishlist(product.id)) {
-//       await wishlistStore.addToWishlist(
-//         product.id,
-//         product.title,
-//         product.price,
-//         product.imgOne
-//       );
-//     }
-//   } catch (error) {
-//     console.error("Error adding to wishlist:", error);
-//   }
-// };
 
 const props = defineProps({
   products: {
