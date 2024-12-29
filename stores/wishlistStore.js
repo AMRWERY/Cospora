@@ -7,7 +7,7 @@ import {
   deleteDoc,
   doc,
   query,
-  where
+  where,
 } from "firebase/firestore";
 
 export const useWishlistStore = defineStore("wishlistStore", {
@@ -17,39 +17,19 @@ export const useWishlistStore = defineStore("wishlistStore", {
   }),
 
   actions: {
-    // async fetchWishlist() {
-    //   this.loading = true;
-    //   try {
-    //     const querySnapshot = await getDocs(collection(db, "wishlist"));
-    //     this.wishlist = querySnapshot.docs.map((doc) => ({
-    //       docId: doc.id,
-    //       productId: doc.data().id,
-    //       title: doc.data().title,
-    //       price: doc.data().price,
-    //       imgOne: doc.data().imgOne,
-    //     }));
-    //     // console.log("Fetched wishlist:", this.wishlist);
-    //   } catch (error) {
-    //     console.error("Error fetching wishlist:", error);
-    //   } finally {
-    //     this.loading = false;
-    //   }
-    // },
     async fetchWishlist() {
       this.loading = true;
       try {
-        const userId = sessionStorage.getItem("userId"); // Get userId from sessionStorage
+        const authStore = useAuthStore();
+        const userId = authStore.userId;
         if (!userId) {
-          console.error("User ID not found. Cannot fetch wishlist.");
+          // console.error("User ID not found. Cannot fetch wishlist.");
           return;
         }
-
-        // Query wishlist items by userId
         const wishlistQuery = query(
           collection(db, "wishlist"),
           where("userId", "==", userId)
         );
-
         const querySnapshot = await getDocs(wishlistQuery);
         this.wishlist = querySnapshot.docs.map((doc) => ({
           docId: doc.id,
@@ -58,7 +38,7 @@ export const useWishlistStore = defineStore("wishlistStore", {
           price: doc.data().price,
           imgOne: doc.data().imgOne,
         }));
-        console.log("Fetched wishlist:", this.wishlist); // Debugging output
+        // console.log("Fetched wishlist:", this.wishlist);
       } catch (error) {
         console.error("Error fetching wishlist:", error);
       } finally {
@@ -70,53 +50,21 @@ export const useWishlistStore = defineStore("wishlistStore", {
       if (this.wishlist.some((item) => item.productId === id)) {
         throw new Error("Item already added to the wishlist.");
       }
-
-      // const userId = sessionStorage.getItem("userId");
       const authStore = useAuthStore();
       const userId = authStore.userId;
       if (!userId) {
         console.error("User ID not found. Cannot add to wishlist.");
         return;
       }
-
-      const product = { id, title, price, imgOne, userId }; // Include userId in the product object
-
+      const product = { id, title, price, imgOne, userId };
       try {
         const docRef = await addDoc(collection(db, "wishlist"), product);
         this.wishlist.push({ docId: docRef.id, productId: id, ...product });
-        console.log("Product added to wishlist:", product); // Debugging output
+        console.log("Product added to wishlist:", product);
       } catch (error) {
         console.error("Error adding to wishlist:", error);
       }
     },
-    // async addToWishlist(id, title, price, imgOne) {
-    //   if (this.wishlist.length === 0) {
-    //     await this.fetchWishlist();
-    //   }
-    //   if (this.wishlist.some((item) => item.productId === id)) {
-    //     throw new Error("Item already added to the wishlist.");
-    //   }
-    //   if (
-    //     typeof id !== "string" ||
-    //     typeof title !== "string" ||
-    //     typeof price !== "string" ||
-    //     typeof imgOne !== "string"
-    //   ) {
-    //     // console.error(
-    //     //   "Invalid parameters passed to addToWishlist. Expected id, title, price, imgOne to be strings.",
-    //     //   { id, title, price, imgOne }
-    //     // );
-    //     return;
-    //   }
-    //   const product = { id, title, price, imgOne };
-    //   try {
-    //     const docRef = await addDoc(collection(db, "wishlist"), product);
-    //     this.wishlist.push({ docId: docRef.id, productId: id, ...product });
-    //     // console.log("Product added to wishlist:", product);
-    //   } catch (error) {
-    //     console.error("Error adding to wishlist:", error);
-    //   }
-    // },
 
     async removeFromWishlist(docId) {
       //   console.log("Removing item with docId:", docId);

@@ -63,7 +63,7 @@
                             <div class="my-8 space-y-2">
                               <p class="text-sm font-semibold">Brand: <span class="font-normal ms-20">{{
                                 store.selectedProduct?.brand
-                                  }}</span></p>
+                              }}</span></p>
                               <p class="text-sm font-semibold" v-if="store.selectedProduct?.productCode">Product Code:
                                 <span class="font-normal ms-7">{{ store.selectedProduct?.productCode }}</span>
                               </p>
