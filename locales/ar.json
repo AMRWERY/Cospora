@@ -117,7 +117,8 @@
     "edit_product": "تعديل منتج",
     "add_product": "اضافه منتج",
     "users": "المستخدمين",
-    "order_summary": "ملخص الطلب"
+    "order_summary": "ملخص الطلب",
+    "orders": "الطلبات"
   },
   "alert": {
     "success": "نجاح",
@@ -144,7 +145,8 @@
     "buy_theme": "شراء القالب",
     "products": "المنتجات",
     "add_categories": "إضافة الفئات",
-    "users": "المستخدمون"
+    "users": "المستخدمون",
+    "orders": "الطلبات"
   },
   "footer": {
     "navigate": "تصفح",
@@ -289,7 +291,8 @@
     "users": "المستخدمين",
     "order_summary": "ملخص الطلب",
     "shopping_cart": "عربه التسوق",
-    "add_categories": "إضافة الفئات"
+    "add_categories": "إضافة الفئات",
+    "orders": "الطلبات"
   },
   "social_media": {
     "share_my": "شارك",
@@ -343,6 +346,7 @@
     "success": "نجاح",
     "product_updated_successfully": "تم تحديث المنتج بنجاح!",
     "product_added_successfully": "تم إضافة المنتج بنجاح!",
-    "something_went_wrong_please_try_again": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+    "something_went_wrong_please_try_again": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "order_status_updated": "تم تحديث حالة الطلب"
   }
 }

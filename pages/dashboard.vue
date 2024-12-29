@@ -10,7 +10,7 @@
             <p class="text-xl font-semibold text-gray-700">{{ totalCheckouts }}</p>
           </div>
           <div class="mt-6 text-center">
-            <nuxt-link to="" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">{{ $t('btn.view_details')
+            <nuxt-link to="/orders" type="button" class="px-4 py-2 text-white bg-blue-500 rounded-md">{{ $t('btn.view_details')
               }}</nuxt-link>
           </div>
         </div>

@@ -105,6 +105,11 @@ const menuGroups = computed(() => [
                 label: t('layout.users'),
                 route: '/users',
             },
+            {
+                icon: 'mdi:order-bool-descending-variant',
+                label: t('layout.orders'),
+                route: '/orders',
+            },
         ],
     },
 ]);

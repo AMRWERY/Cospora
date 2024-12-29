@@ -1,9 +1,19 @@
 import { defineStore } from "pinia";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "@/firebase/config";
 
 export const useCheckoutStore = defineStore("checkout", {
   state: () => ({
+    orders: [],
+    paginatedOrders: [],
+    currentPage: 1,
+    ordersPerPage: 2,
     deliveryDetails: {
       name: "",
       email: "",
@@ -21,6 +31,52 @@ export const useCheckoutStore = defineStore("checkout", {
   }),
 
   actions: {
+    async fetchOrders() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "checkout"));
+        this.orders = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        // console.log(this.orders);
+        this.updatePagination();
+        await this.fetchTotalCheckouts();
+      } catch (e) {
+        console.error("Error fetching orders: ", e);
+      }
+    },
+
+    updatePagination() {
+      this.paginatedOrders = this.orders.slice(
+        (this.currentPage - 1) * this.ordersPerPage,
+        this.currentPage * this.ordersPerPage
+      );
+    },
+
+    changePage(page) {
+      if (page > 0 && page <= this.totalPages) {
+        this.currentPage = page;
+        this.updatePagination();
+      }
+    },
+
+    async updateOrderStatus(orderId, newStatus) {
+      try {
+        const orderRef = doc(collection(db, "checkout"), orderId);
+        await updateDoc(orderRef, { status: newStatus });
+        const orderIndex = this.orders.findIndex(
+          (order) => order.id === orderId
+        );
+        if (orderIndex !== -1) {
+          this.orders[orderIndex].status = newStatus;
+        }
+        this.updatePagination();
+      } catch (error) {
+        // console.error("Error updating order status:", error);
+        throw error;
+      }
+    },
+
     generateOrderId() {
       const timestamp = Date.now();
       const randomNum = Math.floor(Math.random() * 10000);
@@ -35,7 +91,6 @@ export const useCheckoutStore = defineStore("checkout", {
           deliveryDetails: this.deliveryDetails,
           paymentDetails: this.paymentDetails,
         });
-        // console.log("Order ID: ", orderId);
       } catch (e) {
         console.error("Error adding document: ", e);
       }
@@ -52,6 +107,10 @@ export const useCheckoutStore = defineStore("checkout", {
   },
 
   getters: {
+    getOrders(state) {
+      return state.orders;
+    },
+
     getDeliveryDetails(state) {
       return state.deliveryDetails;
     },
@@ -62,6 +121,10 @@ export const useCheckoutStore = defineStore("checkout", {
 
     getTotalCheckouts(state) {
       return state.totalCheckouts;
+    },
+
+    totalPages() {
+      return Math.ceil(this.orders.length / this.ordersPerPage);
     },
   },
 });
