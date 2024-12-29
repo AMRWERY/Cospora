@@ -252,7 +252,8 @@
     "add_product": "Add Product",
     "users": "Users",
     "order_summary": "Order Summary",
-    "shopping_cart": "Shopping Cart"
+    "shopping_cart": "Shopping Cart",
+    "add_categories": "Add Categories"
   },
   "social_media": {
     "share_my": "Share my",
@@ -265,6 +266,7 @@
     "orders_placed": "Orders Placed",
     "inventory": "Inventory",
     "customers": "Customers",
-    "top_products": "Top Products"
+    "top_products": "Top Products",
+    "orders": "Orders"
   }
 }

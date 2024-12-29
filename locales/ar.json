@@ -252,7 +252,8 @@
     "add_product": "إضافة منتج",
     "users": "المستخدمين",
     "order_summary": "ملخص الطلب",
-    "shopping_cart": "عربه التسوق"
+    "shopping_cart": "عربه التسوق",
+    "add_categories": "إضافة الفئات"
   },
   "social_media": {
     "share_my": "شارك",
@@ -265,6 +266,7 @@
     "orders_placed": "الطلبات المقدمة",
     "inventory": "المخزون",
     "customers": "العملاء",
-    "top_products": "المنتجات الأكثر مبيعًا"
+    "top_products": "المنتجات الأكثر مبيعًا",
+    "orders": "الطلبات"
   }
 }
