@@ -111,7 +111,10 @@
     "lookbook": "لوك بوك",
     "new": "جديد",
     "brands": "ماركات",
-    "buy_theme": "شراء القالب"
+    "buy_theme": "شراء القالب",
+    "products": "المنتجات",
+    "add_categories": "إضافة الفئات",
+    "users": "المستخدمون"
   },
   "footer": {
     "navigate": "تصفح",
@@ -190,7 +193,8 @@
     "your_wishlist": "قائمة الرغبات الخاصة بك",
     "your_cart": "عربتك",
     "delete_item": "حذف العنصر",
-    "download_pdf": "تنزيل PDF"
+    "download_pdf": "تنزيل PDF",
+    "back_to_home": "العودة إلى الصفحة الرئيسية"
   },
   "cart": {
     "your_cart_is_currently_empty": "عربتك فارغة حاليًا.",

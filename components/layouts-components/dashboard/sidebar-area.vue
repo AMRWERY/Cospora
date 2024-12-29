@@ -80,27 +80,29 @@ const logout = async () => {
 //hide routes composable
 const { isAuthPage } = useAuthPage();
 
+const { t } = useI18n()
+
 const menuGroups = ref([
     {
         menuItems: [
             {
                 icon: 'material-symbols:dashboard-outline-rounded',
-                label: 'Dashboard',
+                label: t('layout.dashboard'),
                 route: '/dashboard',
             },
             {
                 icon: 'ion:tshirt',
-                label: 'Products',
+                label: t('layout.products'),
                 route: '/products'
             },
             {
                 icon: 'material-symbols:calendar-month-sharp',
-                label: 'Add Categories',
+                label: t('layout.add_categories'),
                 route: '/add-categories'
             },
             {
                 icon: 'gravity-ui:persons',
-                label: 'Users',
+                label: t('layout.users'),
                 route: '/users'
             },
         ]

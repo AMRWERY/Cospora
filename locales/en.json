@@ -111,7 +111,10 @@
     "lookbook": "LookBook",
     "new": "New",
     "brands": "Brands",
-    "buy_theme": "Buy Theme"
+    "buy_theme": "Buy Theme",
+    "products": "Products",
+    "add_categories": "Add Categories",
+    "users": "Users"
   },
   "footer": {
     "navigate": "Navigate",
@@ -190,7 +193,8 @@
     "your_wishlist": "Your Wishlist",
     "your_cart": "Your Cart",
     "delete_item": "Delete Item",
-    "download_pdf": "Download PDF"
+    "download_pdf": "Download PDF",
+    "back_to_home": "Back to Home"
   },
   "cart": {
     "your_cart_is_currently_empty": "Your cart is currently empty.",

@@ -27,6 +27,7 @@
           </nuxt-link>
 
           <nuxt-link to="/" type="button" class="relative hidden text-gray-700 rounded-full sm:flex"
+            data-twe-toggle="tooltip" data-twe-placement="bottom" :title="$t('tooltip.back_to_home')"
             v-if="store.isUserAuthenticated">
             <span class="absolute -inset-1.5" />
             <span class="sr-only">Back to Home Page</span>
@@ -69,6 +70,7 @@ onMounted(() => {
 watch(locale, (newVal) => {
   isRTL.value = newVal === 'ar';
 });
+
 // const { locale, setLocale } = useI18n();
 
 // const updateLocale = (value) => {
@@ -96,4 +98,9 @@ watch(locale, (newVal) => {
 const { isAuthPage } = useAuthPage();
 
 const store = useAuthStore()
+
+onMounted(async () => {
+  const { Tooltip, initTWE } = await import("tw-elements");
+  initTWE({ Tooltip });
+});
 </script>
