@@ -54,9 +54,10 @@ export const useCartStore = defineStore("cart", {
       discount,
       quantity
     ) {
-      const userId = sessionStorage.getItem("userId");
+      const authStore = useAuthStore();
+      const userId = authStore.userId;
       if (!userId) {
-        console.error("User ID is not defined.");
+        // console.error("User ID is not defined.");
         return;
       }
       if (this.cart.length === 0) {
