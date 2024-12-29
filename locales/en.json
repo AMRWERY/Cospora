@@ -48,7 +48,13 @@
     "main_category": "Main Category",
     "enter_subcategory_title": "Enter subcategory title",
     "enter_category_title": "Enter category title",
-    "select_a_main_category": "Select a main category"
+    "select_a_main_category": "Select a main category",
+    "category": "Category",
+    "select_a_category": "Select a Category",
+    "availability": "Availability",
+    "select_availability": "Select Availability",
+    "brand": "Brand",
+    "select_brand": "Select Brand"
   },
   "btn": {
     "reset_password": "Reset Password",
@@ -74,7 +80,8 @@
     "add_to_cart": "Add to cart",
     "add_category": "Add Category",
     "add_subcategory": "Add Subcategory",
-    "view_details": "View Details"
+    "view_details": "View Details",
+    "add_product": "Add Product"
   },
   "loading_btn": {
     "loading": "Loading",
@@ -278,6 +285,11 @@
     "inventory": "Inventory",
     "customers": "Customers",
     "top_products": "Top Products",
-    "orders": "Orders"
+    "orders": "Orders",
+    "no_products_available": "No products available"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next"
   }
 }

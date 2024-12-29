@@ -4,33 +4,33 @@
       <div class="flex flex-col gap-4 p-4 sm:flex-row sm:gap-4">
         <div class="w-full sm:w-1/4">
           <label for="category" class="block mb-2 text-sm font-medium text-gray-700">
-            Category
+            {{ $t('form.category') }}
           </label>
           <select id="category" v-model="selectedCategory" @change="applyFilter"
             class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-            <option value="" disabled selected>Select a Category</option>
+            <option value="" disabled selected>{{ $t('form.select_a_category') }}</option>
             <option v-for="category in uniqueCategories" :key="category" :value="category">{{ category }}</option>
           </select>
         </div>
 
         <div class="w-full sm:w-1/4">
           <label for="availability" class="block mb-2 text-sm font-medium text-gray-700">
-            Availability
+            {{ $t('form.availability') }}
           </label>
           <select id="availability" v-model="selectedAvailability" @change="applyFilter"
             class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-            <option value="" disabled selected>Select Availability</option>
+            <option value="" disabled selected>{{ $t('form.select_availability') }}</option>
             <option v-for="available in uniqueAvailability" :key="available" :value="available">{{ available }}</option>
           </select>
         </div>
 
         <div class="w-full sm:w-1/4">
           <label for="brand" class="block mb-2 text-sm font-medium text-gray-700">
-            Brand
+            {{ $t('form.brand') }}
           </label>
           <select id="brand" v-model="selectedBrand" @change="applyFilter"
             class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-            <option value="" disabled selected>Select Brand</option>
+            <option value="" disabled selected>{{ $t('form.select_brand') }}</option>
             <option v-for="brand in uniqueBrand" :key="brand" :value="brand">{{ brand }}</option>
           </select>
         </div>
@@ -39,7 +39,7 @@
           <nuxt-link to="/products/add-products" type="button"
             class="flex items-center px-4 py-2.5 text-sm font-semibold text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             <icon name="ep:plus" class="w-5 h-5 me-2" />
-            <span>Add Product</span>
+            <span>{{ $t('btn.add_product') }}</span>
           </nuxt-link>
         </div>
       </div>
@@ -50,7 +50,7 @@
       </div>
 
       <div v-else-if="filteredProducts.length === 0" class="flex items-center justify-center h-48 text-gray-600">
-        <p class="text-2xl font-semibold">No products available</p>
+        <p class="text-2xl font-semibold">{{ $t('dashboard.no_products_available') }}</p>
       </div>
 
       <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-6" v-else>

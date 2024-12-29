@@ -48,7 +48,13 @@
     "main_category": "الفئة الرئيسية",
     "enter_subcategory_title": "أدخل اسم الفئة الفرعية",
     "enter_category_title": "أدخل اسم الفئة",
-    "select_a_main_category": "اختر فئة رئيسية"
+    "select_a_main_category": "اختر فئة رئيسية",
+    "category": "الفئة",
+    "select_a_category": "اختر فئة",
+    "availability": "التوفر",
+    "select_availability": "اختر التوفر",
+    "brand": "العلامة التجارية",
+    "select_brand": "اختر العلامة التجارية"
   },
   "btn": {
     "reset_password": "إعادة تعيين كلمة المرور",
@@ -74,7 +80,8 @@
     "add_to_cart": "أضف إلى السلة",
     "add_category": "اضافه فئه",
     "add_subcategory": "إضافة فئة فرعية",
-    "view_details": "عرض التفاصيل"
+    "view_details": "عرض التفاصيل",
+    "add_product": "إضافة منتج"
   },
   "loading_btn": {
     "loading": "جاري التحميل",
@@ -278,6 +285,11 @@
     "inventory": "المخزون",
     "customers": "العملاء",
     "top_products": "المنتجات الأكثر مبيعًا",
-    "orders": "الطلبات"
+    "orders": "الطلبات",
+    "no_products_available": "لا توجد منتجات متاحة"
+  },
+  "pagination": {
+    "previous": "السابق",
+    "next": "التالي"
   }
 }
