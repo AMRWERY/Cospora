@@ -4,7 +4,7 @@
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         <!-- Card 1 - Orders -->
         <div class="p-4 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold text-center">Orders Placed</h3>
+          <h3 class="text-xl font-semibold text-center">{{ $t('dashboard.orders_placed') }}</h3>
           <div class="flex items-center justify-between mt-4">
             <icon name="material-symbols:shopping-cart-checkout" class="text-gray-700 h-7 w-7" />
             <p class="text-xl font-semibold text-gray-700">{{ totalCheckouts }}</p>
@@ -16,7 +16,7 @@
 
         <!-- Card 2 - Inventory -->
         <div class="p-4 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold text-center">Inventory</h3>
+          <h3 class="text-xl font-semibold text-center">{{ $t('dashboard.inventory') }}</h3>
           <div class="flex items-center justify-between mt-4">
             <icon name="lucide:boxes" class="text-gray-700 h-7 w-7" />
             <p class="text-xl font-semibold text-gray-700">{{ inStockCount }}</p>
@@ -29,7 +29,7 @@
 
         <!-- Card 3 - Customers -->
         <div class="p-4 bg-white rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold text-center">Customers</h3>
+          <h3 class="text-xl font-semibold text-center">{{ $t('dashboard.customers') }}</h3>
           <div class="flex items-center justify-between mt-4">
             <icon name="ci:users-group" class="text-gray-700 h-7 w-7" />
             <p class="text-xl font-semibold text-gray-700">{{ totalCustomers }}</p>
@@ -51,7 +51,7 @@
       </div>
 
       <div class="col-span-12 p-4 bg-white rounded-lg shadow-md md:col-span-3 h-[400px]">
-        <h3 class="text-xl font-semibold text-center">Top Products</h3>
+        <h3 class="text-xl font-semibold text-center">{{ $t('dashboard.top_products') }}</h3>
         <div class="h-full overflow-y-auto scrollbar-hidden">
           <ul role="list" class="divide-y divide-gray-100">
             <li v-for="product in topProducts" :key="product.id" class="flex justify-between py-5 gap-x-6">

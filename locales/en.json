@@ -260,5 +260,11 @@
   },
   "other": {
     "you_may_also_like": "You may also like"
+  },
+  "dashboard": {
+    "orders_placed": "Orders Placed",
+    "inventory": "Inventory",
+    "customers": "Customers",
+    "top_products": "Top Products"
   }
 }
